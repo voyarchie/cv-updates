@@ -1,34 +1,160 @@
-# CV Updates — Operational Tracks in Dense Detection &amp; Classification
+# CV Updates — Recent Advances in Dense Object Detection & Classification
 
 **Date (America/Los_Angeles):** 2026-Apr-30
-**Scope:** Complementary deep-dive on dense object detection & classification beyond the headline race (RF-DETR / YOLO26 / SAM 3 / DINOv3, all of which were covered in the previous report). This pass focuses on the **operational tracks** where dense perception actually ships in 2026: crowded 2D, aerial / UAV, multi-camera 3D, long-tail / open-world, dense classification heads, and edge / quantized inference.
+**Scope:** Consolidated review of the dense detection & classification landscape as of April 2026 — headline real-time architectures, foundation backbones, promptable / open-vocab models, the specialized operational tracks (crowds, aerial, BEV, long-tail), the dense classification head families, edge / quantization, and cross-cutting techniques (DCNv4, TTA).
 
 ---
 
 ## TL;DR
 
-- **The headline detector race is converging; the interesting work has moved into specialized tracks.** A general-purpose RF-DETR-M or YOLO26-M is rarely the right answer for a *specific* dense problem (crowds, aerial, BEV, LVIS-tail). Each of those tracks has its own current SOTA recipe.
-- **Dense classification ≠ detection-without-boxes.** [ML-Decoder](https://github.com/Alibaba-MIIL/ML_Decoder)-style query heads, hierarchical / taxonomy-aware heads ([BOUND, arXiv 2510.09173](https://arxiv.org/abs/2510.09173)), and open-vocabulary tagging (RAM family) outperform the legacy "global-pool + sigmoid" head on multi-label benchmarks (~88+ mAP on MS-COCO multi-label).
-- **Open-world detection is leaving "flat unknown" behind.** [BOUND](https://arxiv.org/abs/2510.09173) (Mar 2026 update) treats unknown objects hierarchically — a road object you've never seen is at least an *animal* vs. *debris*, which is what downstream planners actually need.
-- **Crowded scenes are still won by sparser, smarter attention.** [IDPD](https://link.springer.com/article/10.1007/s11760-023-02896-2) (improved Deformable-DETR for pedestrians, ~93% AP on CrowdHuman with R50), HyDeTr (hybrid density transformer) and [adaptive query allocation](https://www.sciencedirect.com/science/article/pii/S2590123025036163) all push DETR-class accuracy without paying the dense-attention price.
-- **Aerial / small-object detection has a healthy 2026 wave**: [FMFN-YOLO](https://link.springer.com/article/10.1007/s40747-025-02126-x) (44.5/43.6 mAP50 on VisDrone/AI-TOD), [DFE-DETR](https://www.nature.com/articles/s41598-025-21134-y), [CFPT](https://arxiv.org/abs/2407.19696), [CEIFNet](https://www.nature.com/articles/s41598-026-36251-5) — almost all of them put the engineering effort in the *neck*, not the backbone.
-- **3D / BEV detection has standardized around BEVFormer-derived stacks.** Recent [denoising multi-view cross-attention](https://ieeexplore.ieee.org/document/11001128/) and [LSS-based multi-modal fusion](https://ieeexplore.ieee.org/abstract/document/11087721/) variants are the active research surface.
-- **Edge stack has matured.** [YOLO26 INT8](https://arxiv.org/pdf/2509.25164) preserves accuracy under FP16/INT8; the [reproducible Pi5 / Hailo / Edge TPU benchmark](https://www.nature.com/articles/s41598-026-36862-y) and the [YOLOv8/RT-DETR energy review](https://www.nature.com/articles/s41598-026-46453-6) finally make runtime selection a defensible engineering decision rather than a vibes call. NPUs like [AMD XDNA2](https://dasroot.net/posts/2026/04/amd-xdna2-ubuntu-ai-inference/) hit 3–5 ms with <1% accuracy loss.
-- **DCNv4 has aged well.** [FlashInternImage with DCNv4](https://github.com/OpenGVLab/DCNv4) gives ~80% throughput uplift over DCNv3 with same/better quality (62.9 mIoU on ADE20K) — for many dense-prediction stacks it is now the default sparse operator.
+- **The headline real-time race has crossed 60 AP.** [RF-DETR-2XL (ICLR 2026)](https://github.com/roboflow/rf-detr) reaches **60.1 COCO AP at 12.6 ms** on T4/FP16 — the first real-time detector over 60 — while [DEIMv2 (Sep 2025, Apr 2026 release)](https://arxiv.org/abs/2509.20787) plugs **DINOv3** into a DEIM-style stack and gets **57.8 AP with only 50.3 M params**.
+- **Foundation backbones won the dense-features fight.** A frozen [DINOv3](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/) (7 B ViT, 1.7 B images, no labels) beats specialized solutions on detection, depth, and segmentation; [SigLIP 2](https://arxiv.org/abs/2502.14786) does the same for classification + localization with multilingual text alignment.
+- **Promptable / open-vocab is now the default for "I don't have annotated data yet."** [SAM 3 (ICLR 2026)](https://arxiv.org/abs/2511.16719) introduces **Promptable Concept Segmentation** (noun-phrase + image exemplar), with a **2× gain over prior systems**, and SAM 3.1 Object Multiplex (Mar 27 2026) adds shared-memory multi-object tracking.
+- **YOLO26 is the edge story.** [Ultralytics YOLO26 (arXiv 2509.25164)](https://arxiv.org/abs/2509.25164) drops Distribution Focal Loss, removes NMS, and is explicitly designed for INT8 — it now ships **OpenVINO + TensorRT INT8** with consistent accuracy and on Jetson NX delivers ~1.8× the throughput of YOLOv10-N.
+- **Specialized tracks have their own SOTA.** Crowded scenes (RC-DETR, query-adaptive DETR), aerial small-object (FMFN-YOLO, CFPT, DFE-DETR), 3D/BEV (BEVDiffuser denoising, DMformer fusion), and long-tail / open-world (BOUND hierarchical unknowns, SearchDet retrieval) are all separate active surfaces — a generic RF-DETR-M is rarely the right answer for any one of them.
+- **Dense classification = head choice, not backbone choice.** Query decoders ([ML-Decoder](https://arxiv.org/abs/2111.12933), [Query2Label](https://arxiv.org/abs/2107.10834), [C-Tran](https://arxiv.org/abs/2011.14027)) reach ~88 mAP on MS-COCO multi-label; hierarchical / taxonomy-aware heads ([BOUND](https://arxiv.org/abs/2510.09173)) give graceful degradation on tail and unknown labels; [RAM++](https://arxiv.org/abs/2310.15200) anchors open-vocab tagging.
+- **DCNv4 / FlashInternImage** is the default sparse operator for heavy dense prediction (~80 % throughput uplift over DCNv3, 62.9 mIoU on ADE20K).
+- **Test-time adaptation has matured for detection.** [VLOD-TTA](https://openreview.net/forum?id=7W4Gusa9rY), [AMROD](https://arxiv.org/html/2406.16439v5), and [sensitivity-guided pruning TTA](https://arxiv.org/abs/2506.02462) close the train/serve gap without retraining.
 
 ---
 
-## Operational tracks at a glance
+## 1. The headline detector race (real-time, COCO)
 
-The previous report mapped the *model* landscape. This one maps the *deployment* landscape.
+![COCO landscape](assets/landscape_2026.svg)
 
-![Operational tracks](assets/operational_tracks.svg)
+### 1.1 RF-DETR (Roboflow, ICLR 2026)
+
+[RF-DETR](https://github.com/roboflow/rf-detr) is a [DETR](https://arxiv.org/abs/2005.12872)-class real-time detector built on a **DINOv2** backbone, with multi-resolution training and segmentation-ready masks. Numbers ([Roboflow blog](https://blog.roboflow.com/best-object-detection-models/), [demystification](https://pub.towardsai.net/demystifying-rf-detr-iclr-2026-a-real-time-transformer-pushing-the-limits-of-object-detection-f4d0a9617fdd)):
+
+| Variant | COCO AP | T4/FP16 latency |
+|---|---|---|
+| RF-DETR-N | 48.0 | 2.3 ms |
+| RF-DETR-M | 54.7 | 4.5 ms |
+| RF-DETR-L | 56.5 | 6.8 ms |
+| RF-DETR-2XL | **60.1** | 12.6 ms |
+
+Why it generalizes: pretrained DINOv2 features transfer well off-COCO (the [face-detection comparison](https://journal-isi.org/index.php/isi/article/view/1561) confirms that pattern). RF-DETR is the current default when fine-tuning quality matters more than nano-class FLOPs.
+
+### 1.2 DEIMv2 — DINOv3 + DEIM, Apr 2026
+
+[DEIMv2](https://github.com/Intellindust-AI-Lab/DEIMv2) ([arXiv 2509.20787](https://arxiv.org/abs/2509.20787), [release writeup](https://www.blog.brightcoding.dev/2026/04/22/deimv2-the-revolutionary-real-time-detector-powered-by-dinov3)) is the first detector to ship DINOv3 features productively. The key trick is the **Spatial Tuning Adapter (STA)**: DINOv3's ViT outputs single-scale features at ~1/16 resolution, which is wrong for detection — STA pulls features from intermediate ViT blocks (5/8/11) and turns them into a multi-scale pyramid.
+
+```mermaid
+flowchart LR
+    Img["Input image"] --> ViT["DINOv3 ViT<br/>(frozen or LoRA)"]
+    ViT -- block 5 --> STA
+    ViT -- block 8 --> STA
+    ViT -- block 11 --> STA
+    STA["Spatial Tuning Adapter<br/>(single-scale → multi-scale)"] --> Enc["Hybrid encoder"]
+    Enc --> Dec["DEIM decoder<br/>(matched-aware loss,<br/>denoising queries)"]
+    Dec --> Out["Boxes + classes"]
+
+    classDef hi   fill:#dc262622,stroke:#dc2626,stroke-width:1.6px,color:#475569;
+    classDef pin  fill:#6366f122,stroke:#6366f1,stroke-width:1.4px,color:#475569;
+    class ViT,STA hi
+    class Img,Out pin
+```
+
+Reported headline: **DEIMv2-X = 57.8 AP / 50.3 M params**, beating earlier 60 M-parameter X-scale models that capped at 56.5 AP. **DEIMv2-S = 50.9 AP at 9.71 M params**, the first sub-10 M model over 50 AP on COCO. Smaller variants (Nano / Pico / Femto / Atto) drop the ViT and use HGNetv2 with depth/width pruning for strict edge budgets.
+
+DEIMv2 demonstrates the broader pattern: **a strong frozen / lightly-tuned foundation backbone + a thin task-specific adapter beats a full task-specific encoder** for most dense prediction.
+
+### 1.3 YOLO26 — the edge default
+
+[YOLO26 (Ultralytics)](https://blog.roboflow.com/yolo26/) ([arXiv 2509.25164](https://arxiv.org/abs/2509.25164)) is the line of work optimized for *deployment*, not COCO mAP-per-FLOP. Architectural changes vs. YOLO11/v12:
+
+- Removed Distribution Focal Loss (a known PTQ pain-point) for a quantizer-friendly head.
+- Removed NMS (end-to-end matching instead) — better latency variance and easier deployment.
+- Cleaner head, fewer ops on the critical INT8 path.
+
+Operational reality: [INT8 throughput is ~1.8× of YOLOv10-N nano](https://arxiv.org/html/2510.09653v1), Jetson Xavier NX & Orin keep near-FP32 mAP, and OpenVINO INT8 is the standard CPU/laptop story (see [hands-on tutorial](https://medium.com/@GaloisChu/openvino-int8-quantization-for-yolo26-models-a-hands-on-tutorial-6ad16f3fc60d)).
+
+### 1.4 D-FINE & DEIM (refinement-style real-time)
+
+[D-FINE](https://arxiv.org/abs/2410.13842) refines DETR's box regression as a fine-grained distribution. Combined with [DEIM](https://github.com/ShihuaHuang95/DEIM) (matchability-aware loss + denoising), DEIM-D-FINE-X reaches **56.5 AP at 78 FPS** on T4 — competitive with RF-DETR-L at the same band.
+
+### 1.5 The offline ceiling
+
+For non-real-time work, **Co-DINO Swin-L** still sits around **64.0 AP** on COCO test-dev, and **DETA Swin-L** ~63.5 AP — useful as teachers for distillation into RF-DETR / YOLO26 students.
 
 ---
 
-## 1. Crowded 2D scenes (the IDPD / HyDeTr / adaptive-query line)
+## 2. Foundation backbones for dense prediction
 
-Crowd detection is the canonical "dense" detection task: many same-class instances, heavy occlusion, ambiguous boundaries. The 2025–2026 progress here is almost entirely in **how DETR-class models query the image**, not in backbones.
+### 2.1 DINOv3 — Meta's 7 B self-supervised ViT
+
+[DINOv3](https://github.com/facebookresearch/dinov3) ([Meta blog](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/), [Encord explainer](https://encord.com/blog/dinov3-explained-scaling-self-supervised-vision-tr/)) trains a 7 B-parameter ViT on 1.7 B images with no labels — the first single frozen vision backbone to **outperform specialized solutions** on detection, depth, and segmentation simultaneously. The dense features are both semantically strong and well-localized, which is what lets DEIMv2 work without retraining the encoder.
+
+The practical pattern that has emerged in 2026:
+
+```mermaid
+flowchart TB
+    Pre["1. Pre-train once<br/>(DINOv3 / SigLIP 2)"] --> Frz["2. Freeze backbone"]
+    Frz --> Adp["3. Insert thin adapter<br/>(STA / LoRA / linear probe)"]
+    Adp --> Task1["Detection head<br/>(DEIMv2 / DETR)"]
+    Adp --> Task2["Segmentation head<br/>(Mask2Former / linear)"]
+    Adp --> Task3["Tagging head<br/>(ML-Decoder / RAM++)"]
+
+    classDef green fill:#10b98122,stroke:#10b981,stroke-width:1.5px,color:#475569;
+    classDef pin   fill:#6366f122,stroke:#6366f1,stroke-width:1.5px,color:#475569;
+    class Pre,Frz,Adp green
+    class Task1,Task2,Task3 pin
+```
+
+### 2.2 SigLIP 2 — multilingual VL encoder with dense features
+
+[SigLIP 2 (arXiv 2502.14786)](https://arxiv.org/abs/2502.14786) ([HF blog](https://huggingface.co/blog/siglip2)) extends the SigLIP recipe with captioning pretraining, self-distillation, and masked prediction. Two variants:
+
+- **FixRes** — backward-compatible fixed resolutions.
+- **NaFlex** — native aspect ratio with variable sequence length (the right choice for non-square dense tasks).
+
+Crucially, SigLIP 2 ships meaningful gains on **localization and dense prediction** (semantic seg, depth, surface normals) — not just zero-shot classification. It's the open-vocab backbone of choice for tagging and retrieval pipelines that also need spatial structure.
+
+### 2.3 ConvNeXt V2, FlashInternImage — convolutional alternatives
+
+For workloads where ViT overhead is a problem (very high resolution, low-end NPUs), [FlashInternImage with DCNv4](https://github.com/OpenGVLab/DCNv4) is the leading CNN-side encoder — see §6.
+
+---
+
+## 3. Promptable / open-vocabulary detection
+
+### 3.1 SAM 3 — Promptable Concept Segmentation
+
+[SAM 3 (arXiv 2511.16719)](https://arxiv.org/abs/2511.16719) ([repo](https://github.com/facebookresearch/sam3), [Meta page](https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts/)) reframes the segmentation API around **concepts**, not just points/boxes:
+
+- **Prompt = noun phrase ("yellow school bus") + optional image exemplar(s).**
+- **Output = every instance of that concept** detected, segmented, and tracked.
+- **Reuses SAM 2's transformer encoder/decoder tracker** for video, glued to a new detector that propagates instance identities across frames.
+
+Reported gain: **2× over prior systems** on Promptable Concept Segmentation, while preserving SAM 2's interactive segmentation ability. [SAM 3.1 Object Multiplex (Mar 27 2026)](https://docs.ultralytics.com/models/sam-3/) added a shared-memory tracker for joint multi-object tracking — significantly faster without accuracy loss.
+
+The deployment pattern most teams actually use:
+
+```mermaid
+flowchart LR
+    User["Noun phrase or<br/>exemplar image"] --> SAM3
+    Img["Image / video"] --> SAM3
+    SAM3["SAM 3 PCS<br/>(detect + segment + track)"] --> Mask["Per-instance masks +<br/>persistent IDs"]
+    Mask --> Down1["Annotation tool<br/>(label-once, propagate)"]
+    Mask --> Down2["Specialist detector<br/>(bootstrap labels for<br/>RF-DETR / YOLO26)"]
+
+    classDef gold fill:#f59e0b22,stroke:#f59e0b,stroke-width:1.6px,color:#475569;
+    classDef pin  fill:#6366f122,stroke:#6366f1,stroke-width:1.4px,color:#475569;
+    class SAM3 gold
+    class User,Img,Mask,Down1,Down2 pin
+```
+
+The "SAM 3 as a label-bootstrapper" pattern — generate labels once on a small set, train a specialist — is the highest-ROI use of SAM 3 in 2026 production, because per-image SAM 3 inference is still expensive vs. a finetuned YOLO26.
+
+### 3.2 Grounding DINO 1.5 / Grounded SAM 2
+
+[Grounding DINO](https://github.com/IDEA-Research/GroundingDINO) ([arXiv 2303.05499](https://arxiv.org/abs/2303.05499)) is the open-set, language-conditioned detector that built much of this pipeline. Its 1.5 release is IDEA Research's most capable open-world OD model, and pairs with SAM 2 in [Grounded SAM 2](https://pyimagesearch.com/2026/01/19/grounded-sam-2-from-open-set-detection-to-segmentation-and-tracking/) for an open-set → segment → track pipeline. The architectural ideas (feature-enhancer with cross-modal deformable attention, language-guided query selection) are now standard in the open-vocab subspace.
+
+---
+
+## 4. Crowded scenes — query strategy is the lever
+
+Crowd detection is the canonical "dense" task: many same-class instances, heavy occlusion. The 2025–2026 progress here is almost entirely about **how DETR-class models query the image**, not about backbones.
 
 ```mermaid
 flowchart LR
@@ -37,7 +163,7 @@ flowchart LR
     C --> D1["Uniform queries<br/>(vanilla Deformable-DETR)"]
     C --> D2["Density-guided queries<br/>(DGQS, HyDeTr)"]
     C --> D3["Adaptive query allocation<br/>(per-region budget)"]
-    C --> D4["Dynamic neck +<br/>hybrid decoder loss<br/>(IDPD)"]
+    C --> D4["Rank-adaptive queries<br/>(RC-DETR, RAQG)"]
     D1 --> E[Decoder]
     D2 --> E
     D3 --> E
@@ -50,29 +176,30 @@ flowchart LR
     class B,E hi
 ```
 
-**What's actually new since the previous report:**
+What's worth knowing:
 
-- [IDPD (Improved Deformable-DETR for crowd Pedestrian Detection)](https://link.springer.com/article/10.1007/s11760-023-02896-2) — adds a dynamic neck (omni-dimensional dynamic conv) so that pedestrian-relevant features survive the FPN, and a hybrid decoding loss combining Hungarian matching with a reconstruction term. ~93.22 % AP on CrowdHuman with a plain R50, beating both Deformable-DETR baseline and CNN-class detectors at matched cost.
-- [Adaptive query allocation for dense object detection](https://www.sciencedirect.com/science/article/pii/S2590123025036163) — instead of a fixed query budget per image, lets the model spend more queries on dense regions. This is exactly the right fix for retail-shelf and traffic-camera deployments where the *count* of objects per image is very non-uniform.
-- HyDeTr (Hybrid Density-Transformer) — explicitly conditions decoding on a coarse density map. Small accuracy jump on heavy occlusion, but a meaningful drop in failure-mode rate (the *tail* of detection-quality distribution shrinks).
-- Density-guided query selection ([end-to-end small-object detection](https://www.sciencedirect.com/science/article/abs/pii/S092523122502226X)) extends the same idea to small-object regimes; the lesson generalizes — anywhere instance count per region is unbalanced, density-aware query placement helps.
+- [RC-DETR (Neural Networks 2024)](https://www.sciencedirect.com/science/article/abs/pii/S0893608024008402) — rank-based contrastive learning + Rank-Adaptive Query Generation. Key insight: hard-positive samples in dense crowds are *rank-adjacent*, not just similar in feature space.
+- [Query-adaptive DETR for crowded pedestrian detection (OpenReview)](https://openreview.net/forum?id=hfeuTey6Z5) — the number of queries is dataset-dependent in vanilla Deformable-DETR; this work makes it adaptive per image.
+- [IDPD (Springer 2024)](https://link.springer.com/article/10.1007/s11760-023-02896-2) — dynamic neck (omni-dimensional dynamic conv) + hybrid decoding loss. ~93.22 % AP on CrowdHuman with R50.
+- [Adaptive query allocation for dense object detection (Elsevier 2025)](https://www.sciencedirect.com/science/article/pii/S2590123025036163) — per-region query budget; right fix for retail-shelf and traffic-camera deployments.
+- [LF-DETR (MDPI Remote Sensing 2026)](https://www.mdpi.com/2072-4292/18/3/531) — Laplacian-of-Gaussian feature enhancement + learnable frequency-domain fusion for aerial RGB-IR pedestrian detection.
 
-**The cross-cutting lesson:** for crowded 2D, the operator that pays off is *sparse, density-aware attention* on top of a moderate backbone. Throwing a 7B ViT at it is a worse ROI than fixing the queries.
+Cross-cutting lesson: for dense same-class detection, the operator that pays off is *sparse, density-aware attention* on a moderate backbone. A 7 B ViT is a worse ROI than fixing the queries.
 
 ---
 
-## 2. Aerial / UAV / remote-sensing — the neck does the work
+## 5. Aerial / UAV / remote sensing — the neck does the work
 
-Small objects in aerial images break two assumptions: (a) feature pyramids dilute high-frequency cues at lower levels, and (b) standard FPN upsampling is information-destructive when most objects are <32 px.
+Small objects in aerial images break two assumptions: (a) feature pyramids dilute high-frequency cues at lower levels, (b) standard FPN upsampling is information-destructive when most objects are <32 px. The 2025–2026 work concentrates on the **neck**.
 
 ```mermaid
 flowchart TB
-    Input["Aerial image<br/>(VisDrone, AI-TOD, DOTA)"] --> BB["Backbone<br/>(typically modest:<br/>CSP, Swin-T, R50)"]
+    Input["Aerial image<br/>(VisDrone, AI-TOD, DOTA)"] --> BB["Backbone<br/>(modest: CSP / Swin-T / R50)"]
     BB --> Neck{"Neck design"}
-    Neck --> N1["FMFN-YOLO<br/>fine-grained feature preservation +<br/>multi-scale FPN balancing"]
+    Neck --> N1["FMFN-YOLO<br/>FPFA + MFEM + FPBM"]
     Neck --> N2["CFPT<br/>upsampler-free<br/>cross-layer pyramid transformer"]
     Neck --> N3["DFE-DETR<br/>SAEM + MSCAEM +<br/>deformable large-kernel conv"]
-    Neck --> N4["CEIFNet<br/>cross-stage edge fusion<br/>(CST hybrid block)"]
+    Neck --> N4["CEIFNet<br/>cross-stage edge fusion (CST block)"]
     N1 --> Head[Detection head]
     N2 --> Head
     N3 --> Head
@@ -84,25 +211,22 @@ flowchart TB
     class Input,Head io
 ```
 
-**Concrete numbers worth remembering:**
-
 | Model | Benchmark | mAP | Why it works |
 |---|---|---|---|
-| [FMFN-YOLO](https://link.springer.com/article/10.1007/s40747-025-02126-x) | VisDrone2019 | 44.5 mAP50 | Preserves shallow high-resolution features end-to-end |
+| [FMFN-YOLO](https://link.springer.com/article/10.1007/s40747-025-02126-x) | VisDrone 2019 | 44.5 mAP50 | Three plug-and-play modules: fine-grained preservation aggregation (FPFA), multi-scale enhancement (MFEM), pyramid balancing (FPBM) |
 | FMFN-YOLO | AI-TOD | 43.6 mAP50 | Same recipe; matters more on tinier instances |
-| [CFPT](https://arxiv.org/abs/2407.19696) | TinyPerson / VisDrone | +1.5–2.5 vs. FPN | No upsampling — cross-layer attention does the fusion |
-| [DFE-DETR](https://www.nature.com/articles/s41598-025-21134-y) | DIOR / RSOD | +2–3 mAP vs. RT-DETR | SAEM + DLKCM specialized for remote-sensing scale |
-| [CEIFNet](https://www.nature.com/articles/s41598-026-36251-5) | DOTA / VisDrone | competitive at <50% params | CNN-Transformer hybrid (CST block) |
+| [CFPT (TGRS 2025)](https://github.com/duzw9311/CFPT) | TinyPerson / VisDrone | +1.5–2.5 vs. FPN | No upsampling — cross-layer attention does the fusion |
+| [DFE-DETR (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-21134-y) | DIOR / RSOD | +2–3 mAP vs. RT-DETR | SAEM + DLKCM specialized for remote-sensing scale |
+| [CEIFNet (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-36251-5) | DOTA / VisDrone | competitive at <50 % params | CNN-Transformer hybrid (CST block) |
+| [LMW-YOLO (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-45055-6) | RS small object | lightweight | Pruning + multi-feature aggregation |
 
-The pattern: **none of these change the backbone.** They change the neck, sometimes the queries. That makes them deployable with off-the-shelf pretrained encoders, including frozen DINOv3 / ConvNeXt V2 if you want to avoid retraining from scratch.
-
-See also the [survey of small-object detection 2023–2025](https://www.mdpi.com/2076-3417/15/22/11882) and the [transformers in small object detection benchmark](https://dl.acm.org/doi/10.1145/3758090) for a fuller taxonomy.
+Pattern: **none of these change the backbone.** They change the neck (sometimes the queries). Off-the-shelf pretrained encoders (DINOv3 frozen, ConvNeXt V2) drop in cleanly. See also the [transformers-in-small-object-detection survey (ACM CSUR 2025)](https://dl.acm.org/doi/10.1145/3758090) and [advancements 2023–2025 (MDPI)](https://www.mdpi.com/2076-3417/15/22/11882).
 
 ---
 
-## 3. Multi-camera 3D / BEV detection (autonomous driving)
+## 6. Multi-camera 3D / BEV detection (autonomy)
 
-The previous report covered SAM 3 / DINOv3 / RF-DETR — none of those are 3D-native. For multi-camera 3D detection the active line is BEVFormer-derived:
+For multi-camera 3D object detection, the active line is BEVFormer-derived plus denoising:
 
 ```mermaid
 flowchart LR
@@ -114,7 +238,7 @@ flowchart LR
 
     LiDAR["Optional LiDAR / radar"] -.LSS lift-splat.-> BEV
 
-    DEN["Denoising decoder<br/>(multiview multiscale<br/>cross-attention)"] -. trains .- Q
+    DEN["Denoising decoder<br/>(BEVDiffuser /<br/>multiview multiscale<br/>cross-attention)"] -. trains .- Q
 
     classDef gold fill:#f59e0b22,stroke:#f59e0b,stroke-width:1.5px,color:#475569;
     classDef teal fill:#14b8a622,stroke:#14b8a6,stroke-width:1.5px,color:#475569;
@@ -123,24 +247,25 @@ flowchart LR
     class DET,SEG teal
 ```
 
-Active 2025–2026 work:
+Concrete numbers worth remembering:
 
-- [Denoising Transformer for BEV 3D object detection (IEEE 2025)](https://ieeexplore.ieee.org/document/11001128/) — applies DN-DETR-style query denoising to multiview multiscale cross-attention; stable training and noticeable AP bump on nuScenes.
-- [Multi-Modal BEV Enhancement Fusion (IEEE 2025)](https://ieeexplore.ieee.org/abstract/document/11087721/) — LSS-style camera lift fused with LiDAR features at BEV, with explicit gating modules that turn out to matter for nighttime and rain regimes.
-- [DMformer](https://link.springer.com/article/10.1007/s40747-025-01984-9) — denoising + multi-modal fusion; addresses *both* sensor noise and modality misalignment in one decoder.
-- [OCBEV (IEEE 2024)](https://ieeexplore.ieee.org/document/10550502/) — object-centric BEV queries; better at moving targets where global BEV grid loses identity over time.
+| Method | Reported result | Idea |
+|---|---|---|
+| [BEVDiffuser (arXiv 2502.19694)](https://arxiv.org/html/2502.19694) | **+12.3 mAP / +10.1 NDS** on nuScenes | Diffusion model denoises BEV feature maps with GT-layout guidance, plug-and-play at training time |
+| [DMformer (Springer 2025)](https://link.springer.com/article/10.1007/s40747-025-01984-9) | **73.6 NDS** on nuScenes | Diffusion-based image denoising + multi-modal fusion in one decoder |
+| [Denoising Transformer for BEV (IEEE 2025)](https://ieeexplore.ieee.org/document/11001128/) | stable training, AP bump | DN-DETR-style query denoising on multiview multiscale cross-attn |
+| [Multi-Modal BEV Enhancement Fusion (IEEE 2025)](https://ieeexplore.ieee.org/abstract/document/11087721/) | better night/rain regimes | LSS camera lift fused with LiDAR via explicit gating |
+| [OCBEV (IEEE 2024)](https://ieeexplore.ieee.org/document/10550502/) | better moving-target tracking | Object-centric BEV queries vs. global grid |
 
-The takeaway: **3D multi-camera detection is its own track.** The "real-time mAP race" coverage rarely touches it, but it's where most autonomy compute now lives. For a survey, see [Vision Transformers in Autonomous Driving (arXiv 2403.07542)](https://arxiv.org/html/2403.07542v1).
+For survey context: [Vision Transformers in Autonomous Driving (arXiv 2403.07542)](https://arxiv.org/html/2403.07542v1) and the [3-D object detection comprehensive review (Springer 2025)](https://link.springer.com/article/10.1007/s44443-025-00213-0).
 
 ---
 
-## 4. Long-tail and open-world
+## 7. Long-tail and open-world
 
-Every deployed dense-detection system fails on tail and unseen classes. Two 2026 papers worth highlighting:
+### 7.1 BOUND — hierarchical unknowns
 
-### 4.1 BOUND — Beyond Flat Unknown Labels
-
-[BOUND (arXiv 2510.09173, updated Mar 2026)](https://arxiv.org/abs/2510.09173) is the cleanest single advance in open-world object detection in the last six months. The classical OWOD framing has a single "unknown" bin; BOUND replaces that with the existing label *taxonomy*:
+[BOUND (arXiv 2510.09173, updated Mar 2026)](https://arxiv.org/abs/2510.09173) is the cleanest single advance in open-world OD in the last six months. The classic OWOD framing has a single "unknown" bin; BOUND replaces that with the existing label *taxonomy*:
 
 ```mermaid
 flowchart TB
@@ -148,7 +273,7 @@ flowchart TB
     ENC --> Heads{"Per-query heads"}
     Heads --> H1["Sparsemax objectness<br/>(separates background from object)"]
     Heads --> H2["Hierarchy-guided<br/>relabeling"]
-    Heads --> H3["Hierarchical classifier<br/>(leaves: known classes,<br/>internal nodes: unknown coarse)"]
+    Heads --> H3["Hierarchical classifier<br/>(leaves: known classes,<br/>internal nodes: coarse unknown)"]
     H1 --> Out["Predictions"]
     H2 --> Out
     H3 --> Out
@@ -160,26 +285,20 @@ flowchart TB
     class Img,ENC,Out,Down ind
 ```
 
-Reported wins: higher unknown recall on standard OWOD benchmarks **without** sacrificing known-class mAP, plus structured generalization on long-tail LVIS.
+Reported wins: higher unknown recall on standard OWOD benchmarks **without** sacrificing known-class mAP, plus structured generalization on long-tail LVIS. Why it matters operationally: a planner that can act on "this is some kind of animal" makes safer decisions than one that gets a flat "unknown — confidence 0.7."
 
-The reason it matters operationally: a planner that can act on "this is some kind of animal" makes safer decisions than one that gets a flat "unknown — confidence 0.7." Hierarchical unknowns turn open-world detection into an *actionable* signal rather than a research curio.
+### 7.2 SearchDet, YOLO-UniOW, OW-OVD
 
-### 4.2 SearchDet — training-free long-tail OD
+- [SearchDet (IEEE 2026)](https://ieeexplore.ieee.org/document/11094398/) — training-free long-tail OD by retrieving web-image exemplars at inference time and using them as visual prompts for an open-vocab detector. Useful when you can't fine-tune (regulated deployments) or when classes appear at runtime.
+- [YOLO-UniOW (arXiv 2412.20645)](https://arxiv.org/html/2412.20645v1) — Adaptive Decision Learning + Wildcard Learning. Detects OOD objects as "unknown" with dynamic vocab expansion, no incremental learning. **+11 U-Recall** vs. prior art across PASCAL VOC, COCO2017, LVISv1.0, Objects365.
+- [OW-OVD (ResearchGate 2025)](https://www.researchgate.net/publication/394512316_OW-OVD_Unified_Open_World_and_Open_Vocabulary_Object_Detection) — unifies open-world and open-vocab detection in one model.
 
-[SearchDet (IEEE 2026)](https://ieeexplore.ieee.org/document/11094398/) goes the other direction: instead of building a better head, retrieve web-image exemplars at inference time and use them as visual prompts for an open-vocabulary detector. Effective when:
-
-- You can't fine-tune (closed-source / regulated deployment),
-- New classes appear at runtime,
-- You already have an open-vocab detector (Grounding DINO / SAM 3) in the loop.
-
-It pairs naturally with the SAM-3-as-oracle pattern from the previous report.
-
-### 4.3 The pragmatic stack for 2026
+### 7.3 The 2026 pragmatic stack for long-tail
 
 ```
 VLM (Qwen3-VL / PaliGemma2)                 ← noun-phrase generation
    ↓
-Open-vocab detector (SAM 3 / Grounding DINO) ← initial localization
+Open-vocab detector (SAM 3 / Grounding DINO 1.5) ← initial localization
    ↓
 SearchDet retrieval                          ← rare-class augmentation
    ↓
@@ -188,183 +307,230 @@ BOUND-style hierarchical head                ← graceful unknowns
 Specialist (RF-DETR / YOLO26)                ← only on the closed set
 ```
 
-Most teams do *not* need a single model that does all of this; they need this *pipeline* with cheap glue.
+Most teams do not need a single model that does all of this; they need this *pipeline* with cheap glue.
 
 ---
 
-## 5. Dense classification (multi-label, hierarchical, tagging)
+## 8. Dense classification (multi-label, hierarchical, tagging)
 
-This is the section the previous report under-covered. "Classification" in 2026 is rarely "one image → one of 1,000 ImageNet classes" — it is multi-label tagging, hierarchical taxonomies, and open-vocabulary tag prediction.
+"Classification" in 2026 is rarely "one image → one of 1,000 ImageNet classes" — it's multi-label tagging, hierarchical taxonomies, and open-vocab tag prediction.
 
 ![Dense classification taxonomy](assets/dense_classification_taxonomy.svg)
 
-### 5.1 Heads, not backbones, are the decision
-
-A modern multi-label classifier is best described by its *head*, with the backbone treated as commodity. Four families dominate:
+### 8.1 Heads, not backbones, are the decision
 
 | Head family | Representative models | Strength | Weakness |
 |---|---|---|---|
 | Global pool + sigmoid | Plain ResNet/ViT + BCE | Cheap; works for ≤20 well-localized labels | Drowns the tail; ignores spatial structure |
-| Query decoder | [ML-Decoder (Alibaba-MIIL)](https://github.com/Alibaba-MIIL/ML_Decoder), [C-Tran (CVPR 2021)](https://arxiv.org/abs/2011.14027), [MlTr (arXiv 2106.06195)](https://arxiv.org/abs/2106.06195), [TSFormer (ACM MM 2022)](https://dl.acm.org/doi/abs/10.1145/3503161.3548343), [FL-Tran](https://www.sciencedirect.com/science/article/abs/pii/S0031320322006823) | ~88+ mAP on MS-COCO multi-label; sub-linear cost in number of labels via group decoding | Needs tuning of label embedding init |
-| Hierarchical / taxonomy-aware | BOUND-style heads, [Hyp-OW](https://arxiv.org/abs/2306.14291), Wehrmann HMCN, [visually-consistent hierarchical classifier](https://openreview.net/forum?id=7HEMpBTb3R) | Graceful degradation on tail and unknowns; aligns with downstream business taxonomies | Requires a clean taxonomy |
-| Open-vocabulary tagging | RAM / RAM++, SigLIP2-tagging, VLM-prompted | Zero-shot generalization to unseen tags; great for cold start | Lower precision on closed sets without a supervised head fused in |
+| Query decoder | [ML-Decoder](https://arxiv.org/abs/2111.12933) ([repo](https://github.com/Alibaba-MIIL/ML_Decoder)), [Query2Label](https://arxiv.org/abs/2107.10834), [C-Tran](https://arxiv.org/abs/2011.14027), [MlTr (arXiv 2106.06195)](https://arxiv.org/abs/2106.06195), [TSFormer (ACM MM 2022)](https://dl.acm.org/doi/abs/10.1145/3503161.3548343), [FL-Tran](https://www.sciencedirect.com/science/article/abs/pii/S0031320322006823), [GATN (ACM TOMM 2023)](https://dl.acm.org/doi/10.1145/3578518) | ~88+ mAP on MS-COCO multi-label; sub-linear cost in label count via group decoding | Needs tuning of label-embedding init |
+| Hierarchical / taxonomy-aware | BOUND-style heads, [HCL-MTC (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-97597-w), [Wehrmann HMCN](https://proceedings.mlr.press/v80/wehrmann18a/wehrmann18a.pdf), [Hyp-OW](https://arxiv.org/abs/2306.14291) | Graceful degradation on tail and unknowns; aligns with downstream business taxonomies | Requires a clean taxonomy |
+| Open-vocabulary tagging | [RAM](https://arxiv.org/abs/2306.03514) / [RAM++](https://arxiv.org/abs/2310.15200), SigLIP2-tagging, VLM-prompted | Zero-shot generalization to unseen tags; great for cold start | Lower precision on closed sets without a supervised head fused in |
 
-### 5.2 Why the head dominates
+### 8.2 Why the head dominates
 
-For thousands of labels the cost is in the label-side compute, not the visual side:
+For thousands of labels the cost is on the *label side*, not the visual side:
 
-- ML-Decoder uses learned label *queries* and group-decoding so cost scales sub-linearly in label count. Fitting OpenImages-V6's 9.6 K classes used to be a memory exercise; with ML-Decoder it's routine.
-- C-Tran and MlTr both add **label-label dependency modeling** via attention — captures the fact that "wedding" and "bride" co-occur, and that "polar bear" and "beach" almost never do.
-- Hierarchical heads share gradients between head and tail labels: rare *Hummingbird* species inherit from common *Bird* features.
+- **ML-Decoder** uses learned label *queries* and group-decoding so cost scales sub-linearly in label count. Fitting OpenImages-V6's 9.6 K classes used to be a memory exercise; with ML-Decoder it's routine.
+- **Query2Label** generalizes the same idea: each label is a query, decoders cross-attend to spatial features. Gives both better mAP and natural per-label attention maps for interpretability.
+- **C-Tran / MlTr** add **label-label dependency modeling** — captures the fact that "wedding" and "bride" co-occur, and "polar bear" and "beach" almost never do.
+- **Hierarchical heads** (HCL-MTC, HMCN, BOUND) share gradients between head and tail labels: rare *Hummingbird* species inherit from common *Bird* features.
 
-### 5.3 Open-vocabulary tagging (RAM / RAM++)
+### 8.3 RAM++ — open-vocab tagging with semantic concepts
 
-The [Recognize-Anything Model](https://www.labellerr.com/blog/recognize-anything-a-strong-image-tagging-model-2/) family pushes tagging into open-vocab territory: tag from a text vocabulary using SigLIP/CLIP-aligned features. RAM outperforms ML-Decoder in zero-shot generalization to OpenImages-common categories, but the production pattern that wins is **fusion**: a small supervised head for your closed product taxonomy + RAM-style open-vocab head for catch-all coverage. The resulting system handles cold-start and long-tail without requiring frequent retraining.
+[RAM++ (arXiv 2310.15200)](https://arxiv.org/abs/2310.15200) is currently the strongest open-set image tagger. The trick: **inject LLM-generated tag descriptions as additional supervision** alongside image-tag pairs and global text. Reported gains:
+
+- **+10.2 mAP / +15.4 mAP** over CLIP on OpenImages and ImageNet for predefined tags.
+- **+5.0 mAP / +6.4 mAP** over CLIP and RAM on OpenImages for open-set categories.
+
+Production pattern that wins in 2026: **fuse a small supervised ML-Decoder head for your closed product taxonomy with a RAM++ open-vocab head** for catch-all coverage. Cold-start and long-tail both get handled without retraining.
 
 ---
 
-## 6. Edge & quantization (where everything actually runs)
-
-The previous report mentioned edge in passing. Here are the numbers and runtime decisions that matter in April 2026.
+## 9. Edge & quantization
 
 ![Edge accuracy retention vs latency](assets/edge_quantization_chart.svg)
 
-### 6.1 Concrete benchmarks
+### 9.1 Concrete benchmarks
 
-- **NPU on Pi5 / Hailo / Edge TPU.** The [reproducible Pi5 / Jetson benchmark (Sci. Reports, 2026)](https://www.nature.com/articles/s41598-026-36862-y) is the first apples-to-apples comparison across Pi5 CPU+NPU and Jetson Orin NX. Key result: Hailo-8 preserves ~93–95 % of the FP32 mAP on RT-DETR-l at INT8; Edge TPU forces 224×224 input + INT8-only and pays a meaningful accuracy cost.
-- **AMD XDNA2 NPU** ([reference report](https://dasroot.net/posts/2026/04/amd-xdna2-ubuntu-ai-inference/)): ≈3–5 ms inference for object detection at &lt;1 % accuracy loss. Notable as the first widely-available laptop-class NPU competitive with discrete edge accelerators.
-- **YOLO26**: explicitly designed for INT8 — drops Distribution Focal Loss for a quant-friendlier head, ships TFLite/CoreML/TensorRT exports, and shows consistent accuracy under both FP16 and INT8 ([arXiv 2509.25164](https://arxiv.org/abs/2509.25164)).
-- **Energy review of YOLOv8 vs RT-DETR** ([Sci. Reports, 2026](https://www.nature.com/articles/s41598-026-46453-6)): for matched mAP, RT-DETR-l draws more energy on edge GPUs; the YOLO family is still the lower-energy default unless you specifically need the DETR query mechanism.
+- **YOLO26 INT8** ([arXiv 2509.25164](https://arxiv.org/abs/2509.25164)) is the headline edge story: simplified head, no DFL, no NMS — explicit design for INT8 stability. ~1.8× throughput vs. YOLOv10-N nano on Jetson Xavier NX, near-FP32 mAP. Ships TFLite, CoreML, TensorRT, OpenVINO ([NeuralNet guide](https://neuralnet.solutions/yolo26-on-edge-devices-a-complete-guide), [LearnOpenCV](https://learnopencv.com/yolov26-real-time-deployment/)).
+- **Hailo-8 / Hailo-15 NPU** preserves ~93–95 % of FP32 mAP on RT-DETR-l at INT8 — best DETR-class throughput on edge silicon today.
+- **Edge TPU** forces 224×224 input + INT8-only and pays a meaningful accuracy cost; really only viable with a distilled student model.
+- **AMD XDNA2 NPU** (laptop class) reaches ≈3–5 ms inference with <1 % accuracy loss — the first widely-available laptop NPU competitive with discrete edge accelerators.
+- **CPU-only** is now mainly an FP32 reference. RT-DETR-l on Pi5 CPU is ~150 ms — used to bound the quality envelope, not as a real deployment target.
 
-### 6.2 Knowledge distillation as the universal "fix"
+### 9.2 Knowledge distillation as the universal lever
 
-Distilling a heavy teacher (e.g. Co-DINO, RF-DETR-2XL) into a small student that can survive INT8 is the most reliable lever:
+Distilling Co-DINO / RF-DETR-2XL teachers into small students that survive INT8 is the most reliable accuracy-recovery technique: KD recovers most of the FP32 mAP after INT8, with 3–4× compression. See [SDD-YOLO (anti-UAV small-target)](https://arxiv.org/html/2603.25218) and the broader [lightweight transformer architectures for edge collection](https://arxiv.org/pdf/2601.03290) for worked examples.
 
-- [Edge AI for Automotive Vulnerable Road User Safety (arXiv 2604.26857)](https://arxiv.org/html/2604.26857) — KD recovers most of the FP32 mAP after INT8 quantization, with 3.9× compression.
-- [SDD-YOLO](https://arxiv.org/html/2603.25218) — small-target detection variant tuned for ground-to-air anti-UAV, edge-optimized.
-- [Lightweight transformer architectures for edge devices (arXiv 2601.03290)](https://arxiv.org/pdf/2601.03290) — recipe collection; key hits are token reduction + attention-head pruning under quant-aware fine-tune.
-
-### 6.3 Selection rule of thumb
+### 9.3 Selection rule of thumb
 
 | Constraint | Pick |
 |---|---|
 | ≤5 ms, NPU-class hardware | YOLO26-S/N INT8 |
-| 5–15 ms, Jetson-class | YOLO26-M FP16 / RF-DETR-N FP16 |
+| 5–15 ms, Jetson-class | YOLO26-M FP16 / RF-DETR-N or DEIMv2-S FP16 |
 | Edge TPU only | Distilled YOLO26 student @224 (and pay the accuracy cost) |
-| Hailo-8 / Hailo-15 | RT-DETR-S/M INT8 (best DETR-class throughput) |
-| Server GPU, latency >20 ms acceptable | RF-DETR-L / D-FINE / Co-DINO |
+| Hailo-8 / Hailo-15 | RT-DETR-S/M INT8 |
+| Server GPU, latency >20 ms acceptable | RF-DETR-2XL / D-FINE / Co-DINO |
+| Heavy resolution dense seg/det | FlashInternImage (DCNv4) backbone + DEIM-style decoder |
 
 ---
 
-## 7. Cross-cutting: deformable v4, sparse attention, and TTA
+## 10. Cross-cutting techniques
 
-Two cross-cutting techniques that show up in many of the tracks above:
+### 10.1 DCNv4 → FlashInternImage
 
-### 7.1 DCNv4 → FlashInternImage
+[DCNv4 (CVPR 2024)](https://github.com/OpenGVLab/DCNv4) ([arXiv 2401.06197](https://arxiv.org/abs/2401.06197)) drops softmax normalization in spatial aggregation and fixes the memory-access pattern that bottlenecked DCNv3. Plugged into InternImage to make **FlashInternImage**:
 
-[DCNv4 (CVPR 2024, OpenGVLab)](https://github.com/OpenGVLab/DCNv4) drops softmax normalization in spatial aggregation and fixes the memory-access pattern that bottlenecked DCNv3. Plugged into [InternImage to make FlashInternImage](https://arxiv.org/html/2401.06197v1):
-
-- ~80 % throughput uplift over DCNv3 baseline.
-- 62.9 mIoU on ADE20K (semantic segmentation).
+- **~80 % throughput uplift** over DCNv3 baseline.
+- **62.9 mIoU on ADE20K** (semantic segmentation).
 - Same operator now used in classification, segmentation, and image generation.
 
-For dense prediction stacks where you need a strong CNN-side encoder (especially for very high resolution or heavy occlusion), FlashInternImage is the current default sparse operator. [DAT++](https://github.com/LeapLabTHU/DAT) carries the same idea over to ViT-style encoders.
+For dense-prediction stacks where you need a strong CNN-side encoder (very high resolution, heavy occlusion), FlashInternImage is the current default sparse operator. [DAT++](https://github.com/LeapLabTHU/DAT) carries the same idea over to ViT-style encoders.
 
-### 7.2 Test-time adaptation (TTA / OTTA) — closing the train/serve gap without retraining
+### 10.2 Test-time adaptation (TTA / OTTA / CTTA)
 
-When your model encounters a new domain (lighting, sensor, geography) at deployment, you can either retrain (expensive) or adapt at inference. The 2025–2026 literature on [test-time adaptation](https://github.com/tim-learn/awesome-test-time-adaptation) has converged on a few patterns:
+When your model encounters a new domain (lighting, sensor, geography) at deployment, you can either retrain (expensive) or adapt at inference. The 2025–2026 TTA literature (see [awesome-test-time-adaptation](https://github.com/tim-learn/awesome-test-time-adaptation) and the [ICCV/IJCV survey](https://link.springer.com/article/10.1007/s11263-024-02213-5)) has converged on:
 
-- **Selective TTA** ([Information Sciences 2023, follow-ups 2025](https://www.sciencedirect.com/science/article/abs/pii/S0020025523007338)) — only invoke TTA on uncertain inputs. Keeps the average-case cost flat, fixes the worst case.
-- **On-demand TTA for edge** — adapt only when input statistics drift past a threshold; maps cleanly onto the NPU stacks above.
-- **Feature-redundancy elimination (FRET)** — prune correlated features before adaptation; helps both throughput and stability.
+- **VLOD-TTA** ([OpenReview](https://openreview.net/forum?id=7W4Gusa9rY)) — IoU-weighted entropy + image-conditioned prompt selection for vision-language detectors.
+- **AMROD** ([arXiv 2406.16439](https://arxiv.org/abs/2406.16439)) — object-level contrastive learning + adaptive monitoring (skips unnecessary adaptation) + adaptive randomized restoration. Continual TTA tuned for detection.
+- **Sensitivity-guided pruning TTA** ([arXiv 2506.02462](https://arxiv.org/abs/2506.02462)) — quantifies channels by domain-discrepancy sensitivity, prunes the rest, makes online TTA tractable on edge.
+- **Domain-invariant training + continual TTA** ([IJCV 2025](https://link.springer.com/article/10.1007/s11263-025-02465-9)) — robustness-by-construction at training, plus adaptation at serve time.
 
-For object detection specifically, the cheapest practical knob is *batch-norm statistic re-estimation* on a small streaming buffer — gets you most of the benefit at near-zero cost. Useful guide: [understanding TTA (arXiv 2402.06892)](https://arxiv.org/html/2402.06892v1).
+For object detection specifically, the cheapest practical knob is still *batch-norm statistic re-estimation* on a small streaming buffer — most of the benefit at near-zero cost. Useful primer: [understanding TTA (arXiv 2402.06892)](https://arxiv.org/html/2402.06892v1).
 
 ---
 
-## 8. Selection guide (Apr 2026, complementing the previous report)
+## 11. Operational tracks at a glance
 
-| Problem | First thing to try (this report's angle) |
+![Operational tracks](assets/operational_tracks.svg)
+
+---
+
+## 12. Selection guide (Apr 2026)
+
+| Problem | First thing to try |
 |---|---|
-| Dense pedestrian / retail-shelf crowds | **IDPD-style** dynamic neck on Deformable-DETR; add density-guided queries |
+| General real-time COCO-class detection on T4/Jetson | **RF-DETR-M/L** or **DEIMv2-S/M** (DINOv3-backed) |
+| Highest possible real-time AP | **RF-DETR-2XL** (60.1 AP @ 12.6 ms) |
+| Edge-first deployment (CPU / NPU / mobile) | **YOLO26-S INT8** |
+| Bootstrapping labels for a new domain | **SAM 3 PCS** (label once, propagate) → fine-tune YOLO26 / RF-DETR |
+| Open-vocab without retraining | **Grounding DINO 1.5 + SAM 2** |
+| Dense pedestrian / retail-shelf crowds | **RC-DETR / IDPD-style** dynamic neck on Deformable-DETR; density-guided queries |
 | UAV / aerial small-object | **FMFN-YOLO** or **CFPT neck** on a modest backbone |
-| Multi-camera 3D for AV | **BEVFormer-derived stack** with denoising decoder + LSS multi-modal fusion |
-| Open-world detection where unknowns must be actionable | **BOUND** hierarchical-unknown head |
+| Multi-camera 3D for AV | **BEVFormer-derived stack** + **BEVDiffuser denoising** + LSS multi-modal fusion |
+| Open-world detection, actionable unknowns | **BOUND** hierarchical-unknown head |
 | Long-tail with cold-start | **SearchDet retrieval** + open-vocab detector |
-| Multi-label tagging at scale | **ML-Decoder** + (optional) RAM-style open-vocab fusion head |
-| INT8 on NPU laptop / Pi5 | **YOLO26-S** distilled, INT8, FP16 fallback for edge cases |
+| Multi-label tagging at scale | **ML-Decoder** + (optional) **RAM++** open-vocab fusion head |
+| Hierarchical / taxonomy-aware classification | **HCL-MTC** / Wehrmann HMCN / BOUND-style head |
 | Heavy-resolution dense seg / det | **FlashInternImage (DCNv4)** as backbone |
-| Domain drift at deployment | **Selective TTA** / BN-stat re-estimation, no retraining |
+| Domain drift at deployment | **VLOD-TTA / AMROD**, BN-stat re-estimation |
 
 ---
 
-## Sources (new for this report)
+## Sources
 
-### Crowded scenes and dense queries
-- [IDPD — Improved Deformable-DETR for Crowd Pedestrian Detection (Springer)](https://link.springer.com/article/10.1007/s11760-023-02896-2)
-- [Adaptive query allocation for dense object detection in deformable transformers (Elsevier 2025)](https://www.sciencedirect.com/science/article/pii/S2590123025036163)
-- [End-to-end transformer detection with density-guided query selection for small objects](https://www.sciencedirect.com/science/article/abs/pii/S092523122502226X)
-- [Multiscale regional calibration network for crowd counting (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-86247-w)
-- [Object Detection with Transformers — Review (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12526829/)
+### Headline detectors
+- [RF-DETR — repo (ICLR 2026)](https://github.com/roboflow/rf-detr)
+- [Best object detection models 2026 — Roboflow blog](https://blog.roboflow.com/best-object-detection-models/)
+- [Demystifying RF-DETR (Towards AI, Mar 2026)](https://pub.towardsai.net/demystifying-rf-detr-iclr-2026-a-real-time-transformer-pushing-the-limits-of-object-detection-f4d0a9617fdd)
+- [DEIMv2 — Real-Time Object Detection Meets DINOv3 (arXiv 2509.20787)](https://arxiv.org/abs/2509.20787)
+- [DEIMv2 repo](https://github.com/Intellindust-AI-Lab/DEIMv2)
+- [DEIMv2 release writeup (Apr 2026)](https://www.blog.brightcoding.dev/2026/04/22/deimv2-the-revolutionary-real-time-detector-powered-by-dinov3)
+- [DEIMv2 hands-on (DebuggerCafe)](https://debuggercafe.com/object-detection-with-deimv2/)
+- [YOLO26 — arXiv 2509.25164](https://arxiv.org/abs/2509.25164)
+- [YOLO26 — Roboflow blog](https://blog.roboflow.com/yolo26/)
+- [Ultralytics YOLO Evolution overview (arXiv 2510.09653)](https://arxiv.org/html/2510.09653v1)
+- [D-FINE — arXiv 2410.13842](https://arxiv.org/abs/2410.13842)
+- [DEIM — repo](https://github.com/ShihuaHuang95/DEIM)
+- [YOLO-26 vs RF-DETR comparison (Medium)](https://medium.com/@abrhamadamu05/yolo-26-vs-rf-detr-a-comparison-of-two-leading-object-detection-models-d9a306742201)
+
+### Foundation backbones
+- [DINOv3 — Meta blog](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/)
+- [DINOv3 — arXiv 2508.10104](https://arxiv.org/html/2508.10104v1)
+- [DINOv3 repo](https://github.com/facebookresearch/dinov3)
+- [DINOv3 explained — Encord](https://encord.com/blog/dinov3-explained-scaling-self-supervised-vision-tr/)
+- [SigLIP 2 — arXiv 2502.14786](https://arxiv.org/abs/2502.14786)
+- [SigLIP 2 — HF blog](https://huggingface.co/blog/siglip2)
+
+### Promptable / open-vocab
+- [SAM 3 — arXiv 2511.16719](https://arxiv.org/abs/2511.16719)
+- [SAM 3 repo](https://github.com/facebookresearch/sam3)
+- [SAM 3 — Meta page](https://ai.meta.com/research/publications/sam-3-segment-anything-with-concepts/)
+- [SAM 3 docs (Ultralytics)](https://docs.ultralytics.com/models/sam-3/)
+- [Grounding DINO — arXiv 2303.05499](https://arxiv.org/abs/2303.05499)
+- [Grounding DINO repo](https://github.com/IDEA-Research/GroundingDINO)
+- [Grounded SAM 2 — PyImageSearch](https://pyimagesearch.com/2026/01/19/grounded-sam-2-from-open-set-detection-to-segmentation-and-tracking/)
+
+### Crowded scenes
+- [RC-DETR (Neural Networks)](https://www.sciencedirect.com/science/article/abs/pii/S0893608024008402)
+- [Query-adaptive DETR (OpenReview)](https://openreview.net/forum?id=hfeuTey6Z5)
+- [IDPD — Improved Deformable-DETR](https://link.springer.com/article/10.1007/s11760-023-02896-2)
+- [Adaptive query allocation (Elsevier 2025)](https://www.sciencedirect.com/science/article/pii/S2590123025036163)
+- [LF-DETR (MDPI 2026)](https://www.mdpi.com/2072-4292/18/3/531)
+- [DETR review (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12252279/)
 
 ### Aerial / small object
-- [FMFN-YOLO — UAV aerial small object detection (Springer 2025)](https://link.springer.com/article/10.1007/s40747-025-02126-x)
-- [CFPT — Cross-Layer Feature Pyramid Transformer (arXiv 2407.19696)](https://arxiv.org/abs/2407.19696)
-- [DFE-DETR — Dynamic small object feature enhancement (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-21134-y)
-- [CEIFNet — Cross-stage edge information fusion (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-36251-5)
-- [Transformers in Small Object Detection — Benchmark & Survey (ACM CSUR 2025)](https://dl.acm.org/doi/10.1145/3758090)
-- [Advancements in Small-Object Detection (2023–2025) (MDPI)](https://www.mdpi.com/2076-3417/15/22/11882)
+- [FMFN-YOLO (Springer 2025)](https://link.springer.com/article/10.1007/s40747-025-02126-x)
+- [CFPT — repo](https://github.com/duzw9311/CFPT)
+- [DFE-DETR (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-21134-y)
+- [CEIFNet (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-36251-5)
+- [LMW-YOLO (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-45055-6)
+- [CF-YOLO (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-99634-0)
+- [Transformers in Small Object Detection (ACM CSUR 2025)](https://dl.acm.org/doi/10.1145/3758090)
+- [Advancements in Small-Object Detection (MDPI 2025)](https://www.mdpi.com/2076-3417/15/22/11882)
+- [VisDrone dataset](https://docs.ultralytics.com/datasets/detect/visdrone/)
 
 ### 3D / BEV
-- [Denoising Transformer for BEV 3D Object Detection (IEEE 2025)](https://ieeexplore.ieee.org/document/11001128/)
-- [Multi-Modal BEV Enhancement Fusion for 3D OD (IEEE 2025)](https://ieeexplore.ieee.org/abstract/document/11087721/)
-- [OCBEV — Object-Centric BEV Transformer (IEEE 2024)](https://ieeexplore.ieee.org/document/10550502/)
-- [DMformer — denoising + multi-modal fusion for BEV (Springer 2025)](https://link.springer.com/article/10.1007/s40747-025-01984-9)
-- [Vision Transformers in Autonomous Driving — Survey (arXiv 2403.07542)](https://arxiv.org/html/2403.07542v1)
-- [BEVFormer model card (NVIDIA)](https://build.nvidia.com/nvidia/bevformer/modelcard)
-- [Dual-Modal Gated Fusion BEV 3D OD (MDPI Sustainability 2026)](https://www.mdpi.com/2071-1050/18/5/2438)
+- [BEVFormer — repo](https://github.com/fundamentalvision/BEVFormer)
+- [BEVDiffuser — arXiv 2502.19694](https://arxiv.org/html/2502.19694)
+- [DMformer (Springer 2025)](https://link.springer.com/article/10.1007/s40747-025-01984-9)
+- [Denoising Transformer for BEV (IEEE 2025)](https://ieeexplore.ieee.org/document/11001128/)
+- [Multi-Modal BEV Enhancement Fusion (IEEE 2025)](https://ieeexplore.ieee.org/abstract/document/11087721/)
+- [OCBEV (IEEE 2024)](https://ieeexplore.ieee.org/document/10550502/)
+- [BEAM denoising (arXiv 2402.03634)](https://arxiv.org/html/2402.03634v1)
+- [Vision Transformers in Autonomous Driving (arXiv 2403.07542)](https://arxiv.org/html/2403.07542v1)
+- [3-D OD comprehensive review (Springer 2025)](https://link.springer.com/article/10.1007/s44443-025-00213-0)
 
 ### Long-tail / open-world
-- [BOUND — Beyond Flat Unknown Labels in Open-World OD (arXiv 2510.09173)](https://arxiv.org/abs/2510.09173)
-- [SearchDet — training-free long-tail object detection (IEEE 2026)](https://ieeexplore.ieee.org/document/11094398/)
-- [Hyp-OW — hierarchical open-world via hyperbolic distance (arXiv 2306.14291)](https://arxiv.org/abs/2306.14291)
-- [Open World Object Detection in the Era of Foundation Models (arXiv 2312.05745)](https://arxiv.org/html/2312.05745)
+- [BOUND — arXiv 2510.09173](https://arxiv.org/abs/2510.09173)
+- [SearchDet (IEEE 2026)](https://ieeexplore.ieee.org/document/11094398/)
+- [YOLO-UniOW (arXiv 2412.20645)](https://arxiv.org/html/2412.20645v1)
+- [OW-OVD (ResearchGate)](https://www.researchgate.net/publication/394512316_OW-OVD_Unified_Open_World_and_Open_Vocabulary_Object_Detection)
+- [Hyp-OW (arXiv 2306.14291)](https://arxiv.org/abs/2306.14291)
+- [Awesome described object detection (curated)](https://github.com/Charles-Xie/awesome-described-object-detection)
 
 ### Dense / multi-label classification
-- [ML-Decoder — Scalable, Versatile Classification Head (Alibaba-MIIL)](https://github.com/Alibaba-MIIL/ML_Decoder)
-- [C-Tran — General Multi-Label Image Classification with Transformers (CVPR 2021 / arXiv)](https://arxiv.org/abs/2011.14027)
-- [MlTr — Multi-label Transformer (arXiv 2106.06195)](https://arxiv.org/abs/2106.06195)
-- [TSFormer — Two-Stream Transformer for multi-label (ACM MM 2022)](https://dl.acm.org/doi/abs/10.1145/3503161.3548343)
-- [FL-Tran — Feature Learning network with Transformer (Pattern Recognition)](https://www.sciencedirect.com/science/article/abs/pii/S0031320322006823)
-- [Visually-consistent hierarchical image classification (OpenReview)](https://openreview.net/forum?id=7HEMpBTb3R)
-- [RAM — Recognize Anything Model write-up](https://www.labellerr.com/blog/recognize-anything-a-strong-image-tagging-model-2/)
-- [Image Classification — 2026 picks (Label Your Data)](https://labelyourdata.com/articles/image-classification-models)
+- [ML-Decoder — arXiv 2111.12933](https://arxiv.org/abs/2111.12933) ([repo](https://github.com/Alibaba-MIIL/ML_Decoder))
+- [Query2Label — arXiv 2107.10834](https://arxiv.org/abs/2107.10834)
+- [C-Tran — arXiv 2011.14027](https://arxiv.org/abs/2011.14027)
+- [MlTr — arXiv 2106.06195](https://arxiv.org/abs/2106.06195)
+- [TSFormer — ACM MM 2022](https://dl.acm.org/doi/abs/10.1145/3503161.3548343)
+- [FL-Tran — Pattern Recognition 2022](https://www.sciencedirect.com/science/article/abs/pii/S0031320322006823)
+- [GATN (ACM TOMM 2023)](https://dl.acm.org/doi/10.1145/3578518)
+- [HMCN (ICML 2018)](https://proceedings.mlr.press/v80/wehrmann18a/wehrmann18a.pdf)
+- [HCL-MTC (Sci. Reports 2025)](https://www.nature.com/articles/s41598-025-97597-w)
+- [RAM — arXiv 2306.03514](https://arxiv.org/abs/2306.03514) ([repo](https://github.com/xinyu1205/recognize-anything))
+- [RAM++ — arXiv 2310.15200](https://arxiv.org/abs/2310.15200)
+- [Visually-consistent hierarchical classification (OpenReview)](https://openreview.net/forum?id=7HEMpBTb3R)
 
 ### Edge / quantization
+- [YOLO26 on edge devices (NeuralNet)](https://neuralnet.solutions/yolo26-on-edge-devices-a-complete-guide)
+- [YOLO26 LearnOpenCV deployment](https://learnopencv.com/yolov26-real-time-deployment/)
+- [OpenVINO INT8 for YOLO26 — tutorial](https://medium.com/@GaloisChu/openvino-int8-quantization-for-yolo26-models-a-hands-on-tutorial-6ad16f3fc60d)
+- [Edge AI for VRU safety (KD for INT8) — arXiv 2604.26857](https://arxiv.org/html/2604.26857)
+- [SDD-YOLO — arXiv 2603.25218](https://arxiv.org/html/2603.25218)
+- [Lightweight transformers for edge — arXiv 2601.03290](https://arxiv.org/pdf/2601.03290)
 - [Reproducible Pi5 / Jetson edge benchmark (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-36862-y)
-- [Energy review of YOLOv8l & RT-DETR-l on edge (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-46453-6)
-- [YOLO26 architectural enhancements (arXiv 2509.25164)](https://arxiv.org/abs/2509.25164)
-- [Edge AI for Automotive Vulnerable Road User Safety — KD for INT8 (arXiv 2604.26857)](https://arxiv.org/html/2604.26857)
-- [SDD-YOLO — anti-UAV small-target, edge-deployable (arXiv 2603.25218)](https://arxiv.org/html/2603.25218)
-- [AMD XDNA2 NPU integration with Ubuntu — inference benchmarks](https://dasroot.net/posts/2026/04/amd-xdna2-ubuntu-ai-inference/)
-- [Lightweight transformer architectures for edge (arXiv 2601.03290)](https://arxiv.org/pdf/2601.03290)
-- [Quantization-optimized lightweight transformer for fruit-ripeness — fully worked example (MDPI 2026)](https://www.mdpi.com/2073-431X/15/1/69)
+- [Energy review YOLOv8 / RT-DETR (Sci. Reports 2026)](https://www.nature.com/articles/s41598-026-46453-6)
 
-### Deformable v4 / sparse attention
-- [DCNv4 — Efficient Deformable ConvNets (CVPR 2024, repo)](https://github.com/OpenGVLab/DCNv4)
-- [DCNv4 — paper (arXiv 2401.06197)](https://arxiv.org/html/2401.06197v1)
+### Cross-cutting (DCNv4, TTA)
+- [DCNv4 — arXiv 2401.06197](https://arxiv.org/abs/2401.06197) ([repo](https://github.com/OpenGVLab/DCNv4))
 - [InternImage repo](https://github.com/OpenGVLab/InternImage)
-- [DAT / DAT++ — Vision Transformer with Deformable Attention](https://github.com/LeapLabTHU/DAT)
-- [DeGMix — Efficient Multi-Task Dense Prediction (arXiv 2308.05721)](https://arxiv.org/abs/2308.05721)
-
-### Test-time adaptation
-- [Awesome Test-Time Adaptation (curated)](https://github.com/tim-learn/awesome-test-time-adaptation/blob/main/TTA-OTTA.md)
-- [Selective TTA — Information Sciences 2023](https://www.sciencedirect.com/science/article/abs/pii/S0020025523007338)
-- [Understanding Test-Time Augmentation (arXiv 2402.06892)](https://arxiv.org/html/2402.06892v1)
-- [ICLR 2026 schedule (TTA / OTTA tracks)](https://iclr.cc/virtual/2026/calendar)
-
-### Cross-reference (also covered in 2026-Apr-30 prior pass)
-- [RF-DETR (Roboflow, ICLR 2026)](https://github.com/roboflow/rf-detr)
-- [YOLO26 — Ultralytics docs](https://docs.ultralytics.com/models/yolo26/)
-- [SAM 3 — Meta blog](https://ai.meta.com/blog/segment-anything-model-3/)
-- [DINOv3 — Meta blog](https://ai.meta.com/blog/dinov3-self-supervised-vision-model/)
+- [DAT / DAT++ — repo](https://github.com/LeapLabTHU/DAT)
+- [Awesome TTA (curated)](https://github.com/tim-learn/awesome-test-time-adaptation)
+- [In Search of Lost Online TTA — IJCV survey](https://link.springer.com/article/10.1007/s11263-024-02213-5)
+- [VLOD-TTA (OpenReview)](https://openreview.net/forum?id=7W4Gusa9rY)
+- [AMROD — arXiv 2406.16439](https://arxiv.org/abs/2406.16439)
+- [Sensitivity-guided pruning TTA — arXiv 2506.02462](https://arxiv.org/abs/2506.02462)
+- [Robust OD with domain-invariant training + CTTA (IJCV 2025)](https://link.springer.com/article/10.1007/s11263-025-02465-9)
+- [Understanding TTA — arXiv 2402.06892](https://arxiv.org/html/2402.06892v1)
