@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" role="img"
+     aria-label="2026 dense-detection technique timeline" font-family="ui-sans-serif, system-ui, sans-serif">
+  <!-- All strokes/text use currentColor so the figure inherits the page text color
+       (works equally well on light and dark backgrounds). Accent fills are
+       theme-neutral pastels with explicit borders. -->
+  <style>
+    .axis  { stroke: currentColor; stroke-width: 1.25; fill: none; }
+    .tick  { stroke: currentColor; stroke-width: 1; }
+    .lbl   { fill: currentColor; font-size: 12px; }
+    .hd    { fill: currentColor; font-size: 14px; font-weight: 600; }
+    .dot   { stroke: currentColor; stroke-width: 1.25; }
+    .lane  { fill: none; stroke: currentColor; stroke-width: 0.6; stroke-dasharray: 3 3; opacity: 0.45; }
+    .ann   { fill: currentColor; font-size: 11px; }
+    .swatch{ stroke: currentColor; stroke-width: 0.75; }
+  </style>
+
+  <!-- Title -->
+  <text class="hd" x="20" y="26">Dense-detection technique timeline · 2024 → 2026 (Q2)</text>
+
+  <!-- Frame -->
+  <line class="axis" x1="80"  y1="310" x2="900" y2="310"/>
+  <line class="axis" x1="80"  y1="60"  x2="80"  y2="310"/>
+
+  <!-- X ticks: 2024 .. 2026Q2 -->
+  <g class="tick">
+    <line x1="160" y1="310" x2="160" y2="316"/>
+    <line x1="320" y1="310" x2="320" y2="316"/>
+    <line x1="480" y1="310" x2="480" y2="316"/>
+    <line x1="640" y1="310" x2="640" y2="316"/>
+    <line x1="800" y1="310" x2="800" y2="316"/>
+  </g>
+  <g class="lbl" text-anchor="middle">
+    <text x="160" y="332">2024</text>
+    <text x="320" y="332">2025-H1</text>
+    <text x="480" y="332">2025-H2</text>
+    <text x="640" y="332">2026-Q1</text>
+    <text x="800" y="332">2026-Q2</text>
+  </g>
+
+  <!-- Lanes (technique families) -->
+  <g class="lane">
+    <line x1="80"  y1="100" x2="900" y2="100"/>
+    <line x1="80"  y1="155" x2="900" y2="155"/>
+    <line x1="80"  y1="210" x2="900" y2="210"/>
+    <line x1="80"  y1="265" x2="900" y2="265"/>
+  </g>
+  <g class="lbl" text-anchor="end">
+    <text x="74" y="104">Mamba / SSM</text>
+    <text x="74" y="159">Diffusion det.</text>
+    <text x="74" y="214">Video / stream</text>
+    <text x="74" y="269">MLLM grounding</text>
+  </g>
+
+  <!-- Lane 1: Mamba / SSM -->
+  <g>
+    <circle class="dot" cx="160" cy="100" r="7"  fill="#22c55e"/>
+    <text class="ann" x="172" y="96">Mamba-YOLO</text>
+    <circle class="dot" cx="350" cy="100" r="7"  fill="#22c55e"/>
+    <text class="ann" x="362" y="96">MambaOVD</text>
+    <circle class="dot" cx="560" cy="100" r="7"  fill="#22c55e"/>
+    <text class="ann" x="572" y="96">MambaNeXt-YOLO</text>
+    <circle class="dot" cx="780" cy="100" r="9"  fill="#16a34a"/>
+    <text class="ann" x="794" y="96">MDDCNet · Super-Mamba SOD</text>
+  </g>
+
+  <!-- Lane 2: Diffusion det. -->
+  <g>
+    <circle class="dot" cx="200" cy="155" r="7"  fill="#a855f7"/>
+    <text class="ann" x="212" y="151">DPM-Det</text>
+    <circle class="dot" cx="430" cy="155" r="7"  fill="#a855f7"/>
+    <text class="ann" x="442" y="151">Guided DiffusionDet</text>
+    <circle class="dot" cx="640" cy="155" r="9"  fill="#9333ea"/>
+    <text class="ann" x="654" y="151">DiffuDETR (ICLR 2026)</text>
+    <circle class="dot" cx="820" cy="155" r="7"  fill="#a855f7"/>
+    <text class="ann" x="730" y="172">RGBX-DiffusionDet</text>
+  </g>
+
+  <!-- Lane 3: Video / stream -->
+  <g>
+    <circle class="dot" cx="240" cy="210" r="7"  fill="#0ea5e9"/>
+    <text class="ann" x="252" y="206">PracticalVOD (FSA)</text>
+    <circle class="dot" cx="500" cy="210" r="9"  fill="#0284c7"/>
+    <text class="ann" x="514" y="206">TOVT (AAAI 2026)</text>
+    <circle class="dot" cx="720" cy="210" r="9"  fill="#0284c7"/>
+    <text class="ann" x="734" y="206">Stream-DINO</text>
+  </g>
+
+  <!-- Lane 4: MLLM grounding -->
+  <g>
+    <circle class="dot" cx="180" cy="265" r="7"  fill="#f59e0b"/>
+    <text class="ann" x="192" y="261">Kosmos-2 era</text>
+    <circle class="dot" cx="430" cy="265" r="7"  fill="#f59e0b"/>
+    <text class="ann" x="442" y="261">OV-DINO</text>
+    <circle class="dot" cx="660" cy="265" r="9"  fill="#d97706"/>
+    <text class="ann" x="674" y="261">MedMO · MAPG · VS-Bench</text>
+    <circle class="dot" cx="850" cy="265" r="7"  fill="#f59e0b"/>
+    <text class="ann" x="772" y="284">Look&amp;Learn</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(80,52)">
+    <rect class="swatch" width="14" height="10" fill="#22c55e"/>
+    <text class="lbl" x="20"  y="9">SSM backbone</text>
+    <rect class="swatch" x="120" width="14" height="10" fill="#a855f7"/>
+    <text class="lbl" x="140" y="9">Diffusion decoder</text>
+    <rect class="swatch" x="260" width="14" height="10" fill="#0ea5e9"/>
+    <text class="lbl" x="280" y="9">Video/stream</text>
+    <rect class="swatch" x="380" width="14" height="10" fill="#f59e0b"/>
+    <text class="lbl" x="400" y="9">MLLM grounding</text>
+    <text class="lbl" x="540" y="9">larger marker = released &lt;180 d</text>
+  </g>
+</svg>
