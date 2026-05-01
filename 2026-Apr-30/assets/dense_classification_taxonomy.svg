@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-label="Dense classification taxonomy" font-family="ui-sans-serif, system-ui, sans-serif">
+  <style>
+    .label { font-size: 13px; font-weight: 600; fill: #475569; }
+    .sub   { font-size: 11px; fill: #64748b; }
+    .title { font-size: 15px; font-weight: 700; fill: #334155; }
+    .lead  { font-size: 12px; fill: #475569; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.6; fill: none; marker-end: url(#tri); }
+    @media (prefers-color-scheme: dark) {
+      .label { fill: #cbd5e1; }
+      .sub   { fill: #94a3b8; }
+      .title { fill: #e2e8f0; }
+      .lead  { fill: #cbd5e1; }
+      .arrow { stroke: #64748b; }
+    }
+  </style>
+  <defs>
+    <marker id="tri" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">Dense classification: head choice ↔ label structure</text>
+  <text x="440" y="44" text-anchor="middle" class="sub">Why "what backbone?" is the wrong first question for tagging-class problems</text>
+
+  <!-- Image / backbone -->
+  <g transform="translate(40,80)">
+    <rect width="200" height="68" rx="12" fill="#6366f1" fill-opacity="0.14" stroke="#6366f1" stroke-width="2"/>
+    <text x="100" y="28" text-anchor="middle" class="title">Image features</text>
+    <text x="100" y="50" text-anchor="middle" class="sub">DINOv3 / SigLIP2 / ConvNeXt V2 /</text>
+    <text x="100" y="64" text-anchor="middle" class="sub">FlashInternImage (DCNv4)</text>
+  </g>
+
+  <!-- 4 head families -->
+  <g transform="translate(300,80)">
+    <rect width="540" height="68" rx="12" fill="#14b8a6" fill-opacity="0.14" stroke="#14b8a6" stroke-width="2"/>
+    <text x="14" y="22" class="title">1. Global pooling + sigmoid (legacy)</text>
+    <text x="14" y="44" class="sub">Single FC, BCE per class. Cheap; ignores spatial layout; saturates on tail labels.</text>
+    <text x="14" y="60" class="sub">Best when label cardinality is low and labels are visually localized.</text>
+  </g>
+
+  <g transform="translate(300,170)">
+    <rect width="540" height="78" rx="12" fill="#8b5cf6" fill-opacity="0.16" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="14" y="22" class="title">2. Query decoder (ML-Decoder, C-Tran, MlTr, FL-Tran)</text>
+    <text x="14" y="44" class="sub">N learnable label queries cross-attend to spatial features.</text>
+    <text x="14" y="60" class="sub">Reaches ~88 mAP on MS-COCO; scales to thousands of classes via</text>
+    <text x="14" y="74" class="sub">group-decoding so cost is sub-linear in label count.</text>
+  </g>
+
+  <g transform="translate(300,270)">
+    <rect width="540" height="78" rx="12" fill="#f59e0b" fill-opacity="0.16" stroke="#f59e0b" stroke-width="2"/>
+    <text x="14" y="22" class="title">3. Hierarchical / taxonomy-aware</text>
+    <text x="14" y="44" class="sub">Coarse-to-fine heads + tree-consistent loss; share knowledge head ↔ tail.</text>
+    <text x="14" y="60" class="sub">BOUND-style: assign unknowns to coarse nodes instead of a flat "unknown" bin.</text>
+    <text x="14" y="74" class="sub">Buys you graceful degradation under distribution shift.</text>
+  </g>
+
+  <g transform="translate(300,370)">
+    <rect width="540" height="78" rx="12" fill="#ef4444" fill-opacity="0.14" stroke="#ef4444" stroke-width="2"/>
+    <text x="14" y="22" class="title">4. Open-vocabulary tagging (RAM, RAM++, VLM-prompted)</text>
+    <text x="14" y="44" class="sub">No fixed label set: tag from a text vocabulary using SigLIP/CLIP-aligned features.</text>
+    <text x="14" y="60" class="sub">Strong zero-shot generalization to OpenImages-common; tail still benefits from</text>
+    <text x="14" y="74" class="sub">a small supervised "head" branch fused at inference.</text>
+  </g>
+
+  <!-- arrows from backbone to each head -->
+  <path d="M 240 114 L 300 114" class="arrow"/>
+  <path d="M 240 114 C 270 114, 270 209, 300 209" class="arrow"/>
+  <path d="M 240 114 C 270 114, 270 309, 300 309" class="arrow"/>
+  <path d="M 240 114 C 270 114, 270 409, 300 409" class="arrow"/>
+
+  <!-- Note row -->
+  <g transform="translate(40,470)">
+    <rect width="800" height="40" rx="10" fill="#0ea5e9" fill-opacity="0.10" stroke="#0ea5e9" stroke-width="1.6"/>
+    <text x="14" y="25" class="lead">Rule of thumb: pick the head from the label structure (counts, taxonomy, openness), then pick the backbone for cost.</text>
+  </g>
+</svg>

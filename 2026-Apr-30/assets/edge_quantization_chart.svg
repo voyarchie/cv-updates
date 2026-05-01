@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-label="Edge inference accuracy vs latency tradeoffs" font-family="ui-sans-serif, system-ui, sans-serif">
+  <style>
+    .label { font-size: 12px; font-weight: 600; fill: #475569; }
+    .sub   { font-size: 11px; fill: #64748b; }
+    .title { font-size: 15px; font-weight: 700; fill: #334155; }
+    .ax    { stroke: #94a3b8; stroke-width: 1.4; fill: none; }
+    .grid  { stroke: #cbd5e1; stroke-width: 0.8; stroke-dasharray: 3 4; fill: none; }
+    .pt    { stroke-width: 2; }
+    @media (prefers-color-scheme: dark) {
+      .label { fill: #cbd5e1; }
+      .sub   { fill: #94a3b8; }
+      .title { fill: #e2e8f0; }
+      .ax    { stroke: #64748b; }
+      .grid  { stroke: #334155; }
+    }
+  </style>
+
+  <text x="440" y="24" text-anchor="middle" class="title">Edge runtimes (Apr 2026): accuracy retention vs throughput</text>
+  <text x="440" y="42" text-anchor="middle" class="sub">Approximate, illustrative — see Sources for benchmark details</text>
+
+  <!-- Axes -->
+  <g transform="translate(70,80)">
+    <line x1="0" y1="320" x2="740" y2="320" class="ax"/>
+    <line x1="0" y1="0"   x2="0"   y2="320" class="ax"/>
+
+    <!-- Y ticks (accuracy retention) -->
+    <g class="sub">
+      <text x="-10" y="324" text-anchor="end">60%</text>
+      <text x="-10" y="244" text-anchor="end">75%</text>
+      <text x="-10" y="164" text-anchor="end">85%</text>
+      <text x="-10" y="84"  text-anchor="end">95%</text>
+      <text x="-10" y="14"  text-anchor="end">100%</text>
+    </g>
+    <g class="grid">
+      <line x1="0" y1="244" x2="740" y2="244"/>
+      <line x1="0" y1="164" x2="740" y2="164"/>
+      <line x1="0" y1="84"  x2="740" y2="84"/>
+      <line x1="0" y1="14"  x2="740" y2="14"/>
+    </g>
+
+    <!-- X ticks (latency log scale 1ms..200ms) -->
+    <g class="sub">
+      <text x="20"  y="340" text-anchor="middle">1 ms</text>
+      <text x="180" y="340" text-anchor="middle">5 ms</text>
+      <text x="320" y="340" text-anchor="middle">15 ms</text>
+      <text x="460" y="340" text-anchor="middle">40 ms</text>
+      <text x="600" y="340" text-anchor="middle">100 ms</text>
+      <text x="720" y="340" text-anchor="middle">200 ms</text>
+    </g>
+    <g class="grid">
+      <line x1="180" y1="0" x2="180" y2="320"/>
+      <line x1="320" y1="0" x2="320" y2="320"/>
+      <line x1="460" y1="0" x2="460" y2="320"/>
+      <line x1="600" y1="0" x2="600" y2="320"/>
+    </g>
+
+    <text x="370" y="368" text-anchor="middle" class="label">Latency (ms, log) — single image, batch=1</text>
+    <text transform="rotate(-90)" x="-160" y="-44" text-anchor="middle" class="label">Accuracy retention vs FP32</text>
+
+    <!-- Points -->
+    <!-- YOLO26-S INT8 on XDNA2 NPU: ~3-5ms, ~99% retention -->
+    <circle cx="120" cy="20"  r="8" fill="#6366f1" fill-opacity="0.35" stroke="#6366f1" class="pt"/>
+    <text   x="132" y="18"  class="label">YOLO26-S · INT8 · XDNA2 NPU</text>
+    <text   x="132" y="32"  class="sub">≈3–5 ms, &lt;1% drop</text>
+
+    <!-- YOLO26-M FP16 Jetson Orin: ~12ms ~99% -->
+    <circle cx="280" cy="34"  r="8" fill="#14b8a6" fill-opacity="0.35" stroke="#14b8a6" class="pt"/>
+    <text   x="292" y="32"  class="label">YOLO26-M · FP16 · Jetson Orin NX</text>
+    <text   x="292" y="46"  class="sub">~12 ms, ~98%</text>
+
+    <!-- RF-DETR-M FP16 T4: ~4.5ms, ~99% (server class GPU) -->
+    <circle cx="170" cy="14"  r="8" fill="#8b5cf6" fill-opacity="0.35" stroke="#8b5cf6" class="pt"/>
+    <text   x="182" y="12"  class="label">RF-DETR-M · FP16 · T4</text>
+    <text   x="182" y="26"  class="sub">~4.5 ms, ~99% (server)</text>
+
+    <!-- Hailo-8 RT-DETR INT8: ~25ms, ~94% -->
+    <circle cx="380" cy="84"  r="8" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" class="pt"/>
+    <text   x="392" y="82"  class="label">RT-DETR-l · INT8 · Hailo-8</text>
+    <text   x="392" y="96"  class="sub">~25 ms, ~93–95%</text>
+
+    <!-- Edge TPU YOLOv8 INT8 224x224: ~30ms, ~75% -->
+    <circle cx="430" cy="244" r="8" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" class="pt"/>
+    <text   x="442" y="242" class="label">YOLOv8 · INT8 · Edge TPU @224²</text>
+    <text   x="442" y="256" class="sub">~30 ms, ~75% (resolution capped)</text>
+
+    <!-- CPU only Pi5 RT-DETR FP32: ~150ms, ~100% -->
+    <circle cx="650" cy="14"  r="8" fill="#0ea5e9" fill-opacity="0.4" stroke="#0ea5e9" class="pt"/>
+    <text   x="662" y="12"  class="label">RT-DETR-l · FP32 · Pi5 CPU</text>
+    <text   x="662" y="26"  class="sub">~150 ms, baseline</text>
+
+    <!-- Distilled student INT8: ~8ms 95% -->
+    <circle cx="240" cy="74"  r="8" fill="#10b981" fill-opacity="0.4" stroke="#10b981" class="pt"/>
+    <text   x="252" y="72"  class="label">Distilled student · INT8</text>
+    <text   x="252" y="86"  class="sub">~8 ms, ~95% (KD recovers drop)</text>
+  </g>
+
+  <text x="70" y="430" class="sub">Vertical axis is *retention* of FP32 mAP, not absolute mAP — so YOLO26-S on NPU (~99%) is not literally more accurate than RT-DETR-l, just less degraded by quantization.</text>
+</svg>

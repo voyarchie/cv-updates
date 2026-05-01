@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" role="img" aria-label="Operational tracks in dense detection and classification" font-family="ui-sans-serif, system-ui, sans-serif">
+  <style>
+    .label { font-size: 13px; font-weight: 600; fill: #475569; }
+    .sub   { font-size: 11px; fill: #64748b; }
+    .title { font-size: 15px; font-weight: 700; fill: #334155; }
+    .axis  { stroke: #94a3b8; stroke-width: 1.2; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .label { fill: #cbd5e1; }
+      .sub   { fill: #94a3b8; }
+      .title { fill: #e2e8f0; }
+      .axis  { stroke: #64748b; }
+    }
+  </style>
+
+  <text x="460" y="24" text-anchor="middle" class="title">Operational tracks for dense detection &amp; classification (Apr 2026)</text>
+  <text x="460" y="42" text-anchor="middle" class="sub">Each track has its own benchmarks, deployment shape, and typical winning recipe</text>
+
+  <!-- Row 1 -->
+  <g transform="translate(40,70)">
+    <rect width="260" height="110" rx="14" fill="#6366f1" fill-opacity="0.14" stroke="#6366f1" stroke-width="2"/>
+    <text x="14" y="22" class="title">Crowded 2D scenes</text>
+    <text x="14" y="44" class="label">CrowdHuman · CityPersons · WiderPerson</text>
+    <text x="14" y="62" class="sub">IDPD (Deformable-DETR), HyDeTr,</text>
+    <text x="14" y="78" class="sub">density-guided query selection,</text>
+    <text x="14" y="94" class="sub">Set-NMS multi-prediction heads</text>
+  </g>
+
+  <g transform="translate(330,70)">
+    <rect width="260" height="110" rx="14" fill="#14b8a6" fill-opacity="0.16" stroke="#14b8a6" stroke-width="2"/>
+    <text x="14" y="22" class="title">Aerial / UAV / remote sensing</text>
+    <text x="14" y="44" class="label">VisDrone · AI-TOD · DOTA · DIOR</text>
+    <text x="14" y="62" class="sub">FMFN-YOLO, DFE-DETR, CFPT,</text>
+    <text x="14" y="78" class="sub">CEIFNet, dynamic feature</text>
+    <text x="14" y="94" class="sub">enhancement for tiny objects</text>
+  </g>
+
+  <g transform="translate(620,70)">
+    <rect width="260" height="110" rx="14" fill="#f59e0b" fill-opacity="0.16" stroke="#f59e0b" stroke-width="2"/>
+    <text x="14" y="22" class="title">Multi-camera 3D / BEV</text>
+    <text x="14" y="44" class="label">nuScenes · Waymo · Argoverse 2</text>
+    <text x="14" y="62" class="sub">BEVFormer-derived stacks,</text>
+    <text x="14" y="78" class="sub">denoising + multiscale cross-attn,</text>
+    <text x="14" y="94" class="sub">LSS-based multi-modal fusion</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(40,200)">
+    <rect width="260" height="110" rx="14" fill="#8b5cf6" fill-opacity="0.16" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="14" y="22" class="title">Long-tail / open-world</text>
+    <text x="14" y="44" class="label">LVIS · OWOD · Objects365</text>
+    <text x="14" y="62" class="sub">BOUND (hierarchical unknowns),</text>
+    <text x="14" y="78" class="sub">SearchDet (training-free retrieval),</text>
+    <text x="14" y="94" class="sub">VLM-augmented rare-class supervision</text>
+  </g>
+
+  <g transform="translate(330,200)">
+    <rect width="260" height="110" rx="14" fill="#ef4444" fill-opacity="0.14" stroke="#ef4444" stroke-width="2"/>
+    <text x="14" y="22" class="title">Dense / multi-label classification</text>
+    <text x="14" y="44" class="label">MS-COCO multi-label · NUS-WIDE · OpenImages</text>
+    <text x="14" y="62" class="sub">ML-Decoder query head,</text>
+    <text x="14" y="78" class="sub">RAM++ tagging, hierarchical heads,</text>
+    <text x="14" y="94" class="sub">Two-Stream / FL-Tran transformers</text>
+  </g>
+
+  <g transform="translate(620,200)">
+    <rect width="260" height="110" rx="14" fill="#0ea5e9" fill-opacity="0.16" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="14" y="22" class="title">Edge / quantized inference</text>
+    <text x="14" y="44" class="label">Pi5 NPU · Hailo · Edge TPU · Jetson · XDNA2</text>
+    <text x="14" y="62" class="sub">YOLO26 quant-friendly head,</text>
+    <text x="14" y="78" class="sub">FlashInternImage / DCNv4,</text>
+    <text x="14" y="94" class="sub">distillation for INT8 robustness</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(40,330)">
+    <rect width="400" height="100" rx="14" fill="#10b981" fill-opacity="0.14" stroke="#10b981" stroke-width="2"/>
+    <text x="14" y="22" class="title">Cross-cutting: deformable v4 + sparse attention</text>
+    <text x="14" y="44" class="sub">DCNv4 → FlashInternImage: ~80% throughput uplift over DCNv3,</text>
+    <text x="14" y="60" class="sub">62.9 mIoU on ADE20K. DAT++ ports the same idea to ViT.</text>
+    <text x="14" y="80" class="label">When dense + many-scale + tight FLOP budget all matter at once.</text>
+  </g>
+
+  <g transform="translate(470,330)">
+    <rect width="410" height="100" rx="14" fill="#a855f7" fill-opacity="0.14" stroke="#a855f7" stroke-width="2"/>
+    <text x="14" y="22" class="title">Cross-cutting: test-time adaptation (TTA / OTTA)</text>
+    <text x="14" y="44" class="sub">Selective TTA, on-demand TTA for edge,</text>
+    <text x="14" y="60" class="sub">feature-redundancy elimination — close the train/serve gap</text>
+    <text x="14" y="80" class="label">without retraining the whole model.</text>
+  </g>
+</svg>
