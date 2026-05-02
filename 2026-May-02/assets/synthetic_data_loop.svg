@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" font-family="Inter, system-ui, sans-serif" font-size="13" color="#475569">
+  <title>Diffusion-driven synthetic-data loop for object detection</title>
+  <desc>Closed loop: real labels condition a diffusion engine, which generates targeted synthetic detections, which are filtered and used to retrain the detector.</desc>
+
+  <style>
+    .title    { fill: currentColor; font-weight: 600; font-size: 15px; }
+    .caption  { fill: currentColor; opacity: 0.7;  font-size: 11px; }
+    .label    { fill: currentColor; opacity: 0.95; }
+    .stage    { fill: currentColor; opacity: 0.06; stroke: currentColor; stroke-width: 1.0; opacity-stroke: 0.5; }
+    .stage-st { fill: none; stroke: currentColor; stroke-width: 1.0; opacity: 0.55; }
+    .arr      { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: 0.7; marker-end: url(#arrowhead); }
+    .arr-h    { fill: none; stroke: #a855f7;     stroke-width: 1.6; opacity: 0.95; marker-end: url(#arrowhead-h); }
+    .legend-t { fill: currentColor; opacity: 0.9; font-size: 12px; }
+    .pill-real{ fill: #22c55e22; stroke: #22c55e; }
+    .pill-gen { fill: #a855f722; stroke: #a855f7; }
+    .pill-det { fill: #6366f122; stroke: #6366f1; }
+    .pill-flt { fill: #f59e0b22; stroke: #f59e0b; }
+  </style>
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" opacity="0.7"/>
+    </marker>
+    <marker id="arrowhead-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/>
+    </marker>
+  </defs>
+
+  <text class="title"   x="32" y="28">Diffusion synthetic-data loop (DiffusionEngine / TADA / DiffGAN)</text>
+  <text class="caption" x="32" y="46">Targeted generation closes the loop: only the examples the detector struggles with are synthesized.</text>
+
+  <!-- Real data -->
+  <g transform="translate(60, 100)">
+    <rect class="pill-real stage-st" width="160" height="80" rx="14" ry="14" fill-opacity="1"/>
+    <text class="label" x="80" y="34" text-anchor="middle">Real labeled set</text>
+    <text class="caption" x="80" y="56" text-anchor="middle">small / long-tailed</text>
+  </g>
+
+  <!-- Diffusion engine -->
+  <g transform="translate(280, 100)">
+    <rect class="pill-gen stage-st" width="200" height="80" rx="14" ry="14" fill-opacity="1"/>
+    <text class="label" x="100" y="32" text-anchor="middle">Conditional diffusion engine</text>
+    <text class="caption" x="100" y="50" text-anchor="middle">SDXL / ControlNet + detection adapter</text>
+    <text class="caption" x="100" y="66" text-anchor="middle">box- and mask-conditioned</text>
+  </g>
+
+  <!-- Filter / curation -->
+  <g transform="translate(540, 100)">
+    <rect class="pill-flt stage-st" width="160" height="80" rx="14" ry="14" fill-opacity="1"/>
+    <text class="label" x="80" y="32" text-anchor="middle">Hard-example curation</text>
+    <text class="caption" x="80" y="50" text-anchor="middle">TADA: keep only what</text>
+    <text class="caption" x="80" y="66" text-anchor="middle">the detector mis-fires on</text>
+  </g>
+
+  <!-- Detector -->
+  <g transform="translate(280, 220)">
+    <rect class="pill-det stage-st" width="200" height="64" rx="14" ry="14" fill-opacity="1"/>
+    <text class="label" x="100" y="32" text-anchor="middle">Detector under training</text>
+    <text class="caption" x="100" y="50" text-anchor="middle">YOLO26 · RF-DETR · DEIMv2</text>
+  </g>
+
+  <!-- Arrows -->
+  <path class="arr"   d="M 220 140 L 278 140"/>
+  <path class="arr"   d="M 480 140 L 538 140"/>
+  <path class="arr"   d="M 620 180 C 620 220, 500 240, 480 248"/>
+  <path class="arr"   d="M 280 252 C 220 252, 220 220, 140 180"/>
+  <path class="arr-h" d="M 380 220 L 380 184"/>
+  <text class="caption" x="386" y="206">loss / hard-example signal</text>
+
+  <!-- Legend -->
+  <g transform="translate(60, 290)">
+    <text class="caption" x="0" y="0">DiffusionEngine = single-stage detection-oriented synthesis · TADA = targeted, only what the detector hasn't learned · DiffGAN = diffusion + adversarial refinement</text>
+  </g>
+</svg>

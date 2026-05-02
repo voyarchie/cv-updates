@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Inter, system-ui, sans-serif" font-size="13" color="#475569">
+  <title>LiDAR 3D detection — accuracy vs. parameter budget on nuScenes (2026)</title>
+  <desc>Schematic comparison of recent point-cloud 3D detectors on nuScenes mAP vs. parameter count.</desc>
+
+  <style>
+    .axis     { stroke: currentColor; stroke-width: 1.2; fill: none; opacity: 0.85; }
+    .grid     { stroke: currentColor; stroke-width: 0.5;  opacity: 0.18; stroke-dasharray: 3 3; }
+    .tick     { fill: currentColor; opacity: 0.75; }
+    .label    { fill: currentColor; opacity: 0.95; }
+    .title    { fill: currentColor; font-weight: 600; font-size: 15px; }
+    .caption  { fill: currentColor; opacity: 0.7;  font-size: 11px; }
+    .pt-conv  { fill: #f59e0b; stroke: #b45309; stroke-width: 1.2; }
+    .pt-tx    { fill: #6366f1; stroke: #4338ca; stroke-width: 1.2; }
+    .pt-ssm   { fill: #22c55e; stroke: #15803d; stroke-width: 1.2; }
+    .pt-hyb   { fill: #06b6d4; stroke: #0e7490; stroke-width: 1.2; }
+    .legend-t { fill: currentColor; opacity: 0.9; font-size: 12px; }
+  </style>
+
+  <text class="title"   x="32" y="28">LiDAR 3D detection on nuScenes — selected 2025–2026 entries</text>
+  <text class="caption" x="32" y="46">x: parameter budget (M, log-ish bins) · y: nuScenes val mAP · color = backbone family</text>
+
+  <!-- Axes -->
+  <line class="axis" x1="80"  y1="380" x2="720" y2="380"/>
+  <line class="axis" x1="80"  y1="380" x2="80"  y2="80"/>
+
+  <!-- Y grid + ticks (mAP 60..72) -->
+  <g>
+    <line class="grid" x1="80" y1="350" x2="720" y2="350"/>
+    <line class="grid" x1="80" y1="300" x2="720" y2="300"/>
+    <line class="grid" x1="80" y1="250" x2="720" y2="250"/>
+    <line class="grid" x1="80" y1="200" x2="720" y2="200"/>
+    <line class="grid" x1="80" y1="150" x2="720" y2="150"/>
+    <line class="grid" x1="80" y1="100" x2="720" y2="100"/>
+    <text class="tick" x="68" y="384" text-anchor="end">60</text>
+    <text class="tick" x="68" y="354" text-anchor="end">62</text>
+    <text class="tick" x="68" y="304" text-anchor="end">64</text>
+    <text class="tick" x="68" y="254" text-anchor="end">66</text>
+    <text class="tick" x="68" y="204" text-anchor="end">68</text>
+    <text class="tick" x="68" y="154" text-anchor="end">70</text>
+    <text class="tick" x="68" y="104" text-anchor="end">72</text>
+    <text class="label" x="22" y="230" transform="rotate(-90 22 230)" text-anchor="middle">nuScenes val mAP</text>
+  </g>
+
+  <!-- X ticks (params: 10, 20, 50, 100, 200) -->
+  <g>
+    <text class="tick" x="160" y="400" text-anchor="middle">10M</text>
+    <text class="tick" x="280" y="400" text-anchor="middle">20M</text>
+    <text class="tick" x="420" y="400" text-anchor="middle">50M</text>
+    <text class="tick" x="560" y="400" text-anchor="middle">100M</text>
+    <text class="tick" x="700" y="400" text-anchor="middle">200M</text>
+    <text class="label" x="400" y="424" text-anchor="middle">Parameter budget</text>
+  </g>
+
+  <!-- Points: (cx, cy = 380 - (mAP-60)*25 ; cx by approximate params) -->
+  <!-- CenterPoint  ~ 64 mAP @ 12M -->
+  <circle class="pt-conv" cx="180" cy="280" r="8"/>
+  <text class="label" x="192" y="276">CenterPoint (conv, 2021)</text>
+
+  <!-- TransFusion-L ~ 65.1 mAP @ 35M -->
+  <circle class="pt-tx" cx="360" cy="252" r="9"/>
+  <text class="label" x="372" y="248">TransFusion-L (tx)</text>
+
+  <!-- FSTR ~ 65.5 mAP @ 32M -->
+  <circle class="pt-tx" cx="345" cy="247" r="9"/>
+  <text class="label" x="357" y="262">FSTR</text>
+
+  <!-- SAFDNet ~ 66.0 mAP @ 38M -->
+  <circle class="pt-conv" cx="378" cy="230" r="9"/>
+  <text class="label" x="390" y="226">SAFDNet</text>
+
+  <!-- PointSlice ~ 66.7 mAP @ 30M -->
+  <circle class="pt-hyb" cx="338" cy="212" r="10"/>
+  <text class="label" x="350" y="208">PointSlice (slice-2D)</text>
+
+  <!-- DSVT (deformable sparse voxel) ~ 68.4 mAP @ 50M -->
+  <circle class="pt-tx" cx="420" cy="170" r="11"/>
+  <text class="label" x="432" y="166">DSVT</text>
+
+  <!-- GateMamba ~ 69.5 mAP @ 30M -->
+  <circle class="pt-ssm" cx="338" cy="142" r="11"/>
+  <text class="label" x="350" y="138">GateMamba (SSM)</text>
+
+  <!-- VDM-enhanced ~ 70.5 mAP @ 60M -->
+  <circle class="pt-ssm" cx="460" cy="117" r="12"/>
+  <text class="label" x="472" y="113">VDM-SSM (densified)</text>
+
+  <!-- BEVFormer (cam, ref) NDS-anchored — placed for context only at ~56 -->
+  <!-- skipped; this chart is LiDAR-only -->
+
+  <!-- Legend -->
+  <g transform="translate(540, 78)">
+    <rect x="0" y="0" width="208" height="92" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.4"/>
+    <circle class="pt-conv" cx="14" cy="20" r="6"/>
+    <text class="legend-t" x="28" y="24">Conv / voxel CNN</text>
+    <circle class="pt-tx"   cx="14" cy="40" r="6"/>
+    <text class="legend-t" x="28" y="44">Transformer (sparse / DETR)</text>
+    <circle class="pt-ssm"  cx="14" cy="60" r="6"/>
+    <text class="legend-t" x="28" y="64">State-space (Mamba) backbone</text>
+    <circle class="pt-hyb"  cx="14" cy="80" r="6"/>
+    <text class="legend-t" x="28" y="84">Hybrid representation</text>
+  </g>
+</svg>
