@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-label="Topic map for May 4 dense detection report">
+  <title>Topic map — Dense object detection &amp; classification (May 4)</title>
+  <desc>Six themes: hidden objects, open-world &amp; long-tail, label-efficient learning, domain shift, efficient ViT, and structured prediction.</desc>
+  <style>
+    .bg{fill:none}
+    .ring{fill:none;stroke:#7f7f7f;stroke-width:1;stroke-dasharray:4 4;opacity:.55}
+    .node{fill:none;stroke:currentColor;stroke-width:1.6}
+    .core{fill:none;stroke:currentColor;stroke-width:2}
+    .label{font:600 13px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif;fill:currentColor;text-anchor:middle;dominant-baseline:middle}
+    .core-label{font:700 14px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif;fill:currentColor;text-anchor:middle;dominant-baseline:middle}
+    .small{font:500 11px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif;fill:currentColor;text-anchor:middle;dominant-baseline:middle;opacity:.85}
+    .link{stroke:#7f7f7f;stroke-width:1.2;fill:none;opacity:.6}
+  </style>
+
+  <rect class="bg" width="100%" height="100%"/>
+
+  <!-- Concentric guides -->
+  <circle class="ring" cx="440" cy="230" r="80"/>
+  <circle class="ring" cx="440" cy="230" r="180"/>
+
+  <!-- Connectors -->
+  <line class="link" x1="440" y1="230" x2="160" y2="100"/>
+  <line class="link" x1="440" y1="230" x2="720" y2="100"/>
+  <line class="link" x1="440" y1="230" x2="120" y2="240"/>
+  <line class="link" x1="440" y1="230" x2="760" y2="240"/>
+  <line class="link" x1="440" y1="230" x2="200" y2="400"/>
+  <line class="link" x1="440" y1="230" x2="680" y2="400"/>
+
+  <!-- Core -->
+  <ellipse class="core" cx="440" cy="230" rx="120" ry="56"/>
+  <text class="core-label" x="440" y="222">Dense detection</text>
+  <text class="core-label" x="440" y="244">&amp; classification</text>
+
+  <!-- Theme bubbles -->
+  <g>
+    <ellipse class="node" cx="160" cy="100" rx="120" ry="44"/>
+    <text class="label" x="160" y="92">Hidden objects</text>
+    <text class="small" x="160" y="112">camouflaged · salient · RGB-D</text>
+  </g>
+
+  <g>
+    <ellipse class="node" cx="720" cy="100" rx="130" ry="44"/>
+    <text class="label" x="720" y="92">Open-world &amp; long-tail</text>
+    <text class="small" x="720" y="112">incremental · novel-class · LT</text>
+  </g>
+
+  <g>
+    <ellipse class="node" cx="120" cy="240" rx="100" ry="44"/>
+    <text class="label" x="120" y="232">Label-efficient</text>
+    <text class="small" x="120" y="252">weakly · semi · active</text>
+  </g>
+
+  <g>
+    <ellipse class="node" cx="760" cy="240" rx="100" ry="44"/>
+    <text class="label" x="760" y="232">Domain shift</text>
+    <text class="small" x="760" y="252">SFOD · TTA · DG</text>
+  </g>
+
+  <g>
+    <ellipse class="node" cx="200" cy="400" rx="130" ry="44"/>
+    <text class="label" x="200" y="392">Efficient ViT</text>
+    <text class="small" x="200" y="412">token pruning · sparse attn</text>
+  </g>
+
+  <g>
+    <ellipse class="node" cx="680" cy="400" rx="140" ry="44"/>
+    <text class="label" x="680" y="392">Structured prediction</text>
+    <text class="small" x="680" y="412">PSG · medical dense det.</text>
+  </g>
+</svg>
