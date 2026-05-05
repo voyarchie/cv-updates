@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" role="img"
+     aria-labelledby="cct ccd" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="cct">Sequential Conformal Risk Control for object detection</title>
+  <desc id="ccd">Pipeline showing how a base detector is wrapped with two sequentially calibrated parameters
+    to give finite-sample guarantees on classification and localisation losses.</desc>
+  <style>
+    .axis  { stroke: currentColor; stroke-width: 1.2; opacity: .55; fill: none; }
+    .head  { fill: currentColor; font-size: 14px; font-weight: 700; }
+    .lab   { fill: currentColor; font-size: 12px; }
+    .small { fill: currentColor; font-size: 11px; opacity: .8; }
+    .text  { fill: #0f172a; font-size: 12px; font-weight: 600; }
+    .arr   { stroke: currentColor; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <text class="head" x="440" y="32" text-anchor="middle">SeqCRC — finite-sample guarantees for object detectors</text>
+
+  <!-- Stage 1: base model -->
+  <rect x="36" y="86" width="160" height="64" rx="12" fill="#60a5fa"/>
+  <text class="text" x="116" y="112" text-anchor="middle">Trained detector</text>
+  <text class="text" x="116" y="130" text-anchor="middle">(any backbone / family)</text>
+
+  <!-- Stage 2: calibration set -->
+  <rect x="226" y="86" width="180" height="64" rx="12" fill="#fbbf24"/>
+  <text class="text" x="316" y="108" text-anchor="middle">Held-out calibration set</text>
+  <text class="text" x="316" y="126" text-anchor="middle">(images + GT boxes)</text>
+  <text class="text" x="316" y="142" text-anchor="middle">size n</text>
+
+  <!-- Stage 3: param λ1 -->
+  <rect x="436" y="86" width="180" height="64" rx="12" fill="#f472b6"/>
+  <text class="text" x="526" y="108" text-anchor="middle">Choose λ₁</text>
+  <text class="text" x="526" y="126" text-anchor="middle">(class-confidence)</text>
+  <text class="text" x="526" y="142" text-anchor="middle">→ classification risk α</text>
+
+  <!-- Stage 4: param λ2 -->
+  <rect x="646" y="86" width="200" height="64" rx="12" fill="#a78bfa"/>
+  <text class="text" x="746" y="108" text-anchor="middle">Choose λ₂ | λ₁</text>
+  <text class="text" x="746" y="126" text-anchor="middle">(box inflation)</text>
+  <text class="text" x="746" y="142" text-anchor="middle">→ localisation risk β</text>
+
+  <!-- arrows -->
+  <path class="arr" d="M196 118 H 226"/>
+  <path class="arr" d="M406 118 H 436"/>
+  <path class="arr" d="M616 118 H 646"/>
+
+  <!-- Output prediction set -->
+  <rect x="36" y="208" width="810" height="74" rx="14" fill="none" class="axis"/>
+  <text class="head" x="56" y="232" text-anchor="start">Output: prediction set per image</text>
+  <text class="lab"  x="56" y="252" text-anchor="start">Each kept box carries (i) a class-credibility set with miscoverage ≤ α, and</text>
+  <text class="lab"  x="56" y="270" text-anchor="start">(ii) an inflated box guaranteed to contain the true bounding box with risk ≤ β — both valid for any data distribution.</text>
+
+  <text class="small" x="440" y="304" text-anchor="middle">Refs: Andéol et al., arXiv:2505.24038 — extension of Conformal Risk Control (Angelopoulos et al., 2024) to two sequential losses.</text>
+</svg>
