@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" role="img"
+     aria-labelledby="sahi-t sahi-d"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="sahi-t">SAHI sliced inference vs. native query-based small-object detection</title>
+  <desc id="sahi-d">Two paths: top — SAHI tiles the image, runs a detector per tile, and merges
+    boxes via NMS-greedy. Bottom — a query-based DETR (DQ-DETR / NRQO / DFIR-DETR) processes
+    the full image with size-conditioned queries and a P2 high-resolution head.</desc>
+
+  <style>
+    .stroke   { stroke: currentColor; stroke-width: 1.2; fill: none; opacity: .65; }
+    .arrow    { stroke: currentColor; stroke-width: 1.4; fill: none; opacity: .75; }
+    .hdr      { fill: currentColor; font-size: 14px; font-weight: 600; }
+    .sub      { fill: currentColor; font-size: 12px; opacity: .85; }
+    .micro    { fill: currentColor; font-size: 10.5px; opacity: .75; }
+    .tile     { fill: #fbbf24; stroke: #b45309; stroke-width: 1; }
+    .det      { fill: #4f46e5; stroke: #312e81; stroke-width: 1; }
+    .head     { fill: #34d399; stroke: #047857; stroke-width: 1; }
+    .query    { fill: #f472b6; stroke: #9d174d; stroke-width: 1; }
+    .label-d  { fill: #ffffff; font-size: 12px; font-weight: 600; }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="currentColor" opacity="0.75"/>
+    </marker>
+  </defs>
+
+  <!-- TOP ROW: SAHI -->
+  <text class="hdr" x="20" y="32">SAHI: slice → detect-per-tile → merge</text>
+
+  <!-- input image -->
+  <rect x="20"  y="50" width="120" height="90" rx="6" class="stroke"/>
+  <text class="micro" x="80" y="100" text-anchor="middle">full image</text>
+
+  <!-- arrow -->
+  <line class="arrow" x1="146" y1="95" x2="186" y2="95" marker-end="url(#ah)"/>
+
+  <!-- 2x2 tiles -->
+  <g>
+    <rect x="190" y="55" width="50" height="40" rx="3" class="tile"/>
+    <rect x="246" y="55" width="50" height="40" rx="3" class="tile"/>
+    <rect x="190" y="100" width="50" height="40" rx="3" class="tile"/>
+    <rect x="246" y="100" width="50" height="40" rx="3" class="tile"/>
+    <text class="micro" x="243" y="158" text-anchor="middle">overlapping tiles</text>
+  </g>
+
+  <line class="arrow" x1="304" y1="95" x2="344" y2="95" marker-end="url(#ah)"/>
+
+  <!-- per-tile detector -->
+  <rect x="350" y="60" width="130" height="70" rx="8" class="det"/>
+  <text class="label-d" x="415" y="92" text-anchor="middle">per-tile detector</text>
+  <text class="label-d" x="415" y="108" text-anchor="middle">YOLO / RT-DETR</text>
+
+  <line class="arrow" x1="486" y1="95" x2="526" y2="95" marker-end="url(#ah)"/>
+
+  <!-- merge box -->
+  <rect x="530" y="60" width="120" height="70" rx="8" class="head"/>
+  <text class="label-d" x="590" y="92" text-anchor="middle">greedy NMS</text>
+  <text class="label-d" x="590" y="108" text-anchor="middle">+ tile reproject</text>
+
+  <line class="arrow" x1="656" y1="95" x2="696" y2="95" marker-end="url(#ah)"/>
+
+  <!-- output -->
+  <rect x="700" y="50" width="200" height="90" rx="6" class="stroke"/>
+  <text class="sub"   x="800" y="88" text-anchor="middle">small-object boxes</text>
+  <text class="micro" x="800" y="106" text-anchor="middle">no extra training; +1.5–4 AP</text>
+
+  <!-- separator -->
+  <line x1="20" y1="170" x2="900" y2="170" class="stroke" stroke-dasharray="4 4"/>
+
+  <!-- BOTTOM ROW: query-based DETR for SOD -->
+  <text class="hdr" x="20" y="200">Native: query-based DETR with P2 head + size-conditioned queries</text>
+
+  <rect x="20" y="218" width="120" height="80" rx="6" class="stroke"/>
+  <text class="micro" x="80" y="262" text-anchor="middle">full image</text>
+
+  <line class="arrow" x1="146" y1="258" x2="186" y2="258" marker-end="url(#ah)"/>
+
+  <!-- backbone -->
+  <rect x="190" y="220" width="120" height="76" rx="8" class="det"/>
+  <text class="label-d" x="250" y="248" text-anchor="middle">backbone</text>
+  <text class="label-d" x="250" y="264" text-anchor="middle">+ FPN incl. P2</text>
+  <text class="micro"   x="250" y="284" text-anchor="middle">stride 4</text>
+
+  <line class="arrow" x1="316" y1="258" x2="356" y2="258" marker-end="url(#ah)"/>
+
+  <!-- queries -->
+  <rect x="360" y="220" width="160" height="76" rx="8" class="query"/>
+  <text class="label-d" x="440" y="248" text-anchor="middle">size-conditioned</text>
+  <text class="label-d" x="440" y="264" text-anchor="middle">queries (DQ-DETR)</text>
+  <text class="micro"   x="440" y="284" text-anchor="middle">noise-resilient (NRQO)</text>
+
+  <line class="arrow" x1="526" y1="258" x2="566" y2="258" marker-end="url(#ah)"/>
+
+  <!-- frequency module -->
+  <rect x="570" y="220" width="140" height="76" rx="8" class="head"/>
+  <text class="label-d" x="640" y="248" text-anchor="middle">freq.-domain</text>
+  <text class="label-d" x="640" y="264" text-anchor="middle">refinement (FIRC3)</text>
+  <text class="micro"   x="640" y="284" text-anchor="middle">DFIR-DETR</text>
+
+  <line class="arrow" x1="716" y1="258" x2="756" y2="258" marker-end="url(#ah)"/>
+
+  <!-- output -->
+  <rect x="760" y="218" width="140" height="80" rx="6" class="stroke"/>
+  <text class="sub"   x="830" y="252" text-anchor="middle">small-object boxes</text>
+  <text class="micro" x="830" y="270" text-anchor="middle">end-to-end</text>
+  <text class="micro" x="830" y="284" text-anchor="middle">+0.5–3 AP_S over RT-DETR</text>
+</svg>
