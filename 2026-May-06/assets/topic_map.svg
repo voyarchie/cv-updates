@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" role="img"
+     aria-labelledby="t06 d06"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="t06">2026-May-06 topic map: applied dense-detection threads</title>
+  <desc id="d06">Six application-driven threads — tiny objects, oriented boxes, industrial anomaly,
+    novel-object 6-DoF pose, document layout, and robotic grasp — radiating from a central
+    hub labeled "applied dense detection".</desc>
+
+  <style>
+    .axis      { stroke: currentColor; stroke-width: 1.2; opacity: .60; fill: none; }
+    .label     { fill: currentColor; font-size: 13px; }
+    .small     { fill: currentColor; font-size: 11px; opacity: .80; }
+    .hub-text  { fill: #ffffff; font-size: 14px; font-weight: 700; }
+    .leaf-text { fill: #0f172a; font-size: 12.5px; font-weight: 600; }
+    .leaf-sub  { fill: #0f172a; font-size: 10.5px; opacity: .85; }
+  </style>
+
+  <!-- central hub -->
+  <g>
+    <circle cx="460" cy="230" r="74" fill="#4f46e5" stroke="#312e81" stroke-width="1.5"/>
+    <text class="hub-text" x="460" y="224" text-anchor="middle">Applied dense</text>
+    <text class="hub-text" x="460" y="244" text-anchor="middle">detection</text>
+  </g>
+
+  <!-- top-left: tiny objects -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="170" y2="80"/>
+    <rect x="20"  y="40"  width="300" height="78" rx="14" fill="#fbbf24" stroke="#b45309" stroke-width="1.2"/>
+    <text class="leaf-text" x="170" y="68"  text-anchor="middle">Tiny / small object detection</text>
+    <text class="leaf-sub"  x="170" y="86"  text-anchor="middle">SAHI · P2 heads · query-noise · frequency</text>
+    <text class="leaf-sub"  x="170" y="104" text-anchor="middle">DQ-DETR · NRQO · DFIR-DETR · SOAR</text>
+  </g>
+
+  <!-- top-right: oriented boxes -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="750" y2="80"/>
+    <rect x="600" y="40"  width="300" height="78" rx="14" fill="#34d399" stroke="#047857" stroke-width="1.2"/>
+    <text class="leaf-text" x="750" y="68"  text-anchor="middle">Oriented bounding boxes</text>
+    <text class="leaf-sub"  x="750" y="86"  text-anchor="middle">aerial · document · rotation-equivariant</text>
+    <text class="leaf-sub"  x="750" y="104" text-anchor="middle">RO²-DETR · LSKNet · YOLO11/26-OBB</text>
+  </g>
+
+  <!-- middle-left: anomaly -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="170" y2="230"/>
+    <rect x="20"  y="192" width="300" height="78" rx="14" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2"/>
+    <text class="leaf-text" x="170" y="220" text-anchor="middle">Industrial anomaly detection</text>
+    <text class="leaf-sub"  x="170" y="238" text-anchor="middle">multi-class · zero-shot · diffusion</text>
+    <text class="leaf-sub"  x="170" y="256" text-anchor="middle">Dinomaly · EfficientAD · AnomalyCLIP</text>
+  </g>
+
+  <!-- middle-right: 6-DoF pose -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="750" y2="230"/>
+    <rect x="600" y="192" width="300" height="78" rx="14" fill="#f472b6" stroke="#9d174d" stroke-width="1.2"/>
+    <text class="leaf-text" x="750" y="220" text-anchor="middle">Novel-object 6-DoF pose</text>
+    <text class="leaf-sub"  x="750" y="238" text-anchor="middle">CAD-free · single-reference · model-free</text>
+    <text class="leaf-sub"  x="750" y="256" text-anchor="middle">FoundationPose · Any6D · GigaPose · One2Any</text>
+  </g>
+
+  <!-- bottom-left: documents -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="170" y2="380"/>
+    <rect x="20"  y="342" width="300" height="78" rx="14" fill="#a78bfa" stroke="#5b21b6" stroke-width="1.2"/>
+    <text class="leaf-text" x="170" y="370" text-anchor="middle">Document layout detection</text>
+    <text class="leaf-sub"  x="170" y="388" text-anchor="middle">RT-DETR · YOLO-v10 · graph reading order</text>
+    <text class="leaf-sub"  x="170" y="406" text-anchor="middle">DocLayout-YOLO · PP-DocLayout · DLAFormer</text>
+  </g>
+
+  <!-- bottom-right: grasp -->
+  <g>
+    <line class="axis" x1="460" y1="230" x2="750" y2="380"/>
+    <rect x="600" y="342" width="300" height="78" rx="14" fill="#f97316" stroke="#9a3412" stroke-width="1.2"/>
+    <text class="leaf-text" x="750" y="370" text-anchor="middle">Robotic dense grasp perception</text>
+    <text class="leaf-sub"  x="750" y="388" text-anchor="middle">7-DoF dense pose · temporal grasp tracking</text>
+    <text class="leaf-sub"  x="750" y="406" text-anchor="middle">AnyGrasp · GraspNet-1B · AnyDexGrasp</text>
+  </g>
+</svg>
