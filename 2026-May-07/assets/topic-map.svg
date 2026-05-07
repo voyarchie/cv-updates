@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="Topic map of 2026-May-07 CV updates">
+  <style>
+    .node { fill: none; stroke: #888; stroke-width: 1.5; }
+    .label { font: 600 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
+    .sub { font: 11px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; opacity: 0.75; }
+    .edge { stroke: #888; stroke-width: 1; fill: none; opacity: 0.6; }
+    .center { fill: #8884; stroke: #888; stroke-width: 1.8; }
+    .accent1 { stroke: #5aa2ff; }
+    .accent2 { stroke: #f0a85a; }
+    .accent3 { stroke: #6acf94; }
+    .accent4 { stroke: #c074d6; }
+  </style>
+
+  <!-- center -->
+  <ellipse cx="380" cy="190" rx="120" ry="42" class="center" />
+  <text x="380" y="186" text-anchor="middle" class="label">Dense Detection &amp;</text>
+  <text x="380" y="204" text-anchor="middle" class="label">Classification — May 7</text>
+
+  <!-- edges -->
+  <path class="edge" d="M380 148 C 380 100, 200 80, 130 70" />
+  <path class="edge" d="M380 148 C 380 100, 560 80, 630 70" />
+  <path class="edge" d="M380 232 C 380 280, 200 300, 130 310" />
+  <path class="edge" d="M380 232 C 380 280, 560 300, 630 310" />
+  <path class="edge" d="M260 190 L 90 190" />
+  <path class="edge" d="M500 190 L 670 190" />
+
+  <!-- nodes -->
+  <g>
+    <rect x="20" y="48" width="220" height="48" rx="8" class="node accent1" />
+    <text x="130" y="70" text-anchor="middle" class="label">DINOv3 frozen backbones</text>
+    <text x="130" y="86" text-anchor="middle" class="sub">SSL · COCO 66.1 mAP · ConvNeXt distillation</text>
+  </g>
+  <g>
+    <rect x="520" y="48" width="220" height="48" rx="8" class="node accent2" />
+    <text x="630" y="70" text-anchor="middle" class="label">SAM 3 / SAM 3.1 / SAM3-I</text>
+    <text x="630" y="86" text-anchor="middle" class="sub">concept prompts · instruction following</text>
+  </g>
+  <g>
+    <rect x="0" y="166" width="180" height="48" rx="8" class="node accent3" />
+    <text x="90" y="188" text-anchor="middle" class="label">YOLO26</text>
+    <text x="90" y="204" text-anchor="middle" class="sub">NMS-free · INT8 · NPU export</text>
+  </g>
+  <g>
+    <rect x="580" y="166" width="180" height="48" rx="8" class="node accent4" />
+    <text x="670" y="188" text-anchor="middle" class="label">Oriented OBB heads</text>
+    <text x="670" y="204" text-anchor="middle" class="sub">DOTA-v2 · aerial / scene-text</text>
+  </g>
+  <g>
+    <rect x="20" y="288" width="220" height="48" rx="8" class="node accent1" />
+    <text x="130" y="310" text-anchor="middle" class="label">Adverse weather &amp; low-light</text>
+    <text x="130" y="326" text-anchor="middle" class="sub">style-vs-weather DA · mean-teacher</text>
+  </g>
+  <g>
+    <rect x="520" y="288" width="220" height="48" rx="8" class="node accent2" />
+    <text x="630" y="310" text-anchor="middle" class="label">Egocentric detection</text>
+    <text x="630" y="326" text-anchor="middle" class="sub">Ego4D · EPIC-KITCHENS · HOI</text>
+  </g>
+
+  <!-- bottom row -->
+  <path class="edge" d="M260 240 C 260 320, 280 350, 320 350" />
+  <path class="edge" d="M500 240 C 500 320, 480 350, 440 350" />
+  <g>
+    <rect x="240" y="334" width="140" height="38" rx="8" class="node accent3" />
+    <text x="310" y="358" text-anchor="middle" class="label">Federated + DP detection</text>
+  </g>
+  <g>
+    <rect x="400" y="334" width="140" height="38" rx="8" class="node accent4" />
+    <text x="470" y="358" text-anchor="middle" class="label">FHIBE fairness audits</text>
+  </g>
+</svg>
