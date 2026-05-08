@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" role="img" aria-label="Topic map of 2026-May-08 CV updates">
+  <style>
+    .node { fill: none; stroke: #888; stroke-width: 1.5; }
+    .label { font: 600 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
+    .sub { font: 11px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; opacity: 0.75; }
+    .edge { stroke: #888; stroke-width: 1; fill: none; opacity: 0.6; }
+    .edge-d { stroke: #888; stroke-width: 1; fill: none; opacity: 0.5; stroke-dasharray: 4 3; }
+    .center { fill: #8884; stroke: #888; stroke-width: 1.8; }
+    .accent1 { stroke: #5aa2ff; }
+    .accent2 { stroke: #f0a85a; }
+    .accent3 { stroke: #6acf94; }
+    .accent4 { stroke: #c074d6; }
+    .accent5 { stroke: #e36b6b; }
+  </style>
+
+  <!-- center hub -->
+  <ellipse cx="390" cy="210" rx="125" ry="44" class="center" />
+  <text x="390" y="206" text-anchor="middle" class="label">Dense Detection &amp;</text>
+  <text x="390" y="224" text-anchor="middle" class="label">Classification — May 8</text>
+
+  <!-- top row: applied verticals -->
+  <g>
+    <rect x="20" y="30" width="180" height="50" rx="8" class="node accent1" />
+    <text x="110" y="52" text-anchor="middle" class="label">Document layout</text>
+    <text x="110" y="68" text-anchor="middle" class="sub">DocLayNet v2 · PaliGemma 2</text>
+  </g>
+  <g>
+    <rect x="210" y="30" width="180" height="50" rx="8" class="node accent2" />
+    <text x="300" y="52" text-anchor="middle" class="label">Industrial defect</text>
+    <text x="300" y="68" text-anchor="middle" class="sub">PatchCore-3 · EfficientAD-2</text>
+  </g>
+  <g>
+    <rect x="400" y="30" width="180" height="50" rx="8" class="node accent3" />
+    <text x="490" y="52" text-anchor="middle" class="label">Wildlife / camera traps</text>
+    <text x="490" y="68" text-anchor="middle" class="sub">MegaDetector v6 · SpeciesNet</text>
+  </g>
+  <g>
+    <rect x="590" y="30" width="180" height="50" rx="8" class="node accent4" />
+    <text x="680" y="52" text-anchor="middle" class="label">Agriculture</text>
+    <text x="680" y="68" text-anchor="middle" class="sub">CWF-1 · phenology tokens</text>
+  </g>
+
+  <!-- left column: reasoning + adapt -->
+  <g>
+    <rect x="20" y="190" width="180" height="50" rx="8" class="node accent5" />
+    <text x="110" y="212" text-anchor="middle" class="label">Reasoning grounders</text>
+    <text x="110" y="228" text-anchor="middle" class="sub">DetGPT-2 · ChatRex · CoT</text>
+  </g>
+
+  <!-- right column: PEFT + continual -->
+  <g>
+    <rect x="590" y="190" width="180" height="50" rx="8" class="node accent1" />
+    <text x="680" y="212" text-anchor="middle" class="label">PEFT for detectors</text>
+    <text x="680" y="228" text-anchor="middle" class="sub">LoRA-Det · VPT-Det · ConvLoRA</text>
+  </g>
+
+  <!-- bottom row: continual + green -->
+  <g>
+    <rect x="120" y="350" width="220" height="50" rx="8" class="node accent2" />
+    <text x="230" y="372" text-anchor="middle" class="label">Continual / lifelong detection</text>
+    <text x="230" y="388" text-anchor="middle" class="sub">iOD-DETR · OW-DETR-NC · ABR</text>
+  </g>
+  <g>
+    <rect x="440" y="350" width="220" height="50" rx="8" class="node accent3" />
+    <text x="550" y="372" text-anchor="middle" class="label">Energy &amp; carbon-aware</text>
+    <text x="550" y="388" text-anchor="middle" class="sub">CodeCarbon · RigL-Det · INT8</text>
+  </g>
+
+  <!-- edges from hub to outer nodes -->
+  <path class="edge" d="M310 174 C 230 130, 170 100, 110 80" />
+  <path class="edge" d="M360 168 C 320 130, 310 100, 300 80" />
+  <path class="edge" d="M420 168 C 460 130, 470 100, 490 80" />
+  <path class="edge" d="M470 174 C 550 130, 620 100, 680 80" />
+
+  <path class="edge" d="M265 210 L 200 215" />
+  <path class="edge" d="M515 210 L 590 215" />
+
+  <path class="edge" d="M340 250 C 310 300, 270 340, 240 350" />
+  <path class="edge" d="M440 250 C 470 300, 520 340, 540 350" />
+
+  <!-- supporting cross-links (dashed) -->
+  <path class="edge-d" d="M200 215 C 260 280, 380 320, 440 350" />
+  <path class="edge-d" d="M590 215 C 540 280, 400 310, 340 350" />
+  <path class="edge-d" d="M590 215 C 590 130, 590 100, 590 80" />
+  <path class="edge-d" d="M590 215 C 590 130, 480 100, 490 80" />
+
+  <!-- legend -->
+  <g transform="translate(20,400)">
+    <line x1="0" y1="0" x2="24" y2="0" class="edge" />
+    <text x="32" y="4" class="sub">primary link</text>
+    <line x1="120" y1="0" x2="144" y2="0" class="edge-d" />
+    <text x="152" y="4" class="sub">cross-link (enables / constrains)</text>
+  </g>
+</svg>
