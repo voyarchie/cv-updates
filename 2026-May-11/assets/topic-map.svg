@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" role="img" aria-label="Topic map of 2026-May-11 CV updates">
+  <style>
+    .node { fill: none; stroke: #888; stroke-width: 1.5; }
+    .label { font: 600 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
+    .sub { font: 11px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; opacity: 0.75; }
+    .edge { stroke: #888; stroke-width: 1; fill: none; opacity: 0.6; }
+    .edge-d { stroke: #888; stroke-width: 1; fill: none; opacity: 0.5; stroke-dasharray: 4 3; }
+    .center { fill: #8884; stroke: #888; stroke-width: 1.8; }
+    .accent1 { stroke: #5aa2ff; }
+    .accent2 { stroke: #f0a85a; }
+    .accent3 { stroke: #6acf94; }
+    .accent4 { stroke: #c074d6; }
+    .accent5 { stroke: #e36b6b; }
+    .accent6 { stroke: #4fb3c4; }
+    .group { font: 600 12px ui-sans-serif, system-ui, sans-serif; fill: currentColor; opacity: 0.55; }
+  </style>
+
+  <!-- center hub -->
+  <ellipse cx="410" cy="230" rx="135" ry="46" class="center" />
+  <text x="410" y="225" text-anchor="middle" class="label">Dense Detection &amp;</text>
+  <text x="410" y="244" text-anchor="middle" class="label">Classification — May 11</text>
+
+  <!-- Group labels -->
+  <text x="115" y="20" text-anchor="middle" class="group">EFFICIENCY / DEPLOYMENT</text>
+  <text x="705" y="20" text-anchor="middle" class="group">FOUNDATIONS</text>
+  <text x="115" y="448" text-anchor="middle" class="group">SPATIAL REGIMES</text>
+  <text x="705" y="448" text-anchor="middle" class="group">INTEGRITY / TEMPORAL</text>
+
+  <!-- Top-left: 4-bit quantization -->
+  <g>
+    <rect x="25" y="40" width="200" height="60" rx="8" class="node accent1" />
+    <text x="125" y="62" text-anchor="middle" class="label">4-bit / FP4 detector PTQ</text>
+    <text x="125" y="80" text-anchor="middle" class="sub">InlierQ · NVFP4 · MX-FP4</text>
+    <text x="125" y="93" text-anchor="middle" class="sub">~0.5 mAP loss at W4A4</text>
+  </g>
+
+  <!-- Mid-left: driving -->
+  <g>
+    <rect x="25" y="115" width="200" height="60" rx="8" class="node accent2" />
+    <text x="125" y="137" text-anchor="middle" class="label">End-to-end driving</text>
+    <text x="125" y="155" text-anchor="middle" class="sub">SparseDrive · DriveTransformer</text>
+    <text x="125" y="168" text-anchor="middle" class="sub">task-parallel queries</text>
+  </g>
+
+  <!-- Top-right: generative generalists -->
+  <g>
+    <rect x="595" y="40" width="200" height="60" rx="8" class="node accent3" />
+    <text x="695" y="62" text-anchor="middle" class="label">Generative generalists</text>
+    <text x="695" y="80" text-anchor="middle" class="sub">Vision Banana</text>
+    <text x="695" y="93" text-anchor="middle" class="sub">task = RGB generation</text>
+  </g>
+
+  <!-- Mid-right: multilingual VL -->
+  <g>
+    <rect x="595" y="115" width="200" height="60" rx="8" class="node accent4" />
+    <text x="695" y="137" text-anchor="middle" class="label">Multilingual VL encoders</text>
+    <text x="695" y="155" text-anchor="middle" class="sub">SigLIP 2 · MetaCLIP 2</text>
+    <text x="695" y="168" text-anchor="middle" class="sub">LVIS rare + non-English</text>
+  </g>
+
+  <!-- Bottom-left: 360 -->
+  <g>
+    <rect x="25" y="290" width="200" height="60" rx="8" class="node accent5" />
+    <text x="125" y="312" text-anchor="middle" class="label">Panoramic / 360°</text>
+    <text x="125" y="330" text-anchor="middle" class="sub">YOLO11-4K · OmniMOT</text>
+    <text x="125" y="343" text-anchor="middle" class="sub">P2 head, full-FoV 4K</text>
+  </g>
+
+  <!-- Bottom-mid-left: crowd -->
+  <g>
+    <rect x="25" y="365" width="200" height="60" rx="8" class="node accent6" />
+    <text x="125" y="387" text-anchor="middle" class="label">Crowd counting</text>
+    <text x="125" y="405" text-anchor="middle" class="sub">HMSTUNet · CLDE-Net</text>
+    <text x="125" y="418" text-anchor="middle" class="sub">Tx-CNN UNet + points</text>
+  </g>
+
+  <!-- Bottom-right: deepfake -->
+  <g>
+    <rect x="595" y="290" width="200" height="60" rx="8" class="node accent1" />
+    <text x="695" y="312" text-anchor="middle" class="label">Deepfake localization</text>
+    <text x="695" y="330" text-anchor="middle" class="sub">DDL · DDL-X · ADAD</text>
+    <text x="695" y="343" text-anchor="middle" class="sub">per-pixel forgery masks</text>
+  </g>
+
+  <!-- Bottom-mid-right: tracking -->
+  <g>
+    <rect x="595" y="365" width="200" height="60" rx="8" class="node accent2" />
+    <text x="695" y="387" text-anchor="middle" class="label">Long-horizon tracking</text>
+    <text x="695" y="405" text-anchor="middle" class="sub">SAM2-Long · HiM2SAM · MASA</text>
+    <text x="695" y="418" text-anchor="middle" class="sub">grounder + SAM 2 + memory</text>
+  </g>
+
+  <!-- edges from hub to each node -->
+  <path class="edge accent1" d="M 290 220 C 250 160, 220 110, 225 80" />
+  <path class="edge accent2" d="M 290 230 C 250 200, 220 165, 225 150" />
+  <path class="edge accent3" d="M 530 220 C 570 160, 600 110, 595 80" />
+  <path class="edge accent4" d="M 530 230 C 570 200, 600 165, 595 150" />
+  <path class="edge accent5" d="M 290 250 C 250 290, 220 315, 225 320" />
+  <path class="edge accent6" d="M 290 260 C 250 340, 220 380, 225 395" />
+  <path class="edge accent1" d="M 530 250 C 570 290, 600 315, 595 320" />
+  <path class="edge accent2" d="M 530 260 C 570 340, 600 380, 595 395" />
+
+  <!-- cross-links (dashed) -->
+  <path class="edge-d" d="M 225 145 C 350 145, 350 80, 225 80" />
+  <path class="edge-d" d="M 595 80 C 480 80, 480 145, 595 145" />
+  <path class="edge-d" d="M 225 320 C 350 360, 350 400, 225 395" />
+  <path class="edge-d" d="M 595 395 C 480 395, 480 320, 595 320" />
+</svg>
