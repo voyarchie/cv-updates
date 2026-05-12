@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13">
+  <title>Dense detection &amp; classification — topic map for 2026-May-12</title>
+  <desc>Hub-and-spoke topic map. Neutral grey strokes and translucent fills render correctly in both light and dark UI themes.</desc>
+
+  <style>
+    .node       { fill: rgba(128,128,128,0.10); stroke: #888; stroke-width: 1.2; }
+    .hub        { fill: rgba(128,128,128,0.18); stroke: #888; stroke-width: 1.6; }
+    .accent-a   { fill: rgba(102,153,204,0.18); stroke: #6699cc; }
+    .accent-b   { fill: rgba(204,153,102,0.18); stroke: #cc9966; }
+    .accent-c   { fill: rgba(153,204,153,0.18); stroke: #99cc99; }
+    .accent-d   { fill: rgba(204,153,204,0.18); stroke: #cc99cc; }
+    .accent-e   { fill: rgba(204,204,102,0.20); stroke: #cccc66; }
+    .label      { fill: #888; }
+    .edge       { stroke: #888; stroke-width: 1.1; fill: none; opacity: 0.7; }
+    .edge-dash  { stroke: #888; stroke-width: 1.1; fill: none; opacity: 0.6; stroke-dasharray: 4 3; }
+    .group      { fill: rgba(128,128,128,0.04); stroke: #888; stroke-width: 0.6; stroke-dasharray: 2 3; }
+    .grouplabel { fill: #888; font-size: 11px; letter-spacing: 0.5px; }
+  </style>
+
+  <!-- group rings -->
+  <rect class="group" x="20"  y="40"  width="280" height="200" rx="14"/>
+  <text class="grouplabel" x="34" y="62">DRIVING STACKS</text>
+  <rect class="group" x="680" y="40"  width="280" height="200" rx="14"/>
+  <text class="grouplabel" x="694" y="62">AGENT &amp; GUI</text>
+  <rect class="group" x="20"  y="320" width="280" height="220" rx="14"/>
+  <text class="grouplabel" x="34" y="342">SENSORS BEYOND RGB</text>
+  <rect class="group" x="680" y="320" width="280" height="220" rx="14"/>
+  <text class="grouplabel" x="694" y="342">DEPLOYMENT MATH</text>
+  <rect class="group" x="350" y="40"  width="280" height="80"  rx="14"/>
+  <text class="grouplabel" x="364" y="62">SET-PREDICTION CORE</text>
+  <rect class="group" x="350" y="450" width="280" height="90"  rx="14"/>
+  <text class="grouplabel" x="364" y="472">CLASSIFICATION FRONTIER</text>
+
+  <!-- hub -->
+  <ellipse class="hub" cx="490" cy="280" rx="120" ry="48"/>
+  <text class="label" x="490" y="276" text-anchor="middle" font-weight="600">Dense Detection &amp;</text>
+  <text class="label" x="490" y="294" text-anchor="middle" font-weight="600">Classification — May-12</text>
+
+  <!-- driving stacks -->
+  <rect class="node accent-a" x="34"  y="80"  width="120" height="42" rx="8"/>
+  <text class="label" x="94"  y="106" text-anchor="middle">UniDriveVLA</text>
+  <rect class="node accent-a" x="168" y="80"  width="118" height="42" rx="8"/>
+  <text class="label" x="227" y="106" text-anchor="middle">DrivePI / Dr.Occ</text>
+  <rect class="node accent-a" x="34"  y="138" width="252" height="42" rx="8"/>
+  <text class="label" x="160" y="164" text-anchor="middle">3D occupancy + flow + plan</text>
+  <rect class="node accent-a" x="34"  y="196" width="252" height="36" rx="8"/>
+  <text class="label" x="160" y="218" text-anchor="middle">π0.5 / GR00T (manipulation)</text>
+
+  <!-- set-prediction core -->
+  <rect class="node accent-c" x="362" y="78"  width="125" height="36" rx="8"/>
+  <text class="label" x="424" y="100" text-anchor="middle">Co-DETR / hybrid</text>
+  <rect class="node accent-c" x="498" y="78"  width="120" height="36" rx="8"/>
+  <text class="label" x="558" y="100" text-anchor="middle">MoE-DETR / YOLO-MoE</text>
+
+  <!-- agent / GUI -->
+  <rect class="node accent-d" x="694" y="80"  width="120" height="42" rx="8"/>
+  <text class="label" x="754" y="106" text-anchor="middle">GUI-Actor</text>
+  <rect class="node accent-d" x="828" y="80"  width="120" height="42" rx="8"/>
+  <text class="label" x="888" y="106" text-anchor="middle">R-VLM</text>
+  <rect class="node accent-d" x="694" y="138" width="254" height="42" rx="8"/>
+  <text class="label" x="821" y="164" text-anchor="middle">Coordinate-free element grounding</text>
+  <rect class="node accent-d" x="694" y="196" width="254" height="36" rx="8"/>
+  <text class="label" x="821" y="218" text-anchor="middle">Web/desktop UI dense parse</text>
+
+  <!-- sensors beyond RGB -->
+  <rect class="node accent-b" x="34"  y="362" width="120" height="42" rx="8"/>
+  <text class="label" x="94"  y="388" text-anchor="middle">RadarXFormer</text>
+  <rect class="node accent-b" x="168" y="362" width="118" height="42" rx="8"/>
+  <text class="label" x="227" y="388" text-anchor="middle">T2C-DETR (sonar)</text>
+  <rect class="node accent-b" x="34"  y="420" width="252" height="42" rx="8"/>
+  <text class="label" x="160" y="446" text-anchor="middle">4D radar + camera fusion</text>
+  <rect class="node accent-b" x="34"  y="478" width="252" height="42" rx="8"/>
+  <text class="label" x="160" y="504" text-anchor="middle">NAS-DETR sonar / SUOP 3D</text>
+
+  <!-- deployment math -->
+  <rect class="node accent-e" x="694" y="362" width="120" height="42" rx="8"/>
+  <text class="label" x="754" y="388" text-anchor="middle">INT4 / FP4 QAT</text>
+  <rect class="node accent-e" x="828" y="362" width="120" height="42" rx="8"/>
+  <text class="label" x="888" y="388" text-anchor="middle">YOLO26 stable</text>
+  <rect class="node accent-e" x="694" y="420" width="254" height="42" rx="8"/>
+  <text class="label" x="821" y="446" text-anchor="middle">Hybrid INT4 / INT8 fallback</text>
+  <rect class="node accent-e" x="694" y="478" width="254" height="42" rx="8"/>
+  <text class="label" x="821" y="504" text-anchor="middle">Multi-task dense prediction heads</text>
+
+  <!-- classification frontier -->
+  <rect class="node" x="362" y="478" width="125" height="44" rx="8"/>
+  <text class="label" x="424" y="495" text-anchor="middle">CoCa / EVA-CLIP-3</text>
+  <text class="label" x="424" y="511" text-anchor="middle" font-size="11">~91% top-1 ImageNet</text>
+  <rect class="node" x="498" y="478" width="120" height="44" rx="8"/>
+  <text class="label" x="558" y="495" text-anchor="middle">SSL + TTT loops</text>
+  <text class="label" x="558" y="511" text-anchor="middle" font-size="11">online adaptation</text>
+
+  <!-- edges -->
+  <path class="edge" d="M 286 200 C 340 240, 380 260, 380 280"/>
+  <path class="edge" d="M 694 200 C 640 240, 600 260, 600 280"/>
+  <path class="edge" d="M 286 420 C 340 380, 380 320, 380 300"/>
+  <path class="edge" d="M 694 420 C 640 380, 600 320, 600 300"/>
+  <path class="edge" d="M 490 232 L 490 114"/>
+  <path class="edge" d="M 490 328 L 490 478"/>
+  <path class="edge-dash" d="M 286 100 C 360 140, 420 180, 440 240"/>
+  <path class="edge-dash" d="M 694 100 C 620 140, 560 180, 540 240"/>
+</svg>
