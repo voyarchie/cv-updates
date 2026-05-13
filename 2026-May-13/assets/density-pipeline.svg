@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" role="img" aria-label="Density-driven dense tiny object detection pipeline" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="currentColor" stroke="currentColor">
+  <title>Density-driven dense tiny object detection pipeline</title>
+  <desc>A high-resolution image is processed through a backbone, then a density head produces a heatmap of object-cluster probability. Sparse / progressive query allocation and masked window attention focus compute on dense regions before the DETR-style decoder produces NMS-free predictions.</desc>
+
+  <defs>
+    <style>
+      .node { fill: none; stroke: currentColor; stroke-width: 1.4; }
+      .accentA { stroke: #6366f1; }
+      .accentB { stroke: #14b8a6; }
+      .accentC { stroke: #f59e0b; }
+      .accentD { stroke: #ef4444; }
+      .label { font-weight: 600; }
+      .arrow { fill: currentColor; stroke: none; }
+      .muted { opacity: 0.7; }
+      .heat { fill: currentColor; opacity: 0.15; }
+      .heatHot { fill: #f59e0b; opacity: 0.55; }
+    </style>
+    <marker id="d-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <!-- Input -->
+  <rect x="20" y="120" width="100" height="90" rx="10" class="node"/>
+  <text x="70" y="148" text-anchor="middle" class="label">Input</text>
+  <text x="70" y="166" text-anchor="middle" class="muted">aerial</text>
+  <text x="70" y="184" text-anchor="middle" class="muted">2k × 2k</text>
+
+  <!-- Backbone -->
+  <rect x="160" y="120" width="140" height="90" rx="10" class="node accentA"/>
+  <text x="230" y="148" text-anchor="middle" class="label">Backbone</text>
+  <text x="230" y="166" text-anchor="middle" class="muted">CSP / Swin / ViT</text>
+  <text x="230" y="184" text-anchor="middle" class="muted">multi-scale F</text>
+
+  <line x1="120" y1="165" x2="160" y2="165" class="node" marker-end="url(#d-head)"/>
+
+  <!-- Density head -->
+  <rect x="340" y="30"  width="160" height="90" rx="10" class="node accentC"/>
+  <text x="420" y="58"  text-anchor="middle" class="label">Density Head</text>
+  <text x="420" y="76"  text-anchor="middle" class="muted">dual-domain refine</text>
+  <text x="420" y="94"  text-anchor="middle" class="muted">(spatial + frequency)</text>
+
+  <!-- Heatmap glyph -->
+  <g transform="translate(360,118)">
+    <rect width="120" height="40" rx="4" class="heat"/>
+    <rect x="6"  y="6" width="18" height="14" rx="2" class="heatHot"/>
+    <rect x="80" y="14" width="32" height="18" rx="2" class="heatHot"/>
+    <rect x="40" y="22" width="14" height="10" rx="2" class="heatHot"/>
+  </g>
+
+  <line x1="300" y1="140" x2="340" y2="80" class="node accentC" marker-end="url(#d-head)"/>
+
+  <!-- Query allocator -->
+  <rect x="540" y="30" width="170" height="90" rx="10" class="node accentB"/>
+  <text x="625" y="58"  text-anchor="middle" class="label">Progressive Adaptive</text>
+  <text x="625" y="76"  text-anchor="middle" class="label">Query Init</text>
+  <text x="625" y="94"  text-anchor="middle" class="muted">density-guided queries</text>
+
+  <line x1="500" y1="75" x2="540" y2="75" class="node accentC" marker-end="url(#d-head)"/>
+
+  <!-- Sparse attention -->
+  <rect x="340" y="220" width="170" height="90" rx="10" class="node accentD"/>
+  <text x="425" y="248" text-anchor="middle" class="label">Masked Window</text>
+  <text x="425" y="266" text-anchor="middle" class="label">Attention</text>
+  <text x="425" y="284" text-anchor="middle" class="muted">compute only on hot bins</text>
+
+  <line x1="300" y1="190" x2="340" y2="245" class="node accentA" marker-end="url(#d-head)"/>
+  <line x1="420" y1="160" x2="420" y2="220" class="node accentC dashed" marker-end="url(#d-head)" stroke-dasharray="4 4"/>
+
+  <!-- Decoder -->
+  <rect x="560" y="220" width="170" height="90" rx="10" class="node"/>
+  <text x="645" y="248" text-anchor="middle" class="label">DETR Decoder</text>
+  <text x="645" y="266" text-anchor="middle" class="muted">dense one-to-one</text>
+  <text x="645" y="284" text-anchor="middle" class="muted">NMS-free output</text>
+
+  <line x1="510" y1="265" x2="560" y2="265" class="node accentD" marker-end="url(#d-head)"/>
+  <line x1="625" y1="120" x2="625" y2="220" class="node accentB" marker-end="url(#d-head)"/>
+
+  <!-- Output -->
+  <text x="745" y="265" class="muted">predictions</text>
+  <line x1="730" y1="265" x2="800" y2="265" class="node" marker-end="url(#d-head)"/>
+
+  <text x="410" y="334" text-anchor="middle" class="muted">DRMNet · Dome-DETR · D³R-DETR · ScaleBridge-Det share this density-first template.</text>
+</svg>
