@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="FSC-147 reference-less counting MAE bar chart">
+  <style>
+    .axis { stroke: currentColor; stroke-width: 1; opacity: 0.55; }
+    .tick { stroke: currentColor; stroke-width: 1; opacity: 0.35; }
+    .label { font: 600 12px ui-sans-serif, system-ui, sans-serif; fill: currentColor; }
+    .small { font: 11px ui-sans-serif, system-ui, sans-serif; fill: currentColor; opacity: 0.8; }
+    .title { font: 700 14px ui-sans-serif, system-ui, sans-serif; fill: currentColor; }
+    .bar1 { fill: #5aa2ff88; stroke: #5aa2ff; }
+    .bar2 { fill: #f0a85a88; stroke: #f0a85a; }
+    .bar3 { fill: #6acf9488; stroke: #6acf94; }
+    .bar4 { fill: #c074d688; stroke: #c074d6; }
+    .bar5 { fill: #4ec3c888; stroke: #4ec3c8; }
+    .bar6 { fill: #e36b6b88; stroke: #e36b6b; }
+  </style>
+
+  <text x="380" y="24" text-anchor="middle" class="title">FSC-147 test MAE — lower is better (reported numbers, 2023–2026)</text>
+
+  <!-- axes -->
+  <line class="axis" x1="90" y1="60" x2="90" y2="300" />
+  <line class="axis" x1="90" y1="300" x2="720" y2="300" />
+
+  <!-- y ticks (0..30, step 5) -->
+  <g>
+    <line class="tick" x1="90" y1="300" x2="720" y2="300" />
+    <text x="80" y="304" text-anchor="end" class="small">0</text>
+    <line class="tick" x1="90" y1="260" x2="720" y2="260" />
+    <text x="80" y="264" text-anchor="end" class="small">5</text>
+    <line class="tick" x1="90" y1="220" x2="720" y2="220" />
+    <text x="80" y="224" text-anchor="end" class="small">10</text>
+    <line class="tick" x1="90" y1="180" x2="720" y2="180" />
+    <text x="80" y="184" text-anchor="end" class="small">15</text>
+    <line class="tick" x1="90" y1="140" x2="720" y2="140" />
+    <text x="80" y="144" text-anchor="end" class="small">20</text>
+    <line class="tick" x1="90" y1="100" x2="720" y2="100" />
+    <text x="80" y="104" text-anchor="end" class="small">25</text>
+    <line class="tick" x1="90" y1="60"  x2="720" y2="60"  />
+    <text x="80" y="64"  text-anchor="end" class="small">30</text>
+  </g>
+
+  <!-- Bars: MAE values approximate; scale: pixels = 300 - MAE*8 -->
+  <!-- SAFECount  ~14.3 -> y = 300 - 14.3*8 = 185.6 -->
+  <rect class="bar1" x="115" y="186" width="70" height="114" rx="4" />
+  <text x="150" y="318" text-anchor="middle" class="label">SAFECount</text>
+  <text x="150" y="180" text-anchor="middle" class="small">14.3</text>
+
+  <!-- CounTR ~11.95 -> 204.4 -->
+  <rect class="bar2" x="205" y="204" width="70" height="96" rx="4" />
+  <text x="240" y="318" text-anchor="middle" class="label">CounTR</text>
+  <text x="240" y="198" text-anchor="middle" class="small">11.95</text>
+
+  <!-- CLIP-Count (text-only) ~17.78 -> 157.8 -->
+  <rect class="bar3" x="295" y="158" width="70" height="142" rx="4" />
+  <text x="330" y="318" text-anchor="middle" class="label">CLIP-Count</text>
+  <text x="330" y="152" text-anchor="middle" class="small">17.78</text>
+
+  <!-- GeCo ~ 9.0 -> 228 -->
+  <rect class="bar4" x="385" y="228" width="70" height="72" rx="4" />
+  <text x="420" y="318" text-anchor="middle" class="label">GeCo</text>
+  <text x="420" y="222" text-anchor="middle" class="small">9.0</text>
+
+  <!-- CountGD ~ 7.1 -> 243.2 -->
+  <rect class="bar5" x="475" y="244" width="70" height="56" rx="4" />
+  <text x="510" y="318" text-anchor="middle" class="label">CountGD</text>
+  <text x="510" y="238" text-anchor="middle" class="small">7.1</text>
+
+  <!-- T-Rex2 (count mode, 2024–25 update) ~ 6.4 -> 248.8 -->
+  <rect class="bar6" x="565" y="249" width="70" height="51" rx="4" />
+  <text x="600" y="318" text-anchor="middle" class="label">T-Rex2</text>
+  <text x="600" y="243" text-anchor="middle" class="small">~6.4</text>
+
+  <text x="380" y="346" text-anchor="middle" class="small">Numbers from FSC-147 papers and project pages; some are author-reported and not yet on a unified leaderboard.</text>
+</svg>

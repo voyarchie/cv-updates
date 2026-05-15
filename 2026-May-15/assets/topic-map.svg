@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" role="img" aria-label="Topic map of 2026-May-15 CV updates">
+  <style>
+    .node { fill: none; stroke: #888; stroke-width: 1.5; }
+    .label { font: 600 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
+    .sub { font: 11px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; opacity: 0.75; }
+    .edge { stroke: #888; stroke-width: 1; fill: none; opacity: 0.6; }
+    .edge-d { stroke: #888; stroke-width: 1; fill: none; opacity: 0.5; stroke-dasharray: 4 3; }
+    .center { fill: #8884; stroke: #888; stroke-width: 1.8; }
+    .accent1 { stroke: #5aa2ff; }
+    .accent2 { stroke: #f0a85a; }
+    .accent3 { stroke: #6acf94; }
+    .accent4 { stroke: #c074d6; }
+    .accent5 { stroke: #e36b6b; }
+    .accent6 { stroke: #4ec3c8; }
+  </style>
+
+  <!-- center hub -->
+  <ellipse cx="410" cy="230" rx="135" ry="46" class="center" />
+  <text x="410" y="226" text-anchor="middle" class="label">Dense Detection &amp;</text>
+  <text x="410" y="244" text-anchor="middle" class="label">Classification — May 15</text>
+
+  <!-- top row -->
+  <g>
+    <rect x="20" y="30" width="190" height="52" rx="8" class="node accent1" />
+    <text x="115" y="52" text-anchor="middle" class="label">Object counting</text>
+    <text x="115" y="68" text-anchor="middle" class="sub">CountGD · GeCo · T-Rex2</text>
+  </g>
+  <g>
+    <rect x="220" y="30" width="190" height="52" rx="8" class="node accent2" />
+    <text x="315" y="52" text-anchor="middle" class="label">HOI detection</text>
+    <text x="315" y="68" text-anchor="middle" class="sub">EZ-HOI · UniHOI · CMD-SE</text>
+  </g>
+  <g>
+    <rect x="420" y="30" width="190" height="52" rx="8" class="node accent3" />
+    <text x="515" y="52" text-anchor="middle" class="label">Action detection</text>
+    <text x="515" y="68" text-anchor="middle" class="sub">ActionFormer-v2 · DiffTAD</text>
+  </g>
+  <g>
+    <rect x="620" y="30" width="190" height="52" rx="8" class="node accent4" />
+    <text x="715" y="52" text-anchor="middle" class="label">Referring &amp; grounding</text>
+    <text x="715" y="68" text-anchor="middle" class="sub">MM-GDINO · OneRef</text>
+  </g>
+
+  <!-- middle-left -->
+  <g>
+    <rect x="20" y="200" width="190" height="52" rx="8" class="node accent5" />
+    <text x="115" y="222" text-anchor="middle" class="label">6-DoF object pose</text>
+    <text x="115" y="238" text-anchor="middle" class="sub">FoundationPose · GigaPose</text>
+  </g>
+  <!-- middle-right -->
+  <g>
+    <rect x="610" y="200" width="190" height="52" rx="8" class="node accent6" />
+    <text x="705" y="222" text-anchor="middle" class="label">Visual in-context</text>
+    <text x="705" y="238" text-anchor="middle" class="sub">T-Rex2 · Matcher · DINOv</text>
+  </g>
+
+  <!-- bottom row -->
+  <g>
+    <rect x="20" y="370" width="190" height="52" rx="8" class="node accent2" />
+    <text x="115" y="392" text-anchor="middle" class="label">Quantization &amp; pruning</text>
+    <text x="115" y="408" text-anchor="middle" class="sub">Q-DETR · AQ-DETR · PTQ4DETR</text>
+  </g>
+  <g>
+    <rect x="220" y="370" width="190" height="52" rx="8" class="node accent3" />
+    <text x="315" y="392" text-anchor="middle" class="label">Fine-grained class.</text>
+    <text x="315" y="408" text-anchor="middle" class="sub">BioCLIP-2 · HiT · INQUIRE</text>
+  </g>
+  <g>
+    <rect x="420" y="370" width="190" height="52" rx="8" class="node accent4" />
+    <text x="515" y="392" text-anchor="middle" class="label">AIGI forensics</text>
+    <text x="515" y="408" text-anchor="middle" class="sub">UniFD · NPR · AIDE</text>
+  </g>
+  <g>
+    <rect x="620" y="370" width="190" height="52" rx="8" class="node accent1" />
+    <text x="715" y="392" text-anchor="middle" class="label">Reading list</text>
+    <text x="715" y="408" text-anchor="middle" class="sub">papers · code · datasets</text>
+  </g>
+
+  <!-- edges (hub-and-spoke) -->
+  <path class="edge" d="M210 56 C 300 100 360 170 350 200" />
+  <path class="edge" d="M410 82 C 410 130 410 160 410 184" />
+  <path class="edge" d="M610 56 C 520 110 460 170 470 200" />
+  <path class="edge" d="M715 82 C 660 130 600 180 560 200" />
+  <path class="edge" d="M210 226 C 270 226 320 226 280 230" />
+  <path class="edge" d="M610 226 C 560 226 510 226 540 230" />
+  <path class="edge" d="M210 396 C 300 350 360 290 360 270" />
+  <path class="edge" d="M410 370 C 410 320 410 290 410 276" />
+  <path class="edge" d="M610 396 C 520 360 460 300 460 276" />
+  <path class="edge-d" d="M715 350 C 700 320 660 290 600 274" />
+</svg>
