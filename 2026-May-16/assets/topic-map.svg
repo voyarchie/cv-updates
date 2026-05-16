@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-label="Topic map for the 2026-May-16 CV update">
+  <title>Topic map — 2026-May-16 CV update</title>
+  <desc>A radial topic map showing ten dense detection / classification threads grouped under three axes: scale, modality, and lifecycle.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.55; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .scale { fill: rgba(99,102,241,0.18); }
+    .modal { fill: rgba(16,185,129,0.18); }
+    .lifec { fill: rgba(245,158,11,0.20); }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="440" y1="40"  x2="440" y2="420"/>
+  <line class="axis" x1="40"  y1="230" x2="840" y2="230"/>
+  <text class="axlbl" x="440" y="28"  text-anchor="middle">SCALE  ↑</text>
+  <text class="axlbl" x="836" y="248" text-anchor="end">MODALITY →</text>
+  <text class="axlbl" x="440" y="438" text-anchor="middle">LIFECYCLE  ↓</text>
+
+  <!-- central hub -->
+  <circle class="hub" cx="440" cy="230" r="46"/>
+  <text class="hublbl" x="440" y="226" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="440" y="244" text-anchor="middle">&amp; classification</text>
+
+  <!-- scale cluster (top) -->
+  <g>
+    <rect class="node scale" x="320" y="60"  width="160" height="48" rx="10"/>
+    <text class="label" x="400" y="80"  text-anchor="middle">Small-object detection</text>
+    <text class="sub"   x="400" y="98"  text-anchor="middle">SODA-D/A · CFINet · SAHI</text>
+
+    <rect class="node scale" x="120" y="110" width="170" height="48" rx="10"/>
+    <text class="label" x="205" y="130" text-anchor="middle">UAV / aerial &amp; OBB</text>
+    <text class="sub"   x="205" y="148" text-anchor="middle">LSKNet · PKINet · STAR</text>
+
+    <rect class="node scale" x="600" y="110" width="170" height="48" rx="10"/>
+    <text class="label" x="685" y="130" text-anchor="middle">Video object detection</text>
+    <text class="sub"   x="685" y="148" text-anchor="middle">TransVOD++ · ClipVID · StreamYOLO</text>
+  </g>
+
+  <!-- modality cluster (sides) -->
+  <g>
+    <rect class="node modal" x="20"  y="200" width="170" height="48" rx="10"/>
+    <text class="label" x="105" y="220" text-anchor="middle">RGB-Thermal / IR fusion</text>
+    <text class="sub"   x="105" y="238" text-anchor="middle">DEYOLO · CrossFire · DAMSDet</text>
+
+    <rect class="node modal" x="690" y="200" width="170" height="48" rx="10"/>
+    <text class="label" x="775" y="220" text-anchor="middle">SAR / multi-spectral</text>
+    <text class="sub"   x="775" y="238" text-anchor="middle">SARDet-100K · SpectralGPT · DOFA</text>
+
+    <rect class="node modal" x="20"  y="290" width="200" height="48" rx="10"/>
+    <text class="label" x="120" y="310" text-anchor="middle">Salient / co-salient (RGB-D)</text>
+    <text class="sub"   x="120" y="328" text-anchor="middle">VST++ · BBRF · GCoNet++</text>
+  </g>
+
+  <!-- lifecycle cluster (bottom) -->
+  <g>
+    <rect class="node lifec" x="320" y="350" width="200" height="48" rx="10"/>
+    <text class="label" x="420" y="370" text-anchor="middle">Class-incremental detection</text>
+    <text class="sub"   x="420" y="388" text-anchor="middle">CL-DETR · SDDGR · LDB</text>
+
+    <rect class="node lifec" x="560" y="350" width="200" height="48" rx="10"/>
+    <text class="label" x="660" y="370" text-anchor="middle">Industrial anomaly</text>
+    <text class="sub"   x="660" y="388" text-anchor="middle">PatchCore · WinCLIP · AnomalyGPT</text>
+
+    <rect class="node lifec" x="120" y="350" width="180" height="48" rx="10"/>
+    <text class="label" x="210" y="370" text-anchor="middle">Sparse-query / diffusion</text>
+    <text class="sub"   x="210" y="388" text-anchor="middle">DiffusionDet · Sparse R-CNN · BoxDiff</text>
+  </g>
+
+  <!-- multi-task head -->
+  <rect class="node modal" x="345" y="290" width="190" height="48" rx="10"/>
+  <text class="label" x="440" y="310" text-anchor="middle">Unified multi-task heads</text>
+  <text class="sub"   x="440" y="328" text-anchor="middle">GLEE · APE · OMG-Seg · OneFormer</text>
+
+  <!-- connecting strokes -->
+  <g stroke="currentColor" stroke-width="0.9" opacity="0.55" fill="none">
+    <path d="M440 184 L400 108"/>
+    <path d="M412 191 L260 158"/>
+    <path d="M468 191 L620 158"/>
+    <path d="M396 230 L190 224"/>
+    <path d="M486 230 L690 224"/>
+    <path d="M418 273 L220 314"/>
+    <path d="M440 276 L440 290"/>
+    <path d="M420 276 L420 350"/>
+    <path d="M462 276 L620 350"/>
+    <path d="M398 273 L260 350"/>
+  </g>
+</svg>

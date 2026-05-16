@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-label="RGB-Thermal fusion strategies for object detection">
+  <title>RGB-Thermal fusion: four common architectural patterns</title>
+  <desc>Schematic of early, mid, late and cross-attention fusion variants used in RGB-T detection pipelines such as DEYOLO, ICAFusion, CrossFire, and DAMSDet.</desc>
+  <style>
+    .lbl   { font: 12px ui-sans-serif, system-ui, sans-serif; fill: currentColor; }
+    .hdr   { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: currentColor; }
+    .cap   { font: 600 14px ui-sans-serif, system-ui, sans-serif; fill: currentColor; }
+    .box   { stroke: currentColor; stroke-width: 1.2; fill: none; rx: 8; }
+    .rgb   { fill: rgba(99,102,241,0.18); stroke: currentColor; stroke-width: 1.1; }
+    .ir    { fill: rgba(239,68,68,0.18);  stroke: currentColor; stroke-width: 1.1; }
+    .bb    { fill: rgba(148,163,184,0.20); stroke: currentColor; stroke-width: 1.1; }
+    .head  { fill: rgba(16,185,129,0.22); stroke: currentColor; stroke-width: 1.1; }
+    .fuse  { fill: rgba(245,158,11,0.30); stroke: currentColor; stroke-width: 1.1; }
+    .arrow { stroke: currentColor; stroke-width: 1.2; fill: none; marker-end: url(#tri); }
+  </style>
+  <defs>
+    <marker id="tri" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- (A) early -->
+  <g transform="translate(20,20)">
+    <text class="cap" x="0" y="0">A · Early (input) fusion</text>
+    <text class="lbl" x="0" y="18">concat or learned-attention on 6-channel input</text>
+    <rect class="rgb" x="0"   y="40" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="60" text-anchor="middle">RGB</text>
+    <rect class="ir"  x="0"   y="84" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="104" text-anchor="middle">IR</text>
+    <rect class="fuse" x="80" y="62" width="56" height="34" rx="6"/>
+    <text class="lbl" x="108" y="82" text-anchor="middle">fuse</text>
+    <rect class="bb"  x="156" y="62" width="100" height="34" rx="6"/>
+    <text class="lbl" x="206" y="82" text-anchor="middle">backbone</text>
+    <rect class="head" x="276" y="62" width="60" height="34" rx="6"/>
+    <text class="lbl" x="306" y="82" text-anchor="middle">head</text>
+    <path class="arrow" d="M60 56 L80 70"/>
+    <path class="arrow" d="M60 102 L80 90"/>
+    <path class="arrow" d="M136 80 L156 80"/>
+    <path class="arrow" d="M256 80 L276 80"/>
+  </g>
+
+  <!-- (B) mid -->
+  <g transform="translate(460,20)">
+    <text class="cap" x="0" y="0">B · Mid (feature) fusion</text>
+    <text class="lbl" x="0" y="18">parallel backbones + element-wise / SE-style merge</text>
+    <rect class="rgb" x="0"   y="40" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="60" text-anchor="middle">RGB</text>
+    <rect class="bb"  x="74"  y="40" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="60" text-anchor="middle">backbone-R</text>
+    <rect class="ir"  x="0"   y="92" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="112" text-anchor="middle">IR</text>
+    <rect class="bb"  x="74"  y="92" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="112" text-anchor="middle">backbone-T</text>
+    <rect class="fuse" x="178" y="66" width="60" height="34" rx="6"/>
+    <text class="lbl" x="208" y="86" text-anchor="middle">fuse</text>
+    <rect class="head" x="258" y="66" width="60" height="34" rx="6"/>
+    <text class="lbl" x="288" y="86" text-anchor="middle">head</text>
+    <path class="arrow" d="M60 58 L74 58"/>
+    <path class="arrow" d="M60 110 L74 110"/>
+    <path class="arrow" d="M154 58 L188 78"/>
+    <path class="arrow" d="M154 110 L188 90"/>
+    <path class="arrow" d="M238 84 L258 84"/>
+  </g>
+
+  <!-- (C) late -->
+  <g transform="translate(20,220)">
+    <text class="cap" x="0" y="0">C · Late (decision) fusion</text>
+    <text class="lbl" x="0" y="18">independent detectors + probabilistic ensembling (ProbEn)</text>
+    <rect class="rgb" x="0"   y="40" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="60" text-anchor="middle">RGB</text>
+    <rect class="bb"  x="74"  y="40" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="60" text-anchor="middle">detector-R</text>
+    <rect class="ir"  x="0"   y="92" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="112" text-anchor="middle">IR</text>
+    <rect class="bb"  x="74"  y="92" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="112" text-anchor="middle">detector-T</text>
+    <rect class="fuse" x="178" y="66" width="80" height="34" rx="6"/>
+    <text class="lbl" x="218" y="86" text-anchor="middle">box ensemble</text>
+    <path class="arrow" d="M60 58 L74 58"/>
+    <path class="arrow" d="M60 110 L74 110"/>
+    <path class="arrow" d="M154 58 L186 78"/>
+    <path class="arrow" d="M154 110 L186 90"/>
+  </g>
+
+  <!-- (D) cross-attention -->
+  <g transform="translate(460,220)">
+    <text class="cap" x="0" y="0">D · Cross-attention / query fusion</text>
+    <text class="lbl" x="0" y="18">DETR queries attend to both modalities (DAMSDet, CrossFire)</text>
+    <rect class="rgb" x="0"   y="40" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="60" text-anchor="middle">RGB</text>
+    <rect class="bb"  x="74"  y="40" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="60" text-anchor="middle">backbone-R</text>
+    <rect class="ir"  x="0"   y="92" width="60" height="34" rx="6"/>
+    <text class="lbl" x="30" y="112" text-anchor="middle">IR</text>
+    <rect class="bb"  x="74"  y="92" width="80" height="34" rx="6"/>
+    <text class="lbl" x="114" y="112" text-anchor="middle">backbone-T</text>
+    <rect class="fuse" x="178" y="40" width="100" height="86" rx="8"/>
+    <text class="lbl" x="228" y="74" text-anchor="middle">deformable</text>
+    <text class="lbl" x="228" y="90" text-anchor="middle">cross-attn</text>
+    <text class="lbl" x="228" y="106" text-anchor="middle">decoder</text>
+    <rect class="head" x="298" y="66" width="60" height="34" rx="6"/>
+    <text class="lbl" x="328" y="86" text-anchor="middle">queries</text>
+    <path class="arrow" d="M60 58 L74 58"/>
+    <path class="arrow" d="M60 110 L74 110"/>
+    <path class="arrow" d="M154 58 L178 70"/>
+    <path class="arrow" d="M154 110 L178 96"/>
+    <path class="arrow" d="M278 84 L298 84"/>
+  </g>
+
+  <!-- footer note -->
+  <text class="lbl" x="20" y="408">Variants combine these — e.g. <tspan font-style="italic">ICAFusion</tspan> alternates B and D across layers; <tspan font-style="italic">DEYOLO</tspan> trades A for B at 2× FLOPs but +6 mAP on LLVIP.</text>
+</svg>
