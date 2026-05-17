@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" role="img" aria-label="Topic map for the 2026-May-17 CV update">
+  <title>Topic map — 2026-May-17 CV update</title>
+  <desc>A radial topic map showing ten dense detection / classification threads grouped under three axes: 3D / driving, foundation models, and label-efficient learning.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.55; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .av    { fill: rgba(59,130,246,0.18); }
+    .fnd   { fill: rgba(168,85,247,0.18); }
+    .lbl   { fill: rgba(244,114,182,0.18); }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="440" y1="40"  x2="440" y2="438"/>
+  <line class="axis" x1="40"  y1="240" x2="840" y2="240"/>
+  <text class="axlbl" x="440" y="28"  text-anchor="middle">3D / DRIVING  ↑</text>
+  <text class="axlbl" x="836" y="258" text-anchor="end">FOUNDATION MODELS →</text>
+  <text class="axlbl" x="440" y="456" text-anchor="middle">LABEL-EFFICIENT LEARNING  ↓</text>
+
+  <!-- central hub -->
+  <circle class="hub" cx="440" cy="240" r="48"/>
+  <text class="hublbl" x="440" y="236" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="440" y="254" text-anchor="middle">&amp; classification</text>
+
+  <!-- AV cluster (top) -->
+  <g>
+    <rect class="node av" x="320" y="60"  width="200" height="48" rx="10"/>
+    <text class="label" x="420" y="80"  text-anchor="middle">3D AV: cam · LiDAR · radar</text>
+    <text class="sub"   x="420" y="98"  text-anchor="middle">BEVFusion · UniAD · OccWorld</text>
+
+    <rect class="node av" x="110" y="115" width="180" height="48" rx="10"/>
+    <text class="label" x="200" y="135" text-anchor="middle">BEV map / lane percep.</text>
+    <text class="sub"   x="200" y="153" text-anchor="middle">MapTRv2 · StreamMapNet · MapEX</text>
+
+    <rect class="node av" x="600" y="115" width="180" height="48" rx="10"/>
+    <text class="label" x="690" y="135" text-anchor="middle">Occupancy networks</text>
+    <text class="sub"   x="690" y="153" text-anchor="middle">SurroundOcc · OccFormer · OccWorld</text>
+  </g>
+
+  <!-- foundation cluster (sides + central) -->
+  <g>
+    <rect class="node fnd" x="20"  y="215" width="180" height="48" rx="10"/>
+    <text class="label" x="110" y="235" text-anchor="middle">Open-vocab detection</text>
+    <text class="sub"   x="110" y="253" text-anchor="middle">DINO-X · T-Rex2 · OWL-ST</text>
+
+    <rect class="node fnd" x="680" y="215" width="180" height="48" rx="10"/>
+    <text class="label" x="770" y="235" text-anchor="middle">Detection backbones</text>
+    <text class="sub"   x="770" y="253" text-anchor="middle">Co-DETR · Hiera · EVA-02 · InternImage</text>
+
+    <rect class="node fnd" x="20"  y="300" width="190" height="48" rx="10"/>
+    <text class="label" x="115" y="320" text-anchor="middle">Detection pretraining</text>
+    <text class="sub"   x="115" y="338" text-anchor="middle">DETReg · SoCo · Stable-DINO · Group-DETR</text>
+
+    <rect class="node fnd" x="680" y="300" width="180" height="48" rx="10"/>
+    <text class="label" x="770" y="320" text-anchor="middle">Open-set / OOD det.</text>
+    <text class="sub"   x="770" y="338" text-anchor="middle">VOS · OpenDet · SAFE · UNO-DET</text>
+  </g>
+
+  <!-- label-efficient cluster (bottom) -->
+  <g>
+    <rect class="node lbl" x="120" y="385" width="170" height="48" rx="10"/>
+    <text class="label" x="205" y="405" text-anchor="middle">Long-tail detection</text>
+    <text class="sub"   x="205" y="423" text-anchor="middle">EQL · Seesaw · Detic · BalCon</text>
+
+    <rect class="node lbl" x="320" y="385" width="200" height="48" rx="10"/>
+    <text class="label" x="420" y="405" text-anchor="middle">Active learning for det.</text>
+    <text class="sub"   x="420" y="423" text-anchor="middle">ALDet · ConsBox · PPAL</text>
+
+    <rect class="node lbl" x="560" y="385" width="200" height="48" rx="10"/>
+    <text class="label" x="660" y="405" text-anchor="middle">Sim-to-real / synth data</text>
+    <text class="sub"   x="660" y="423" text-anchor="middle">SynthDet · DataDreamer · Diffusion-Gen</text>
+  </g>
+
+  <!-- microscopy vertical -->
+  <rect class="node lbl" x="345" y="305" width="190" height="48" rx="10"/>
+  <text class="label" x="440" y="325" text-anchor="middle">Microscopy / cell det.</text>
+  <text class="sub"   x="440" y="343" text-anchor="middle">Cellpose-3 · NucleiSAM · BIOMEDICAL-DINO</text>
+
+  <!-- connecting strokes -->
+  <g stroke="currentColor" stroke-width="0.9" opacity="0.55" fill="none">
+    <path d="M440 192 L420 108"/>
+    <path d="M408 199 L260 163"/>
+    <path d="M472 199 L620 163"/>
+    <path d="M392 240 L200 239"/>
+    <path d="M488 240 L680 239"/>
+    <path d="M404 282 L210 324"/>
+    <path d="M476 282 L680 324"/>
+    <path d="M440 288 L440 305"/>
+    <path d="M420 288 L420 385"/>
+    <path d="M462 288 L620 385"/>
+    <path d="M398 288 L260 385"/>
+  </g>
+</svg>

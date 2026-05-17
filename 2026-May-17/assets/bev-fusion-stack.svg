@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-label="BEV multi-modal fusion stack for AV perception">
+  <title>BEV multi-modal fusion stack — camera · LiDAR · radar</title>
+  <desc>Three sensor pipelines projected into a shared bird's-eye-view space, then fed into a unified BEV transformer that emits 3D boxes, occupancy, and map.</desc>
+  <style>
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .head  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+    .box   { stroke: currentColor; stroke-width: 1.4; }
+    .cam   { fill: rgba(59,130,246,0.18); }
+    .lid   { fill: rgba(16,185,129,0.18); }
+    .rad   { fill: rgba(245,158,11,0.20); }
+    .bev   { fill: rgba(168,85,247,0.20); }
+    .out   { fill: rgba(244,114,182,0.18); }
+    .arrow { fill: none; stroke: currentColor; stroke-width: 1.4; marker-end: url(#tri); opacity: 0.75; }
+  </style>
+  <defs>
+    <marker id="tri" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- column 1: sensors -->
+  <text class="head" x="80" y="30" text-anchor="middle">Sensors</text>
+  <rect class="box cam" x="20"  y="50"  width="140" height="58" rx="10"/>
+  <text class="label" x="90" y="75" text-anchor="middle">Surround cameras</text>
+  <text class="sub"   x="90" y="93" text-anchor="middle">6–11 RGB, 30 Hz</text>
+
+  <rect class="box lid" x="20"  y="135" width="140" height="58" rx="10"/>
+  <text class="label" x="90" y="160" text-anchor="middle">LiDAR (32–128 ch)</text>
+  <text class="sub"   x="90" y="178" text-anchor="middle">10–20 Hz, 80 m range</text>
+
+  <rect class="box rad" x="20"  y="220" width="140" height="58" rx="10"/>
+  <text class="label" x="90" y="245" text-anchor="middle">4-D radar</text>
+  <text class="sub"   x="90" y="263" text-anchor="middle">15–20 Hz, velocity / elev.</text>
+
+  <!-- column 2: per-modality encoders -->
+  <text class="head" x="290" y="30" text-anchor="middle">Per-modality encoder</text>
+  <rect class="box cam" x="220" y="50"  width="160" height="58" rx="10"/>
+  <text class="label" x="300" y="75"  text-anchor="middle">ViT-Adapter / Hiera</text>
+  <text class="sub"   x="300" y="93" text-anchor="middle">multi-view 2D features</text>
+
+  <rect class="box lid" x="220" y="135" width="160" height="58" rx="10"/>
+  <text class="label" x="300" y="160" text-anchor="middle">Voxel / pillar net</text>
+  <text class="sub"   x="300" y="178" text-anchor="middle">SECOND · VoxelNeXt</text>
+
+  <rect class="box rad" x="220" y="220" width="160" height="58" rx="10"/>
+  <text class="label" x="300" y="245" text-anchor="middle">Radar PointNet++</text>
+  <text class="sub"   x="300" y="263" text-anchor="middle">+ Doppler embedding</text>
+
+  <!-- column 3: BEV lift / fusion -->
+  <text class="head" x="500" y="30" text-anchor="middle">BEV lift &amp; fuse</text>
+  <rect class="box bev" x="430" y="50" width="160" height="58" rx="10"/>
+  <text class="label" x="510" y="75" text-anchor="middle">LSS / BEVFormer lift</text>
+  <text class="sub"   x="510" y="93" text-anchor="middle">img → BEV grid</text>
+
+  <rect class="box bev" x="430" y="135" width="160" height="58" rx="10"/>
+  <text class="label" x="510" y="160" text-anchor="middle">LiDAR → BEV voxel</text>
+  <text class="sub"   x="510" y="178" text-anchor="middle">scatter / max-pool</text>
+
+  <rect class="box bev" x="430" y="220" width="160" height="58" rx="10"/>
+  <text class="label" x="510" y="245" text-anchor="middle">Radar → BEV grid</text>
+  <text class="sub"   x="510" y="263" text-anchor="middle">velocity-aware</text>
+
+  <!-- column 4: unified BEV transformer -->
+  <text class="head" x="710" y="30" text-anchor="middle">Unified BEV head</text>
+  <rect class="box bev" x="640" y="135" width="160" height="58" rx="10"/>
+  <text class="label" x="720" y="160" text-anchor="middle">BEV transformer</text>
+  <text class="sub"   x="720" y="178" text-anchor="middle">BEVFusion · UniAD · UniM2AE</text>
+
+  <!-- outputs -->
+  <rect class="box out" x="640" y="220" width="160" height="40" rx="8"/>
+  <text class="label" x="720" y="244" text-anchor="middle">3D boxes + velocity</text>
+
+  <rect class="box out" x="640" y="270" width="160" height="40" rx="8"/>
+  <text class="label" x="720" y="294" text-anchor="middle">Occupancy 3D grid</text>
+
+  <rect class="box out" x="640" y="320" width="160" height="40" rx="8"/>
+  <text class="label" x="720" y="344" text-anchor="middle">HD-map / lane graph</text>
+
+  <!-- arrows: sensors → encoders -->
+  <path class="arrow" d="M160 79  L220 79"/>
+  <path class="arrow" d="M160 164 L220 164"/>
+  <path class="arrow" d="M160 249 L220 249"/>
+
+  <!-- arrows: encoders → BEV lift -->
+  <path class="arrow" d="M380 79  L430 79"/>
+  <path class="arrow" d="M380 164 L430 164"/>
+  <path class="arrow" d="M380 249 L430 249"/>
+
+  <!-- arrows: BEV lift → unified head -->
+  <path class="arrow" d="M590 79  L660 160"/>
+  <path class="arrow" d="M590 164 L640 164"/>
+  <path class="arrow" d="M590 249 L660 175"/>
+
+  <!-- arrows: head → outputs -->
+  <path class="arrow" d="M720 193 L720 220"/>
+  <path class="arrow" d="M720 193 C 730 240, 730 260, 720 270"/>
+  <path class="arrow" d="M720 193 C 740 250, 740 310, 720 320"/>
+</svg>
