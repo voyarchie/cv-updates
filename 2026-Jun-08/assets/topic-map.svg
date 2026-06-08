@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Topic map for the 2026-Jun-08 CV update">
+  <title>Topic map — 2026-Jun-08 CV update</title>
+  <desc>A radial topic map showing ten dense detection / classification threads grouped under three axes: efficiency and architecture, label and domain efficiency, and tracking and verticals.</desc>
+  <style>
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .spoke { fill: none; stroke: currentColor; stroke-width: 1.0; opacity: 0.45; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; opacity: 0.8; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .eff   { fill: rgba(59,130,246,0.18); }
+    .dom   { fill: rgba(168,85,247,0.18); }
+    .ver   { fill: rgba(244,114,182,0.18); }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+  </style>
+
+  <!-- axis captions -->
+  <text class="axlbl" x="450" y="22"  text-anchor="middle">EFFICIENCY &amp; ARCHITECTURE  ↑</text>
+  <text class="axlbl" x="30"  y="498" text-anchor="start">LABEL &amp; DOMAIN EFFICIENCY  ↙</text>
+  <text class="axlbl" x="870" y="498" text-anchor="end">TRACKING &amp; VERTICALS  ↘</text>
+
+  <!-- spokes from hub (450,260) -->
+  <line class="spoke" x1="450" y1="260" x2="235" y2="83"/>
+  <line class="spoke" x1="450" y1="260" x2="455" y2="63"/>
+  <line class="spoke" x1="450" y1="260" x2="675" y2="83"/>
+  <line class="spoke" x1="450" y1="260" x2="135" y2="203"/>
+  <line class="spoke" x1="450" y1="260" x2="155" y2="323"/>
+  <line class="spoke" x1="450" y1="260" x2="255" y2="433"/>
+  <line class="spoke" x1="450" y1="260" x2="765" y2="203"/>
+  <line class="spoke" x1="450" y1="260" x2="785" y2="323"/>
+  <line class="spoke" x1="450" y1="260" x2="655" y2="433"/>
+  <line class="spoke" x1="450" y1="260" x2="455" y2="453"/>
+
+  <!-- central hub -->
+  <circle class="hub" cx="450" cy="260" r="50"/>
+  <text class="hublbl" x="450" y="256" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="450" y="274" text-anchor="middle">&amp; classification</text>
+
+  <!-- EFFICIENCY & ARCHITECTURE (blue, top) -->
+  <g>
+    <rect class="node eff" x="140" y="60"  width="190" height="46" rx="10"/>
+    <text class="label" x="235" y="80"  text-anchor="middle">Real-time DETR frontier</text>
+    <text class="sub"   x="235" y="97"  text-anchor="middle">RF-DETR · D-FINE · LW-DETR</text>
+
+    <rect class="node eff" x="360" y="40"  width="190" height="46" rx="10"/>
+    <text class="label" x="455" y="60"  text-anchor="middle">Knowledge distillation</text>
+    <text class="sub"   x="455" y="77"  text-anchor="middle">FGD · MGD · CrossKD</text>
+
+    <rect class="node eff" x="580" y="60"  width="190" height="46" rx="10"/>
+    <text class="label" x="675" y="80"  text-anchor="middle">Indoor 3D point-cloud</text>
+    <text class="sub"   x="675" y="97"  text-anchor="middle">VoteNet · TR3D · V-DETR</text>
+  </g>
+
+  <!-- LABEL & DOMAIN EFFICIENCY (purple, left/bottom-left) -->
+  <g>
+    <rect class="node dom" x="40"  y="180" width="190" height="46" rx="10"/>
+    <text class="label" x="135" y="200" text-anchor="middle">Semi-supervised det.</text>
+    <text class="sub"   x="135" y="217" text-anchor="middle">Soft · Dense · Consistent Teacher</text>
+
+    <rect class="node dom" x="60"  y="300" width="190" height="46" rx="10"/>
+    <text class="label" x="155" y="320" text-anchor="middle">Domain-adapt &amp; TTA</text>
+    <text class="sub"   x="155" y="337" text-anchor="middle">Adaptive Teacher · source-free · VLOD-TTA</text>
+
+    <rect class="node dom" x="160" y="410" width="190" height="46" rx="10"/>
+    <text class="label" x="255" y="430" text-anchor="middle">Adversarial robustness</text>
+    <text class="sub"   x="255" y="447" text-anchor="middle">patches · SAC · PAD</text>
+  </g>
+
+  <!-- TRACKING & VERTICALS (pink, right/bottom-right) -->
+  <g>
+    <rect class="node ver" x="670" y="180" width="190" height="46" rx="10"/>
+    <text class="label" x="765" y="200" text-anchor="middle">Multi-object tracking</text>
+    <text class="sub"   x="765" y="217" text-anchor="middle">ByteTrack · MOTRv2 · SAM2MOT</text>
+
+    <rect class="node ver" x="690" y="300" width="190" height="46" rx="10"/>
+    <text class="label" x="785" y="320" text-anchor="middle">Remote sensing / aerial</text>
+    <text class="sub"   x="785" y="337" text-anchor="middle">Oriented R-CNN · MTP · LAE</text>
+
+    <rect class="node ver" x="560" y="410" width="190" height="46" rx="10"/>
+    <text class="label" x="655" y="430" text-anchor="middle">Medical lesion det.</text>
+    <text class="sub"   x="655" y="447" text-anchor="middle">Med-DETR · nnDetection</text>
+
+    <rect class="node ver" x="360" y="432" width="190" height="46" rx="10"/>
+    <text class="label" x="455" y="452" text-anchor="middle">Low-light / adverse</text>
+    <text class="sub"   x="455" y="469" text-anchor="middle">IA-YOLO · ERUP-YOLO</text>
+  </g>
+</svg>
