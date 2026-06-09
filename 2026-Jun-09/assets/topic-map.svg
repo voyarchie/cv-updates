@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Topic map for the 2026-Jun-09 CV update">
+  <title>Topic map — 2026-Jun-09 CV update</title>
+  <desc>A clustered topic map of nine dense detection / classification threads grouped under three axes: open-vocabulary &amp; structured detection, embodied &amp; specialist vision, and MLLM-driven perception. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.5; }
+    .link  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.4; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .ova   { fill: rgba(59,130,246,0.18); }
+    .emb   { fill: rgba(168,85,247,0.18); }
+    .mll   { fill: rgba(244,114,182,0.18); }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="450" y1="30"  x2="450" y2="490"/>
+  <line class="axis" x1="40"  y1="260" x2="860" y2="260"/>
+  <text class="axlbl" x="450" y="20"  text-anchor="middle">OPEN-VOCAB &amp; STRUCTURE  &#8593;</text>
+  <text class="axlbl" x="856" y="120" text-anchor="end">EMBODIED &amp; SPECIALIST VISION  &#8594;</text>
+  <text class="axlbl" x="44"  y="412" text-anchor="start">&#8592;  MLLM-DRIVEN PERCEPTION</text>
+
+  <!-- links from hub -->
+  <line class="link" x1="450" y1="260" x2="240" y2="80"/>
+  <line class="link" x1="450" y1="260" x2="450" y2="65"/>
+  <line class="link" x1="450" y1="260" x2="680" y2="80"/>
+  <line class="link" x1="450" y1="260" x2="762" y2="175"/>
+  <line class="link" x1="450" y1="260" x2="780" y2="250"/>
+  <line class="link" x1="450" y1="260" x2="780" y2="325"/>
+  <line class="link" x1="450" y1="260" x2="762" y2="400"/>
+  <line class="link" x1="450" y1="260" x2="235" y2="325"/>
+  <line class="link" x1="450" y1="260" x2="245" y2="420"/>
+
+  <!-- central hub -->
+  <circle class="hub" cx="450" cy="260" r="48"/>
+  <text class="hublbl" x="450" y="256" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="450" y="274" text-anchor="middle">&amp; classification</text>
+
+  <!-- TOP cluster: open-vocab & structure -->
+  <rect class="node ova" x="140" y="55"  width="200" height="50" rx="10"/>
+  <text class="label" x="240" y="76"  text-anchor="middle">Open-vocab 3D detection</text>
+  <text class="sub"   x="240" y="94"  text-anchor="middle">OV-3DET · CoDA · Open-YOLO 3D</text>
+
+  <rect class="node ova" x="360" y="40"  width="180" height="50" rx="10"/>
+  <text class="label" x="450" y="61"  text-anchor="middle">Open-vocab parts</text>
+  <text class="sub"   x="450" y="79"  text-anchor="middle">VLPart · PartGLEE</text>
+
+  <rect class="node ova" x="580" y="55"  width="200" height="50" rx="10"/>
+  <text class="label" x="680" y="76"  text-anchor="middle">Scene-text spotting</text>
+  <text class="sub"   x="680" y="94"  text-anchor="middle">DeepSolo · GOT-OCR2.0</text>
+
+  <!-- RIGHT cluster: embodied & specialist vision -->
+  <rect class="node emb" x="655" y="150" width="215" height="50" rx="10"/>
+  <text class="label" x="762" y="171" text-anchor="middle">Grasp &amp; affordance</text>
+  <text class="sub"   x="762" y="189" text-anchor="middle">AnyGrasp · AffordGrasp</text>
+
+  <rect class="node emb" x="690" y="225" width="180" height="50" rx="10"/>
+  <text class="label" x="780" y="246" text-anchor="middle">Face detection</text>
+  <text class="sub"   x="780" y="264" text-anchor="middle">RetinaFace · SCRFD</text>
+
+  <rect class="node emb" x="690" y="300" width="180" height="50" rx="10"/>
+  <text class="label" x="780" y="321" text-anchor="middle">Infrared small-target</text>
+  <text class="sub"   x="780" y="339" text-anchor="middle">SCTransNet · MSHNet</text>
+
+  <rect class="node emb" x="655" y="375" width="215" height="50" rx="10"/>
+  <text class="label" x="762" y="396" text-anchor="middle">Polyp / endoscopy</text>
+  <text class="sub"   x="762" y="414" text-anchor="middle">YOLO-LAN · CADe</text>
+
+  <!-- LEFT cluster: MLLM-driven perception -->
+  <rect class="node mll" x="130" y="300" width="200" height="50" rx="10"/>
+  <text class="label" x="230" y="321" text-anchor="middle">Reasoning video seg</text>
+  <text class="sub"   x="230" y="339" text-anchor="middle">VideoLISA · Sa2VA</text>
+
+  <rect class="node mll" x="130" y="395" width="220" height="50" rx="10"/>
+  <text class="label" x="240" y="416" text-anchor="middle">Agentic perception</text>
+  <text class="sub"   x="240" y="434" text-anchor="middle">V* · Set-of-Mark · tool use</text>
+</svg>

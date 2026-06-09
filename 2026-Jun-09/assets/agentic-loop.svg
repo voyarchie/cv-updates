@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-label="Agentic thinking-with-images perception loop">
+  <title>Agentic "thinking-with-images" perception loop — 2026-Jun-09</title>
+  <desc>A left-to-right loop: a multimodal LLM reasons over a high-resolution image, decides to call a detector / cropper / zoom tool, the tool returns marked regions, the regions are re-encoded, and the loop repeats until the answer is grounded. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .edge  { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: 0.7; }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.8; }
+    .elbl  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.85; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .brain { fill: rgba(168,85,247,0.18); }
+    .tool  { fill: rgba(59,130,246,0.18); }
+    .out   { fill: rgba(16,185,129,0.18); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- nodes -->
+  <rect class="node out" x="20" y="120" width="150" height="60" rx="10"/>
+  <text class="lbl" x="95" y="146" text-anchor="middle">Hi-res image</text>
+  <text class="sub" x="95" y="164" text-anchor="middle">+ query</text>
+
+  <rect class="node brain" x="240" y="110" width="180" height="80" rx="10"/>
+  <text class="lbl" x="330" y="142" text-anchor="middle">Multimodal LLM</text>
+  <text class="sub" x="330" y="160" text-anchor="middle">plan · decide to look</text>
+  <text class="sub" x="330" y="176" text-anchor="middle">closer / call a tool</text>
+
+  <rect class="node tool" x="500" y="40" width="200" height="64" rx="10"/>
+  <text class="lbl" x="600" y="66" text-anchor="middle">Vision tools</text>
+  <text class="sub" x="600" y="84" text-anchor="middle">detector · crop · zoom · SAM</text>
+
+  <rect class="node tool" x="500" y="196" width="200" height="64" rx="10"/>
+  <text class="lbl" x="600" y="222" text-anchor="middle">Set-of-Mark regions</text>
+  <text class="sub" x="600" y="240" text-anchor="middle">numbered boxes re-encoded</text>
+
+  <rect class="node out" x="740" y="120" width="120" height="60" rx="10"/>
+  <text class="lbl" x="800" y="146" text-anchor="middle">Grounded</text>
+  <text class="sub" x="800" y="164" text-anchor="middle">answer + boxes</text>
+
+  <!-- edges -->
+  <path class="edge" d="M170,150 L236,150" marker-end="url(#arrow)"/>
+  <path class="edge" d="M420,135 C460,115 470,90 498,76" marker-end="url(#arrow)"/>
+  <path class="edge" d="M600,104 L600,192" marker-end="url(#arrow)"/>
+  <text class="elbl" x="612" y="152" text-anchor="start">run tool</text>
+  <path class="edge" d="M500,228 C460,210 460,180 422,165" marker-end="url(#arrow)"/>
+  <text class="elbl" x="455" y="205" text-anchor="middle">re-attend</text>
+  <path class="edge" d="M422,150 L736,150" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+  <text class="elbl" x="560" y="142" text-anchor="middle">when confident</text>
+</svg>
