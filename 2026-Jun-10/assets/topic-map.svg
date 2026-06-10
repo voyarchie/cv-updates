@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-label="Topic map for the 2026-Jun-10 CV update">
+  <title>Topic map — 2026-Jun-10 CV update</title>
+  <desc>A clustered topic map of eight dense-detection threads grouped under three axes: cooperative &amp; sensor autonomy, language &amp; dense tracking, and efficiency &amp; data engineering. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.5; }
+    .link  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.4; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .aut   { fill: rgba(59,130,246,0.18); }
+    .lang  { fill: rgba(244,114,182,0.18); }
+    .eff   { fill: rgba(16,185,129,0.18); }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="450" y1="30"  x2="450" y2="510"/>
+  <line class="axis" x1="40"  y1="270" x2="860" y2="270"/>
+  <text class="axlbl" x="450" y="20"  text-anchor="middle">COOPERATIVE &amp; SENSOR AUTONOMY  &#8593;</text>
+  <text class="axlbl" x="856" y="125" text-anchor="end">EFFICIENCY &amp; DATA ENGINEERING  &#8594;</text>
+  <text class="axlbl" x="44"  y="430" text-anchor="start">&#8592;  LANGUAGE &amp; DENSE TRACKING</text>
+
+  <!-- links from hub -->
+  <line class="link" x1="450" y1="270" x2="240" y2="80"/>
+  <line class="link" x1="450" y1="270" x2="450" y2="65"/>
+  <line class="link" x1="450" y1="270" x2="680" y2="80"/>
+  <line class="link" x1="450" y1="270" x2="762" y2="185"/>
+  <line class="link" x1="450" y1="270" x2="785" y2="262"/>
+  <line class="link" x1="450" y1="270" x2="762" y2="345"/>
+  <line class="link" x1="450" y1="270" x2="235" y2="335"/>
+  <line class="link" x1="450" y1="270" x2="245" y2="430"/>
+
+  <!-- central hub -->
+  <circle class="hub" cx="450" cy="270" r="48"/>
+  <text class="hublbl" x="450" y="266" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="450" y="284" text-anchor="middle">&amp; classification</text>
+
+  <!-- TOP cluster: cooperative & sensor autonomy -->
+  <rect class="node aut" x="135" y="55"  width="210" height="50" rx="10"/>
+  <text class="label" x="240" y="76"  text-anchor="middle">Collaborative V2X</text>
+  <text class="sub"   x="240" y="94"  text-anchor="middle">Which2comm · CoBEVMoE · HEAL</text>
+
+  <rect class="node aut" x="355" y="40"  width="190" height="50" rx="10"/>
+  <text class="label" x="450" y="61"  text-anchor="middle">4D imaging radar</text>
+  <text class="sub"   x="450" y="79"  text-anchor="middle">RadarNeXt · SMURF</text>
+
+  <rect class="node aut" x="575" y="55"  width="210" height="50" rx="10"/>
+  <text class="label" x="680" y="76"  text-anchor="middle">End-to-end driving</text>
+  <text class="sub"   x="680" y="94"  text-anchor="middle">UniAD · VAD · SparseDrive</text>
+
+  <!-- RIGHT cluster: efficiency & data engineering -->
+  <rect class="node eff" x="650" y="160" width="220" height="50" rx="10"/>
+  <text class="label" x="760" y="181" text-anchor="middle">Linear-attn backbones</text>
+  <text class="sub"   x="760" y="199" text-anchor="middle">Vision-RWKV · RSRWKV</text>
+
+  <rect class="node eff" x="675" y="237" width="195" height="50" rx="10"/>
+  <text class="label" x="772" y="258" text-anchor="middle">Change detection</text>
+  <text class="sub"   x="772" y="276" text-anchor="middle">BIT · EfficientCD · FMT</text>
+
+  <rect class="node eff" x="650" y="320" width="220" height="50" rx="10"/>
+  <text class="label" x="760" y="341" text-anchor="middle">Auto-labeling engines</text>
+  <text class="sub"   x="760" y="359" text-anchor="middle">Grounded-SAM · autodistill</text>
+
+  <!-- LEFT cluster: language & dense tracking -->
+  <rect class="node lang" x="125" y="310" width="220" height="50" rx="10"/>
+  <text class="label" x="235" y="331" text-anchor="middle">Referring MOT</text>
+  <text class="sub"   x="235" y="349" text-anchor="middle">Refer-KITTI · ReaMOT</text>
+
+  <rect class="node lang" x="130" y="405" width="225" height="50" rx="10"/>
+  <text class="label" x="242" y="426" text-anchor="middle">Crowded pedestrian</text>
+  <text class="sub"   x="242" y="444" text-anchor="middle">DDQ-DETR · IterDet · CrowdHuman</text>
+</svg>

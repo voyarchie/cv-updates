@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="Foundation-model auto-labeling data engine loop">
+  <title>Auto-labeling data engine — 2026-Jun-10 CV update</title>
+  <desc>A clockwise loop: unlabeled images flow into an open-vocabulary base model (Grounding DINO plus SAM) guided by a text ontology, producing pseudo-labels; a human reviews edge cases; a small target detector is distilled and deployed; hard negatives mined in deployment feed back as new unlabeled data. Colours use translucent fills with currentColor strokes for light/dark themes.</desc>
+  <style>
+    .box   { stroke: currentColor; stroke-width: 1.4; }
+    .b1    { fill: rgba(59,130,246,0.16); }
+    .b2    { fill: rgba(16,185,129,0.16); }
+    .b3    { fill: rgba(168,85,247,0.16); }
+    .b4    { fill: rgba(244,114,182,0.16); }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.8; }
+    .flow  { fill: none; stroke: currentColor; stroke-width: 1.6; marker-end: url(#ah); }
+    .flowd { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-dasharray: 5 4; opacity: 0.7; marker-end: url(#ah); }
+    .edge  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.85; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- nodes -->
+  <rect class="box b1" x="40"  y="40"  width="200" height="64" rx="10"/>
+  <text class="lbl" x="140" y="68"  text-anchor="middle">Unlabeled images</text>
+  <text class="sub" x="140" y="86"  text-anchor="middle">raw / in-domain pool</text>
+
+  <rect class="box b2" x="340" y="30"  width="220" height="80" rx="10"/>
+  <text class="lbl" x="450" y="58"  text-anchor="middle">Open-vocab base model</text>
+  <text class="sub" x="450" y="76"  text-anchor="middle">Grounding DINO + SAM / SAM 3</text>
+  <text class="sub" x="450" y="92"  text-anchor="middle">text ontology &#8594; pseudo-labels</text>
+
+  <rect class="box b3" x="660" y="40"  width="190" height="64" rx="10"/>
+  <text class="lbl" x="755" y="68"  text-anchor="middle">Human review</text>
+  <text class="sub" x="755" y="86"  text-anchor="middle">verify edge cases only</text>
+
+  <rect class="box b4" x="640" y="250" width="200" height="70" rx="10"/>
+  <text class="lbl" x="740" y="278" text-anchor="middle">Distilled detector</text>
+  <text class="sub" x="740" y="296" text-anchor="middle">small YOLO / RT-DETR</text>
+  <text class="sub" x="740" y="312" text-anchor="middle">fast, deployable</text>
+
+  <rect class="box b1" x="320" y="255" width="240" height="64" rx="10"/>
+  <text class="lbl" x="440" y="283" text-anchor="middle">Deployment + mining</text>
+  <text class="sub" x="440" y="301" text-anchor="middle">low-confidence &#8594; new pool</text>
+
+  <!-- flows -->
+  <path class="flow" d="M240,72 L334,70"/>
+  <text class="edge" x="287" y="60" text-anchor="middle">label</text>
+
+  <path class="flow" d="M560,68 L654,70"/>
+  <text class="edge" x="607" y="58" text-anchor="middle">curate</text>
+
+  <path class="flow" d="M755,104 C755,170 755,200 745,244"/>
+  <text class="edge" x="800" y="180" text-anchor="middle">train / distill</text>
+
+  <path class="flow" d="M640,288 L564,288"/>
+  <text class="edge" x="602" y="278" text-anchor="middle">deploy</text>
+
+  <path class="flowd" d="M320,287 C180,287 140,180 140,110"/>
+  <text class="edge" x="150" y="200" text-anchor="middle">hard negatives</text>
+</svg>
