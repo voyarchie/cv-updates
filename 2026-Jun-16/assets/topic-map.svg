@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" role="img" aria-label="Topic map for the 2026-Jun-16 CV update">
+  <title>Topic map — 2026-Jun-16 CV update</title>
+  <desc>A radial topic map showing eight dense detection / classification threads grouped under four families: generative/generalist perception, geometry &amp; video, label/domain efficiency, and applied verticals.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .gen    { fill: rgba(59,130,246,0.16); }
+    .geo    { fill: rgba(168,85,247,0.16); }
+    .eff    { fill: rgba(244,114,182,0.16); }
+    .ver    { fill: rgba(16,185,129,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="460" y1="280" x2="460" y2="123"/>
+  <line class="spoke" x1="460" y1="280" x2="672" y2="176"/>
+  <line class="spoke" x1="460" y1="280" x2="760" y2="280"/>
+  <line class="spoke" x1="460" y1="280" x2="672" y2="384"/>
+  <line class="spoke" x1="460" y1="280" x2="460" y2="437"/>
+  <line class="spoke" x1="460" y1="280" x2="248" y2="384"/>
+  <line class="spoke" x1="460" y1="280" x2="160" y2="280"/>
+  <line class="spoke" x1="460" y1="280" x2="248" y2="176"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="460" cy="280" r="52"/>
+  <text class="hublbl" x="460" y="276" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="460" y="293" text-anchor="middle">&amp; classification</text>
+
+  <!-- top: Grounded MLLM detectors (gen) -->
+  <rect class="node gen" x="358" y="100" width="204" height="46" rx="9"/>
+  <text class="lbl" x="460" y="120" text-anchor="middle">Grounded MLLM detectors</text>
+  <text class="sub" x="460" y="136" text-anchor="middle">Qwen2.5-VL · Molmo · Rex-Omni</text>
+
+  <!-- top-right: 3D indoor (geo) -->
+  <rect class="node geo" x="576" y="153" width="200" height="46" rx="9"/>
+  <text class="lbl" x="676" y="173" text-anchor="middle">3D indoor point-cloud</text>
+  <text class="sub" x="676" y="189" text-anchor="middle">V-DETR · OpenM3D · OV-3DET</text>
+
+  <!-- right: multi-view (geo) -->
+  <rect class="node geo" x="664" y="257" width="200" height="46" rx="9"/>
+  <text class="lbl" x="764" y="277" text-anchor="middle">Multi-view / multi-cam</text>
+  <text class="sub" x="764" y="293" text-anchor="middle">MVDeTr · EarlyBird · MVUDA</text>
+
+  <!-- bottom-right: E2E MOT (geo) -->
+  <rect class="node geo" x="576" y="361" width="200" height="46" rx="9"/>
+  <text class="lbl" x="676" y="381" text-anchor="middle">End-to-end transformer MOT</text>
+  <text class="sub" x="676" y="397" text-anchor="middle">MOTR · MeMOTR · MOTIP</text>
+
+  <!-- bottom: medical (ver) -->
+  <rect class="node ver" x="358" y="437" width="204" height="46" rx="9"/>
+  <text class="lbl" x="460" y="457" text-anchor="middle">Universal lesion detection</text>
+  <text class="sub" x="460" y="473" text-anchor="middle">MULAN · SATr · LesionLocator</text>
+
+  <!-- bottom-left: hyperspectral (ver) -->
+  <rect class="node ver" x="148" y="361" width="200" height="46" rx="9"/>
+  <text class="lbl" x="248" y="381" text-anchor="middle">Hyperspectral classification</text>
+  <text class="sub" x="248" y="397" text-anchor="middle">SpectralFormer · MambaHSI</text>
+
+  <!-- left: TTA/SFDA (eff) -->
+  <rect class="node eff" x="60" y="257" width="200" height="46" rx="9"/>
+  <text class="lbl" x="160" y="277" text-anchor="middle">Test-time / source-free DA</text>
+  <text class="sub" x="160" y="293" text-anchor="middle">CoTTA · STFAR · VLOD-TTA</text>
+
+  <!-- top-left: weakly supervised (eff) -->
+  <rect class="node eff" x="148" y="153" width="200" height="46" rx="9"/>
+  <text class="lbl" x="248" y="173" text-anchor="middle">Weak / point supervision</text>
+  <text class="sub" x="248" y="189" text-anchor="middle">WSDDN · P2BNet · P2Object</text>
+
+  <!-- legend -->
+  <g transform="translate(40,512)">
+    <rect class="swatch gen" x="0"   y="0" width="13" height="13" rx="3"/>
+    <text class="keylbl" x="19"  y="11">Generative / generalist</text>
+    <rect class="swatch geo" x="190" y="0" width="13" height="13" rx="3"/>
+    <text class="keylbl" x="209" y="11">Geometry &amp; video</text>
+    <rect class="swatch eff" x="370" y="0" width="13" height="13" rx="3"/>
+    <text class="keylbl" x="389" y="11">Label / domain efficiency</text>
+    <rect class="swatch ver" x="590" y="0" width="13" height="13" rx="3"/>
+    <text class="keylbl" x="609" y="11">Applied verticals</text>
+  </g>
+</svg>
