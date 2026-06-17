@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="Foundation-model adoption across the eight threads">
+  <title>Foundation-model adoption across the 2026-Jun-17 threads</title>
+  <desc>A matrix with eight rows (the threads of this update) and four columns of foundation-model ingredient: SAM / promptable segmentation, CLIP / vision-language, diffusion priors, and masked or state-space pretraining. A filled dot marks that the thread has a notable line of work built on that ingredient. Every thread adopts at least one, illustrating the cross-cutting convergence on foundation models.</desc>
+  <style>
+    .grid  { stroke: currentColor; stroke-width: 1; opacity: 0.16; }
+    .rule  { stroke: currentColor; stroke-width: 1.3; }
+    .col   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11.5px; font-weight: 600; fill: currentColor; letter-spacing: 0.02em; }
+    .row   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .on    { fill: currentColor; }
+    .off   { fill: none; stroke: currentColor; stroke-width: 1.2; opacity: 0.28; }
+    .cap   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+  </style>
+
+  <!-- column headers -->
+  <text class="col" x="330" y="60" text-anchor="middle">SAM /</text>
+  <text class="col" x="330" y="74" text-anchor="middle">promptable</text>
+  <text class="col" x="440" y="60" text-anchor="middle">CLIP /</text>
+  <text class="col" x="440" y="74" text-anchor="middle">vision-lang.</text>
+  <text class="col" x="550" y="67" text-anchor="middle">diffusion</text>
+  <text class="col" x="650" y="60" text-anchor="middle">masked /</text>
+  <text class="col" x="650" y="74" text-anchor="middle">state-space</text>
+
+  <!-- header rule -->
+  <line class="rule" x1="20" y1="84" x2="700" y2="84"/>
+
+  <!-- column gridlines -->
+  <line class="grid" x1="330" y1="88" x2="330" y2="430"/>
+  <line class="grid" x1="440" y1="88" x2="440" y2="430"/>
+  <line class="grid" x1="550" y1="88" x2="550" y2="430"/>
+  <line class="grid" x1="650" y1="88" x2="650" y2="430"/>
+
+  <!-- Row 1: Glass / mirror / transparent -->
+  <text class="row" x="20" y="116">Glass / mirror / transparent</text>
+  <circle class="on"  cx="330" cy="112" r="7"/>
+  <circle class="off" cx="440" cy="112" r="7"/>
+  <circle class="on"  cx="550" cy="112" r="7"/>
+  <circle class="off" cx="650" cy="112" r="7"/>
+
+  <!-- Row 2: Shadow detection -->
+  <text class="row" x="20" y="158">Shadow detection</text>
+  <circle class="on"  cx="330" cy="154" r="7"/>
+  <circle class="off" cx="440" cy="154" r="7"/>
+  <circle class="on"  cx="550" cy="154" r="7"/>
+  <circle class="off" cx="650" cy="154" r="7"/>
+
+  <!-- Row 3: Amodal segmentation -->
+  <text class="row" x="20" y="200">Amodal segmentation</text>
+  <circle class="on"  cx="330" cy="196" r="7"/>
+  <circle class="off" cx="440" cy="196" r="7"/>
+  <circle class="on"  cx="550" cy="196" r="7"/>
+  <circle class="off" cx="650" cy="196" r="7"/>
+
+  <!-- Row 4: Referring image segmentation -->
+  <text class="row" x="20" y="242">Referring image segmentation</text>
+  <circle class="on"  cx="330" cy="238" r="7"/>
+  <circle class="on"  cx="440" cy="238" r="7"/>
+  <circle class="off" cx="550" cy="238" r="7"/>
+  <circle class="off" cx="650" cy="238" r="7"/>
+
+  <!-- Row 5: Multi-label classification -->
+  <text class="row" x="20" y="284">Multi-label classification</text>
+  <circle class="off" cx="330" cy="280" r="7"/>
+  <circle class="on"  cx="440" cy="280" r="7"/>
+  <circle class="off" cx="550" cy="280" r="7"/>
+  <circle class="off" cx="650" cy="280" r="7"/>
+
+  <!-- Row 6: Long-tailed recognition -->
+  <text class="row" x="20" y="326">Long-tailed recognition</text>
+  <circle class="off" cx="330" cy="322" r="7"/>
+  <circle class="on"  cx="440" cy="322" r="7"/>
+  <circle class="off" cx="550" cy="322" r="7"/>
+  <circle class="off" cx="650" cy="322" r="7"/>
+
+  <!-- Row 7: 3D point-cloud classification -->
+  <text class="row" x="20" y="368">3D point-cloud classification</text>
+  <circle class="off" cx="330" cy="364" r="7"/>
+  <circle class="on"  cx="440" cy="364" r="7"/>
+  <circle class="off" cx="550" cy="364" r="7"/>
+  <circle class="on"  cx="650" cy="364" r="7"/>
+
+  <!-- Row 8: Object Re-identification -->
+  <text class="row" x="20" y="410">Object Re-identification</text>
+  <circle class="off" cx="330" cy="406" r="7"/>
+  <circle class="on"  cx="440" cy="406" r="7"/>
+  <circle class="off" cx="550" cy="406" r="7"/>
+  <circle class="off" cx="650" cy="406" r="7"/>
+
+  <!-- legend -->
+  <line class="rule" x1="20" y1="430" x2="700" y2="430"/>
+  <circle class="on"  cx="30" cy="452" r="7"/>
+  <text class="cap" x="44" y="456">notable line of work on this foundation-model ingredient</text>
+  <circle class="off" cx="470" cy="452" r="7"/>
+  <text class="cap" x="484" y="456">little / none yet</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-label="Topic map for the 2026-Jun-17 CV update">
+  <title>Topic map — 2026-Jun-17 CV update</title>
+  <desc>A radial topic map showing eight dense detection / classification threads grouped under four families: hard-appearance dense surfaces (glass and shadow); occlusion and language grounding (amodal and referring segmentation); imbalanced classification (multi-label and long-tailed); and 3D shape and instance identity (point-cloud classification and re-identification).</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .surf   { fill: rgba(59,130,246,0.16); }
+    .occ    { fill: rgba(168,85,247,0.16); }
+    .cls    { fill: rgba(16,185,129,0.16); }
+    .idr    { fill: rgba(244,114,182,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="285" x2="480" y2="92"/>
+  <line class="spoke" x1="480" y1="285" x2="722" y2="150"/>
+  <line class="spoke" x1="480" y1="285" x2="800" y2="285"/>
+  <line class="spoke" x1="480" y1="285" x2="722" y2="420"/>
+  <line class="spoke" x1="480" y1="285" x2="480" y2="478"/>
+  <line class="spoke" x1="480" y1="285" x2="238" y2="420"/>
+  <line class="spoke" x1="480" y1="285" x2="160" y2="285"/>
+  <line class="spoke" x1="480" y1="285" x2="238" y2="150"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="285" r="54"/>
+  <text class="hublbl" x="480" y="281" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="480" y="298" text-anchor="middle">&amp; classification</text>
+
+  <!-- N: Glass / mirror / transparent (surf) -->
+  <rect class="node surf" x="374" y="67" width="212" height="50" rx="9"/>
+  <text class="lbl" x="480" y="88" text-anchor="middle">Glass / mirror / transparent</text>
+  <text class="sub" x="480" y="105" text-anchor="middle">MirrorNet · GDNet · Trans2Seg · GEM</text>
+
+  <!-- NE: Shadow detection (surf) -->
+  <rect class="node surf" x="616" y="125" width="212" height="50" rx="9"/>
+  <text class="lbl" x="722" y="146" text-anchor="middle">Shadow detection</text>
+  <text class="sub" x="722" y="163" text-anchor="middle">DSC · MTMT · FDRNet · SILT</text>
+
+  <!-- E: Amodal segmentation (occ) -->
+  <rect class="node occ" x="694" y="260" width="212" height="50" rx="9"/>
+  <text class="lbl" x="800" y="281" text-anchor="middle">Amodal segmentation</text>
+  <text class="sub" x="800" y="298" text-anchor="middle">ORCNN · AISFormer · pix2gestalt</text>
+
+  <!-- SE: Referring image segmentation (occ) -->
+  <rect class="node occ" x="616" y="395" width="212" height="50" rx="9"/>
+  <text class="lbl" x="722" y="416" text-anchor="middle">Referring image seg.</text>
+  <text class="sub" x="722" y="433" text-anchor="middle">LAVT · CRIS · PolyFormer · GRES</text>
+
+  <!-- S: Object Re-identification (idr) -->
+  <rect class="node idr" x="374" y="453" width="212" height="50" rx="9"/>
+  <text class="lbl" x="480" y="474" text-anchor="middle">Object Re-identification</text>
+  <text class="sub" x="480" y="491" text-anchor="middle">TransReID · CLIP-ReID · Instruct-ReID</text>
+
+  <!-- SW: 3D point-cloud classification (idr) -->
+  <rect class="node idr" x="132" y="395" width="212" height="50" rx="9"/>
+  <text class="lbl" x="238" y="416" text-anchor="middle">Point-cloud classif.</text>
+  <text class="sub" x="238" y="433" text-anchor="middle">PointNeXt · Point-MAE · ULIP-2</text>
+
+  <!-- W: Long-tailed recognition (cls) -->
+  <rect class="node cls" x="54" y="260" width="212" height="50" rx="9"/>
+  <text class="lbl" x="160" y="281" text-anchor="middle">Long-tailed recognition</text>
+  <text class="sub" x="160" y="298" text-anchor="middle">Decouple · LogitAdj · LiVT · LIFT</text>
+
+  <!-- NW: Multi-label classification (cls) -->
+  <rect class="node cls" x="132" y="125" width="212" height="50" rx="9"/>
+  <text class="lbl" x="238" y="146" text-anchor="middle">Multi-label classif.</text>
+  <text class="sub" x="238" y="163" text-anchor="middle">ML-GCN · ASL · Q2L · DualCoOp</text>
+
+  <!-- legend -->
+  <text class="keylbl" x="60" y="556">FAMILIES</text>
+  <rect class="swatch surf" x="60"  y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="84"  y="578">Hard-appearance surfaces</text>
+  <rect class="swatch occ" x="270" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="294" y="578">Occlusion &amp; language</text>
+  <rect class="swatch cls" x="470" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="494" y="578">Imbalanced classification</text>
+  <rect class="swatch idr" x="710" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="734" y="578">3D shape &amp; identity</text>
+</svg>
