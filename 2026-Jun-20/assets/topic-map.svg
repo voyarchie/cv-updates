@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map: periphery and regimes of dense object detection, 2026-Jun-20">
+  <style>
+    .lbl { fill: currentColor; }
+    .edge { stroke: #94a3b8; stroke-width: 2; fill: none; opacity: 0.8; }
+    .node text { fill: #f8fafc; font-size: 13px; font-weight: 600; }
+    .sub text { fill: #f8fafc; font-size: 11px; font-weight: 400; }
+  </style>
+
+  <text x="470" y="34" text-anchor="middle" class="lbl" font-size="20" font-weight="700">Dense detection &amp; classification — 2026-Jun-20</text>
+  <text x="470" y="56" text-anchor="middle" class="lbl" font-size="13" opacity="0.75">Seven threads at the periphery: new output spaces (points, attributes, alpha, 3D, sound) &amp; new regimes (open-vocab video, joint detect+reID)</text>
+
+  <!-- edges from hub -->
+  <g class="edge">
+    <line x1="470" y1="290" x2="160" y2="170"/>
+    <line x1="470" y1="290" x2="470" y2="150"/>
+    <line x1="470" y1="290" x2="780" y2="170"/>
+    <line x1="470" y1="290" x2="120" y2="320"/>
+    <line x1="470" y1="290" x2="820" y2="320"/>
+    <line x1="470" y1="290" x2="250" y2="470"/>
+    <line x1="470" y1="290" x2="690" y2="470"/>
+  </g>
+
+  <!-- hub -->
+  <g class="node">
+    <rect x="360" y="262" width="220" height="56" rx="12" fill="#1f2937" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="470" y="286" text-anchor="middle" font-size="14" font-weight="700">Periphery of the</text>
+    <text x="470" y="304" text-anchor="middle" font-size="14" font-weight="700">COCO-box mainstream</text>
+  </g>
+
+  <!-- 1 point tracking -->
+  <g class="node sub">
+    <rect x="40" y="120" width="220" height="64" rx="10" fill="#3b82f6"/>
+    <text x="150" y="146" text-anchor="middle">Tracking Any Point</text>
+    <text x="150" y="166" text-anchor="middle" font-size="11" font-weight="400">TAPIR · CoTracker3 · LocoTrack · TAPNext</text>
+  </g>
+
+  <!-- 2 monocular 3D -->
+  <g class="node sub">
+    <rect x="360" y="98" width="220" height="64" rx="10" fill="#2563eb"/>
+    <text x="470" y="124" text-anchor="middle">Monocular 3D detection</text>
+    <text x="470" y="144" text-anchor="middle" font-size="11" font-weight="400">MonoDETR · MonoMAE · MonoVQD</text>
+  </g>
+
+  <!-- 3 attributes -->
+  <g class="node sub">
+    <rect x="680" y="120" width="220" height="64" rx="10" fill="#a855f7"/>
+    <text x="790" y="146" text-anchor="middle">Open-vocab attributes</text>
+    <text x="790" y="166" text-anchor="middle" font-size="11" font-weight="400">OVAD · OvarNet · LOWA · OVODA-3D</text>
+  </g>
+
+  <!-- 4 OV-VIS -->
+  <g class="node sub">
+    <rect x="0" y="288" width="220" height="64" rx="10" fill="#7e22ce"/>
+    <text x="110" y="314" text-anchor="middle">Open-vocab video seg</text>
+    <text x="110" y="334" text-anchor="middle" font-size="11" font-weight="400">LV-VIS · OVFormer · OpenVIS</text>
+  </g>
+
+  <!-- 5 audio-visual -->
+  <g class="node sub">
+    <rect x="720" y="288" width="220" height="64" rx="10" fill="#10b981"/>
+    <text x="830" y="314" text-anchor="middle">Audio-visual segmentation</text>
+    <text x="830" y="334" text-anchor="middle" font-size="11" font-weight="400">AVSBench · AVSegFormer · AV-SAM</text>
+  </g>
+
+  <!-- 6 person search -->
+  <g class="node sub">
+    <rect x="140" y="448" width="220" height="64" rx="10" fill="#0ea5e9"/>
+    <text x="250" y="474" text-anchor="middle">Person search (detect+reID)</text>
+    <text x="250" y="494" text-anchor="middle" font-size="11" font-weight="400">SeqNet · COAT · PSTR · SPNet</text>
+  </g>
+
+  <!-- 7 agglomerative -->
+  <g class="node sub">
+    <rect x="580" y="448" width="220" height="64" rx="10" fill="#f59e0b"/>
+    <text x="690" y="474" text-anchor="middle" fill="#1f2937">Agglomerative backbones</text>
+    <text x="690" y="494" text-anchor="middle" font-size="11" font-weight="400" fill="#1f2937">AM-RADIO · Theia · PHI-S · UNIC</text>
+  </g>
+
+  <!-- legend -->
+  <g class="lbl" font-size="11">
+    <text x="40" y="540" opacity="0.7">blue = new output geometry · purple = open-vocab dense · green = cross-modal/backbone · cyan = joint identity</text>
+  </g>
+</svg>
