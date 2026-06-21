@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-label="Topic map for the 2026-Jun-21 CV update">
+  <title>Topic map — 2026-Jun-21 CV update</title>
+  <desc>A radial topic map showing eight dense detection / classification threads grouped under four families: universal and promptable segmentation (the Segment Anything lineage and panoptic / universal segmentation); temporal and relational structure (video instance / panoptic segmentation and human-object interaction detection); low-shot and counting detection (object counting and few-shot object detection); and robust, domain-specific detection (adverse-weather / domain-generalized detection and nuclei / cell detection in computational pathology).</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .seg    { fill: rgba(168,85,247,0.16); }
+    .det    { fill: rgba(59,130,246,0.16); }
+    .low    { fill: rgba(16,185,129,0.16); }
+    .rel    { fill: rgba(244,114,182,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="285" x2="480" y2="92"/>
+  <line class="spoke" x1="480" y1="285" x2="722" y2="150"/>
+  <line class="spoke" x1="480" y1="285" x2="800" y2="285"/>
+  <line class="spoke" x1="480" y1="285" x2="722" y2="420"/>
+  <line class="spoke" x1="480" y1="285" x2="480" y2="478"/>
+  <line class="spoke" x1="480" y1="285" x2="238" y2="420"/>
+  <line class="spoke" x1="480" y1="285" x2="160" y2="285"/>
+  <line class="spoke" x1="480" y1="285" x2="238" y2="150"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="285" r="54"/>
+  <text class="hublbl" x="480" y="281" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="480" y="298" text-anchor="middle">&amp; classification</text>
+
+  <!-- N: Promptable segmentation (seg) -->
+  <rect class="node seg" x="374" y="67" width="212" height="50" rx="9"/>
+  <text class="lbl" x="480" y="88" text-anchor="middle">Promptable segmentation</text>
+  <text class="sub" x="480" y="105" text-anchor="middle">SAM · SAM 2 · SAM 3 · EfficientSAM</text>
+
+  <!-- NE: Panoptic / universal seg (seg) -->
+  <rect class="node seg" x="616" y="125" width="212" height="50" rx="9"/>
+  <text class="lbl" x="722" y="146" text-anchor="middle">Panoptic / universal seg.</text>
+  <text class="sub" x="722" y="163" text-anchor="middle">Mask2Former · OneFormer · FC-CLIP</text>
+
+  <!-- E: Video instance / panoptic seg (det) -->
+  <rect class="node det" x="694" y="260" width="212" height="50" rx="9"/>
+  <text class="lbl" x="800" y="281" text-anchor="middle">Video instance / panoptic</text>
+  <text class="sub" x="800" y="298" text-anchor="middle">VITA · IDOL · GenVIS · DVIS++</text>
+
+  <!-- SE: Human-object interaction (det) -->
+  <rect class="node det" x="616" y="395" width="212" height="50" rx="9"/>
+  <text class="lbl" x="722" y="416" text-anchor="middle">Human-object interaction</text>
+  <text class="sub" x="722" y="433" text-anchor="middle">QPIC · CDN · GEN-VLKT · HOICLIP</text>
+
+  <!-- S: Few-shot object detection (low) -->
+  <rect class="node low" x="374" y="453" width="212" height="50" rx="9"/>
+  <text class="lbl" x="480" y="474" text-anchor="middle">Few-shot object detection</text>
+  <text class="sub" x="480" y="491" text-anchor="middle">TFA · FSCE · DeFRCN · DE-ViT</text>
+
+  <!-- SW: Object counting (low) -->
+  <rect class="node low" x="132" y="395" width="212" height="50" rx="9"/>
+  <text class="lbl" x="238" y="416" text-anchor="middle">Object counting</text>
+  <text class="sub" x="238" y="433" text-anchor="middle">FamNet · CounTR · LOCA · CountGD</text>
+
+  <!-- W: Adverse-weather / domain-gen det (rel) -->
+  <rect class="node rel" x="54" y="260" width="212" height="50" rx="9"/>
+  <text class="lbl" x="160" y="281" text-anchor="middle">Adverse-weather det.</text>
+  <text class="sub" x="160" y="298" text-anchor="middle">DA-Faster · IA-YOLO · domain-gen</text>
+
+  <!-- NW: Pathology nuclei detection (rel) -->
+  <rect class="node rel" x="132" y="125" width="212" height="50" rx="9"/>
+  <text class="lbl" x="238" y="146" text-anchor="middle">Pathology nuclei det.</text>
+  <text class="sub" x="238" y="163" text-anchor="middle">HoVer-Net · StarDist · CellViT</text>
+
+  <!-- legend -->
+  <text class="keylbl" x="60" y="556">FAMILIES</text>
+  <rect class="swatch seg" x="60"  y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="84"  y="578">Universal &amp; promptable segmentation</text>
+  <rect class="swatch det" x="340" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="364" y="578">Temporal &amp; relational structure</text>
+  <rect class="swatch low" x="585" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="609" y="578">Low-shot / counting detection</text>
+  <rect class="swatch rel" x="800" y="568" width="16" height="12" rx="2"/>
+  <text class="sub" x="824" y="578">Robust / domain-specific</text>
+</svg>
