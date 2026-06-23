@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-label="ScreenSpot-Pro grounding accuracy by model">
+  <title>ScreenSpot-Pro grounding accuracy (full-screen, %)</title>
+  <desc>Horizontal bar chart of reported ScreenSpot-Pro grounding accuracy under standard full-screen evaluation. UGround-7B 16.5, OS-Atlas-7B 18.9, Qwen-GUI-3B 28.7, UI-TARS-72B 38.1, OmniParser v2 39.5, GUI-Actor-7B with Qwen2.5-VL 44.6, SE-GUI-7B 47.2, and a recent decomposition-plus-RL frontier above 55 percent. The original ScreenSpot-Pro paper reported a sub-20 percent ceiling for early 2025 models.</desc>
+  <style>
+    .axis  { stroke: currentColor; stroke-width: 1.2; opacity: 0.6; }
+    .grid  { stroke: currentColor; stroke-width: 1; opacity: 0.18; }
+    .bar   { stroke: currentColor; stroke-width: 1; }
+    .b1    { fill: rgba(59,130,246,0.55); }
+    .b2    { fill: rgba(168,85,247,0.55); }
+    .b3    { fill: rgba(16,185,129,0.55); }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .val   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; }
+    .tick  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.7; }
+    .ttl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+  </style>
+
+  <text class="ttl" x="20" y="26">ScreenSpot-Pro grounding accuracy — full-screen, % (higher is better)</text>
+
+  <!-- gridlines + ticks at 0,20,40,60 ; x: 0->180, 60->660 (8px/pt) -->
+  <line class="grid" x1="180" y1="54" x2="180" y2="386"/>
+  <line class="grid" x1="340" y1="54" x2="340" y2="386"/>
+  <line class="grid" x1="500" y1="54" x2="500" y2="386"/>
+  <line class="grid" x1="660" y1="54" x2="660" y2="386"/>
+  <text class="tick" x="180" y="402" text-anchor="middle">0</text>
+  <text class="tick" x="340" y="402" text-anchor="middle">20</text>
+  <text class="tick" x="500" y="402" text-anchor="middle">40</text>
+  <text class="tick" x="660" y="402" text-anchor="middle">60</text>
+  <line class="axis" x1="180" y1="54" x2="180" y2="386"/>
+
+  <!-- bars: x0=180, width = value*8 -->
+  <g>
+    <rect class="bar b1" x="180" y="62"  width="132" height="22" rx="3"/>
+    <text class="lbl" x="174" y="78" text-anchor="end">UGround-7B</text>
+    <text class="val" x="318" y="78">16.5</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="180" y="102" width="151" height="22" rx="3"/>
+    <text class="lbl" x="174" y="118" text-anchor="end">OS-Atlas-7B</text>
+    <text class="val" x="337" y="118">18.9</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="180" y="142" width="230" height="22" rx="3"/>
+    <text class="lbl" x="174" y="158" text-anchor="end">Qwen-GUI-3B</text>
+    <text class="val" x="416" y="158">28.7</text>
+  </g>
+  <g>
+    <rect class="bar b2" x="180" y="182" width="305" height="22" rx="3"/>
+    <text class="lbl" x="174" y="198" text-anchor="end">UI-TARS-72B</text>
+    <text class="val" x="491" y="198">38.1</text>
+  </g>
+  <g>
+    <rect class="bar b2" x="180" y="222" width="316" height="22" rx="3"/>
+    <text class="lbl" x="174" y="238" text-anchor="end">OmniParser v2</text>
+    <text class="val" x="502" y="238">39.5</text>
+  </g>
+  <g>
+    <rect class="bar b3" x="180" y="262" width="357" height="22" rx="3"/>
+    <text class="lbl" x="174" y="278" text-anchor="end">GUI-Actor-7B</text>
+    <text class="val" x="543" y="278">44.6</text>
+  </g>
+  <g>
+    <rect class="bar b3" x="180" y="302" width="378" height="22" rx="3"/>
+    <text class="lbl" x="174" y="318" text-anchor="end">SE-GUI-7B</text>
+    <text class="val" x="564" y="318">47.2</text>
+  </g>
+  <g>
+    <rect class="bar b3" x="180" y="342" width="440" height="22" rx="3" opacity="0.85"/>
+    <text class="lbl" x="174" y="358" text-anchor="end">decompose + RL frontier</text>
+    <text class="val" x="626" y="358">&gt;55</text>
+  </g>
+</svg>
