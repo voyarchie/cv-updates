@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-label="Topic map for the 2026-Jun-24 CV update">
+  <title>Topic map — 2026-Jun-24 CV update</title>
+  <desc>A radial topic map of six threads in the vision-centric 3D scene-perception stack for autonomous driving and embodied AI, grouped into three families: dense object detection in 3D (camera BEV 3D detection and LiDAR/camera multi-modal fusion), dense per-voxel classification (3D semantic occupancy prediction and Gaussian/sparse occupancy representations), and the consumers of that perception (end-to-end perception-to-planning and 4D occupancy world models).</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .det    { fill: rgba(59,130,246,0.16); }
+    .occ    { fill: rgba(16,185,129,0.16); }
+    .world  { fill: rgba(168,85,247,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="300" x2="480" y2="96"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="156"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="480" y2="468"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="156"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="300" r="58"/>
+  <text class="hublbl" x="480" y="294" text-anchor="middle">Vision-centric</text>
+  <text class="hublbl" x="480" y="310" text-anchor="middle">3D scene perception</text>
+
+  <!-- nodes -->
+  <g>
+    <rect class="node det" x="360" y="44" width="240" height="56" rx="10"/>
+    <text class="lbl" x="480" y="68" text-anchor="middle">1 · Camera BEV 3D detection</text>
+    <text class="sub" x="480" y="86" text-anchor="middle">SparseBEV · StreamPETR · BEVNeXt</text>
+  </g>
+  <g>
+    <rect class="node occ" x="648" y="128" width="248" height="56" rx="10"/>
+    <text class="lbl" x="772" y="152" text-anchor="middle">2 · 3D semantic occupancy</text>
+    <text class="sub" x="772" y="170" text-anchor="middle">Occ3D · FB-OCC · SurroundOcc</text>
+  </g>
+  <g>
+    <rect class="node occ" x="648" y="372" width="248" height="56" rx="10"/>
+    <text class="lbl" x="772" y="396" text-anchor="middle">3 · Gaussian / sparse occ.</text>
+    <text class="sub" x="772" y="414" text-anchor="middle">GaussianFormer · GaussTR</text>
+  </g>
+  <g>
+    <rect class="node world" x="360" y="440" width="240" height="56" rx="10"/>
+    <text class="lbl" x="480" y="464" text-anchor="middle">6 · 4D occupancy world models</text>
+    <text class="sub" x="480" y="482" text-anchor="middle">OccWorld · Drive-OccWorld</text>
+  </g>
+  <g>
+    <rect class="node world" x="72" y="372" width="248" height="56" rx="10"/>
+    <text class="lbl" x="196" y="396" text-anchor="middle">5 · End-to-end planning</text>
+    <text class="sub" x="196" y="414" text-anchor="middle">UniAD · VAD · SparseDrive</text>
+  </g>
+  <g>
+    <rect class="node det" x="72" y="128" width="248" height="56" rx="10"/>
+    <text class="lbl" x="196" y="152" text-anchor="middle">4 · Multi-modal fusion</text>
+    <text class="sub" x="196" y="170" text-anchor="middle">TransFusion · BEVFusion</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <rect class="swatch det"   x="72"  y="556" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="92"  y="568">3D detection (boxes)</text>
+    <rect class="swatch occ"   x="300" y="556" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="320" y="568">dense occupancy (voxels)</text>
+    <rect class="swatch world" x="588" y="556" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="608" y="568">planning / world models</text>
+  </g>
+</svg>

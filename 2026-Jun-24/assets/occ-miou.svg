@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 470" role="img" aria-label="Camera-only 3D semantic occupancy accuracy on Occ3D-nuScenes">
+  <title>Camera-only 3D occupancy mIoU on Occ3D-nuScenes</title>
+  <desc>Horizontal bar chart of reported camera-only mIoU on the Occ3D-nuScenes benchmark. MonoScene 7.31, BEVFormer 16.75, TPVFormer 17.10, OccFormer 19.03, GaussianFormer 19.10, GaussianFormer-2 20.02, CTF-Occ 28.53, and FB-OCC 54.19 in its challenge-winning configuration with test-time augmentation and a large backbone. Dense-grid baselines are blue, object-centric Gaussian methods are green, and the heavily-tuned challenge entry is purple. Protocols differ across rows, so read this as trajectory rather than a controlled comparison.</desc>
+  <style>
+    .axis  { stroke: currentColor; stroke-width: 1.2; opacity: 0.6; }
+    .grid  { stroke: currentColor; stroke-width: 1; opacity: 0.18; }
+    .bar   { stroke: currentColor; stroke-width: 1; }
+    .b1    { fill: rgba(59,130,246,0.55); }
+    .b2    { fill: rgba(16,185,129,0.55); }
+    .b3    { fill: rgba(168,85,247,0.55); }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .val   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; }
+    .tick  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.7; }
+    .ttl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .note  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; fill: currentColor; opacity: 0.65; }
+  </style>
+
+  <text class="ttl" x="20" y="26">Camera-only occupancy — Occ3D-nuScenes mIoU, % (higher is better)</text>
+
+  <!-- gridlines + ticks at 0,20,40,60 ; x: 0->185, 60->665 (8px/pt) -->
+  <line class="grid" x1="185" y1="54" x2="185" y2="386"/>
+  <line class="grid" x1="345" y1="54" x2="345" y2="386"/>
+  <line class="grid" x1="505" y1="54" x2="505" y2="386"/>
+  <line class="grid" x1="665" y1="54" x2="665" y2="386"/>
+  <text class="tick" x="185" y="402" text-anchor="middle">0</text>
+  <text class="tick" x="345" y="402" text-anchor="middle">20</text>
+  <text class="tick" x="505" y="402" text-anchor="middle">40</text>
+  <text class="tick" x="665" y="402" text-anchor="middle">60</text>
+  <line class="axis" x1="185" y1="54" x2="185" y2="386"/>
+
+  <!-- bars: x0=185, width = value*8 -->
+  <g>
+    <rect class="bar b1" x="185" y="62"  width="58"  height="22" rx="3"/>
+    <text class="lbl" x="179" y="78"  text-anchor="end">MonoScene</text>
+    <text class="val" x="249" y="78">7.31</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="185" y="102" width="134" height="22" rx="3"/>
+    <text class="lbl" x="179" y="118" text-anchor="end">BEVFormer</text>
+    <text class="val" x="325" y="118">16.75</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="185" y="142" width="137" height="22" rx="3"/>
+    <text class="lbl" x="179" y="158" text-anchor="end">TPVFormer</text>
+    <text class="val" x="328" y="158">17.10</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="185" y="182" width="152" height="22" rx="3"/>
+    <text class="lbl" x="179" y="198" text-anchor="end">OccFormer</text>
+    <text class="val" x="343" y="198">19.03</text>
+  </g>
+  <g>
+    <rect class="bar b2" x="185" y="222" width="153" height="22" rx="3"/>
+    <text class="lbl" x="179" y="238" text-anchor="end">GaussianFormer</text>
+    <text class="val" x="344" y="238">19.10</text>
+  </g>
+  <g>
+    <rect class="bar b2" x="185" y="262" width="160" height="22" rx="3"/>
+    <text class="lbl" x="179" y="278" text-anchor="end">GaussianFormer-2</text>
+    <text class="val" x="351" y="278">20.02</text>
+  </g>
+  <g>
+    <rect class="bar b1" x="185" y="302" width="228" height="22" rx="3"/>
+    <text class="lbl" x="179" y="318" text-anchor="end">CTF-Occ</text>
+    <text class="val" x="419" y="318">28.53</text>
+  </g>
+  <g>
+    <rect class="bar b3" x="185" y="342" width="434" height="22" rx="3" opacity="0.85"/>
+    <text class="lbl" x="179" y="358" text-anchor="end">FB-OCC (challenge)</text>
+    <text class="val" x="625" y="358">54.19</text>
+  </g>
+
+  <text class="note" x="20" y="426">Blue = dense-grid baselines · green = object-centric Gaussian · purple = challenge entry (large backbone + test-time augmentation).</text>
+  <text class="note" x="20" y="442">Numbers as reported by each method on Occ3D-nuScenes (camera mask protocol); the FB-OCC bar is its tuned challenge config, not a like-for-like run.</text>
+</svg>
