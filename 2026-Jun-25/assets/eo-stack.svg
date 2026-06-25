@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" role="img" aria-label="Earth-observation foundation-model stack">
+  <title>EO foundation-model stack — 2026-Jun-25</title>
+  <desc>A left-to-right pipeline for Earth-observation foundation models: heterogeneous sensor inputs (optical RGB, multispectral, synthetic aperture radar, elevation, satellite image time series, and text or geo-metadata) are encoded by a modality-agnostic shared encoder pretrained with masked modelling or cross-modal contrastive learning, then adapted by lightweight task heads into the dense downstream tasks covered in this report: oriented object detection, per-pixel land-cover segmentation, change detection, classification, and language grounding.</desc>
+  <style>
+    .box   { stroke: currentColor; stroke-width: 1.3; }
+    .inp   { fill: rgba(59,130,246,0.16); }
+    .enc   { fill: rgba(245,158,11,0.18); }
+    .out   { fill: rgba(168,85,247,0.16); }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; fill: currentColor; opacity: 0.72; }
+    .ttl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .flow  { fill: none; stroke: currentColor; stroke-width: 1.3; opacity: 0.6; }
+    .arrow { fill: currentColor; opacity: 0.6; }
+  </style>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arrow" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <!-- column titles -->
+  <text class="ttl" x="120" y="34" text-anchor="middle">HETEROGENEOUS SENSORS</text>
+  <text class="ttl" x="490" y="34" text-anchor="middle">SHARED ENCODER (pretrained)</text>
+  <text class="ttl" x="860" y="34" text-anchor="middle">DENSE TASK HEADS</text>
+
+  <!-- inputs -->
+  <g>
+    <rect class="box inp" x="24" y="58"  width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="78" text-anchor="middle">Optical RGB / very-high-res</text>
+    <text class="sub" x="120" y="93" text-anchor="middle">aerial, sub-metre satellite</text>
+  </g>
+  <g>
+    <rect class="box inp" x="24" y="112" width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="132" text-anchor="middle">Multispectral (Sentinel-2)</text>
+    <text class="sub" x="120" y="147" text-anchor="middle">13 bands, atmospheric</text>
+  </g>
+  <g>
+    <rect class="box inp" x="24" y="166" width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="186" text-anchor="middle">SAR (Sentinel-1)</text>
+    <text class="sub" x="120" y="201" text-anchor="middle">all-weather, day/night</text>
+  </g>
+  <g>
+    <rect class="box inp" x="24" y="220" width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="240" text-anchor="middle">Elevation / DEM</text>
+    <text class="sub" x="120" y="255" text-anchor="middle">terrain, structure</text>
+  </g>
+  <g>
+    <rect class="box inp" x="24" y="274" width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="294" text-anchor="middle">Image time series</text>
+    <text class="sub" x="120" y="309" text-anchor="middle">phenology, change</text>
+  </g>
+  <g>
+    <rect class="box inp" x="24" y="328" width="192" height="44" rx="8"/>
+    <text class="lbl" x="120" y="348" text-anchor="middle">Text / geo-metadata</text>
+    <text class="sub" x="120" y="363" text-anchor="middle">lat-lon, wavelength, OSM</text>
+  </g>
+
+  <!-- encoder -->
+  <rect class="box enc" x="368" y="120" width="244" height="190" rx="12"/>
+  <text class="lbl" x="490" y="180" text-anchor="middle" font-weight="600">Modality-agnostic</text>
+  <text class="lbl" x="490" y="198" text-anchor="middle" font-weight="600">transformer encoder</text>
+  <text class="sub" x="490" y="224" text-anchor="middle">masked image modelling</text>
+  <text class="sub" x="490" y="240" text-anchor="middle">+ cross-modal contrastive</text>
+  <text class="sub" x="490" y="256" text-anchor="middle">wavelength / sensor tokens</text>
+
+  <!-- outputs -->
+  <g>
+    <rect class="box out" x="760" y="70"  width="196" height="40" rx="8"/>
+    <text class="lbl" x="858" y="94" text-anchor="middle">Oriented detection</text>
+  </g>
+  <g>
+    <rect class="box out" x="760" y="120" width="196" height="40" rx="8"/>
+    <text class="lbl" x="858" y="144" text-anchor="middle">Land-cover segmentation</text>
+  </g>
+  <g>
+    <rect class="box out" x="760" y="170" width="196" height="40" rx="8"/>
+    <text class="lbl" x="858" y="194" text-anchor="middle">Change detection</text>
+  </g>
+  <g>
+    <rect class="box out" x="760" y="220" width="196" height="40" rx="8"/>
+    <text class="lbl" x="858" y="244" text-anchor="middle">Scene / crop classification</text>
+  </g>
+  <g>
+    <rect class="box out" x="760" y="270" width="196" height="40" rx="8"/>
+    <text class="lbl" x="858" y="294" text-anchor="middle">Language grounding / VQA</text>
+  </g>
+
+  <!-- flows in -->
+  <path class="flow" marker-end="url(#ah)" d="M216,80  C300,80  300,200 366,200"/>
+  <path class="flow" marker-end="url(#ah)" d="M216,134 C300,134 300,205 366,205"/>
+  <path class="flow" marker-end="url(#ah)" d="M216,188 C300,188 300,210 366,210"/>
+  <path class="flow" marker-end="url(#ah)" d="M216,242 C300,242 300,215 366,215"/>
+  <path class="flow" marker-end="url(#ah)" d="M216,296 C300,296 300,220 366,220"/>
+  <path class="flow" marker-end="url(#ah)" d="M216,350 C300,350 300,225 366,225"/>
+
+  <!-- flows out -->
+  <path class="flow" marker-end="url(#ah)" d="M612,200 C690,200 690,90  758,90"/>
+  <path class="flow" marker-end="url(#ah)" d="M612,205 C690,205 690,140 758,140"/>
+  <path class="flow" marker-end="url(#ah)" d="M612,210 C690,210 690,190 758,190"/>
+  <path class="flow" marker-end="url(#ah)" d="M612,215 C690,215 690,240 758,240"/>
+  <path class="flow" marker-end="url(#ah)" d="M612,220 C690,220 690,290 758,290"/>
+
+  <text class="sub" x="490" y="344" text-anchor="middle">frozen backbone + lightweight adapters / LoRA</text>
+</svg>
