@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-label="Topic map for the 2026-Jun-27 CV update">
+  <title>Topic map — 2026-Jun-27 CV update</title>
+  <desc>A radial topic map of six threads in the LiDAR / point-cloud dense detection and classification stack: efficient point-cloud backbones, multi-modal LiDAR-camera fusion, open- and auto-vocabulary 3D detection, label-efficient and unsupervised 3D detection, cooperative V2X perception, and temporal 4D modeling plus point-cloud classification.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .bone   { fill: rgba(59,130,246,0.16); }
+    .vocab  { fill: rgba(16,185,129,0.16); }
+    .label  { fill: rgba(245,158,11,0.18); }
+    .coop   { fill: rgba(168,85,247,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="300" x2="480" y2="96"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="156"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="480" y2="468"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="156"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="300" r="62"/>
+  <text class="hublbl" x="480" y="288" text-anchor="middle">LiDAR / point-cloud</text>
+  <text class="hublbl" x="480" y="304" text-anchor="middle">dense detection</text>
+  <text class="hublbl" x="480" y="320" text-anchor="middle">+ classification</text>
+
+  <!-- nodes -->
+  <g>
+    <rect class="node bone" x="356" y="42" width="248" height="58" rx="10"/>
+    <text class="lbl" x="480" y="66" text-anchor="middle">1 · Efficient backbones</text>
+    <text class="sub" x="480" y="84" text-anchor="middle">SparseVoxFormer · LION · UniMamba</text>
+  </g>
+  <g>
+    <rect class="node bone" x="644" y="128" width="256" height="58" rx="10"/>
+    <text class="lbl" x="772" y="152" text-anchor="middle">2 · LiDAR–camera fusion</text>
+    <text class="sub" x="772" y="170" text-anchor="middle">CrossRay3D · DepthFusion · EVT</text>
+  </g>
+  <g>
+    <rect class="node coop" x="644" y="372" width="256" height="58" rx="10"/>
+    <text class="lbl" x="772" y="396" text-anchor="middle">5 · Cooperative / V2X</text>
+    <text class="sub" x="772" y="414" text-anchor="middle">SparseCoop · AirV2X · UrbanIng</text>
+  </g>
+  <g>
+    <rect class="node vocab" x="356" y="440" width="248" height="58" rx="10"/>
+    <text class="lbl" x="480" y="464" text-anchor="middle">6 · Temporal / 4D + cls.</text>
+    <text class="sub" x="480" y="482" text-anchor="middle">U4D · MAMBA4D · PointMamba</text>
+  </g>
+  <g>
+    <rect class="node label" x="60" y="372" width="264" height="58" rx="10"/>
+    <text class="lbl" x="192" y="396" text-anchor="middle">4 · Label-efficient / unsup.</text>
+    <text class="sub" x="192" y="414" text-anchor="middle">SP3D · MixSup · DOtA</text>
+  </g>
+  <g>
+    <rect class="node vocab" x="60" y="128" width="264" height="58" rx="10"/>
+    <text class="lbl" x="192" y="152" text-anchor="middle">3 · Open- / auto-vocab</text>
+    <text class="sub" x="192" y="170" text-anchor="middle">Zoo3D · AV3DOD · ImOV3D</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <rect class="swatch bone"  x="60"  y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="80"  y="572">backbone / fusion</text>
+    <rect class="swatch vocab" x="248" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="268" y="572">vocabulary / temporal / cls.</text>
+    <rect class="swatch label" x="520" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="540" y="572">label-efficient</text>
+    <rect class="swatch coop"  x="700" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="720" y="572">cooperative / V2X</text>
+  </g>
+</svg>

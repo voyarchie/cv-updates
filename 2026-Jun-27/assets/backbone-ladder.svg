@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" role="img" aria-label="Backbone efficiency ladder for point-cloud 3D detection">
+  <title>Backbone-efficiency ladder — point-cloud 3D detection</title>
+  <desc>A left-to-right ladder showing the evolution of point-cloud detection backbones and their computational cost per scene: dense 3D convolution (cost proportional to the whole voxel volume, wasting compute on empty space); submanifold sparse convolution as in SECOND and VoxelNeXt (cost proportional only to occupied voxels); window transformers as in DSVT (attention within local windows); and linear-time state-space or RNN backbones as in LION, Voxel Mamba and UniMamba (linear-cost global mixing enabling long-range perception). Arrows note that the key transitions are dropping quadratic attention and serializing 3D voxels into a one-dimensional scan via Z-order or Hilbert curves.</desc>
+  <style>
+    .box   { stroke: currentColor; stroke-width: 1.3; }
+    .old   { fill: rgba(100,116,139,0.18); }
+    .mid   { fill: rgba(59,130,246,0.16); }
+    .new   { fill: rgba(16,185,129,0.18); }
+    .ttl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+    .cost  { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; fill: currentColor; opacity: 0.9; }
+    .flow  { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .note  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.7; }
+    .axis  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <text class="axis" x="40" y="34">less efficient / shorter range  ───────────────────────────────▶  linear-time global / long range</text>
+
+  <g>
+    <rect class="box old" x="40"  y="70" width="200" height="120" rx="10"/>
+    <text class="ttl"  x="140" y="104" text-anchor="middle">Dense 3D conv</text>
+    <text class="sub"  x="140" y="126" text-anchor="middle">grids the full volume</text>
+    <text class="sub"  x="140" y="143" text-anchor="middle">wastes FLOPs on air</text>
+    <text class="cost" x="140" y="170" text-anchor="middle">O(volume)</text>
+  </g>
+
+  <g>
+    <rect class="box old" x="280" y="70" width="200" height="120" rx="10"/>
+    <text class="ttl"  x="380" y="104" text-anchor="middle">Sparse conv</text>
+    <text class="sub"  x="380" y="126" text-anchor="middle">SECOND · VoxelNeXt</text>
+    <text class="sub"  x="380" y="143" text-anchor="middle">only occupied voxels</text>
+    <text class="cost" x="380" y="170" text-anchor="middle">O(occupied)</text>
+  </g>
+
+  <g>
+    <rect class="box mid" x="520" y="70" width="200" height="120" rx="10"/>
+    <text class="ttl"  x="620" y="104" text-anchor="middle">Window transformer</text>
+    <text class="sub"  x="620" y="126" text-anchor="middle">DSVT</text>
+    <text class="sub"  x="620" y="143" text-anchor="middle">attention in windows</text>
+    <text class="cost" x="620" y="170" text-anchor="middle">O(N · w)</text>
+  </g>
+
+  <g>
+    <rect class="box new" x="760" y="70" width="200" height="120" rx="10"/>
+    <text class="ttl"  x="860" y="100" text-anchor="middle">Linear SSM / RNN</text>
+    <text class="sub"  x="860" y="122" text-anchor="middle">LION · Voxel Mamba</text>
+    <text class="sub"  x="860" y="139" text-anchor="middle">UniMamba</text>
+    <text class="cost" x="860" y="170" text-anchor="middle">O(N) global</text>
+  </g>
+
+  <line class="flow" x1="240" y1="130" x2="278" y2="130" marker-end="url(#arrow)"/>
+  <line class="flow" x1="480" y1="130" x2="518" y2="130" marker-end="url(#arrow)"/>
+  <line class="flow" x1="720" y1="130" x2="758" y2="130" marker-end="url(#arrow)"/>
+
+  <text class="note" x="620" y="232" text-anchor="middle">drop quadratic attention ▸</text>
+  <text class="note" x="860" y="232" text-anchor="middle">serialize voxels: Z-order / Hilbert curve</text>
+  <line class="flow" x1="620" y1="190" x2="620" y2="218" opacity="0.5"/>
+  <line class="flow" x1="860" y1="190" x2="860" y2="218" opacity="0.5"/>
+</svg>
