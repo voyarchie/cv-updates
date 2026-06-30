@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-label="Topic map for the 2026-Jun-30 CV update">
+  <title>Topic map — 2026-Jun-30 CV update</title>
+  <desc>A radial topic map of six threads in the thermal-infrared (LWIR) dense detection and classification stack: why thermal is its own primitive and representation choices, RGB-thermal multispectral detection, infrared small-target detection, thermal-only detection and RGB-to-thermal transfer with backbones and self-supervision, open-vocabulary and vision-language for thermal, and datasets, simulators and benchmarks.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .prim   { fill: rgba(239,68,68,0.16); }
+    .fuse   { fill: rgba(16,185,129,0.16); }
+    .vocab  { fill: rgba(245,158,11,0.18); }
+    .data   { fill: rgba(168,85,247,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="300" x2="480" y2="96"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="156"/>
+  <line class="spoke" x1="480" y1="300" x2="768" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="480" y2="468"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="400"/>
+  <line class="spoke" x1="480" y1="300" x2="192" y2="156"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="300" r="64"/>
+  <text class="hublbl" x="480" y="288" text-anchor="middle">Thermal-IR</text>
+  <text class="hublbl" x="480" y="304" text-anchor="middle">dense detection</text>
+  <text class="hublbl" x="480" y="320" text-anchor="middle">+ classification</text>
+
+  <!-- nodes -->
+  <g>
+    <rect class="node prim" x="356" y="42" width="248" height="58" rx="10"/>
+    <text class="lbl" x="480" y="66" text-anchor="middle">1 · The primitive &amp; representation</text>
+    <text class="sub" x="480" y="84" text-anchor="middle">LWIR physics · NETD · NUC · no texture</text>
+  </g>
+  <g>
+    <rect class="node fuse" x="644" y="128" width="256" height="58" rx="10"/>
+    <text class="lbl" x="772" y="152" text-anchor="middle">2 · RGB–thermal fusion</text>
+    <text class="sub" x="772" y="170" text-anchor="middle">CFT · ICAFusion · CSAA · misalignment</text>
+  </g>
+  <g>
+    <rect class="node data" x="644" y="372" width="256" height="58" rx="10"/>
+    <text class="lbl" x="772" y="396" text-anchor="middle">6 · Datasets &amp; simulators</text>
+    <text class="sub" x="772" y="414" text-anchor="middle">KAIST · LLVIP · M3FD · IRSTD-1k</text>
+  </g>
+  <g>
+    <rect class="node prim" x="356" y="440" width="248" height="58" rx="10"/>
+    <text class="lbl" x="480" y="464" text-anchor="middle">4 · Thermal-only &amp; RGB→IR transfer</text>
+    <text class="sub" x="480" y="482" text-anchor="middle">domain adaptation · MIM · backbones</text>
+  </g>
+  <g>
+    <rect class="node vocab" x="60" y="372" width="264" height="58" rx="10"/>
+    <text class="lbl" x="192" y="396" text-anchor="middle">5 · Open-vocab / VLM for IR</text>
+    <text class="sub" x="192" y="414" text-anchor="middle">CLIP-for-thermal · IR captioning</text>
+  </g>
+  <g>
+    <rect class="node fuse" x="60" y="128" width="264" height="58" rx="10"/>
+    <text class="lbl" x="192" y="152" text-anchor="middle">3 · Infrared small-target</text>
+    <text class="sub" x="192" y="170" text-anchor="middle">SCTransNet · Mamba · point-supervision</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <rect class="swatch prim"  x="60"  y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="80"  y="572">primitive / thermal-only</text>
+    <rect class="swatch fuse"  x="250" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="270" y="572">fusion / detection</text>
+    <rect class="swatch vocab" x="430" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="450" y="572">VLM / open-vocab</text>
+    <rect class="swatch data"  x="640" y="560" width="14" height="14" rx="3"/>
+    <text class="keylbl" x="660" y="572">datasets / simulators</text>
+  </g>
+</svg>
