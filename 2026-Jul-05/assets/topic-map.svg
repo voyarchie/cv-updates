@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" role="img" aria-label="Topic map for the 2026-Jul-05 CV update">
+  <title>Topic map — 2026-Jul-05 CV update</title>
+  <desc>A radial topic map of seven threads in the X-ray security-screening dense detection stack: why transmission X-ray is its own primitive and its representation choices; datasets and benchmarks from SIXray to XSeg; the additive-overlap problem tackled by de-occlusion and anti-overlapping methods; material and dual-energy detection; synthetic data via threat image projection, GANs and diffusion; open-vocabulary detectors and vision-language models; and volumetric 3D CT screening.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .prim   { fill: rgba(245,158,11,0.18); }
+    .meth   { fill: rgba(139,92,246,0.16); }
+    .data   { fill: rgba(59,130,246,0.16); }
+    .vlm    { fill: rgba(16,185,129,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="480" y1="310" x2="480" y2="112"/>
+  <line class="spoke" x1="480" y1="310" x2="774" y2="182"/>
+  <line class="spoke" x1="480" y1="310" x2="820" y2="330"/>
+  <line class="spoke" x1="480" y1="310" x2="686" y2="486"/>
+  <line class="spoke" x1="480" y1="310" x2="274" y2="486"/>
+  <line class="spoke" x1="480" y1="310" x2="140" y2="330"/>
+  <line class="spoke" x1="480" y1="310" x2="186" y2="182"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="480" cy="310" r="66"/>
+  <text class="hublbl" x="480" y="298" text-anchor="middle">X-ray screening</text>
+  <text class="hublbl" x="480" y="314" text-anchor="middle">dense detection</text>
+  <text class="sub"    x="480" y="332" text-anchor="middle">on its own terms</text>
+
+  <!-- 1 primitive (top) -->
+  <g>
+    <rect class="node prim" x="366" y="44" width="228" height="66" rx="10"/>
+    <text class="lbl" x="480" y="70" text-anchor="middle">1 · Primitive &amp; representation</text>
+    <text class="sub" x="480" y="88" text-anchor="middle">transmission · additive overlap</text>
+    <text class="sub" x="480" y="101" text-anchor="middle">pseudo-color · no texture cues</text>
+  </g>
+
+  <!-- 2 datasets (upper right) -->
+  <g>
+    <rect class="node data" x="664" y="128" width="224" height="66" rx="10"/>
+    <text class="lbl" x="776" y="154" text-anchor="middle">2 · Datasets &amp; benchmarks</text>
+    <text class="sub" x="776" y="172" text-anchor="middle">SIXray · OPIXray · PIDray</text>
+    <text class="sub" x="776" y="185" text-anchor="middle">HiXray · PIXray · XSeg</text>
+  </g>
+
+  <!-- 3 overlap methods (right) -->
+  <g>
+    <rect class="node meth" x="712" y="300" width="230" height="66" rx="10"/>
+    <text class="lbl" x="827" y="326" text-anchor="middle">3 · The overlap problem</text>
+    <text class="sub" x="827" y="344" text-anchor="middle">DOAM · LIM · AO-DETR</text>
+    <text class="sub" x="827" y="357" text-anchor="middle">CSPCL · FOAM · long-tail</text>
+  </g>
+
+  <!-- 4 material (lower right) -->
+  <g>
+    <rect class="node prim" x="584" y="470" width="230" height="66" rx="10"/>
+    <text class="lbl" x="699" y="496" text-anchor="middle">4 · Material &amp; dual-energy</text>
+    <text class="sub" x="699" y="514" text-anchor="middle">Z / density · organic vs metal</text>
+    <text class="sub" x="699" y="527" text-anchor="middle">XMC R-CNN · energy-response</text>
+  </g>
+
+  <!-- 5 synthetic (lower left) -->
+  <g>
+    <rect class="node meth" x="146" y="470" width="230" height="66" rx="10"/>
+    <text class="lbl" x="261" y="496" text-anchor="middle">5 · Synthetic data</text>
+    <text class="sub" x="261" y="514" text-anchor="middle">TIP · GAN · diffusion (Xsyn)</text>
+    <text class="sub" x="261" y="527" text-anchor="middle">BGM · cross-modal synthesis</text>
+  </g>
+
+  <!-- 6 open-vocab / VLM (left) -->
+  <g>
+    <rect class="node vlm" x="38" y="300" width="228" height="66" rx="10"/>
+    <text class="lbl" x="152" y="326" text-anchor="middle">6 · Open-vocab &amp; VLMs</text>
+    <text class="sub" x="152" y="344" text-anchor="middle">OVXD · RAXO · STING-BEE</text>
+    <text class="sub" x="152" y="357" text-anchor="middle">OneFocus · novel-category</text>
+  </g>
+
+  <!-- 7 3D CT (upper left) -->
+  <g>
+    <rect class="node vlm" x="72" y="128" width="228" height="66" rx="10"/>
+    <text class="lbl" x="186" y="154" text-anchor="middle">7 · Volumetric 3D CT</text>
+    <text class="sub" x="186" y="172" text-anchor="middle">voxel detection &amp; segmentation</text>
+    <text class="sub" x="186" y="185" text-anchor="middle">material / contraband in 3D</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <text class="keylbl" x="40" y="596">COLOUR KEY</text>
+    <rect class="swatch prim" x="150" y="586" width="16" height="12" rx="2"/>
+    <text class="sub" x="172" y="596">primitive / material</text>
+    <rect class="swatch data" x="316" y="586" width="16" height="12" rx="2"/>
+    <text class="sub" x="338" y="596">datasets</text>
+    <rect class="swatch meth" x="430" y="586" width="16" height="12" rx="2"/>
+    <text class="sub" x="452" y="596">methods</text>
+    <rect class="swatch vlm" x="556" y="586" width="16" height="12" rx="2"/>
+    <text class="sub" x="578" y="596">language / 3D</text>
+  </g>
+</svg>
