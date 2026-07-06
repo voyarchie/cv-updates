@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" role="img" aria-label="How the YOLO and DETR lineages converge on NMS-free end-to-end detection">
+  <title>Label assignment and the NMS-free convergence</title>
+  <desc>Left: the classic dense one-to-many assignment used by YOLO detectors emits many boxes per object and needs non-maximum suppression at inference. Right: DETR's one-to-one Hungarian set prediction emits one box per object and needs no NMS but supervises sparsely and converges slowly. Bottom: the 2024 to 2026 convergence, where YOLO adds a one-to-one head to become NMS-free and DETR adds dense one-to-one matching to converge fast, both meeting at NMS-free end-to-end detection with foundation-model backbones.</desc>
+  <style>
+    .box    { fill: none; stroke: currentColor; }
+    .panel  { stroke: currentColor; stroke-width: 1.3; }
+    .yolo   { fill: rgba(16,185,129,0.12); }
+    .detr   { fill: rgba(59,130,246,0.12); }
+    .conv   { fill: rgba(168,85,247,0.13); }
+    .obj    { fill: rgba(148,163,184,0.35); stroke: currentColor; stroke-width: 1.1; }
+    .pred   { fill: none; stroke: currentColor; stroke-width: 1.4; }
+    .kept   { fill: none; stroke: currentColor; stroke-width: 2.4; }
+    .dead   { fill: none; stroke: currentColor; stroke-width: 1; stroke-dasharray: 3 3; opacity: 0.5; }
+    .arw    { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .h      { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: currentColor; }
+    .t      { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11.5px; fill: currentColor; }
+    .s      { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .tag    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; fill: currentColor; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT PANEL: one-to-many + NMS -->
+  <rect class="panel yolo" x="24" y="30" width="420" height="180" rx="10"/>
+  <text class="h" x="40" y="56">YOLO lineage — one-to-many + NMS</text>
+  <text class="s" x="40" y="74">training: each object gets many positive anchors</text>
+  <!-- object -->
+  <rect class="obj" x="70" y="92" width="86" height="66" rx="4"/>
+  <!-- many overlapping predictions -->
+  <rect class="pred" x="62" y="86" width="90" height="70" rx="4"/>
+  <rect class="pred" x="78" y="98" width="90" height="70" rx="4"/>
+  <rect class="pred" x="72" y="82" width="86" height="66" rx="4"/>
+  <text class="t" x="200" y="112">many boxes / object</text>
+  <line class="arw" x1="252" y1="130" x2="300" y2="130" marker-end="url(#ah)"/>
+  <text class="tag" x="258" y="122">NMS</text>
+  <!-- after NMS: one kept -->
+  <rect class="kept" x="330" y="98" width="78" height="60" rx="4"/>
+  <rect class="dead" x="322" y="90" width="78" height="60" rx="4"/>
+  <rect class="dead" x="340" y="106" width="78" height="60" rx="4"/>
+  <text class="s" x="322" y="185">post-process suppression — a hand-tuned, non-differentiable, latency-variable step</text>
+
+  <!-- RIGHT PANEL: one-to-one set prediction -->
+  <rect class="panel detr" x="536" y="30" width="420" height="180" rx="10"/>
+  <text class="h" x="552" y="56">DETR lineage — one-to-one set prediction</text>
+  <text class="s" x="552" y="74">training: Hungarian match, one query per object</text>
+  <rect class="obj" x="590" y="92" width="86" height="66" rx="4"/>
+  <rect class="kept" x="588" y="90" width="90" height="70" rx="4"/>
+  <text class="t" x="712" y="118">exactly one box</text>
+  <text class="t" x="712" y="136">per object</text>
+  <text class="tag" x="712" y="164">no NMS needed</text>
+  <text class="s" x="552" y="185">clean end-to-end — but sparse positives → historically slow to converge</text>
+
+  <!-- BOTTOM CONVERGENCE -->
+  <line class="arw" x1="234" y1="212" x2="360" y2="286" marker-end="url(#ah)"/>
+  <line class="arw" x1="746" y1="212" x2="620" y2="286" marker-end="url(#ah)"/>
+  <rect class="panel conv" x="250" y="292" width="480" height="150" rx="10"/>
+  <text class="h" x="490" y="320" text-anchor="middle">The 2024–26 convergence: NMS-free, end-to-end</text>
+  <text class="t" x="270" y="348">YOLO borrows one-to-one →</text>
+  <text class="s" x="270" y="366">v10 consistent dual assignment;</text>
+  <text class="s" x="270" y="381">YOLO26 one-to-one head, DFL removed</text>
+  <text class="t" x="710" y="348" text-anchor="end">← DETR borrows dense positives</text>
+  <text class="s" x="710" y="366" text-anchor="end">DEIM Dense O2O + MAL;</text>
+  <text class="s" x="710" y="381" text-anchor="end">RT-DETRv3/v4 dense supervision</text>
+  <text class="t" x="490" y="410" text-anchor="middle">both: train with dense signal, infer one box per object</text>
+  <text class="s" x="490" y="429" text-anchor="middle">+ self-supervised foundation backbones (DINOv2 / DINOv3) on top</text>
+</svg>
