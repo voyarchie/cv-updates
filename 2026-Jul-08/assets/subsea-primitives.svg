@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-label="The two subsea imaging primitives, their shared enablers and deployment reality">
+  <title>Two subsea primitives — 2026-Jul-08 CV update</title>
+  <desc>A two-column comparison of the two subsea imaging primitives. The left column, optical (light), shows the signal (RGB camera, stereo, ROV video through water), what breaks it (wavelength-dependent attenuation, backscatter haze, blue-green colour cast, turbidity, only a few metres of range) and the consequence (appearance survives but is degraded; enhancement helps per image, not as blanket preprocessing). The right column, acoustic (sound), shows the signal (sound pulses via forward-looking, side-scan, synthetic-aperture and multibeam sonar), what breaks it (speckle, no colour, low resolution, few pixels on target, viewpoint dependence, the acoustic shadow carries the class cue) and the consequence (geometry not appearance; range-independent detail only with synthetic-aperture sonar; imagery scarce and expensive). A shared band lists common enablers: physics-based simulation and diffusion synthesis, in-domain self-supervision and JEPA, SAM and CLIP foundation models, open vocabulary. A bottom band lists the deployment reality: AUV/ROV real-time inference on embedded and neuromorphic edge, extreme label scarcity, domain shift across water type, site and sensor.</desc>
+  <style>
+    .lbl { font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .node { stroke-width: 1.5; }
+    .hd { fill: #f8fafc; font-weight: 700; }
+    .nt { fill: #f8fafc; font-weight: 600; }
+    .ns { fill: #e2e8f0; }
+    .cap { fill: #94a3b8; font-weight: 600; letter-spacing: 0.05em; }
+    .edge { stroke: #94a3b8; stroke-width: 2; }
+  </style>
+
+  <text x="480" y="30" text-anchor="middle" class="lbl cap" font-size="13">TWO SUBSEA SIGNALS — ONE STACK OF PROBLEMS</text>
+
+  <!-- ============ LEFT: OPTICAL ============ -->
+  <g class="lbl">
+    <rect x="40" y="52" width="410" height="52" rx="10" fill="#0369a1" stroke="#075985" class="node"/>
+    <text x="245" y="76" text-anchor="middle" class="hd" font-size="16">OPTICAL · light</text>
+    <text x="245" y="94" text-anchor="middle" class="ns" font-size="11.5">RGB / stereo camera · ROV &amp; AUV video</text>
+  </g>
+  <g class="lbl">
+    <rect x="40" y="118" width="410" height="78" rx="10" fill="#0b4f79" stroke="#075985" class="node"/>
+    <text x="60" y="142" class="nt" font-size="12.5">Signal — photons travelling through water</text>
+    <text x="60" y="162" class="ns" font-size="11.5">reflected light reaches a lens; colour + texture</text>
+    <text x="60" y="180" class="ns" font-size="11.5">are present, so it looks like ordinary vision…</text>
+  </g>
+  <g class="lbl">
+    <rect x="40" y="210" width="410" height="96" rx="10" fill="#0b4f79" stroke="#075985" class="node"/>
+    <text x="60" y="234" class="nt" font-size="12.5">…but the water breaks it</text>
+    <text x="60" y="254" class="ns" font-size="11.5">wavelength-dependent attenuation · backscatter haze</text>
+    <text x="60" y="272" class="ns" font-size="11.5">blue-green colour cast · turbidity · low contrast</text>
+    <text x="60" y="290" class="ns" font-size="11.5">usable range only a few metres</text>
+  </g>
+  <g class="lbl">
+    <rect x="40" y="320" width="410" height="78" rx="10" fill="#0b4f79" stroke="#075985" class="node"/>
+    <text x="60" y="344" class="nt" font-size="12.5">Consequence</text>
+    <text x="60" y="364" class="ns" font-size="11.5">appearance survives but degraded; enhancement</text>
+    <text x="60" y="382" class="ns" font-size="11.5">helps per-image, not as blanket preprocessing</text>
+  </g>
+
+  <!-- ============ RIGHT: ACOUSTIC ============ -->
+  <g class="lbl">
+    <rect x="510" y="52" width="410" height="52" rx="10" fill="#b45309" stroke="#92400e" class="node"/>
+    <text x="715" y="76" text-anchor="middle" class="hd" font-size="16">ACOUSTIC · sound</text>
+    <text x="715" y="94" text-anchor="middle" class="ns" font-size="11.5">FLS · side-scan (SSS) · synthetic-aperture (SAS) · multibeam</text>
+  </g>
+  <g class="lbl">
+    <rect x="510" y="118" width="410" height="78" rx="10" fill="#7c3a08" stroke="#92400e" class="node"/>
+    <text x="530" y="142" class="nt" font-size="12.5">Signal — sound pulses, echoes timed &amp; imaged</text>
+    <text x="530" y="162" class="ns" font-size="11.5">works in zero-visibility, turbid or deep water</text>
+    <text x="530" y="180" class="ns" font-size="11.5">at tens–hundreds of metres of range</text>
+  </g>
+  <g class="lbl">
+    <rect x="510" y="210" width="410" height="96" rx="10" fill="#7c3a08" stroke="#92400e" class="node"/>
+    <text x="530" y="234" class="nt" font-size="12.5">…but it is nothing like a photo</text>
+    <text x="530" y="254" class="ns" font-size="11.5">speckle · no colour · low resolution · few px-on-target</text>
+    <text x="530" y="272" class="ns" font-size="11.5">viewpoint-dependent; the acoustic shadow — not the</text>
+    <text x="530" y="290" class="ns" font-size="11.5">highlight — carries the class cue</text>
+  </g>
+  <g class="lbl">
+    <rect x="510" y="320" width="410" height="78" rx="10" fill="#7c3a08" stroke="#92400e" class="node"/>
+    <text x="530" y="344" class="nt" font-size="12.5">Consequence</text>
+    <text x="530" y="364" class="ns" font-size="11.5">classify by geometry not appearance; range-independent</text>
+    <text x="530" y="382" class="ns" font-size="11.5">detail only with SAS; imagery scarce &amp; expensive</text>
+  </g>
+
+  <!-- converging edges -->
+  <g class="edge" fill="none">
+    <line x1="245" y1="398" x2="330" y2="428"/>
+    <line x1="715" y1="398" x2="630" y2="428"/>
+  </g>
+
+  <!-- ============ SHARED ENABLERS ============ -->
+  <g class="lbl">
+    <rect x="120" y="428" width="720" height="72" rx="10" fill="#15803d" stroke="#166534" class="node"/>
+    <text x="480" y="452" text-anchor="middle" class="hd" font-size="13.5">SHARED ENABLERS — routing around scarce labels</text>
+    <text x="480" y="472" text-anchor="middle" class="ns" font-size="11.5">physics-based simulation + diffusion / GAN synthesis · in-domain SSL &amp; JEPA</text>
+    <text x="480" y="490" text-anchor="middle" class="ns" font-size="11.5">SAM / SAM2 / SAM3 &amp; CLIP foundation models · open-vocabulary detection</text>
+  </g>
+
+  <!-- ============ DEPLOYMENT ============ -->
+  <g class="lbl">
+    <rect x="120" y="516" width="720" height="72" rx="10" fill="#1f2937" stroke="#94a3b8" class="node"/>
+    <text x="480" y="540" text-anchor="middle" class="hd" font-size="13.5">DEPLOYMENT REALITY — the operating point that matters</text>
+    <text x="480" y="560" text-anchor="middle" class="ns" font-size="11.5">AUV / ROV real-time inference on embedded &amp; neuromorphic edge</text>
+    <text x="480" y="578" text-anchor="middle" class="ns" font-size="11.5">extreme label scarcity · domain shift across water type, site &amp; sensor</text>
+  </g>
+</svg>
