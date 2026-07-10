@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The astronomical-survey pipeline: from photons to a science-validated catalog">
+  <title>The astronomical-survey pipeline — photons to a science-validated catalog</title>
+  <defs>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)">
+    <line x1="450" y1="72" x2="450" y2="96"/>
+    <line x1="450" y1="150" x2="450" y2="174"/>
+    <line x1="450" y1="384" x2="450" y2="408"/>
+    <line x1="450" y1="468" x2="450" y2="492"/>
+  </g>
+
+  <!-- photons -->
+  <rect x="270" y="24" width="360" height="48" rx="10" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="450" y="46" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">Photons from the sky</text>
+  <text x="450" y="64" text-anchor="middle" fill="#cbd5e1" font-size="11.5">optical · near-IR · radio continuum &amp; HI · high dynamic range</text>
+
+  <!-- calibrated image -->
+  <rect x="210" y="96" width="480" height="54" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="450" y="118" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">Calibrated survey image (co-add / difference)</text>
+  <text x="450" y="137" text-anchor="middle" fill="#e0e7ff" font-size="11.5">flux in physical units · PSF-convolved point sources · crowded, blended fields · sky background</text>
+
+  <!-- representation fork -->
+  <text x="450" y="169" text-anchor="middle" fill="#64748b" font-size="11" font-style="italic">the representation fork — how you carve the field down</text>
+  <g font-size="11.5">
+    <rect x="70" y="174" width="240" height="70" rx="10" fill="#334155" stroke="#94a3b8"/>
+    <text x="190" y="198" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Catalog / tabular</text>
+    <text x="190" y="216" text-anchor="middle" fill="#cbd5e1">measured magnitudes + colours</text>
+    <text x="190" y="232" text-anchor="middle" fill="#cbd5e1">→ trees / MLPs (fast, cheap)</text>
+
+    <rect x="330" y="174" width="240" height="70" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="450" y="198" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Pixel / image</text>
+    <text x="450" y="216" text-anchor="middle" fill="#e0e7ff">CNN / ViT · instance seg</text>
+    <text x="450" y="232" text-anchor="middle" fill="#e0e7ff">detect+deblend+classify jointly</text>
+
+    <rect x="590" y="174" width="240" height="70" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="710" y="198" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Multimodal</text>
+    <text x="710" y="216" text-anchor="middle" fill="#d1fae5">image + spectrum + light-curve</text>
+    <text x="710" y="232" text-anchor="middle" fill="#d1fae5">→ foundation-model embeddings</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)">
+    <line x1="190" y1="244" x2="430" y2="322"/>
+    <line x1="450" y1="244" x2="450" y2="322"/>
+    <line x1="710" y1="244" x2="470" y2="322"/>
+  </g>
+
+  <!-- detection/deblend -->
+  <rect x="255" y="324" width="390" height="60" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="450" y="348" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Detection &amp; deblending</text>
+  <text x="450" y="367" text-anchor="middle" fill="#e0e7ff" font-size="11.5">find every source above threshold · separate overlapping objects</text>
+  <text x="450" y="381" text-anchor="middle" fill="#c7d2fe" font-size="10.5">scarlet2 · DeepDISC/Mask R-CNN · YOLO-CIANNA · scored by completeness × purity</text>
+
+  <!-- measurement + classification -->
+  <rect x="130" y="408" width="300" height="60" rx="10" fill="#c026d3" stroke="#a21caf"/>
+  <text x="280" y="432" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Classification</text>
+  <text x="280" y="450" text-anchor="middle" fill="#fae8ff" font-size="11">star/galaxy · morphology (Zoobot)</text>
+  <text x="280" y="464" text-anchor="middle" fill="#fae8ff" font-size="11">real/bogus · radio FR-type</text>
+
+  <rect x="470" y="408" width="300" height="60" rx="10" fill="#059669" stroke="#047857"/>
+  <text x="620" y="432" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Measurement</text>
+  <text x="620" y="450" text-anchor="middle" fill="#d1fae5" font-size="11">photometry · photo-z PDF</text>
+  <text x="620" y="464" text-anchor="middle" fill="#d1fae5" font-size="11">physical properties · lens flag</text>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)">
+    <line x1="450" y1="384" x2="300" y2="408"/>
+    <line x1="450" y1="384" x2="600" y2="408"/>
+    <line x1="280" y1="468" x2="430" y2="492"/>
+    <line x1="620" y1="468" x2="470" y2="492"/>
+  </g>
+
+  <!-- gate -->
+  <rect x="210" y="492" width="480" height="52" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-dasharray="6 4"/>
+  <text x="450" y="514" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Scientific-validity gate</text>
+  <text x="450" y="533" text-anchor="middle" fill="#cbd5e1" font-size="11">selection function · cross-survey domain shift · systematics that bias cosmology</text>
+</svg>
