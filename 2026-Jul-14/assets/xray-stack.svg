@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="12.5" role="img" aria-label="The X-ray security-screening dense-detection stack from dual-energy acquisition to the operator and certification gate">
+  <defs>
+    <style>
+      .t{fill:#f8fafc;font-weight:600}
+      .s{fill:#e2e8f0;font-weight:400;font-size:11px}
+      .k{fill:#cbd5e1;font-weight:400;font-size:10.5px}
+      .arr{stroke:#94a3b8;stroke-width:2.5;fill:none;marker-end:url(#ah)}
+      .stage{fill:#0f172a;font-weight:700;font-size:11px}
+    </style>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/></marker>
+  </defs>
+
+  <!-- Row 1: acquisition -->
+  <rect x="30" y="30" width="230" height="88" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+  <text x="145" y="55" text-anchor="middle" class="t">Dual-energy acquisition</text>
+  <text x="145" y="74" text-anchor="middle" class="s">low-E &amp; high-E line scan →</text>
+  <text x="145" y="90" text-anchor="middle" class="s">transmission, not reflection</text>
+  <text x="145" y="107" text-anchor="middle" class="k">objects superimpose (additive)</text>
+
+  <!-- Row 1: representation -->
+  <rect x="325" y="30" width="230" height="88" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+  <text x="440" y="55" text-anchor="middle" class="t">Material representation</text>
+  <text x="440" y="74" text-anchor="middle" class="s">Zeff / density from hi/lo ratio</text>
+  <text x="440" y="90" text-anchor="middle" class="s">pseudo-colour: organic=orange,</text>
+  <text x="440" y="107" text-anchor="middle" class="k">metal=blue, mixed=green</text>
+
+  <!-- Row 1: view config -->
+  <rect x="620" y="30" width="230" height="88" rx="10" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
+  <text x="735" y="55" text-anchor="middle" class="t">View geometry</text>
+  <text x="735" y="74" text-anchor="middle" class="s">single-view · dual-view (H+V)</text>
+  <text x="735" y="90" text-anchor="middle" class="s">→ volumetric 3D CT</text>
+  <text x="735" y="107" text-anchor="middle" class="k">CT removes projection overlap</text>
+
+  <line class="arr" x1="260" y1="74" x2="322" y2="74"/>
+  <line class="arr" x1="555" y1="74" x2="617" y2="74"/>
+
+  <!-- down arrow -->
+  <line class="arr" x1="735" y1="118" x2="735" y2="165"/>
+
+  <!-- Row 2: detection -->
+  <rect x="620" y="170" width="230" height="96" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+  <text x="735" y="195" text-anchor="middle" class="t">Detection under clutter</text>
+  <text x="735" y="213" text-anchor="middle" class="s">de-occlusion / lateral-inhibition</text>
+  <text x="735" y="229" text-anchor="middle" class="s">edge + material cues · DETR / YOLO</text>
+  <text x="735" y="245" text-anchor="middle" class="s">/ Mamba · long-tail · small-object</text>
+  <text x="735" y="261" text-anchor="middle" class="k">DOAM · LIM · SDANet · EM-YOLO</text>
+
+  <line class="arr" x1="620" y1="218" x2="558" y2="218"/>
+
+  <!-- Row 2: classification/material -->
+  <rect x="325" y="170" width="230" height="96" rx="10" fill="#c026d3" stroke="#a21caf" stroke-width="1.5"/>
+  <text x="440" y="195" text-anchor="middle" class="t">Classify + verify material</text>
+  <text x="440" y="213" text-anchor="middle" class="s">category label + Zeff sanity check</text>
+  <text x="440" y="229" text-anchor="middle" class="s">organic/inorganic stripping</text>
+  <text x="440" y="245" text-anchor="middle" class="s">over/under-penetration handling</text>
+  <text x="440" y="261" text-anchor="middle" class="k">XMC R-CNN · material branch</text>
+
+  <line class="arr" x1="325" y1="218" x2="263" y2="218"/>
+
+  <!-- Row 2: escapes -->
+  <rect x="30" y="170" width="230" height="96" rx="10" fill="#059669" stroke="#047857" stroke-width="1.5"/>
+  <text x="145" y="195" text-anchor="middle" class="t">Label / data escapes</text>
+  <text x="145" y="213" text-anchor="middle" class="s">TIP + generative synthesis</text>
+  <text x="145" y="229" text-anchor="middle" class="s">self-supervised pretrain</text>
+  <text x="145" y="245" text-anchor="middle" class="s">open-vocab CLIP · VLM assistants</text>
+  <text x="145" y="261" text-anchor="middle" class="k">benign-only anomaly detection</text>
+
+  <line class="arr" x1="145" y1="266" x2="145" y2="330"/>
+
+  <!-- Row 3: domain shift -->
+  <rect x="30" y="335" width="380" height="70" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="220" y="362" text-anchor="middle" class="t">Cross-scanner / endogenous domain shift</text>
+  <text x="220" y="381" text-anchor="middle" class="s">imaging hardware &amp; pseudo-colouring differ per machine</text>
+  <text x="220" y="397" text-anchor="middle" class="k">PSN · ALDI-ray · EDS / PDSXray benchmarks</text>
+
+  <!-- Row 3: gate -->
+  <rect x="470" y="335" width="380" height="70" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="660" y="362" text-anchor="middle" class="t">Operator-in-the-loop + certification gate</text>
+  <text x="660" y="381" text-anchor="middle" class="s">recall at fixed low FAR · throughput · adversary hides threat</text>
+  <text x="660" y="397" text-anchor="middle" class="k">TSA / ECAC certification, not COCO mAP</text>
+
+  <line class="arr" x1="410" y1="370" x2="466" y2="370"/>
+
+  <!-- caption -->
+  <text x="440" y="450" text-anchor="middle" class="s">The pipeline reads right-to-left in the middle row: view geometry feeds detection, which feeds</text>
+  <text x="440" y="468" text-anchor="middle" class="s">classification/material verification; data escapes and the deployment gate wrap the whole stack.</text>
+  <text x="440" y="495" text-anchor="middle" class="k">Indigo = detection primitive · fuchsia = material/classification · amber = view geometry · emerald = data escapes · slate = shift &amp; gate</text>
+</svg>
