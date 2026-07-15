@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The X-ray security-screening pipeline from source to threat decision">
+  <title>X-ray transmission pipeline: source to threat decision</title>
+  <defs>
+    <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Column A: acquisition -->
+  <text x="150" y="34" text-anchor="middle" fill="#94a3b8" font-size="12.5" font-weight="700">ACQUISITION (physics)</text>
+  <g>
+    <rect x="40" y="50" width="220" height="66" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="55" y="74" fill="#f8fafc" font-size="12.5" font-weight="700">Dual-energy source</text>
+    <text x="55" y="92" fill="#e0e7ff" font-size="11.5">high + low kVp beams</text>
+    <text x="55" y="108" fill="#e0e7ff" font-size="11.5">transmission, not reflectance</text>
+
+    <rect x="40" y="132" width="220" height="66" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="55" y="156" fill="#f8fafc" font-size="12.5" font-weight="700">Line-scan detector</text>
+    <text x="55" y="174" fill="#e0e7ff" font-size="11.5">two attenuation channels</text>
+    <text x="55" y="190" fill="#e0e7ff" font-size="11.5">Z-effective per pixel</text>
+
+    <rect x="40" y="214" width="220" height="70" rx="10" fill="#c026d3" stroke="#a21caf"/>
+    <text x="55" y="238" fill="#f8fafc" font-size="12.5" font-weight="700">Material colourize</text>
+    <text x="55" y="256" fill="#fae8ff" font-size="11.5">orange = organic</text>
+    <text x="55" y="272" fill="#fae8ff" font-size="11.5">blue = metal · green = mixed</text>
+  </g>
+
+  <!-- Column B: representation / processing -->
+  <text x="450" y="34" text-anchor="middle" fill="#94a3b8" font-size="12.5" font-weight="700">REPRESENTATION</text>
+  <g>
+    <rect x="340" y="50" width="220" height="66" rx="10" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="355" y="74" fill="#f8fafc" font-size="12.5" font-weight="700">Single view (top-down)</text>
+    <text x="355" y="92" fill="#cbd5e1" font-size="11.5">one projection · heavy</text>
+    <text x="355" y="108" fill="#cbd5e1" font-size="11.5">superposition &amp; clutter</text>
+
+    <rect x="340" y="132" width="220" height="66" rx="10" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="355" y="156" fill="#f8fafc" font-size="12.5" font-weight="700">Dual / multi-view</text>
+    <text x="355" y="174" fill="#cbd5e1" font-size="11.5">side + vertical projections</text>
+    <text x="355" y="190" fill="#cbd5e1" font-size="11.5">LDXray · Dualray · GSXray</text>
+
+    <rect x="340" y="214" width="220" height="70" rx="10" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="355" y="238" fill="#f8fafc" font-size="12.5" font-weight="700">Volumetric CT (hold)</text>
+    <text x="355" y="256" fill="#cbd5e1" font-size="11.5">3-D reconstruction removes</text>
+    <text x="355" y="272" fill="#cbd5e1" font-size="11.5">superposition · 3-D masks</text>
+  </g>
+
+  <!-- Column C: model -->
+  <text x="750" y="34" text-anchor="middle" fill="#94a3b8" font-size="12.5" font-weight="700">MODEL &amp; DECISION</text>
+  <g>
+    <rect x="640" y="50" width="220" height="66" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="655" y="74" fill="#f8fafc" font-size="12.5" font-weight="700">Anti-overlap detector</text>
+    <text x="655" y="92" fill="#d1fae5" font-size="11.5">DOAM · AO-DETR · MMCL</text>
+    <text x="655" y="108" fill="#d1fae5" font-size="11.5">FOAM (frequency) · YOLO</text>
+
+    <rect x="640" y="132" width="220" height="66" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="655" y="156" fill="#f8fafc" font-size="12.5" font-weight="700">Segment / open-set</text>
+    <text x="655" y="174" fill="#d1fae5" font-size="11.5">XSeg masks · OVXD open-vocab</text>
+    <text x="655" y="190" fill="#d1fae5" font-size="11.5">unsupervised anomaly</text>
+
+    <rect x="640" y="214" width="220" height="70" rx="10" fill="#d97706" stroke="#b45309"/>
+    <text x="655" y="238" fill="#f8fafc" font-size="12.5" font-weight="700">Threat decision</text>
+    <text x="655" y="256" fill="#fff7ed" font-size="11.5">recall @ fixed false-alarm</text>
+    <text x="655" y="272" fill="#fff7ed" font-size="11.5">VLM assistant explains call</text>
+  </g>
+
+  <!-- flow arrows between columns -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah2)">
+    <line x1="260" y1="83"  x2="336" y2="83"/>
+    <line x1="260" y1="165" x2="336" y2="165"/>
+    <line x1="560" y1="83"  x2="636" y2="83"/>
+    <line x1="560" y1="165" x2="636" y2="165"/>
+  </g>
+
+  <!-- footer band: cross-cutting -->
+  <rect x="40" y="330" width="820" height="86" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="357" fill="#f8fafc" font-size="13" font-weight="700">Cross-cutting pressures</text>
+  <text x="60" y="380" fill="#cbd5e1" font-size="11.5">• Data scarcity &amp; class imbalance → synthetic threats: Threat-Image-Projection, GANs, diffusion (Xsyn: CAR + BOM)</text>
+  <text x="60" y="399" fill="#cbd5e1" font-size="11.5">• Scanner variability → cross-domain adaptation (ALDI-ray) · Unknown threats → open-vocab + anomaly · Deliberate concealment → occlusion-graded protocols</text>
+
+  <!-- industrial sibling -->
+  <rect x="40" y="432" width="820" height="96" rx="12" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+  <text x="60" y="459" fill="#f8fafc" font-size="13" font-weight="700">Industrial sibling — same physics, inverted objective (find the flaw inside a known good part)</text>
+  <text x="60" y="482" fill="#e0e7ff" font-size="11.5">2-D radiography &amp; 3-D CT · castings (GDXray+) · pressure-vessel welds · Li-ion battery internals · additive-manufacturing porosity (PBF-LB/M)</text>
+  <text x="60" y="501" fill="#e0e7ff" font-size="11.5">Reconstruction is part of the model: sparse-view + deep-learning denoise / 2.5-D artefact reduction feed the detector</text>
+  <text x="60" y="520" fill="#e0e7ff" font-size="11.5">Anomaly framing dominates — defects are rare, unlabelled, and endlessly varied, so normal-only training is the norm</text>
+</svg>
