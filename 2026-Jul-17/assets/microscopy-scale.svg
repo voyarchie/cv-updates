@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Microscopy modalities plotted against the spatial feature scale they resolve, from millimetre tissue to nanometre macromolecules">
+  <title>What the microscope resolves — imaging modality vs. feature scale</title>
+
+  <text x="450" y="30" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="700">WHAT THE MICROSCOPE RESOLVES — modality vs. feature scale (log)</text>
+
+  <!-- modality lanes -->
+  <g font-size="11.5" font-weight="600">
+    <rect x="80"  y="58"  width="300" height="26" rx="7" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="92"  y="75"  fill="#e0e7ff">Multiplexed protein IF · CODEX/PhenoCycler · CyCIF · MIBI · Orion</text>
+
+    <rect x="80"  y="90"  width="410" height="26" rx="7" fill="#0891b2" stroke="#0e7490"/>
+    <text x="92"  y="107" fill="#cffafe">Spatial transcriptomics imaging · Xenium · CosMx · MERFISH</text>
+
+    <rect x="150" y="122" width="355" height="26" rx="7" fill="#059669" stroke="#047857"/>
+    <text x="162" y="139" fill="#d1fae5">Confocal / widefield / phase-contrast — live &amp; fixed cells</text>
+
+    <rect x="450" y="154" width="247" height="26" rx="7" fill="#c026d3" stroke="#a21caf"/>
+    <text x="462" y="171" fill="#fae8ff">Super-resolution · STORM/PALM · SIM</text>
+
+    <rect x="327" y="186" width="493" height="26" rx="7" fill="#d97706" stroke="#b45309"/>
+    <text x="339" y="203" fill="#fff7ed">Volume electron microscopy (connectomics) · cryo-EM / cryo-ET</text>
+  </g>
+
+  <!-- axis -->
+  <line x1="70" y1="250" x2="830" y2="250" stroke="#94a3b8" stroke-width="2"/>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="80"    y1="245" x2="80"    y2="255"/>
+    <line x1="203.3" y1="245" x2="203.3" y2="255"/>
+    <line x1="326.7" y1="245" x2="326.7" y2="255"/>
+    <line x1="450"   y1="245" x2="450"   y2="255"/>
+    <line x1="573.3" y1="245" x2="573.3" y2="255"/>
+    <line x1="696.7" y1="245" x2="696.7" y2="255"/>
+    <line x1="820"   y1="245" x2="820"   y2="255"/>
+  </g>
+  <g fill="#94a3b8" font-size="11" text-anchor="middle">
+    <text x="80"    y="271">1 mm</text>
+    <text x="203.3" y="271">100 µm</text>
+    <text x="326.7" y="271">10 µm</text>
+    <text x="450"   y="271">1 µm</text>
+    <text x="573.3" y="271">100 nm</text>
+    <text x="696.7" y="271">10 nm</text>
+    <text x="820"   y="271">1 nm</text>
+  </g>
+
+  <!-- detection target row -->
+  <g fill="#94a3b8" font-size="11" text-anchor="middle">
+    <text x="200" y="305" font-weight="700" fill="#cbd5e1">the "object" to detect changes with scale</text>
+    <text x="150" y="330">tissue architecture</text>
+    <text x="150" y="345">10³–10⁶ cells / field</text>
+    <text x="360" y="330">single cells</text>
+    <text x="360" y="345">&amp; nuclei</text>
+    <text x="525" y="330">organelles · transcript</text>
+    <text x="525" y="345">spots · vesicles</text>
+    <text x="690" y="330">protein complexes</text>
+    <text x="690" y="345">· synapses</text>
+    <text x="800" y="330">macro-</text>
+    <text x="800" y="345">molecules</text>
+  </g>
+
+  <!-- footer note -->
+  <rect x="70" y="372" width="760" height="44" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="86" y="392" fill="#cbd5e1" font-size="11.5">Bars mark the approximate spatial regime each modality resolves. Unlike a camera, fluorescence <tspan font-weight="700" fill="#f8fafc">channels index chosen molecules,</tspan></text>
+  <text x="86" y="408" fill="#cbd5e1" font-size="11.5">not perceptual colour — and most detectors run in 3-D (z-stacks) and over time (live imaging), on 10³–10⁶ instances per image.</text>
+</svg>

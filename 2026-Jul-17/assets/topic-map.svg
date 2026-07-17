@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six microscopy dense-detection and classification threads">
+  <title>Microscopy / cellular bioimaging — six dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="280" x2="205" y2="135"/>
+    <line x1="450" y1="280" x2="450" y2="110"/>
+    <line x1="450" y1="280" x2="695" y2="135"/>
+    <line x1="450" y1="280" x2="205" y2="425"/>
+    <line x1="450" y1="280" x2="450" y2="450"/>
+    <line x1="450" y1="280" x2="695" y2="425"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="342" y="238" width="216" height="84" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="268" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The microscope</text>
+    <text x="450" y="290" text-anchor="middle" fill="#cbd5e1" font-size="12.5">dense detection +</text>
+    <text x="450" y="307" text-anchor="middle" fill="#cbd5e1" font-size="12.5">classification</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive -->
+    <rect x="60" y="82" width="290" height="74" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="75" y="106" font-size="12.5" font-weight="700">1 · The primitive</text>
+    <text x="75" y="124" font-size="11.5" fill="#e0e7ff">channels = markers, not RGB · mm→nm scale</text>
+    <text x="75" y="140" font-size="11.5" fill="#e0e7ff">3-D + live time · 10³–10⁶ instances · open class set</text>
+    <!-- 2 segmentation core -->
+    <rect x="305" y="55" width="290" height="74" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="320" y="79" font-size="12.5" font-weight="700">2 · Generalist segmentation core</text>
+    <text x="320" y="97" font-size="11.5" fill="#e0e7ff">Cellpose3/-SAM · InstanSeg · StarDist</text>
+    <text x="320" y="113" font-size="11.5" fill="#e0e7ff">HoVer-NeXt · MEDIAR · NeurIPS'22 challenge</text>
+    <!-- 3 promptable / multiplex -->
+    <rect x="610" y="82" width="270" height="74" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="625" y="106" font-size="12.5" font-weight="700">3 · Multiplex &amp; spatial biology</text>
+    <text x="625" y="124" font-size="11.5" fill="#cffafe">CODEX/Xenium/MERFISH · Mesmer</text>
+    <text x="625" y="140" font-size="11.5" fill="#cffafe">Segger/ProSeg · KRONOS/Novae phenotyping</text>
+    <!-- 4 profiling / representation -->
+    <rect x="60" y="372" width="290" height="74" rx="10" fill="#c026d3" stroke="#a21caf"/>
+    <text x="75" y="396" font-size="12.5" font-weight="700">4 · Profiling &amp; representation</text>
+    <text x="75" y="414" font-size="11.5" fill="#fae8ff">Cell Painting/JUMP · SubCell · OpenPhenom</text>
+    <text x="75" y="430" font-size="11.5" fill="#fae8ff">DINO4Cells/Cell-DINO · CHAMMI-75</text>
+    <!-- 5 EM / cryo / connectomics -->
+    <rect x="305" y="398" width="290" height="74" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="320" y="422" font-size="12.5" font-weight="700">5 · EM · cryo · connectomics</text>
+    <text x="320" y="440" font-size="11.5" fill="#d1fae5">FlyWire/MICrONS/H01 · MitoNet · μSAM-EM</text>
+    <text x="320" y="456" font-size="11.5" fill="#d1fae5">CryoSegNet · DeePiCt/DeepETPicker · CZII</text>
+    <!-- 6 restoration / tracking / tooling -->
+    <rect x="610" y="372" width="270" height="74" rx="10" fill="#d97706" stroke="#b45309"/>
+    <text x="625" y="396" font-size="12.5" font-weight="700">6 · Restoration · tracking · tools</text>
+    <text x="625" y="414" font-size="11.5" fill="#fff7ed">CARE/Noise2Void · virtual staining</text>
+    <text x="625" y="430" font-size="11.5" fill="#fff7ed">Trackastra/ultrack · bioimage.io · OME-Zarr</text>
+  </g>
+</svg>
