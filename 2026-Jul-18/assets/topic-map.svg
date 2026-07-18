@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six ultrasound dense-detection and classification threads">
+  <title>Ultrasound imaging — six dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="290" x2="205" y2="140"/>
+    <line x1="450" y1="290" x2="450" y2="118"/>
+    <line x1="450" y1="290" x2="695" y2="140"/>
+    <line x1="450" y1="290" x2="205" y2="445"/>
+    <line x1="450" y1="290" x2="450" y2="468"/>
+    <line x1="450" y1="290" x2="695" y2="445"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="338" y="246" width="224" height="88" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="276" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The ultrasound image</text>
+    <text x="450" y="298" text-anchor="middle" fill="#cbd5e1" font-size="12.5">real-time · operator-driven</text>
+    <text x="450" y="316" text-anchor="middle" fill="#cbd5e1" font-size="12.5">dense detection + classification</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive -->
+    <rect x="55" y="86" width="300" height="80" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="70" y="110" font-size="12.5" font-weight="700">1 · The primitive</text>
+    <text x="70" y="128" font-size="11.5" fill="#e0e7ff">real-time video · operator-dependent · speckle</text>
+    <text x="70" y="144" font-size="11.5" fill="#e0e7ff">2-D probe → 3-D · non-ionizing · portable</text>
+    <text x="70" y="160" font-size="11.5" fill="#e0e7ff">raw RF/channel data beneath the B-mode pixel</text>
+    <!-- 2 universal segmentation core -->
+    <rect x="300" y="58" width="300" height="80" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="82" font-size="12.5" font-weight="700">2 · Universal segmentation core</text>
+    <text x="315" y="100" font-size="11.5" fill="#e0e7ff">USFM · UltraSam (US-43d, 282K) · SAM-MedUS</text>
+    <text x="315" y="116" font-size="11.5" fill="#e0e7ff">USF-MAE (OpenUS-46, 370K) · MOFO</text>
+    <text x="315" y="132" font-size="11.5" fill="#e0e7ff">UUSIC25 multi-organ challenge</text>
+    <!-- 3 promptable / video SAM -->
+    <rect x="600" y="86" width="285" height="80" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="615" y="110" font-size="12.5" font-weight="700">3 · Promptable &amp; video SAM</text>
+    <text x="615" y="128" font-size="11.5" fill="#cffafe">MedSAM-2 · SAMUSA (MICCAI'25)</text>
+    <text x="615" y="144" font-size="11.5" fill="#cffafe">boundary/temporal prompts · SAM2</text>
+    <text x="615" y="160" font-size="11.5" fill="#cffafe">finetuning-from-data studies</text>
+    <!-- 4 echo video VLMs -->
+    <rect x="55" y="414" width="300" height="80" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="70" y="438" font-size="12.5" font-weight="700">4 · Echo video foundation models</text>
+    <text x="70" y="456" font-size="11.5" fill="#cffafe">EchoPrime (Nature'25, 12M pairs)</text>
+    <text x="70" y="472" font-size="11.5" fill="#cffafe">EchoCLIP · EchoFM · PanEcho · EchoJEPA</text>
+    <text x="70" y="488" font-size="11.5" fill="#cffafe">EchoNet EF regression (video → number)</text>
+    <!-- 5 organ detectors + report gen -->
+    <rect x="300" y="440" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="464" font-size="12.5" font-weight="700">5 · Organ detectors + VLM reports</text>
+    <text x="315" y="482" font-size="11.5" fill="#e0e7ff">breast (BUSI/BUS-BRA) · thyroid TIRADS</text>
+    <text x="315" y="498" font-size="11.5" fill="#e0e7ff">fetal planes · lung/POCUS</text>
+    <text x="315" y="514" font-size="11.5" fill="#e0e7ff">U2-BENCH · EchoCare-CLIP · GDINO-US-SAM</text>
+    <!-- 6 below & beyond the image -->
+    <rect x="600" y="414" width="285" height="80" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="615" y="438" font-size="12.5" font-weight="700">6 · Below &amp; beyond the pixel</text>
+    <text x="615" y="456" font-size="11.5" fill="#ede9fe">DL beamforming from raw RF</text>
+    <text x="615" y="472" font-size="11.5" fill="#ede9fe">ULM microbubble localization (LOCA-ULM)</text>
+    <text x="615" y="488" font-size="11.5" fill="#ede9fe">nerve/needle guidance · cNerve · iNeedle</text>
+  </g>
+  <text x="450" y="558" text-anchor="middle" fill="#94a3b8" font-size="11">Six threads in ultrasound dense detection &amp; classification — 2026-Jul-18 CV-updates pass</text>
+</svg>
