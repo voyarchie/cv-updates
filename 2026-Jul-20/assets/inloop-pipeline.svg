@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The in-the-loop endoscopic dense-detection pipeline: video frames to CADe localization to CADx characterization to clinical action, with a real-time feedback loop to the operator">
+  <title>The in-the-loop endoscopic dense-detection pipeline</title>
+  <defs>
+    <marker id="ap" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <text x="480" y="30" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="700">The in-the-loop endoscopic dense-detection pipeline — every stage inside one video-frame budget</text>
+
+  <!-- forward arrows -->
+  <g stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#ap)">
+    <line x1="196" y1="150" x2="238" y2="150"/>
+    <line x1="418" y1="150" x2="460" y2="150"/>
+    <line x1="640" y1="150" x2="682" y2="150"/>
+  </g>
+
+  <!-- stage A: acquisition -->
+  <rect x="24" y="104" width="172" height="92" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="110" y="130" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Video frames</text>
+  <text x="110" y="151" text-anchor="middle" fill="#cbd5e1" font-size="10.5">scope / capsule stream</text>
+  <text x="110" y="167" text-anchor="middle" fill="#cbd5e1" font-size="10.5">glare · smoke · motion blur</text>
+  <text x="110" y="183" text-anchor="middle" fill="#cbd5e1" font-size="10.5">deformable, self-lit scene</text>
+
+  <!-- stage B: CADe -->
+  <rect x="246" y="104" width="172" height="92" rx="10" fill="#0891b2" stroke="#0e7490"/>
+  <text x="332" y="130" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">CADe — localize</text>
+  <text x="332" y="151" text-anchor="middle" fill="#cffafe" font-size="10.5">detect polyp / lesion</text>
+  <text x="332" y="167" text-anchor="middle" fill="#cffafe" font-size="10.5">instrument · anatomy</text>
+  <text x="332" y="183" text-anchor="middle" fill="#cffafe" font-size="10.5">box + mask + track</text>
+
+  <!-- stage C: CADx -->
+  <rect x="468" y="104" width="172" height="92" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="554" y="130" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">CADx — characterize</text>
+  <text x="554" y="151" text-anchor="middle" fill="#ede9fe" font-size="10.5">NICE / JNET / BASIC</text>
+  <text x="554" y="167" text-anchor="middle" fill="#ede9fe" font-size="10.5">neoplastic vs. non-</text>
+  <text x="554" y="183" text-anchor="middle" fill="#ede9fe" font-size="10.5">guideline risk stratum</text>
+
+  <!-- stage D: action -->
+  <rect x="690" y="104" width="246" height="92" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="813" y="130" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Clinical action</text>
+  <text x="813" y="151" text-anchor="middle" fill="#e0e7ff" font-size="10.5">resect &amp; discard · diagnose &amp; leave</text>
+  <text x="813" y="167" text-anchor="middle" fill="#e0e7ff" font-size="10.5">refer / biopsy · confirm safety</text>
+  <text x="813" y="183" text-anchor="middle" fill="#e0e7ff" font-size="10.5">graded vs. inter-reader agreement</text>
+
+  <!-- feedback loop -->
+  <path d="M813 196 C 813 268, 110 268, 110 200" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#ap)"/>
+  <text x="461" y="286" text-anchor="middle" fill="#94a3b8" font-size="11">operator guidance · quality control · &quot;you don't have the view yet&quot; · next frame</text>
+
+  <text x="480" y="322" text-anchor="middle" fill="#94a3b8" font-size="10.5">Unlike a static scan, the detector runs live and its output changes what the operator does next.</text>
+</svg>
