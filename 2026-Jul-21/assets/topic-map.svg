@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six hyperspectral dense-detection and classification threads">
+  <title>Hyperspectral imaging — six dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="300" x2="205" y2="150"/>
+    <line x1="450" y1="300" x2="450" y2="128"/>
+    <line x1="450" y1="300" x2="695" y2="150"/>
+    <line x1="450" y1="300" x2="205" y2="465"/>
+    <line x1="450" y1="300" x2="450" y2="488"/>
+    <line x1="450" y1="300" x2="695" y2="465"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="330" y="256" width="240" height="88" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="286" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The spectral cube</text>
+    <text x="450" y="308" text-anchor="middle" fill="#cbd5e1" font-size="12.5">hundreds of contiguous bands</text>
+    <text x="450" y="326" text-anchor="middle" fill="#cbd5e1" font-size="12.5">per-pixel detection + classification</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive -->
+    <rect x="55" y="92" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="70" y="116" font-size="12.5" font-weight="700">1 · The primitive</text>
+    <text x="70" y="134" font-size="11.5" fill="#e0e7ff">spectral signature = identity · mixed pixels</text>
+    <text x="70" y="150" font-size="11.5" fill="#e0e7ff">Hughes curse · few labels · low spatial res</text>
+    <text x="70" y="166" font-size="11.5" fill="#e0e7ff">spectrum, not appearance, is the signal</text>
+    <!-- 2 spectral-spatial transformers -->
+    <rect x="300" y="60" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="84" font-size="12.5" font-weight="700">2 · Spectral&#8211;spatial transformers</text>
+    <text x="315" y="102" font-size="11.5" fill="#e0e7ff">SpectralFormer · SSFTT · GAHT</text>
+    <text x="315" y="118" font-size="11.5" fill="#e0e7ff">groupwise spectral embedding</text>
+    <text x="315" y="134" font-size="11.5" fill="#e0e7ff">attention over bands + neighbourhood</text>
+    <!-- 3 state-space / Mamba -->
+    <rect x="600" y="92" width="285" height="86" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="615" y="116" font-size="12.5" font-weight="700">3 · State-space / Mamba</text>
+    <text x="615" y="134" font-size="11.5" fill="#cffafe">SpectralMamba · MambaHSI · S2Mamba</text>
+    <text x="615" y="150" font-size="11.5" fill="#cffafe">linear-time long spectral sequences</text>
+    <text x="615" y="166" font-size="11.5" fill="#cffafe">scan the cube, keep global context</text>
+    <!-- 4 foundation models -->
+    <rect x="55" y="418" width="300" height="86" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="70" y="442" font-size="12.5" font-weight="700">4 · Spectral foundation models</text>
+    <text x="70" y="460" font-size="11.5" fill="#cffafe">SpectralGPT · HyperSIGMA · DOFA</text>
+    <text x="70" y="476" font-size="11.5" fill="#cffafe">masked-cube self-supervision</text>
+    <text x="70" y="492" font-size="11.5" fill="#cffafe">pretrain once, adapt with few labels</text>
+    <!-- 5 anomaly + target detection -->
+    <rect x="300" y="446" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="470" font-size="12.5" font-weight="700">5 · Anomaly &amp; target detection</text>
+    <text x="315" y="488" font-size="11.5" fill="#e0e7ff">diffusion / low-rank HAD · HAD100</text>
+    <text x="315" y="504" font-size="11.5" fill="#e0e7ff">signature-matched target detection</text>
+    <text x="315" y="520" font-size="11.5" fill="#e0e7ff">no labels: find the out-of-distribution spectrum</text>
+    <!-- 6 applications + sensors -->
+    <rect x="600" y="418" width="285" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="615" y="442" font-size="12.5" font-weight="700">6 · Sensors &amp; applications</text>
+    <text x="615" y="460" font-size="11.5" fill="#e0e7ff">EnMAP · PRISMA · EMIT · Tanager</text>
+    <text x="615" y="476" font-size="11.5" fill="#e0e7ff">agri · food · recycling · methane · surgery</text>
+    <text x="615" y="492" font-size="11.5" fill="#e0e7ff">snapshot vs pushbroom · edge inference</text>
+  </g>
+</svg>
