@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How an OCT signal is built: interferometer to A-scan to B-scan to volume">
+  <title>The OCT signal chain — low-coherence interferometry to A-scan to B-scan to volume</title>
+  <defs>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- title strip -->
+  <text x="20" y="30" fill="#f8fafc" font-size="15" font-weight="700">The signal is built by depth, not by appearance</text>
+  <text x="20" y="50" fill="#94a3b8" font-size="12">low-coherence interferometry measures echo time delay &#8594; a reflectivity-vs-depth profile</text>
+
+  <!-- stage 1: interferometer -->
+  <g>
+    <rect x="20" y="78" width="180" height="300" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="110" y="104" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Interferometer</text>
+    <!-- source -->
+    <rect x="40" y="128" width="70" height="30" rx="5" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="75" y="148" text-anchor="middle" fill="#e0e7ff" font-size="10.5">broadband</text>
+    <!-- splitter -->
+    <rect x="80" y="200" width="46" height="30" rx="5" fill="#334155" stroke="#64748b"/>
+    <text x="103" y="220" text-anchor="middle" fill="#e2e8f0" font-size="10">split</text>
+    <!-- reference -->
+    <rect x="18" y="255" width="80" height="28" rx="5" fill="#0891b2" stroke="#0e7490"/>
+    <text x="58" y="273" text-anchor="middle" fill="#cffafe" font-size="10">reference arm</text>
+    <!-- sample -->
+    <rect x="112" y="255" width="80" height="28" rx="5" fill="#0891b2" stroke="#0e7490"/>
+    <text x="152" y="273" text-anchor="middle" fill="#cffafe" font-size="10">sample (tissue)</text>
+    <!-- detector -->
+    <rect x="55" y="322" width="96" height="30" rx="5" fill="#334155" stroke="#64748b"/>
+    <text x="103" y="342" text-anchor="middle" fill="#e2e8f0" font-size="10">interference &#8594; depth</text>
+    <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+      <line x1="75" y1="158" x2="100" y2="200"/>
+      <line x1="95" y1="230" x2="58" y2="255"/>
+      <line x1="111" y1="230" x2="152" y2="255"/>
+      <line x1="103" y1="283" x2="103" y2="322"/>
+    </g>
+  </g>
+  <line x1="205" y1="228" x2="248" y2="228" stroke="#94a3b8" stroke-width="2" marker-end="url(#a2)"/>
+
+  <!-- stage 2: A-scan -->
+  <g>
+    <rect x="253" y="78" width="150" height="300" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="328" y="104" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">A-scan (1-D)</text>
+    <text x="328" y="122" text-anchor="middle" fill="#94a3b8" font-size="10.5">one depth column</text>
+    <!-- depth axis -->
+    <line x1="285" y1="140" x2="285" y2="356" stroke="#64748b" stroke-width="1.5"/>
+    <text x="278" y="250" text-anchor="middle" fill="#94a3b8" font-size="10" transform="rotate(-90 278 250)">depth (axial)</text>
+    <!-- reflectivity profile -->
+    <polyline points="285,150 300,152 320,150 345,180 360,182 345,210 300,214 345,250 385,252 345,300 300,304 320,352 285,354"
+      fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <text x="393" y="185" fill="#cbd5e1" font-size="9.5">peak = interface</text>
+  </g>
+  <line x1="408" y1="228" x2="451" y2="228" stroke="#94a3b8" stroke-width="2" marker-end="url(#a2)"/>
+
+  <!-- stage 3: B-scan -->
+  <g>
+    <rect x="456" y="78" width="180" height="300" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="546" y="104" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">B-scan (2-D)</text>
+    <text x="546" y="122" text-anchor="middle" fill="#94a3b8" font-size="10.5">stack A-scans laterally</text>
+    <!-- layered cross-section -->
+    <g>
+      <path d="M476,150 Q546,138 616,150 L616,166 Q546,154 476,166 Z" fill="#6366f1"/>
+      <path d="M476,166 Q546,154 616,166 L616,188 Q546,176 476,188 Z" fill="#818cf8"/>
+      <path d="M476,188 Q546,176 616,188 L616,214 Q546,204 476,214 Z" fill="#a5b4fc"/>
+      <path d="M476,214 Q546,204 616,214 L616,246 Q546,238 476,246 Z" fill="#67e8f9"/>
+      <path d="M476,246 Q546,238 616,246 L616,278 Q546,270 476,278 Z" fill="#22d3ee"/>
+      <path d="M476,278 Q546,270 616,278 L616,320 Q546,312 476,320 Z" fill="#0e7490"/>
+      <!-- fluid pocket -->
+      <ellipse cx="556" cy="232" rx="26" ry="12" fill="#0f172a" stroke="#f8fafc" stroke-width="1.2" stroke-dasharray="3 2"/>
+      <text x="556" y="235" text-anchor="middle" fill="#f8fafc" font-size="8">fluid</text>
+    </g>
+    <text x="546" y="344" text-anchor="middle" fill="#cbd5e1" font-size="10">retinal layers = ordered surfaces</text>
+    <text x="546" y="360" text-anchor="middle" fill="#94a3b8" font-size="9.5">lateral (B-scan) position &#8594;</text>
+  </g>
+  <line x1="641" y1="228" x2="684" y2="228" stroke="#94a3b8" stroke-width="2" marker-end="url(#a2)"/>
+
+  <!-- stage 4: volume -->
+  <g>
+    <rect x="689" y="78" width="191" height="300" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="784" y="104" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Volume (3-D)</text>
+    <text x="784" y="122" text-anchor="middle" fill="#94a3b8" font-size="10.5">stack B-scans &#8594; cube</text>
+    <!-- isometric cube -->
+    <g>
+      <polygon points="720,180 800,160 860,190 780,210" fill="#4f46e5" stroke="#3730a3"/>
+      <polygon points="720,180 780,210 780,300 720,270" fill="#3730a3" stroke="#312e81"/>
+      <polygon points="780,210 860,190 860,280 780,300" fill="#6366f1" stroke="#3730a3"/>
+      <!-- en-face slice -->
+      <polygon points="720,225 800,205 860,235 780,255" fill="#22d3ee" opacity="0.55" stroke="#0e7490"/>
+    </g>
+    <text x="784" y="326" text-anchor="middle" fill="#cffafe" font-size="10">en-face (C-scan) projection</text>
+    <text x="784" y="344" text-anchor="middle" fill="#94a3b8" font-size="9.5">OCTA adds flow between repeats</text>
+    <text x="784" y="360" text-anchor="middle" fill="#94a3b8" font-size="9.5">this is where FMs are headed</text>
+  </g>
+
+  <text x="20" y="410" fill="#64748b" font-size="10.5">Axial resolution comes from source bandwidth (independent of optics); lateral from the focusing beam. Both are ~microns — an order finer than clinical MRI/CT.</text>
+  <text x="20" y="430" fill="#64748b" font-size="10.5">Detection/classification either works B-scan-by-B-scan (cheap, loses continuity) or on the whole volume (rich, expensive) — the central modelling trade-off.</text>
+</svg>

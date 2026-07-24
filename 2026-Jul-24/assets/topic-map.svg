@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six OCT dense-detection and classification threads">
+  <title>Optical coherence tomography — six dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="300" x2="205" y2="150"/>
+    <line x1="450" y1="300" x2="450" y2="128"/>
+    <line x1="450" y1="300" x2="695" y2="150"/>
+    <line x1="450" y1="300" x2="205" y2="465"/>
+    <line x1="450" y1="300" x2="450" y2="488"/>
+    <line x1="450" y1="300" x2="695" y2="465"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="326" y="256" width="248" height="88" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="286" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The depth-resolved scan</text>
+    <text x="450" y="308" text-anchor="middle" fill="#cbd5e1" font-size="12.5">A-scan &#8594; B-scan &#8594; volume</text>
+    <text x="450" y="326" text-anchor="middle" fill="#cbd5e1" font-size="12.5">structure lives in the axial direction</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive -->
+    <rect x="55" y="92" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="70" y="116" font-size="12.5" font-weight="700">1 &#183; The primitive</text>
+    <text x="70" y="134" font-size="11.5" fill="#e0e7ff">low-coherence interferometry &#183; micron axial res</text>
+    <text x="70" y="150" font-size="11.5" fill="#e0e7ff">speckle &#183; layered anatomy &#183; en-face vs cross-section</text>
+    <text x="70" y="166" font-size="11.5" fill="#e0e7ff">depth profile, not appearance, is the signal</text>
+    <!-- 2 topology-aware segmentation -->
+    <rect x="300" y="60" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="84" font-size="12.5" font-weight="700">2 &#183; Layer &amp; fluid segmentation</text>
+    <text x="315" y="102" font-size="11.5" fill="#e0e7ff">SD-RetinaNet &#183; signed-distance &#183; graph-search</text>
+    <text x="315" y="118" font-size="11.5" fill="#e0e7ff">topology: layers stay ordered, fluid stays plausible</text>
+    <text x="315" y="134" font-size="11.5" fill="#e0e7ff">CNN&#8211;transformer hybrids &#183; RETOUCH fluid</text>
+    <!-- 3 foundation models -->
+    <rect x="600" y="92" width="285" height="86" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="615" y="116" font-size="12.5" font-weight="700">3 &#183; Foundation models</text>
+    <text x="615" y="134" font-size="11.5" fill="#cffafe">RETFound &#183; MIRAGE &#183; OCTCube-M</text>
+    <text x="615" y="150" font-size="11.5" fill="#cffafe">the slices &#8594; volumes shift (V-JEPA)</text>
+    <text x="615" y="166" font-size="11.5" fill="#cffafe">masked-image / video SSL, few labels</text>
+    <!-- 4 classification & screening -->
+    <rect x="55" y="418" width="300" height="86" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="70" y="442" font-size="12.5" font-weight="700">4 &#183; Disease classification</text>
+    <text x="70" y="460" font-size="11.5" fill="#cffafe">Kermany CNV/DME/drusen &#183; multi-disease screen</text>
+    <text x="70" y="476" font-size="11.5" fill="#cffafe">native-resolution ViTs &#183; referable triage</text>
+    <text x="70" y="492" font-size="11.5" fill="#cffafe">interpretability anchored to anatomy (SAIL)</text>
+    <!-- 5 anomaly detection -->
+    <rect x="300" y="446" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="315" y="470" font-size="12.5" font-weight="700">5 &#183; Unsupervised anomaly &amp; OOD</text>
+    <text x="315" y="488" font-size="11.5" fill="#e0e7ff">train on normal, flag the rest &#183; teacher&#8211;student KD</text>
+    <text x="315" y="504" font-size="11.5" fill="#e0e7ff">anatomy-aware latents &#183; VQ-VAE &#183; diffusion OOD</text>
+    <text x="315" y="520" font-size="11.5" fill="#e0e7ff">find the lesion no one labelled</text>
+    <!-- 6 beyond retina + domain shift -->
+    <rect x="600" y="418" width="285" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="615" y="442" font-size="12.5" font-weight="700">6 &#183; Angiography, vessels &amp; beyond</text>
+    <text x="615" y="460" font-size="11.5" fill="#e0e7ff">OCTA flow &#183; OCT2Former &#183; RVO biomarkers</text>
+    <text x="615" y="476" font-size="11.5" fill="#e0e7ff">intravascular (IVOCT) plaque &#183; dermatology</text>
+    <text x="615" y="492" font-size="11.5" fill="#e0e7ff">cross-device domain shift is the ceiling</text>
+  </g>
+</svg>
