@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the seven polarization-imaging dense-detection and classification threads">
+  <title>Polarization imaging — seven dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="330" x2="205" y2="150"/>
+    <line x1="450" y1="330" x2="450" y2="128"/>
+    <line x1="450" y1="330" x2="695" y2="150"/>
+    <line x1="450" y1="330" x2="150" y2="330"/>
+    <line x1="450" y1="330" x2="750" y2="330"/>
+    <line x1="450" y1="330" x2="255" y2="512"/>
+    <line x1="450" y1="330" x2="645" y2="512"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="312" y="284" width="276" height="92" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="314" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The polarization channel</text>
+    <text x="450" y="336" text-anchor="middle" fill="#cbd5e1" font-size="12.5">Stokes S0,S1,S2 &#8594; DoLP / AoLP:</text>
+    <text x="450" y="354" text-anchor="middle" fill="#cbd5e1" font-size="12.5">surface, material &amp; reflection cues</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive (top-left) -->
+    <rect x="45" y="92" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="60" y="116" font-size="12.5" font-weight="700">1 &#183; The primitive (&#167;3)</text>
+    <text x="60" y="134" font-size="11.5" fill="#e0e7ff">DoFP snapshot sensors &#183; Stokes</text>
+    <text x="60" y="150" font-size="11.5" fill="#e0e7ff">DoLP / AoLP &#183; demosaicing</text>
+    <text x="60" y="168" font-size="11.5" fill="#e0e7ff">physics-entangled, ambiguous cue</text>
+
+    <!-- 2 shape from polarization (top-center) -->
+    <rect x="300" y="42" width="300" height="86" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="315" y="66" font-size="12.5" font-weight="700">2 &#183; Shape from polarization (&#167;4)</text>
+    <text x="315" y="84" font-size="11.5" fill="#ccfbf1">normals from AoLP/DoLP</text>
+    <text x="315" y="100" font-size="11.5" fill="#ccfbf1">resolving the &#960;-ambiguity</text>
+    <text x="315" y="118" font-size="11.5" fill="#ccfbf1">event &amp; self-supervised SfP</text>
+
+    <!-- 3 transparent (top-right) -->
+    <rect x="555" y="92" width="300" height="86" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="570" y="116" font-size="12.5" font-weight="700">3 &#183; Transparent &amp; specular (&#167;5)</text>
+    <text x="570" y="134" font-size="11.5" fill="#f3e8ff">glass, mirror, clear-plastic</text>
+    <text x="570" y="150" font-size="11.5" fill="#f3e8ff">segmentation &amp; 6D pose</text>
+    <text x="570" y="168" font-size="11.5" fill="#f3e8ff">robotic grasping</text>
+
+    <!-- 4 fusion (mid-left) -->
+    <rect x="0" y="287" width="150" height="86" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="12" y="311" font-size="12" font-weight="700">4 &#183; RGB-P</text>
+    <text x="12" y="329" font-size="11" fill="#fde68a">fusion (&#167;6)</text>
+    <text x="12" y="345" font-size="11" fill="#fde68a">segmentation,</text>
+    <text x="12" y="361" font-size="11" fill="#fde68a">detection</text>
+
+    <!-- 5 removal (mid-right) -->
+    <rect x="750" y="287" width="150" height="86" rx="10" fill="#0369a1" stroke="#075985"/>
+    <text x="762" y="311" font-size="12" font-weight="700">5 &#183; Remove (&#167;7)</text>
+    <text x="762" y="329" font-size="11" fill="#e0f2fe">reflection,</text>
+    <text x="762" y="345" font-size="11" fill="#e0f2fe">haze, scatter</text>
+    <text x="762" y="361" font-size="11" fill="#e0f2fe">road state</text>
+
+    <!-- 6 biomedical (bottom-left) -->
+    <rect x="100" y="526" width="310" height="86" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="115" y="550" font-size="12.5" font-weight="700">6 &#183; Biomedical polarimetry (&#167;8)</text>
+    <text x="115" y="568" font-size="11.5" fill="#ffe4e6">Mueller-matrix imaging</text>
+    <text x="115" y="584" font-size="11.5" fill="#ffe4e6">cancer / tissue classification</text>
+    <text x="115" y="600" font-size="11.5" fill="#ffe4e6">surgical-margin assessment</text>
+
+    <!-- 7 remote sensing (bottom-right) -->
+    <rect x="490" y="526" width="310" height="86" rx="10" fill="#334155" stroke="#475569"/>
+    <text x="505" y="550" font-size="12.5" font-weight="700">7 &#183; Remote sensing + data (&#167;9)</text>
+    <text x="505" y="568" font-size="11.5" fill="#e2e8f0">aerosol / oil retrieval</text>
+    <text x="505" y="584" font-size="11.5" fill="#e2e8f0">fragmented benchmarks</text>
+    <text x="505" y="600" font-size="11.5" fill="#e2e8f0">the foundation-model gap</text>
+  </g>
+</svg>

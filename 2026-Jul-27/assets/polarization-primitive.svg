@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How a division-of-focal-plane polarization sensor turns one snapshot into Stokes parameters, DoLP and AoLP, and the dense tasks they feed">
+  <title>The polarization primitive — from a DoFP snapshot to physical cues to dense tasks</title>
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- left: physics of the measurement -->
+  <g>
+    <rect x="24" y="52" width="250" height="376" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="149" y="80" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">Light &#8594; surface &#8594; sensor</text>
+
+    <!-- unpolarized source -->
+    <circle cx="70" cy="130" r="15" fill="#fde68a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="70" y="162" text-anchor="middle" fill="#fde68a" font-size="10">unpolarized</text>
+    <!-- ray to surface -->
+    <line x1="86" y1="140" x2="150" y2="196" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+    <!-- surface -->
+    <rect x="70" y="210" width="160" height="26" rx="4" fill="#0f766e" stroke="#115e59"/>
+    <text x="150" y="228" text-anchor="middle" fill="#ccfbf1" font-size="11">surface (normal, index)</text>
+    <!-- reflected partially-polarized ray -->
+    <line x1="150" y1="210" x2="210" y2="150" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#ar)"/>
+    <text x="150" y="270" text-anchor="middle" fill="#7dd3fc" font-size="10.5">Fresnel reflection is</text>
+    <text x="150" y="285" text-anchor="middle" fill="#7dd3fc" font-size="10.5">partially polarized</text>
+
+    <!-- DoFP super-pixel -->
+    <text x="149" y="316" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">DoFP super-pixel</text>
+    <g font-size="12" font-weight="700">
+      <rect x="99" y="326" width="50" height="42" fill="#4f46e5" stroke="#e0e7ff"/>
+      <text x="124" y="352" text-anchor="middle" fill="#e0e7ff">0&#176;</text>
+      <rect x="149" y="326" width="50" height="42" fill="#6366f1" stroke="#e0e7ff"/>
+      <text x="174" y="352" text-anchor="middle" fill="#e0e7ff">45&#176;</text>
+      <rect x="99" y="368" width="50" height="42" fill="#6366f1" stroke="#e0e7ff"/>
+      <text x="124" y="394" text-anchor="middle" fill="#e0e7ff">90&#176;</text>
+      <rect x="149" y="368" width="50" height="42" fill="#4f46e5" stroke="#e0e7ff"/>
+      <text x="174" y="394" text-anchor="middle" fill="#e0e7ff">135&#176;</text>
+    </g>
+    <text x="149" y="424" text-anchor="middle" fill="#cbd5e1" font-size="10">one snapshot, four angles</text>
+  </g>
+
+  <!-- arrow to cues -->
+  <line x1="280" y1="240" x2="322" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- middle: derived cues -->
+  <g font-size="11">
+    <rect x="330" y="92" width="228" height="70" rx="9" fill="#0369a1" stroke="#075985"/>
+    <text x="346" y="115" fill="#f8fafc" font-size="12" font-weight="700">Stokes S0, S1, S2</text>
+    <text x="346" y="133" fill="#e0f2fe">total + linear-polarization</text>
+    <text x="346" y="149" fill="#e0f2fe">components (after demosaic)</text>
+
+    <rect x="330" y="176" width="228" height="66" rx="9" fill="#0f766e" stroke="#115e59"/>
+    <text x="346" y="199" fill="#f8fafc" font-size="12" font-weight="700">DoLP</text>
+    <text x="346" y="217" fill="#ccfbf1">degree of polarization &#8594;</text>
+    <text x="346" y="233" fill="#ccfbf1">specularity, glass, zenith angle</text>
+
+    <rect x="330" y="256" width="228" height="66" rx="9" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="346" y="279" fill="#f8fafc" font-size="12" font-weight="700">AoLP</text>
+    <text x="346" y="297" fill="#f3e8ff">angle of polarization &#8594;</text>
+    <text x="346" y="313" fill="#f3e8ff">azimuth of surface normal</text>
+
+    <rect x="330" y="336" width="228" height="66" rx="9" fill="#b45309" stroke="#92400e"/>
+    <text x="346" y="359" fill="#f8fafc" font-size="12" font-weight="700">Reflected vs transmitted</text>
+    <text x="346" y="377" fill="#fde68a">the two components are</text>
+    <text x="346" y="393" fill="#fde68a">polarized differently &#8594; separable</text>
+  </g>
+
+  <!-- arrow to tasks -->
+  <line x1="566" y1="240" x2="608" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- right: dense tasks -->
+  <g font-size="11">
+    <rect x="616" y="72" width="260" height="60" rx="9" fill="#be123c" stroke="#9f1239"/>
+    <text x="632" y="96" fill="#f8fafc" font-size="12" font-weight="700">Shape / normals (&#167;4)</text>
+    <text x="632" y="115" fill="#ffe4e6">textureless, matte, reflective</text>
+
+    <rect x="616" y="140" width="260" height="60" rx="9" fill="#be123c" stroke="#9f1239"/>
+    <text x="632" y="164" fill="#f8fafc" font-size="12" font-weight="700">Transparent / specular (&#167;5)</text>
+    <text x="632" y="183" fill="#ffe4e6">segment &amp; grasp glass, mirrors</text>
+
+    <rect x="616" y="208" width="260" height="60" rx="9" fill="#be123c" stroke="#9f1239"/>
+    <text x="632" y="232" fill="#f8fafc" font-size="12" font-weight="700">Detect / segment (&#167;6)</text>
+    <text x="632" y="251" fill="#ffe4e6">RGB-P fusion, adverse weather</text>
+
+    <rect x="616" y="276" width="260" height="60" rx="9" fill="#be123c" stroke="#9f1239"/>
+    <text x="632" y="300" fill="#f8fafc" font-size="12" font-weight="700">Clean the image (&#167;7)</text>
+    <text x="632" y="319" fill="#ffe4e6">reflection / haze removal</text>
+
+    <rect x="616" y="344" width="260" height="60" rx="9" fill="#be123c" stroke="#9f1239"/>
+    <text x="632" y="368" fill="#f8fafc" font-size="12" font-weight="700">Classify tissue / targets (&#167;8-9)</text>
+    <text x="632" y="387" fill="#ffe4e6">Mueller matrices, retrieval</text>
+  </g>
+</svg>
