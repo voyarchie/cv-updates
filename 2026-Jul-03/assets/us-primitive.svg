@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif" fill="currentColor" role="img" aria-label="How an ultrasound image forms, and the four ways it differs from an RGB grid">
+  <style>
+    .t{fill:currentColor}
+    .mut{fill:currentColor;opacity:.72}
+    .hd{font-weight:700}
+    .blu{fill:#3b82f6}.tea{fill:#14b8a6}.amb{fill:#f59e0b}.vio{fill:#a855f7}.red{fill:#ef4444}
+    .sblu{stroke:#3b82f6}.stea{stroke:#14b8a6}
+  </style>
+
+  <text x="16" y="26" class="hd t" font-size="17">Ultrasound is pulse–echo, not photons — a genuinely different primitive</text>
+
+  <!-- formation chain -->
+  <g transform="translate(16,52)">
+    <rect x="0" y="10" width="120" height="70" rx="9" fill="rgba(59,130,246,.14)" class="sblu" stroke-width="1.5"/>
+    <text x="60" y="38" text-anchor="middle" class="hd t" font-size="12.5">Probe</text>
+    <text x="60" y="56" text-anchor="middle" class="mut" font-size="10.5">emits pulse</text>
+    <text x="60" y="70" text-anchor="middle" class="mut" font-size="10.5">~2–15 MHz</text>
+
+    <!-- pulse arrow -->
+    <path d="M124 45 L176 45" class="sblu" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="150" y="36" text-anchor="middle" class="blu" font-size="10">sound in</text>
+
+    <rect x="180" y="0" width="140" height="90" rx="9" fill="rgba(20,184,166,.14)" class="stea" stroke-width="1.5"/>
+    <text x="250" y="26" text-anchor="middle" class="hd t" font-size="12.5">Tissue</text>
+    <text x="250" y="44" text-anchor="middle" class="mut" font-size="10">acoustic-impedance</text>
+    <text x="250" y="58" text-anchor="middle" class="mut" font-size="10">boundaries reflect &amp;</text>
+    <text x="250" y="72" text-anchor="middle" class="mut" font-size="10">sub-λ scatterers interfere</text>
+
+    <!-- echo arrow -->
+    <path d="M176 68 L124 68" class="stea" stroke-width="2" marker-end="url(#ah2)"/>
+    <text x="150" y="84" text-anchor="middle" class="tea" font-size="10">echo back</text>
+
+    <path d="M324 45 L372 45" stroke="currentColor" stroke-width="2" opacity=".6" marker-end="url(#ah3)"/>
+
+    <rect x="376" y="0" width="150" height="90" rx="9" fill="rgba(168,85,247,.14)" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="451" y="26" text-anchor="middle" class="hd t" font-size="12.5">B-mode frame</text>
+    <text x="451" y="44" text-anchor="middle" class="mut" font-size="10">time-of-flight = depth;</text>
+    <text x="451" y="58" text-anchor="middle" class="mut" font-size="10">amplitude = brightness;</text>
+    <text x="451" y="72" text-anchor="middle" class="mut" font-size="10">interference = speckle</text>
+  </g>
+
+  <!-- four differentiators -->
+  <g transform="translate(16,168)">
+    <text x="0" y="0" class="hd t" font-size="12.5">Four ways it breaks the RGB assumptions every detector was built on</text>
+
+    <g transform="translate(0,16)">
+      <rect x="0" y="0" width="205" height="72" rx="9" fill="rgba(239,68,68,.12)" stroke="#ef4444" stroke-width="1.3"/>
+      <circle cx="18" cy="20" r="5" class="red"/>
+      <text x="32" y="24" class="hd t" font-size="11.5">Speckle is signal + noise</text>
+      <text x="14" y="42" class="mut" font-size="10">Multiplicative coherent-interference</text>
+      <text x="14" y="56" class="mut" font-size="10">texture — carries tissue cues, so you</text>
+      <text x="14" y="68" class="mut" font-size="10">cannot just denoise it away.</text>
+    </g>
+
+    <g transform="translate(213,16)">
+      <rect x="0" y="0" width="205" height="72" rx="9" fill="rgba(245,158,11,.12)" stroke="#f59e0b" stroke-width="1.3"/>
+      <circle cx="18" cy="20" r="5" class="amb"/>
+      <text x="32" y="24" class="hd t" font-size="11.5">Operator + probe dependent</text>
+      <text x="14" y="42" class="mut" font-size="10">Freehand view, gain, depth, frequency</text>
+      <text x="14" y="56" class="mut" font-size="10">&amp; vendor all shift the image — severe</text>
+      <text x="14" y="68" class="mut" font-size="10">domain gap, not a fixed sensor grid.</text>
+    </g>
+
+    <g transform="translate(426,16)">
+      <rect x="0" y="0" width="205" height="72" rx="9" fill="rgba(20,184,166,.12)" stroke="#14b8a6" stroke-width="1.3"/>
+      <circle cx="18" cy="20" r="5" class="tea"/>
+      <text x="32" y="24" class="hd t" font-size="11.5">Video is the native unit</text>
+      <text x="14" y="42" class="mut" font-size="10">Cine loops, cardiac motion &amp; probe</text>
+      <text x="14" y="56" class="mut" font-size="10">sweeps — a still frame is a slice of a</text>
+      <text x="14" y="68" class="mut" font-size="10">spatio-temporal acquisition.</text>
+    </g>
+
+    <g transform="translate(639,16)">
+      <rect x="0" y="0" width="205" height="72" rx="9" fill="rgba(59,130,246,.12)" stroke="#3b82f6" stroke-width="1.3"/>
+      <circle cx="18" cy="20" r="5" class="blu"/>
+      <text x="32" y="24" class="hd t" font-size="11.5">No labelled ImageNet</text>
+      <text x="14" y="42" class="mut" font-size="10">Scarce, private, expert-only labels →</text>
+      <text x="14" y="56" class="mut" font-size="10">transfer, self-supervision, SAM-prompt</text>
+      <text x="14" y="68" class="mut" font-size="10">&amp; synthesis are first-class, not extras.</text>
+    </g>
+  </g>
+
+  <text x="16" y="330" class="mut" font-size="9.5">Schematic — pulse–echo formation is qualitatively unlike reflected-light imaging; frequencies/geometry are illustrative.</text>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#3b82f6"/></marker>
+    <marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#14b8a6"/></marker>
+    <marker id="ah3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker>
+  </defs>
+</svg>
