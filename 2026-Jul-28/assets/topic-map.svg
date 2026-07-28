@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the seven PET / nuclear molecular imaging dense-detection and classification threads">
+  <title>PET / nuclear molecular imaging — seven dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="330" x2="205" y2="150"/>
+    <line x1="450" y1="330" x2="450" y2="128"/>
+    <line x1="450" y1="330" x2="695" y2="150"/>
+    <line x1="450" y1="330" x2="150" y2="330"/>
+    <line x1="450" y1="330" x2="750" y2="330"/>
+    <line x1="450" y1="330" x2="255" y2="512"/>
+    <line x1="450" y1="330" x2="645" y2="512"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="300" y="282" width="300" height="96" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="310" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The PET signal</text>
+    <text x="450" y="332" text-anchor="middle" fill="#cbd5e1" font-size="12.5">annihilation coincidence &#8594; counts &#8594; SUV:</text>
+    <text x="450" y="350" text-anchor="middle" fill="#cbd5e1" font-size="12.5">tracer-specific, low-SNR</text>
+    <text x="450" y="368" text-anchor="middle" fill="#cbd5e1" font-size="12.5">functional contrast</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive (top-left) -->
+    <rect x="45" y="92" width="300" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="60" y="116" font-size="12.5" font-weight="700">1 &#183; The primitive (&#167;3)</text>
+    <text x="60" y="134" font-size="11.5" fill="#e0e7ff">511 keV coincidence &#183; LOR</text>
+    <text x="60" y="150" font-size="11.5" fill="#e0e7ff">Poisson counts &#183; SUV quantitation</text>
+    <text x="60" y="168" font-size="11.5" fill="#e0e7ff">tracer = the class label</text>
+
+    <!-- 2 reconstruction/denoising (top-center) -->
+    <rect x="300" y="42" width="300" height="86" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="315" y="66" font-size="12.5" font-weight="700">2 &#183; Reconstruction + denoising (&#167;4)</text>
+    <text x="315" y="84" font-size="11.5" fill="#ccfbf1">low-count / low-dose recovery</text>
+    <text x="315" y="100" font-size="11.5" fill="#ccfbf1">diffusion, unrolled, DIP</text>
+    <text x="315" y="118" font-size="11.5" fill="#ccfbf1">total-body PET</text>
+
+    <!-- 3 attenuation correction (top-right) -->
+    <rect x="555" y="92" width="300" height="86" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="570" y="116" font-size="12.5" font-weight="700">3 &#183; Attenuation / scatter (&#167;5)</text>
+    <text x="570" y="134" font-size="11.5" fill="#f3e8ff">CT-free &amp; MR-free AC</text>
+    <text x="570" y="150" font-size="11.5" fill="#f3e8ff">sinogram- vs image-domain</text>
+    <text x="570" y="168" font-size="11.5" fill="#f3e8ff">quantitative bias</text>
+
+    <!-- 4 lesion detection (mid-left) -->
+    <rect x="0" y="287" width="150" height="86" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="12" y="309" font-size="12" font-weight="700">4 &#183; autoPET</text>
+    <text x="12" y="327" font-size="11" fill="#fde68a">whole-body</text>
+    <text x="12" y="343" font-size="11" fill="#fde68a">lesion seg (&#167;6)</text>
+    <text x="12" y="359" font-size="11" fill="#fde68a">multi-tracer</text>
+
+    <!-- 5 false-positive tax (mid-right) -->
+    <rect x="750" y="287" width="150" height="86" rx="10" fill="#0369a1" stroke="#075985"/>
+    <text x="762" y="309" font-size="12" font-weight="700">5 &#183; FP tax (&#167;7)</text>
+    <text x="762" y="327" font-size="11" fill="#e0f2fe">physiologic</text>
+    <text x="762" y="343" font-size="11" fill="#e0f2fe">uptake: brain,</text>
+    <text x="762" y="359" font-size="11" fill="#e0f2fe">bladder, heart</text>
+
+    <!-- 6 classification/response (bottom-left) -->
+    <rect x="100" y="526" width="310" height="86" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="115" y="550" font-size="12.5" font-weight="700">6 &#183; Classify / response / prognosis (&#167;8)</text>
+    <text x="115" y="568" font-size="11.5" fill="#ffe4e6">Deauville, PERCIST automation</text>
+    <text x="115" y="584" font-size="11.5" fill="#ffe4e6">benign vs malignant</text>
+    <text x="115" y="600" font-size="11.5" fill="#ffe4e6">survival / treatment response</text>
+
+    <!-- 7 foundation/VLM/domain (bottom-right) -->
+    <rect x="490" y="526" width="310" height="86" rx="10" fill="#334155" stroke="#475569"/>
+    <text x="505" y="550" font-size="12.5" font-weight="700">7 &#183; Foundations + data (&#167;9)</text>
+    <text x="505" y="568" font-size="11.5" fill="#e2e8f0">multimodal foundation models</text>
+    <text x="505" y="584" font-size="11.5" fill="#e2e8f0">report-generation VLMs</text>
+    <text x="505" y="600" font-size="11.5" fill="#e2e8f0">cross-scanner / SUV harmonization</text>
+  </g>
+</svg>

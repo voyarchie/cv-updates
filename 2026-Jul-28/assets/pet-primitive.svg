@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How PET turns positron annihilation into coincidence counts, a reconstructed quantitative SUV image, and the dense tasks it feeds">
+  <title>The PET primitive — from annihilation coincidence to counts, SUV image, and dense tasks</title>
+  <defs>
+    <marker id="pah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ===== top: physics inset ===== -->
+  <text x="20" y="30" fill="#e2e8f0" font-size="14" font-weight="700">A &#183; The measurement: back-to-back 511 keV photons, detected in coincidence</text>
+
+  <!-- detector ring -->
+  <circle cx="150" cy="140" r="78" fill="none" stroke="#475569" stroke-width="14"/>
+  <circle cx="150" cy="140" r="78" fill="none" stroke="#64748b" stroke-width="1"/>
+  <!-- annihilation point -->
+  <circle cx="150" cy="140" r="5" fill="#f59e0b"/>
+  <text x="150" y="128" text-anchor="middle" fill="#fbbf24" font-size="10.5">e&#8314;e&#8315; annihilation</text>
+  <!-- two photons along LOR -->
+  <line x1="150" y1="140" x2="80" y2="82" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#pah)"/>
+  <line x1="150" y1="140" x2="220" y2="198" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#pah)"/>
+  <text x="60" y="76" fill="#7dd3fc" font-size="10">511 keV &#947;</text>
+  <text x="200" y="216" fill="#7dd3fc" font-size="10">511 keV &#947;</text>
+  <text x="150" y="238" text-anchor="middle" fill="#cbd5e1" font-size="10.5">line of response (LOR)</text>
+
+  <!-- properties callout -->
+  <g>
+    <rect x="270" y="58" width="300" height="164" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="286" y="80" fill="#f8fafc" font-size="12.5" font-weight="700">What makes PET its own primitive</text>
+    <text x="286" y="102" fill="#cbd5e1" font-size="11">&#183; signal is <tspan fill="#fbbf24">counts</tspan>, not reflected light &#8594; Poisson-limited</text>
+    <text x="286" y="122" fill="#cbd5e1" font-size="11">&#183; contrast is <tspan fill="#fbbf24">tracer uptake</tspan>, not anatomy</text>
+    <text x="286" y="142" fill="#cbd5e1" font-size="11">&#183; the tracer <tspan fill="#fbbf24">is</tspan> the class label (FDG, PSMA, DOTATATE&#8230;)</text>
+    <text x="286" y="162" fill="#cbd5e1" font-size="11">&#183; low, blobby resolution (~4&#8211;6 mm); no sharp edges</text>
+    <text x="286" y="182" fill="#cbd5e1" font-size="11">&#183; quantitative: intensity = <tspan fill="#fbbf24">SUV</tspan> (needs AC)</text>
+    <text x="286" y="202" fill="#cbd5e1" font-size="11">&#183; almost always read <tspan fill="#fbbf24">with</tspan> a co-registered CT / MR</text>
+  </g>
+
+  <!-- physiologic uptake callout -->
+  <g>
+    <rect x="590" y="58" width="310" height="164" rx="10" fill="#3f1d38" stroke="#9f1239"/>
+    <text x="606" y="80" fill="#ffe4e6" font-size="12.5" font-weight="700">The confounder: physiologic uptake</text>
+    <text x="606" y="102" fill="#fecdd3" font-size="11">Healthy tissue is bright on FDG too &#8212;</text>
+    <text x="606" y="122" fill="#fecdd3" font-size="11">brain, myocardium, kidneys, bladder,</text>
+    <text x="606" y="142" fill="#fecdd3" font-size="11">bowel, brown fat, injection-site &amp; muscle.</text>
+    <text x="606" y="166" fill="#fecdd3" font-size="11">A bright blob is not a lesion &#8212; the whole</text>
+    <text x="606" y="186" fill="#fecdd3" font-size="11">detection problem is <tspan fill="#fda4af" font-weight="700">telling them apart</tspan>,</text>
+    <text x="606" y="206" fill="#fecdd3" font-size="11">which is why false-positive control dominates.</text>
+  </g>
+
+  <!-- ===== bottom: pipeline ===== -->
+  <text x="20" y="286" fill="#e2e8f0" font-size="14" font-weight="700">B &#183; The pipeline: from raw counts to dense tasks</text>
+
+  <g font-size="11">
+    <!-- counts/sinogram -->
+    <rect x="20" y="304" width="150" height="92" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="95" y="328" text-anchor="middle" fill="#e0e7ff" font-size="12" font-weight="700">Raw counts</text>
+    <text x="95" y="348" text-anchor="middle" fill="#e0e7ff">list-mode /</text>
+    <text x="95" y="364" text-anchor="middle" fill="#e0e7ff">sinogram</text>
+    <text x="95" y="382" text-anchor="middle" fill="#c7d2fe">(§3, §4)</text>
+
+    <!-- reconstruction + denoising -->
+    <rect x="200" y="304" width="160" height="92" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="280" y="328" text-anchor="middle" fill="#ccfbf1" font-size="12" font-weight="700">Reconstruction</text>
+    <text x="280" y="348" text-anchor="middle" fill="#ccfbf1">OSEM / unrolled /</text>
+    <text x="280" y="364" text-anchor="middle" fill="#ccfbf1">diffusion denoising</text>
+    <text x="280" y="382" text-anchor="middle" fill="#99f6e4">(§4)</text>
+
+    <!-- attenuation/scatter -->
+    <rect x="390" y="304" width="150" height="92" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="465" y="328" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="700">AC + scatter</text>
+    <text x="465" y="348" text-anchor="middle" fill="#f3e8ff">CT-/MR-free</text>
+    <text x="465" y="364" text-anchor="middle" fill="#f3e8ff">correction</text>
+    <text x="465" y="382" text-anchor="middle" fill="#e9d5ff">(§5)</text>
+
+    <!-- SUV image -->
+    <rect x="570" y="304" width="150" height="92" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="645" y="328" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">SUV image</text>
+    <text x="645" y="348" text-anchor="middle" fill="#fde68a">quantitative,</text>
+    <text x="645" y="364" text-anchor="middle" fill="#fde68a">+ co-reg CT/MR</text>
+    <text x="645" y="382" text-anchor="middle" fill="#fed7aa">(PET/CT, PET/MR)</text>
+
+    <!-- dense tasks -->
+    <rect x="750" y="304" width="150" height="92" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="825" y="328" text-anchor="middle" fill="#ffe4e6" font-size="12" font-weight="700">Dense tasks</text>
+    <text x="825" y="348" text-anchor="middle" fill="#ffe4e6">detect / segment</text>
+    <text x="825" y="364" text-anchor="middle" fill="#ffe4e6">classify / response</text>
+    <text x="825" y="382" text-anchor="middle" fill="#fecdd3">(§6, §7, §8)</text>
+  </g>
+
+  <!-- pipeline arrows -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#pah)">
+    <line x1="170" y1="350" x2="198" y2="350"/>
+    <line x1="360" y1="350" x2="388" y2="350"/>
+    <line x1="540" y1="350" x2="568" y2="350"/>
+    <line x1="720" y1="350" x2="748" y2="350"/>
+  </g>
+
+  <text x="20" y="430" fill="#94a3b8" font-size="10.5">Every stage is a place deep learning now intervenes; every upstream error (noise, mis-AC) propagates into detection as a false blob or a missed lesion.</text>
+  <text x="20" y="452" fill="#94a3b8" font-size="10.5">Node fills are solid with light text, so the diagram reads on both light and dark backgrounds.</text>
+</svg>
