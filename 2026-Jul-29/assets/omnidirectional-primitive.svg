@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The omnidirectional imaging primitive: one sphere of incident light projected to different storage formats, and what breaks for detectors">
+  <title>Omnidirectional imaging — the sphere of light and its lossy 2D storage formats</title>
+  <defs>
+    <marker id="oa" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- title band -->
+  <text x="450" y="30" text-anchor="middle" fill="#e2e8f0" font-size="17" font-weight="700">One sphere of incident light &#8594; a lossy 2D storage format &#8594; distortion the detector must undo</text>
+
+  <!-- the sphere / camera -->
+  <g>
+    <circle cx="140" cy="180" r="86" fill="#0f766e" stroke="#115e59" stroke-width="2"/>
+    <circle cx="140" cy="180" r="86" fill="none" stroke="#5eead4" stroke-width="1" stroke-dasharray="4 5"/>
+    <line x1="54" y1="180" x2="226" y2="180" stroke="#5eead4" stroke-width="1"/>
+    <ellipse cx="140" cy="180" rx="86" ry="30" fill="none" stroke="#5eead4" stroke-width="1"/>
+    <circle cx="140" cy="180" r="9" fill="#f8fafc"/>
+    <text x="140" y="112" text-anchor="middle" fill="#f0fdfa" font-size="12.5" font-weight="700">Full field of view</text>
+    <text x="140" y="286" text-anchor="middle" fill="#ccfbf1" font-size="11.5">up to 4&#960; sr around</text>
+    <text x="140" y="302" text-anchor="middle" fill="#ccfbf1" font-size="11.5">a single optical center</text>
+  </g>
+
+  <!-- arrow from sphere to formats -->
+  <line x1="232" y1="180" x2="300" y2="180" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#oa)"/>
+
+  <!-- three storage formats -->
+  <g font-size="11.5">
+    <!-- equirectangular -->
+    <rect x="308" y="70" width="270" height="80" rx="9" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="322" y="92" fill="#f8fafc" font-size="12.5" font-weight="700">Equirectangular (lat/long)</text>
+    <text x="322" y="111" fill="#e0e7ff">seam wraps L&#8596;R &#183; poles stretched</text>
+    <text x="322" y="128" fill="#e0e7ff">non-uniform pixel density by latitude</text>
+    <text x="322" y="144" fill="#c7d2fe">a rectangle that is really a cylinder</text>
+
+    <!-- fisheye -->
+    <rect x="308" y="162" width="270" height="80" rx="9" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="322" y="184" fill="#f8fafc" font-size="12.5" font-weight="700">Fisheye (single wide lens)</text>
+    <text x="322" y="203" fill="#f3e8ff">strong radial distortion, r = f&#183;&#952;</text>
+    <text x="322" y="220" fill="#f3e8ff">straight lines &#8594; arcs; scale falls off</text>
+    <text x="322" y="236" fill="#e9d5ff">calibrated model, no single focal length</text>
+
+    <!-- cubemap / tangent -->
+    <rect x="308" y="254" width="270" height="80" rx="9" fill="#b45309" stroke="#92400e"/>
+    <text x="322" y="276" fill="#f8fafc" font-size="12.5" font-weight="700">Cubemap / tangent patches</text>
+    <text x="322" y="295" fill="#fde68a">6 (or N) near-pinhole faces</text>
+    <text x="322" y="312" fill="#fde68a">low distortion, but face-boundary breaks</text>
+    <text x="322" y="328" fill="#fed7aa">re-fuse across seams to stay consistent</text>
+  </g>
+
+  <!-- arrow to consequences -->
+  <line x1="582" y1="202" x2="640" y2="202" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#oa)"/>
+
+  <!-- what breaks -->
+  <g font-size="11.5">
+    <rect x="648" y="70" width="238" height="264" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="767" y="94" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">What breaks for a detector</text>
+
+    <text x="664" y="122" fill="#fca5a5" font-weight="700">Kernels</text>
+    <text x="664" y="139" fill="#e2e8f0">a fixed square kernel sees a</text>
+    <text x="664" y="155" fill="#e2e8f0">different solid angle everywhere</text>
+
+    <text x="664" y="182" fill="#fca5a5" font-weight="700">Boxes</text>
+    <text x="664" y="199" fill="#e2e8f0">axis-aligned boxes bloat; objects</text>
+    <text x="664" y="215" fill="#e2e8f0">need rotated / polygon / spherical</text>
+
+    <text x="664" y="242" fill="#fca5a5" font-weight="700">NMS &amp; IoU</text>
+    <text x="664" y="259" fill="#e2e8f0">planar IoU is wrong across the</text>
+    <text x="664" y="275" fill="#e2e8f0">seam &#8212; recompute on the sphere</text>
+
+    <text x="664" y="302" fill="#fca5a5" font-weight="700">Priors</text>
+    <text x="664" y="319" fill="#e2e8f0">pinhole-trained features don't</text>
+    <text x="664" y="331" fill="#e2e8f0">transfer &#8212; a domain gap, not noise</text>
+  </g>
+
+  <!-- footer note -->
+  <text x="450" y="380" text-anchor="middle" fill="#94a3b8" font-size="11.5">The geometry is the label problem: the same object looks different at the equator, the pole, and the seam.</text>
+
+  <!-- bottom: the two dense tasks -->
+  <g font-size="12">
+    <rect x="150" y="410" width="270" height="120" rx="10" fill="#0e7490" stroke="#155e75"/>
+    <text x="285" y="436" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Dense detection</text>
+    <text x="285" y="459" text-anchor="middle" fill="#cffafe" font-size="11.5">distortion-aware backbones,</text>
+    <text x="285" y="476" text-anchor="middle" fill="#cffafe" font-size="11.5">spherical/rotated boxes,</text>
+    <text x="285" y="493" text-anchor="middle" fill="#cffafe" font-size="11.5">surround-view &#8594; BEV / occupancy,</text>
+    <text x="285" y="510" text-anchor="middle" fill="#cffafe" font-size="11.5">near-field automotive perception</text>
+
+    <rect x="480" y="410" width="270" height="120" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="615" y="436" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Dense classification</text>
+    <text x="615" y="459" text-anchor="middle" fill="#ede9fe" font-size="11.5">panoramic semantic / panoptic</text>
+    <text x="615" y="476" text-anchor="middle" fill="#ede9fe" font-size="11.5">segmentation, 360&#176; depth,</text>
+    <text x="615" y="493" text-anchor="middle" fill="#ede9fe" font-size="11.5">pinhole&#8594;panoramic domain</text>
+    <text x="615" y="510" text-anchor="middle" fill="#ede9fe" font-size="11.5">adaptation, sphere-adapted VLMs</text>
+  </g>
+</svg>
