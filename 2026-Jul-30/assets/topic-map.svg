@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the seven omnidirectional-vision dense-detection and classification threads">
+  <title>Omnidirectional / 360&#176; vision &#8212; seven dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="th" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#th)">
+    <line x1="450" y1="320" x2="205" y2="140"/>
+    <line x1="450" y1="320" x2="450" y2="118"/>
+    <line x1="450" y1="320" x2="695" y2="140"/>
+    <line x1="450" y1="320" x2="150" y2="320"/>
+    <line x1="450" y1="320" x2="750" y2="320"/>
+    <line x1="450" y1="320" x2="255" y2="500"/>
+    <line x1="450" y1="320" x2="645" y2="500"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="306" y="274" width="288" height="92" rx="12" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="304" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The viewing sphere</text>
+    <text x="450" y="326" text-anchor="middle" fill="#cbd5e1" font-size="12.5">full 4&#960; sr &#183; no image border &#183;</text>
+    <text x="450" y="344" text-anchor="middle" fill="#cbd5e1" font-size="12.5">latitude-varying distortion, wrap-around</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 primitive (top-left) -->
+    <rect x="45" y="82" width="300" height="88" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="60" y="106" fill="#f8fafc" font-size="12.5" font-weight="700">1 &#183; The primitive (&#167;3)</text>
+    <text x="60" y="125" fill="#e0e7ff" font-size="11.5">ERP / cubemap / tangent / icosahedral</text>
+    <text x="60" y="142" fill="#e0e7ff" font-size="11.5">pole stretch &#183; longitude continuity</text>
+    <text x="60" y="159" fill="#e0e7ff" font-size="11.5">why pinhole detectors break</text>
+
+    <!-- 2 detection (top-center) -->
+    <rect x="300" y="30" width="300" height="88" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="315" y="54" fill="#f8fafc" font-size="12.5" font-weight="700">2 &#183; Distortion-aware detection (&#167;4)</text>
+    <text x="315" y="73" fill="#ccfbf1" font-size="11.5">spherical / FoV / rotated (RBFoV) boxes</text>
+    <text x="315" y="90" fill="#ccfbf1" font-size="11.5">unbiased spherical IoU, Sph2Pob</text>
+    <text x="315" y="107" fill="#ccfbf1" font-size="11.5">360-Indoor, PANDORA benchmarks</text>
+
+    <!-- 3 backbones (top-right) -->
+    <rect x="555" y="82" width="300" height="88" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="570" y="106" fill="#f8fafc" font-size="12.5" font-weight="700">3 &#183; Spherical backbones (&#167;5)</text>
+    <text x="570" y="125" fill="#f3e8ff" font-size="11.5">SphConv / SphereNet / KTN</text>
+    <text x="570" y="142" fill="#f3e8ff" font-size="11.5">tangent-image &amp; gauge-equivariant CNNs</text>
+    <text x="570" y="159" fill="#f3e8ff" font-size="11.5">distortion-aware transformers</text>
+
+    <!-- 4 segmentation (mid-left) -->
+    <rect x="8" y="276" width="142" height="88" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="20" y="300" fill="#f8fafc" font-size="12" font-weight="700">4 &#183; Pano seg</text>
+    <text x="20" y="318" fill="#fde68a" font-size="11">semantic /</text>
+    <text x="20" y="334" fill="#fde68a" font-size="11">instance /</text>
+    <text x="20" y="350" fill="#fde68a" font-size="11">panoptic (&#167;6)</text>
+
+    <!-- 5 adaptation (mid-right) -->
+    <rect x="750" y="276" width="142" height="88" rx="10" fill="#0369a1" stroke="#075985"/>
+    <text x="762" y="300" fill="#f8fafc" font-size="12" font-weight="700">5 &#183; Pin&#8594;pano</text>
+    <text x="762" y="318" fill="#e0f2fe" font-size="11">UDA / SFUDA</text>
+    <text x="762" y="334" fill="#e0f2fe" font-size="11">open-vocab (&#167;6)</text>
+    <text x="762" y="350" fill="#e0f2fe" font-size="11">label scarcity</text>
+
+    <!-- 6 foundation (bottom-left) -->
+    <rect x="90" y="500" width="300" height="88" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="105" y="524" fill="#f8fafc" font-size="12.5" font-weight="700">6 &#183; Foundation models on 360 (&#167;7)</text>
+    <text x="105" y="543" fill="#ffe4e6" font-size="11.5">SAM/SAM2 &#8594; GoodSAM, OmniSAM</text>
+    <text x="105" y="560" fill="#ffe4e6" font-size="11.5">open-panoramic (OOOPS), VLMs</text>
+    <text x="105" y="577" fill="#ffe4e6" font-size="11.5">Depth-Anything distilled to 360</text>
+
+    <!-- 7 depth/fisheye (bottom-right) -->
+    <rect x="510" y="500" width="300" height="88" rx="10" fill="#334155" stroke="#94a3b8"/>
+    <text x="525" y="524" fill="#f8fafc" font-size="12.5" font-weight="700">7 &#183; Depth, layout &amp; fisheye (&#167;&#167;8&#8211;9)</text>
+    <text x="525" y="543" fill="#e2e8f0" font-size="11.5">monocular 360 depth &#183; room layout</text>
+    <text x="525" y="560" fill="#e2e8f0" font-size="11.5">surround-view driving: WoodScape</text>
+    <text x="525" y="577" fill="#e2e8f0" font-size="11.5">near-field parking / occupancy</text>
+  </g>
+</svg>
