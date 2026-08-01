@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How PET turns injected tracer decay into a functional uptake image, and why physiologic uptake makes lesion detection hard">
+  <title>PET as a dense-vision primitive &#8212; from positron decay to SUV, fused with CT anatomy</title>
+  <defs>
+    <marker id="pa" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== TOP: physical chain ===================== -->
+  <text x="30" y="34" fill="#64748b" font-size="13" font-weight="700" letter-spacing="0.5">FROM DECAY TO A COUNT MAP &#8212; the physical chain</text>
+
+  <!-- stage 1: injection -->
+  <rect x="24" y="52" width="196" height="104" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="36" y="76" fill="#f8fafc" font-size="12.5" font-weight="700">1 &#183; Radiotracer</text>
+  <text x="36" y="95" fill="#ccfbf1" font-size="11">&#185;&#8312;F-FDG, &#8312;&#8312;Ga/&#185;&#8312;&#8311;F-PSMA,</text>
+  <text x="36" y="111" fill="#ccfbf1" font-size="11">DOTATATE, FAPI, amyloid/tau</text>
+  <text x="36" y="130" fill="#ccfbf1" font-size="11">injected; accumulates where</text>
+  <text x="36" y="146" fill="#ccfbf1" font-size="11">its biology binds</text>
+
+  <!-- stage 2: annihilation -->
+  <rect x="244" y="52" width="196" height="104" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="256" y="76" fill="#f8fafc" font-size="12.5" font-weight="700">2 &#183; &#946;&#8314; annihilation</text>
+  <text x="256" y="95" fill="#e0e7ff" font-size="11">positron meets electron &#8594;</text>
+  <text x="256" y="111" fill="#e0e7ff" font-size="11">two 511 keV photons, ~180&#176;</text>
+  <text x="256" y="130" fill="#e0e7ff" font-size="11">coincidence line of response;</text>
+  <text x="256" y="146" fill="#e0e7ff" font-size="11">positron range blurs origin</text>
+
+  <!-- stage 3: reconstruction -->
+  <rect x="464" y="52" width="196" height="104" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+  <text x="476" y="76" fill="#f8fafc" font-size="12.5" font-weight="700">3 &#183; Reconstruction</text>
+  <text x="476" y="95" fill="#f3e8ff" font-size="11">count-limited Poisson noise;</text>
+  <text x="476" y="111" fill="#f3e8ff" font-size="11">CT-based attenuation &amp;</text>
+  <text x="476" y="130" fill="#f3e8ff" font-size="11">scatter correction; ~4&#8211;6 mm</text>
+  <text x="476" y="146" fill="#f3e8ff" font-size="11">resolution, partial-volume loss</text>
+
+  <!-- stage 4: SUV -->
+  <rect x="684" y="52" width="192" height="104" rx="10" fill="#b45309" stroke="#92400e"/>
+  <text x="696" y="76" fill="#f8fafc" font-size="12.5" font-weight="700">4 &#183; SUV normalisation</text>
+  <text x="696" y="95" fill="#fde68a" font-size="11">voxel activity &#247; (dose /</text>
+  <text x="696" y="111" fill="#fde68a" font-size="11">body weight) = SUV;</text>
+  <text x="696" y="130" fill="#fde68a" font-size="11">SUVmax / SUVpeak drive</text>
+  <text x="696" y="146" fill="#fde68a" font-size="11">reads &#8212; but vary by protocol</text>
+
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#pa)">
+    <line x1="220" y1="104" x2="242" y2="104"/>
+    <line x1="440" y1="104" x2="462" y2="104"/>
+    <line x1="660" y1="104" x2="682" y2="104"/>
+  </g>
+
+  <!-- ===================== MIDDLE: fusion ===================== -->
+  <text x="30" y="204" fill="#64748b" font-size="13" font-weight="700" letter-spacing="0.5">TWO REGISTERED VOLUMES &#8212; function on anatomy</text>
+
+  <rect x="24" y="222" width="270" height="86" rx="10" fill="#334155" stroke="#94a3b8"/>
+  <text x="40" y="247" fill="#f8fafc" font-size="12.5" font-weight="700">CT channel</text>
+  <text x="40" y="266" fill="#e2e8f0" font-size="11">sharp anatomy, Hounsfield units</text>
+  <text x="40" y="283" fill="#e2e8f0" font-size="11">high spatial resolution,</text>
+  <text x="40" y="300" fill="#e2e8f0" font-size="11">little lesion-vs-tissue contrast</text>
+
+  <rect x="315" y="222" width="270" height="86" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="331" y="247" fill="#f8fafc" font-size="12.5" font-weight="700">PET channel</text>
+  <text x="331" y="266" fill="#e0f2fe" font-size="11">functional uptake, huge contrast</text>
+  <text x="331" y="283" fill="#e0f2fe" font-size="11">where biology is active &#8212; but</text>
+  <text x="331" y="300" fill="#e0f2fe" font-size="11">blurry, noisy, low resolution</text>
+
+  <rect x="606" y="222" width="270" height="86" rx="10" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="622" y="247" fill="#f8fafc" font-size="12.5" font-weight="700">Fused PET/CT input</text>
+  <text x="622" y="266" fill="#cbd5e1" font-size="11">a 2-channel 3D volume: <tspan fill="#7dd3fc">where</tspan></text>
+  <text x="622" y="283" fill="#cbd5e1" font-size="11">from CT, <tspan fill="#93c5fd">what/how-active</tspan> from PET.</text>
+  <text x="622" y="300" fill="#cbd5e1" font-size="11">Mis-registration = a hard failure</text>
+
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#pa)">
+    <line x1="294" y1="265" x2="313" y2="265"/>
+    <line x1="585" y1="265" x2="604" y2="265"/>
+  </g>
+
+  <!-- ===================== BOTTOM: the detection problem ===================== -->
+  <text x="30" y="356" fill="#64748b" font-size="13" font-weight="700" letter-spacing="0.5">WHY DENSE DETECTION IS HARD HERE</text>
+
+  <rect x="24" y="374" width="416" height="158" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="40" y="399" fill="#f8fafc" font-size="12.5" font-weight="700">Physiologic uptake = structured background</text>
+  <text x="40" y="420" fill="#ffe4e6" font-size="11">Brain, myocardium, kidneys, bladder, liver, bowel and</text>
+  <text x="40" y="437" fill="#ffe4e6" font-size="11">brown fat light up as bright as tumour &#8212; but are normal.</text>
+  <text x="40" y="454" fill="#ffe4e6" font-size="11">A detector must learn <tspan font-style="italic">anatomy-conditioned</tspan> normality,</text>
+  <text x="40" y="471" fill="#ffe4e6" font-size="11">not just &#8220;bright voxel = lesion.&#8221; This is the</text>
+  <text x="40" y="488" fill="#ffe4e6" font-size="11">false-positive tax that dominates PET metrics</text>
+  <text x="40" y="513" fill="#fecdd3" font-size="10.5" font-style="italic">&#8594; scored by FP-volume &amp; FN-volume, not just Dice</text>
+
+  <rect x="460" y="374" width="416" height="158" rx="10" fill="#155e75" stroke="#0e7490"/>
+  <text x="476" y="399" fill="#f8fafc" font-size="12.5" font-weight="700">Tracer &amp; protocol domain shift</text>
+  <text x="476" y="420" fill="#cffafe" font-size="11">FDG lights up metabolism; PSMA, DOTATATE, FAPI each</text>
+  <text x="476" y="437" fill="#cffafe" font-size="11">have their <tspan font-style="italic">own</tspan> normal-uptake map. A model tuned on</text>
+  <text x="476" y="454" fill="#cffafe" font-size="11">one tracer sees a different world on the next.</text>
+  <text x="476" y="471" fill="#cffafe" font-size="11">Scanner, reconstruction &amp; uptake-time changes shift</text>
+  <text x="476" y="488" fill="#cffafe" font-size="11">SUV scale &#8212; so cross-tracer / cross-site</text>
+  <text x="476" y="513" fill="#a5f3fc" font-size="10.5" font-style="italic">&#8594; generalisation is the core benchmark question (autoPET III)</text>
+</svg>
