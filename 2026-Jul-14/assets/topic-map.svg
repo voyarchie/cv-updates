@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="13" role="img" aria-label="Topic map of the six X-ray security-screening dense-detection threads">
+  <defs>
+    <style>
+      .lbl{fill:#f8fafc;font-weight:600}
+      .sub{fill:#e2e8f0;font-weight:400;font-size:11px}
+      .edge{stroke:#94a3b8;stroke-width:2;fill:none}
+    </style>
+  </defs>
+  <!-- edges -->
+  <g class="edge">
+    <line x1="430" y1="235" x2="180" y2="90"/>
+    <line x1="430" y1="235" x2="680" y2="90"/>
+    <line x1="430" y1="235" x2="120" y2="235"/>
+    <line x1="430" y1="235" x2="740" y2="235"/>
+    <line x1="430" y1="235" x2="180" y2="380"/>
+    <line x1="430" y1="235" x2="680" y2="380"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="330" y="195" width="200" height="80" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="430" y="225" text-anchor="middle" class="lbl">X-ray security screening</text>
+    <text x="430" y="244" text-anchor="middle" class="sub">transmission imaging:</text>
+    <text x="430" y="259" text-anchor="middle" class="sub">dense detection + classification</text>
+  </g>
+  <!-- T1 primitive -->
+  <g>
+    <rect x="70" y="55" width="220" height="70" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+    <text x="180" y="82" text-anchor="middle" class="lbl">1 · The primitive</text>
+    <text x="180" y="101" text-anchor="middle" class="sub">superposition · dual-energy Zeff</text>
+    <text x="180" y="116" text-anchor="middle" class="sub">pseudo-colour · adversarial concealment</text>
+  </g>
+  <!-- T2 detection -->
+  <g>
+    <rect x="570" y="55" width="220" height="70" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+    <text x="680" y="82" text-anchor="middle" class="lbl">2 · Detection under clutter</text>
+    <text x="680" y="101" text-anchor="middle" class="sub">DOAM · LIM · SDANet · EM-YOLO</text>
+    <text x="680" y="116" text-anchor="middle" class="sub">DETR/Mamba · long-tail · small objects</text>
+  </g>
+  <!-- T3 material/classification -->
+  <g>
+    <rect x="10" y="200" width="215" height="70" rx="10" fill="#c026d3" stroke="#a21caf" stroke-width="1.5"/>
+    <text x="117" y="227" text-anchor="middle" class="lbl">3 · Material &amp; classification</text>
+    <text x="117" y="246" text-anchor="middle" class="sub">dual-energy Zeff · organic/metal</text>
+    <text x="117" y="261" text-anchor="middle" class="sub">XMC R-CNN · edge+material fusion</text>
+  </g>
+  <!-- T4 multi-view/3D -->
+  <g>
+    <rect x="635" y="200" width="215" height="70" rx="10" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
+    <text x="742" y="227" text-anchor="middle" class="lbl">4 · Multi-view &amp; 3D CT</text>
+    <text x="742" y="246" text-anchor="middle" class="sub">DvXray · Dualray · DAGNet</text>
+    <text x="742" y="261" text-anchor="middle" class="sub">volumetric CT · ALERT/DHS</text>
+  </g>
+  <!-- T5 escapes -->
+  <g>
+    <rect x="70" y="345" width="220" height="70" rx="10" fill="#059669" stroke="#047857" stroke-width="1.5"/>
+    <text x="180" y="372" text-anchor="middle" class="lbl">5 · Data escapes</text>
+    <text x="180" y="391" text-anchor="middle" class="sub">TIP/synthetic · self-supervised</text>
+    <text x="180" y="406" text-anchor="middle" class="sub">open-vocab CLIP · VLMs · anomaly</text>
+  </g>
+  <!-- T6 gate -->
+  <g>
+    <rect x="570" y="345" width="220" height="70" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="680" y="372" text-anchor="middle" class="lbl">6 · Data · metrics · gate</text>
+    <text x="680" y="391" text-anchor="middle" class="sub">SIXray/PIDray/EDS/PDSXray</text>
+    <text x="680" y="406" text-anchor="middle" class="sub">recall@fixed-FAR · certification</text>
+  </g>
+</svg>
