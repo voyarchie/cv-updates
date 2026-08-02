@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How overhead optical imaging turns a top-down sensor geometry into an image where objects are tiny, arbitrarily rotated, and densely packed, forcing oriented boxes, tiny-object label assignment, and tile-and-stitch inference">
+  <title>The overhead-imaging primitive: GSD sets object size, arbitrary orientation forces rotated boxes, gigapixel tiles force slicing</title>
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ============ PANEL A: acquisition geometry ============ -->
+  <text x="30" y="34" fill="#0f766e" font-size="14" font-weight="700">A &#183; Acquisition &#8594; ground sample distance (GSD)</text>
+  <!-- platform -->
+  <rect x="60" y="52" width="120" height="30" rx="6" fill="#0f766e" stroke="#115e59"/>
+  <text x="120" y="72" text-anchor="middle" fill="#ccfbf1" font-size="12">satellite / UAV</text>
+  <!-- view cone -->
+  <path d="M120,82 L60,196 L300,196 Z" fill="#0f766e" fill-opacity="0.12" stroke="#0f766e" stroke-opacity="0.5" stroke-width="1.2"/>
+  <!-- ground strip -->
+  <rect x="45" y="196" width="270" height="26" fill="#334155" stroke="#94a3b8"/>
+  <!-- one pixel footprint -->
+  <rect x="150" y="196" width="18" height="26" fill="#4f46e5" stroke="#e0e7ff"/>
+  <text x="330" y="205" fill="#cbd5e1" font-size="11.5">1 pixel &#8596; e.g. 0.3&#8211;10 m</text>
+  <text x="330" y="221" fill="#cbd5e1" font-size="11.5">on the ground = the GSD</text>
+  <text x="60" y="250" fill="#cbd5e1" font-size="11.5">Object size in <tspan font-style="italic">pixels</tspan> is fixed by physics, not</text>
+  <text x="60" y="267" fill="#cbd5e1" font-size="11.5">framing: a 5 m car at 0.5 m GSD is ~10 px.</text>
+  <text x="60" y="284" fill="#cbd5e1" font-size="11.5">Nadir view &#8594; almost no depth cue; the</text>
+  <text x="60" y="301" fill="#cbd5e1" font-size="11.5">class lives in shape &amp; context, not size.</text>
+
+  <!-- ============ PANEL B: the resulting scene ============ -->
+  <text x="360" y="34" fill="#b45309" font-size="14" font-weight="700">B &#183; The scene: tiny, rotated, densely packed</text>
+  <rect x="360" y="48" width="230" height="230" rx="6" fill="#1e293b" stroke="#94a3b8"/>
+  <!-- densely packed rotated "vehicles/ships": small rotated rects at varied angles -->
+  <g stroke="#fde68a" stroke-width="1.4" fill="#b45309" fill-opacity="0.85">
+    <rect x="382" y="70"  width="26" height="9" rx="1.5" transform="rotate(20 395 74)"/>
+    <rect x="420" y="70"  width="26" height="9" rx="1.5" transform="rotate(20 433 74)"/>
+    <rect x="458" y="70"  width="26" height="9" rx="1.5" transform="rotate(20 471 74)"/>
+    <rect x="496" y="70"  width="26" height="9" rx="1.5" transform="rotate(20 509 74)"/>
+    <rect x="382" y="92"  width="26" height="9" rx="1.5" transform="rotate(20 395 96)"/>
+    <rect x="420" y="92"  width="26" height="9" rx="1.5" transform="rotate(20 433 96)"/>
+    <rect x="458" y="92"  width="26" height="9" rx="1.5" transform="rotate(20 471 96)"/>
+    <rect x="496" y="92"  width="26" height="9" rx="1.5" transform="rotate(20 509 96)"/>
+    <rect x="540" y="120" width="34" height="12" rx="2" transform="rotate(-58 557 126)"/>
+    <rect x="540" y="150" width="34" height="12" rx="2" transform="rotate(-58 557 156)"/>
+    <rect x="540" y="180" width="34" height="12" rx="2" transform="rotate(-58 557 186)"/>
+    <rect x="388" y="150" width="30" height="11" rx="2" transform="rotate(72 403 155)"/>
+    <rect x="412" y="150" width="30" height="11" rx="2" transform="rotate(72 427 155)"/>
+    <rect x="436" y="150" width="30" height="11" rx="2" transform="rotate(72 451 155)"/>
+    <rect x="392" y="228" width="40" height="14" rx="2" transform="rotate(8 412 235)"/>
+    <rect x="446" y="230" width="40" height="14" rx="2" transform="rotate(8 466 237)"/>
+  </g>
+  <text x="360" y="298" fill="#cbd5e1" font-size="11.5">Parking lots, ships at berth, storage tanks:</text>
+  <text x="360" y="315" fill="#cbd5e1" font-size="11.5">instances abut, share an angle, span a tile.</text>
+
+  <!-- ============ PANEL C: two consequences ============ -->
+  <text x="620" y="34" fill="#9333ea" font-size="14" font-weight="700">C &#183; What the label geometry must be</text>
+  <!-- oriented box detail -->
+  <rect x="620" y="52" width="250" height="120" rx="6" fill="#2e1065" fill-opacity="0.35" stroke="#9333ea"/>
+  <text x="632" y="72" fill="#f3e8ff" font-size="12" font-weight="700">Oriented box (x,y,w,h,&#952;)</text>
+  <g transform="translate(700 128)">
+    <rect x="-46" y="-15" width="92" height="30" rx="2" transform="rotate(-27)" fill="#9333ea" fill-opacity="0.75" stroke="#f3e8ff" stroke-width="1.6"/>
+    <!-- horizontal box for contrast -->
+    <rect x="-58" y="-34" width="116" height="68" fill="none" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="66" y="-24" fill="#94a3b8" font-size="10.5">axis-aligned box:</text>
+    <text x="66" y="-11" fill="#94a3b8" font-size="10.5">mostly background</text>
+    <text x="66" y="30" fill="#f3e8ff" font-size="10.5">&#952; wraps at &#177;90&#176;</text>
+    <text x="66" y="43" fill="#f3e8ff" font-size="10.5">&#8594; boundary jump</text>
+  </g>
+  <!-- tiny-object regime -->
+  <rect x="620" y="184" width="250" height="94" rx="6" fill="#7c2d12" fill-opacity="0.30" stroke="#b45309"/>
+  <text x="632" y="204" fill="#fde68a" font-size="12" font-weight="700">Tiny-object regime</text>
+  <text x="632" y="224" fill="#fde68a" font-size="11">a few px wide &#8594; one pixel of drift</text>
+  <text x="632" y="240" fill="#fde68a" font-size="11">collapses IoU to ~0, so IoU-based</text>
+  <text x="632" y="256" fill="#fde68a" font-size="11">anchor/label assignment starves the</text>
+  <text x="632" y="272" fill="#fde68a" font-size="11">detector of positive samples.</text>
+
+  <!-- ============ bottom row: the pipeline consequence ============ -->
+  <g stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <line x1="180" y1="330" x2="180" y2="366"/>
+    <line x1="475" y1="330" x2="475" y2="366"/>
+    <line x1="745" y1="330" x2="745" y2="366"/>
+  </g>
+
+  <text x="30" y="352" fill="#334155" font-size="0"> </text>
+  <text x="450" y="356" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Consequences that reorganise the detector</text>
+
+  <rect x="45" y="372" width="270" height="150" rx="8" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="60" y="396" fill="#f8fafc" font-size="12.5" font-weight="700">Tile-and-stitch inference</text>
+  <text x="60" y="417" fill="#e0e7ff" font-size="11.5">Scenes are 4k&#8211;30k px per side, far</text>
+  <text x="60" y="434" fill="#e0e7ff" font-size="11.5">larger than any GPU crop. Train and</text>
+  <text x="60" y="451" fill="#e0e7ff" font-size="11.5">infer on overlapping patches, then</text>
+  <text x="60" y="468" fill="#e0e7ff" font-size="11.5">merge with rotated-NMS (SAHI).</text>
+  <text x="60" y="491" fill="#c7d2fe" font-size="11.5">&#167;3, &#167;6</text>
+
+  <rect x="330" y="372" width="270" height="150" rx="8" fill="#9333ea" stroke="#6b21a8"/>
+  <text x="345" y="396" fill="#f8fafc" font-size="12.5" font-weight="700">Angle-aware regression</text>
+  <text x="345" y="417" fill="#f3e8ff" font-size="11.5">Regressing &#952; directly is unstable at</text>
+  <text x="345" y="434" fill="#f3e8ff" font-size="11.5">the periodic boundary. Either classify</text>
+  <text x="345" y="451" fill="#f3e8ff" font-size="11.5">the angle (CSL/DCL) or make the loss</text>
+  <text x="345" y="468" fill="#f3e8ff" font-size="11.5">rotation-consistent (GWD/KLD/KFIoU).</text>
+  <text x="345" y="491" fill="#e9d5ff" font-size="11.5">&#167;4, &#167;5</text>
+
+  <rect x="615" y="372" width="270" height="150" rx="8" fill="#b45309" stroke="#92400e"/>
+  <text x="630" y="396" fill="#f8fafc" font-size="12.5" font-weight="700">Scale &amp; assignment redesign</text>
+  <text x="630" y="417" fill="#fde68a" font-size="11.5">Swap IoU for a distance that degrades</text>
+  <text x="630" y="434" fill="#fde68a" font-size="11.5">gracefully at few-pixel sizes (NWD,</text>
+  <text x="630" y="451" fill="#fde68a" font-size="11.5">RFLA); add large-context backbones</text>
+  <text x="630" y="468" fill="#fde68a" font-size="11.5">(LSKNet, PKINet) for scene priors.</text>
+  <text x="630" y="491" fill="#fed7aa" font-size="11.5">&#167;6, &#167;8</text>
+</svg>
