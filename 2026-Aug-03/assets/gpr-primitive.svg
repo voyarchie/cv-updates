@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How ground-penetrating radar turns a subsurface point reflector into a hyperbola in the B-scan radargram, why depth is two-way travel time, and why the hyperbola shape encodes wave velocity and target class, forcing detectors that find hyperbolae rather than compact objects">
+  <title>The GPR primitive: an antenna scanned over the ground images buried reflectors as hyperbolae in a time-vs-position radargram, so the object of detection is a hyperbola, its shape encodes velocity/permittivity, and returns superimpose additively over clutter</title>
+  <defs>
+    <marker id="ga" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ============ PANEL A: acquisition geometry ============ -->
+  <text x="30" y="30" fill="#0f766e" font-size="14" font-weight="700">A &#183; Acquisition</text>
+  <!-- air region -->
+  <rect x="40" y="46" width="300" height="60" fill="#1e293b" stroke="#94a3b8" stroke-opacity="0.5"/>
+  <text x="50" y="66" fill="#94a3b8" font-size="10.5">air</text>
+  <!-- ground region -->
+  <rect x="40" y="106" width="300" height="150" fill="#334155" stroke="#94a3b8"/>
+  <text x="50" y="124" fill="#cbd5e1" font-size="10.5">soil &#8594; permittivity &#949;r fixes wave speed v = c/&#8730;&#949;r</text>
+  <!-- antenna at three positions -->
+  <g fill="#0f766e" stroke="#115e59">
+    <rect x="70" y="82" width="34" height="18" rx="3"/>
+    <rect x="150" y="82" width="34" height="18" rx="3"/>
+    <rect x="230" y="82" width="34" height="18" rx="3"/>
+  </g>
+  <text x="70" y="96" fill="#ccfbf1" font-size="9">Tx/Rx</text>
+  <g stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#ga)">
+    <line x1="104" y1="76" x2="150" y2="76"/>
+    <line x1="184" y1="76" x2="230" y2="76"/>
+  </g>
+  <text x="150" y="70" fill="#94a3b8" font-size="9.5">move &#8594;</text>
+  <!-- buried point reflector -->
+  <circle cx="187" cy="205" r="9" fill="#be123c" stroke="#ffe4e6" stroke-width="1.4"/>
+  <text x="200" y="209" fill="#fecaca" font-size="10">buried object</text>
+  <!-- rays from the three antenna positions down to reflector -->
+  <g stroke="#0f766e" stroke-width="1.3" stroke-opacity="0.8">
+    <line x1="87"  y1="100" x2="187" y2="205"/>
+    <line x1="167" y1="100" x2="187" y2="205"/>
+    <line x1="247" y1="100" x2="187" y2="205"/>
+  </g>
+  <text x="50" y="238" fill="#64748b" font-size="10.5">Slant range is shortest at the apex, longer to</text>
+  <text x="50" y="252" fill="#64748b" font-size="10.5">either side &#8594; a symmetric round-trip delay curve.</text>
+
+  <!-- ============ PANEL B: the B-scan radargram ============ -->
+  <text x="380" y="30" fill="#6366f1" font-size="14" font-weight="700">B &#183; Radargram (B-scan)</text>
+  <rect x="380" y="46" width="230" height="210" fill="#111827" stroke="#94a3b8"/>
+  <!-- axis labels -->
+  <text x="384" y="60" fill="#c7d2fe" font-size="10">antenna position &#8594;</text>
+  <text x="374" y="150" fill="#c7d2fe" font-size="10" transform="rotate(-90 374 150)" text-anchor="middle">two-way travel time (depth) &#8595;</text>
+  <!-- direct-wave / ground-bounce clutter (horizontal bands) -->
+  <g stroke="#94a3b8" stroke-width="3" stroke-opacity="0.8">
+    <line x1="384" y1="70" x2="602" y2="70"/>
+    <line x1="384" y1="80" x2="602" y2="80"/>
+  </g>
+  <text x="600" y="96" text-anchor="end" fill="#cbd5e1" font-size="9.5">&#8592; direct wave + layers = clutter</text>
+  <!-- hyperbola 1 (the object above) -->
+  <path d="M406,110 Q495,250 584,110" fill="none" stroke="#818cf8" stroke-width="2.4"/>
+  <circle cx="495" cy="180" r="4" fill="#be123c" stroke="#ffe4e6"/>
+  <text x="500" y="176" fill="#c7d2fe" font-size="9.5">apex = object position</text>
+  <!-- hyperbola 2 (shallower, tighter) -->
+  <path d="M430,120 Q470,175 510,120" fill="none" stroke="#a5b4fc" stroke-width="2" stroke-opacity="0.9"/>
+  <text x="384" y="246" fill="#c7d2fe" font-size="10">One point reflector &#8594; one hyperbola, not a blob.</text>
+
+  <!-- ============ PANEL C: what the shape encodes ============ -->
+  <text x="640" y="30" fill="#9333ea" font-size="14" font-weight="700">C &#183; Shape encodes physics</text>
+  <rect x="640" y="46" width="230" height="100" rx="6" fill="#6d28d9" stroke="#4c1d95"/>
+  <text x="652" y="66" fill="#f5f3ff" font-size="11.5" font-weight="700">Curvature &#8596; velocity/&#949;r</text>
+  <text x="652" y="84" fill="#ede9fe" font-size="10.5">Wider hyperbola &#8594; faster medium /</text>
+  <text x="652" y="99" fill="#ede9fe" font-size="10.5">deeper target. Fitting the curve yields</text>
+  <text x="652" y="114" fill="#ede9fe" font-size="10.5">depth, velocity, and target radius &#8212; the</text>
+  <text x="652" y="129" fill="#ede9fe" font-size="10.5">"class" is partly a geometry regression.</text>
+
+  <rect x="640" y="156" width="230" height="100" rx="6" fill="#b45309" stroke="#92400e"/>
+  <text x="652" y="176" fill="#fffbeb" font-size="11.5" font-weight="700">Returns superimpose</text>
+  <text x="652" y="194" fill="#fef3c7" font-size="10.5">Transmission, not reflection off a</text>
+  <text x="652" y="209" fill="#fef3c7" font-size="10.5">surface: overlapping hyperbolae add</text>
+  <text x="652" y="224" fill="#fef3c7" font-size="10.5">and interfere. Objects don't occlude &#8212;</text>
+  <text x="652" y="239" fill="#fef3c7" font-size="10.5">they blend into a coupled signal.</text>
+
+  <!-- ============ bottom row: consequences ============ -->
+  <g stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#ga)">
+    <line x1="190" y1="288" x2="190" y2="322"/>
+    <line x1="495" y1="288" x2="495" y2="322"/>
+    <line x1="755" y1="288" x2="755" y2="322"/>
+  </g>
+  <text x="450" y="312" text-anchor="middle" fill="#6366f1" font-size="13" font-weight="700">Consequences that reorganise the detector</text>
+
+  <rect x="45" y="332" width="255" height="222" rx="8" fill="#0f766e" stroke="#115e59"/>
+  <text x="60" y="356" fill="#f8fafc" font-size="12.5" font-weight="700">The object is a hyperbola</text>
+  <text x="60" y="378" fill="#ccfbf1" font-size="11">The detector looks for a parametric</text>
+  <text x="60" y="394" fill="#ccfbf1" font-size="11">curve whose apex marks the target and</text>
+  <text x="60" y="410" fill="#ccfbf1" font-size="11">whose legs carry velocity/depth &#8212; not a</text>
+  <text x="60" y="426" fill="#ccfbf1" font-size="11">compact, texture-filled box. ImageNet</text>
+  <text x="60" y="442" fill="#ccfbf1" font-size="11">shape priors do not transfer.</text>
+  <text x="60" y="466" fill="#99f6e4" font-size="11">&#167;3, &#167;4</text>
+
+  <rect x="322" y="332" width="255" height="222" rx="8" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="337" y="356" fill="#f8fafc" font-size="12.5" font-weight="700">Clutter is structured, not noise</text>
+  <text x="337" y="378" fill="#e0e7ff" font-size="11">The direct wave, ground bounce, and flat</text>
+  <text x="337" y="394" fill="#e0e7ff" font-size="11">layer reflections are strong horizontal</text>
+  <text x="337" y="410" fill="#e0e7ff" font-size="11">bands that dwarf the target. Background</text>
+  <text x="337" y="426" fill="#e0e7ff" font-size="11">removal / migration is a first-class</text>
+  <text x="337" y="442" fill="#e0e7ff" font-size="11">learned stage, not preprocessing.</text>
+  <text x="337" y="466" fill="#c7d2fe" font-size="11">&#167;7</text>
+
+  <rect x="599" y="332" width="256" height="222" rx="8" fill="#9333ea" stroke="#6b21a8"/>
+  <text x="614" y="356" fill="#f8fafc" font-size="12.5" font-weight="700">Labels are scarce; sims are cheap</text>
+  <text x="614" y="378" fill="#f3e8ff" font-size="11">Ground truth means excavation. So the</text>
+  <text x="614" y="394" fill="#f3e8ff" font-size="11">field trains on FDTD-simulated B-scans</text>
+  <text x="614" y="410" fill="#f3e8ff" font-size="11">(gprMax) and fights a synthetic-to-real</text>
+  <text x="614" y="426" fill="#f3e8ff" font-size="11">domain gap &#8212; the defining data problem,</text>
+  <text x="614" y="442" fill="#f3e8ff" font-size="11">shared with SAR and radar.</text>
+  <text x="614" y="466" fill="#e9d5ff" font-size="11">&#167;7, &#167;8</text>
+</svg>
