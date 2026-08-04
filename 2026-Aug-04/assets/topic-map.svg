@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six vision-based-tactile dense-detection and classification threads around the sensing primitive">
+  <title>Vision-based tactile sensing — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="460" y1="310" x2="180" y2="120"/>
+    <line x1="460" y1="310" x2="460" y2="118"/>
+    <line x1="460" y1="310" x2="740" y2="120"/>
+    <line x1="460" y1="310" x2="180" y2="502"/>
+    <line x1="460" y1="310" x2="460" y2="504"/>
+    <line x1="460" y1="310" x2="740" y2="502"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="330" y="266" width="260" height="90" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="460" y="296" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The gel imprint</text>
+    <text x="460" y="318" text-anchor="middle" fill="#cbd5e1" font-size="12">a camera photographs its own</text>
+    <text x="460" y="336" text-anchor="middle" fill="#cbd5e1" font-size="12">deformed skin, not the world</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 dense readout -->
+    <rect x="30" y="64" width="300" height="96" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="45" y="88" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Dense per-pixel readout (&#167;4)</text>
+    <text x="45" y="107" fill="#e0e7ff" font-size="11">height/normal maps &#183; photometric stereo</text>
+    <text x="45" y="124" fill="#e0e7ff" font-size="11">marker flow &#8594; shear/force field</text>
+    <text x="45" y="141" fill="#e0e7ff" font-size="11">contact mask &#183; slip &#8212; dense regress + segment</text>
+
+    <!-- 2 classification -->
+    <rect x="310" y="60" width="300" height="96" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="325" y="84" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Classification &amp; property (&#167;5)</text>
+    <text x="325" y="103" fill="#ccfbf1" font-size="11">material/texture &#183; hardness/roughness</text>
+    <text x="325" y="120" fill="#ccfbf1" font-size="11">grasp stability &#183; object ID</text>
+    <text x="325" y="137" fill="#ccfbf1" font-size="11">the label lives in the deformation, not color</text>
+
+    <!-- 3 foundation models -->
+    <rect x="590" y="64" width="300" height="96" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="605" y="88" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Foundation models (&#167;6)</text>
+    <text x="605" y="107" fill="#ffe4e6" font-size="11">Sparsh &#183; T3/FoTa &#183; UniTouch</text>
+    <text x="605" y="124" fill="#ffe4e6" font-size="11">AnyTouch &#8594; AnyTouch 2 &#183; Sparsh-skin</text>
+    <text x="605" y="141" fill="#ffe4e6" font-size="11">the cross-sensor heterogeneity problem</text>
+
+    <!-- 4 touch-language-action -->
+    <rect x="30" y="460" width="300" height="96" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="45" y="484" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; Touch + language + action (&#167;7)</text>
+    <text x="45" y="503" fill="#fde68a" font-size="11">Octopi &#183; TVL tactile-VLM</text>
+    <text x="45" y="520" fill="#fde68a" font-size="11">OmniVTLA &#183; VLA-Touch &#183; TaF-VLA</text>
+    <text x="45" y="537" fill="#fde68a" font-size="11">tactile reasoning inside the policy loop</text>
+
+    <!-- 5 shape & pose from touch -->
+    <rect x="310" y="464" width="300" height="96" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="325" y="488" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; Shape &amp; pose from touch (&#167;8)</text>
+    <text x="325" y="507" fill="#ede9fe" font-size="11">NeuralFeels neural-field + pose graph</text>
+    <text x="325" y="524" fill="#ede9fe" font-size="11">MidasTouch &#183; tactile radiance fields</text>
+    <text x="325" y="541" fill="#ede9fe" font-size="11">geometry under heavy visual occlusion</text>
+
+    <!-- 6 simulation & sim2real -->
+    <rect x="590" y="460" width="300" height="96" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="605" y="484" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Simulation &amp; the data gap (&#167;9)</text>
+    <text x="605" y="503" fill="#cffafe" font-size="11">TACTO &#183; Taxim &#183; DIFFTACTILE &#183; TacEx</text>
+    <text x="605" y="520" fill="#cffafe" font-size="11">diffusion tactile generation &#183; ControlTac</text>
+    <text x="605" y="537" fill="#cffafe" font-size="11">closing the reality gap without robot-hours</text>
+  </g>
+</svg>
