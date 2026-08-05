@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 650" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six photoacoustic dense-detection and classification threads arranged around the sensing primitive">
+  <title>Photoacoustic imaging — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges (drawn first, nodes cover the ends) -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="470" y1="325" x2="185" y2="150"/>
+    <line x1="470" y1="325" x2="475" y2="148"/>
+    <line x1="470" y1="325" x2="760" y2="150"/>
+    <line x1="470" y1="325" x2="185" y2="500"/>
+    <line x1="470" y1="325" x2="475" y2="502"/>
+    <line x1="470" y1="325" x2="760" y2="500"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="342" y="278" width="256" height="94" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="470" y="308" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The laser pulse you hear</text>
+    <text x="470" y="330" text-anchor="middle" fill="#cbd5e1" font-size="11.5">light goes in, sound comes out;</text>
+    <text x="470" y="348" text-anchor="middle" fill="#cbd5e1" font-size="11.5">optical absorption is the contrast</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 reconstruction -->
+    <rect x="34" y="58" width="300" height="98" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="50" y="82" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Reconstruction (&#167;4)</text>
+    <text x="50" y="101" fill="#e0e7ff" font-size="11">the acoustic inverse: DAS &#8594; learned</text>
+    <text x="50" y="118" fill="#e0e7ff" font-size="11">operators, diffusion, INR, point-cloud</text>
+    <text x="50" y="135" fill="#e0e7ff" font-size="11">limited-view &amp; sparse arrays; real-time</text>
+
+    <!-- 2 quantitative -->
+    <rect x="325" y="54" width="300" height="98" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="341" y="78" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Quantitative PAI &amp; oximetry (&#167;5)</text>
+    <text x="341" y="97" fill="#ccfbf1" font-size="11">the optical inverse: fluence &amp; spectral</text>
+    <text x="341" y="114" fill="#ccfbf1" font-size="11">coloring &#8594; sO&#8322; from p&#8320;</text>
+    <text x="341" y="131" fill="#ccfbf1" font-size="11">learned spectral unmixing; eMSOT</text>
+
+    <!-- 3 segmentation/detection -->
+    <rect x="616" y="58" width="300" height="98" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="632" y="82" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Segmentation &amp; detection (&#167;6)</text>
+    <text x="632" y="101" fill="#ede9fe" font-size="11">vasculature, tumor, skin layers</text>
+    <text x="632" y="118" fill="#ede9fe" font-size="11">the class lives in the absorption</text>
+    <text x="632" y="135" fill="#ede9fe" font-size="11">spectrum, not the shape</text>
+
+    <!-- 4 classification/diagnosis -->
+    <rect x="34" y="494" width="300" height="98" rx="10" fill="#be185d" stroke="#9d174d"/>
+    <text x="50" y="518" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; Classification &amp; diagnosis (&#167;7)</text>
+    <text x="50" y="537" fill="#fce7f3" font-size="11">breast, melanoma, thyroid</text>
+    <text x="50" y="554" fill="#fce7f3" font-size="11">functional biomarkers (Hb, sO&#8322;, lipid)</text>
+    <text x="50" y="571" fill="#fce7f3" font-size="11">often multimodal with US / MRI</text>
+
+    <!-- 5 foundation models -->
+    <rect x="325" y="498" width="300" height="98" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="341" y="522" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; Foundation models &amp; SSL (&#167;8)</text>
+    <text x="341" y="541" fill="#fef3c7" font-size="11">SAM off-the-shelf; masked cross-domain</text>
+    <text x="341" y="558" fill="#fef3c7" font-size="11">self-supervision; INR &amp; self-upsampling</text>
+    <text x="341" y="575" fill="#fef3c7" font-size="11">no ImageNet for photoacoustics</text>
+
+    <!-- 6 data problem -->
+    <rect x="616" y="494" width="300" height="98" rx="10" fill="#047857" stroke="#065f46"/>
+    <text x="632" y="518" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Data &amp; standardization (&#167;9)</text>
+    <text x="632" y="537" fill="#d1fae5" font-size="11">SIMPA sims; GAN/diffusion sim-to-real</text>
+    <text x="632" y="554" fill="#d1fae5" font-size="11">the synthetic-to-real domain gap</text>
+    <text x="632" y="571" fill="#d1fae5" font-size="11">IPASC data format &amp; phantoms</text>
+  </g>
+</svg>
