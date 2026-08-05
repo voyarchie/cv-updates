@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The photoacoustic signal chain from a nanosecond laser pulse through optical absorption and thermoelastic expansion to a recorded ultrasound wave, then the acoustic and optical inverse problems, and the three acquisition geometries">
+  <title>The photoacoustic primitive: light in, sound out, then two nested inverse problems</title>
+  <defs>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ===== forward physics chain ===== -->
+  <text x="20" y="30" fill="#64748b" font-size="12.5" font-weight="700">FORWARD PHYSICS &#8212; light in, sound out</text>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)">
+    <line x1="185" y1="82" x2="213" y2="82"/>
+    <line x1="380" y1="82" x2="408" y2="82"/>
+    <line x1="575" y1="82" x2="603" y2="82"/>
+    <line x1="770" y1="82" x2="798" y2="82"/>
+  </g>
+
+  <rect x="20" y="44" width="165" height="76" rx="9" fill="#b45309" stroke="#92400e"/>
+  <text x="102" y="72" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">ns laser pulse</text>
+  <text x="102" y="92" text-anchor="middle" fill="#fef3c7" font-size="10.5">NIR, one wavelength</text>
+  <text x="102" y="108" text-anchor="middle" fill="#fef3c7" font-size="10.5">at a time (&#955;)</text>
+
+  <rect x="215" y="44" width="165" height="76" rx="9" fill="#0f766e" stroke="#115e59"/>
+  <text x="297" y="72" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">optical absorption</text>
+  <text x="297" y="92" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Hb, HbO&#8322;, melanin,</text>
+  <text x="297" y="108" text-anchor="middle" fill="#ccfbf1" font-size="10.5">lipid, water, dyes</text>
+
+  <rect x="410" y="44" width="165" height="76" rx="9" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="492" y="68" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">thermoelastic</text>
+  <text x="492" y="84" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">expansion &#8594; p&#8320;</text>
+  <text x="492" y="104" text-anchor="middle" fill="#e0e7ff" font-size="10.5">&#956;s heating, kPa rise</text>
+
+  <rect x="605" y="44" width="165" height="76" rx="9" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="687" y="72" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">broadband US</text>
+  <text x="687" y="92" text-anchor="middle" fill="#ede9fe" font-size="10.5">MHz pressure wave</text>
+  <text x="687" y="108" text-anchor="middle" fill="#ede9fe" font-size="10.5">travels out of tissue</text>
+
+  <rect x="800" y="44" width="140" height="76" rx="9" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="870" y="72" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">transducer</text>
+  <text x="870" y="92" text-anchor="middle" fill="#cbd5e1" font-size="10.5">array records</text>
+  <text x="870" y="108" text-anchor="middle" fill="#cbd5e1" font-size="10.5">time series</text>
+
+  <!-- route from transducer to the acoustic inverse -->
+  <polyline points="870,120 870,168 250,168 250,204" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+
+  <!-- ===== two nested inverse problems ===== -->
+  <text x="20" y="196" fill="#64748b" font-size="12.5" font-weight="700">TWO NESTED INVERSE PROBLEMS &#8212; where the learning happens</text>
+
+  <rect x="60" y="206" width="380" height="104" rx="10" fill="#4338ca" stroke="#312e81"/>
+  <text x="76" y="230" fill="#ffffff" font-size="12.5" font-weight="700">Acoustic inverse (&#167;4)</text>
+  <text x="76" y="250" fill="#e0e7ff" font-size="11">time series &#8594; initial-pressure map p&#8320;(x)</text>
+  <text x="76" y="268" fill="#e0e7ff" font-size="11">enclosing array is expensive, so it is</text>
+  <text x="76" y="286" fill="#e0e7ff" font-size="11"><tspan font-weight="700">limited-view &amp; sparse</tspan> &#8594; streak artifacts,</text>
+  <text x="76" y="303" fill="#e0e7ff" font-size="11">plus an unknown speed of sound</text>
+
+  <line x1="440" y1="258" x2="518" y2="258" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+
+  <rect x="520" y="206" width="380" height="104" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="536" y="230" fill="#ffffff" font-size="12.5" font-weight="700">Optical inverse (&#167;5)</text>
+  <text x="536" y="250" fill="#ccfbf1" font-size="11">p&#8320; = &#915; &#183; &#956;&#8340;(&#955;) &#183; &#934;(&#955;,x)  &#8212; unmix fluence &#934;</text>
+  <text x="536" y="268" fill="#ccfbf1" font-size="11">to recover absorption &#956;&#8340;(&#955;), then sO&#8322;</text>
+  <text x="536" y="286" fill="#ccfbf1" font-size="11">depth-varying &#934; = <tspan font-weight="700">spectral coloring</tspan>;</text>
+  <text x="536" y="303" fill="#ccfbf1" font-size="11">the quantitative bottleneck</text>
+
+  <polyline points="710,310 710,336 710,336" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+
+  <rect x="470" y="338" width="470" height="52" rx="9" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="705" y="360" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">Dense outputs: p&#8320; image &#183; &#956;&#8340;(&#955;) &#183; sO&#8322; &amp; chromophore maps</text>
+  <text x="705" y="378" text-anchor="middle" fill="#cbd5e1" font-size="11">&#8594; segmentation (&#167;6) &#183; classification &amp; diagnosis (&#167;7)</text>
+
+  <!-- ===== acquisition geometries ===== -->
+  <text x="20" y="426" fill="#64748b" font-size="12.5" font-weight="700">WHERE THE APERTURE SITS &#8212; three geometries, three inverse problems</text>
+
+  <rect x="20" y="438" width="295" height="96" rx="10" fill="#be185d" stroke="#9d174d"/>
+  <text x="36" y="462" fill="#ffffff" font-size="12" font-weight="700">PACT / PAT</text>
+  <text x="36" y="481" fill="#fce7f3" font-size="10.5">ring / arc / hemisphere array</text>
+  <text x="36" y="498" fill="#fce7f3" font-size="10.5">whole cross-section at once</text>
+  <text x="36" y="515" fill="#fce7f3" font-size="10.5">breast, small animal; view is partial</text>
+
+  <rect x="333" y="438" width="295" height="96" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="349" y="462" fill="#ffffff" font-size="12" font-weight="700">PAM (microscopy)</text>
+  <text x="349" y="481" fill="#ede9fe" font-size="10.5">focused spot, raster-scanned</text>
+  <text x="349" y="498" fill="#ede9fe" font-size="10.5">micron capillaries; slow</text>
+  <text x="349" y="515" fill="#ede9fe" font-size="10.5">undersample to go faster</text>
+
+  <rect x="646" y="438" width="295" height="96" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="662" y="462" fill="#ffffff" font-size="12" font-weight="700">PAE / IVPA (endoscopy)</text>
+  <text x="662" y="481" fill="#e0f2fe" font-size="10.5">catheter inside a lumen / vessel</text>
+  <text x="662" y="498" fill="#e0f2fe" font-size="10.5">aperture enclosed by anatomy</text>
+  <text x="662" y="515" fill="#e0f2fe" font-size="10.5">PAT inversion cannot be reused</text>
+</svg>
