@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 440" role="img" aria-label="Medical / biomedical dense-vision foundation-model stack">
+  <title>Biomedical dense-vision foundation-model stack — 2026-Jun-26</title>
+  <desc>A left-to-right pipeline for biomedical dense vision: heterogeneous medical inputs (gigapixel H and E whole-slide images, CT and MRI volumes, ultrasound and endoscopy video, chest X-ray, fluorescence and brightfield microscopy, plus paired pathology and radiology reports) are encoded by a domain foundation model pretrained with self-supervised masked or contrastive learning and optional vision-language alignment, then adapted by lightweight task heads into the dense downstream tasks covered in this report: nuclei and cell detection, promptable and text-guided segmentation, 3D volumetric lesion detection, slide- and study-level classification, and visually-grounded report generation.</desc>
+  <style>
+    .box   { stroke: currentColor; stroke-width: 1.3; }
+    .inp   { fill: rgba(59,130,246,0.16); }
+    .enc   { fill: rgba(217,119,6,0.18); }
+    .out   { fill: rgba(168,85,247,0.16); }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; fill: currentColor; opacity: 0.72; }
+    .ttl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .flow  { fill: none; stroke: currentColor; stroke-width: 1.3; opacity: 0.6; }
+    .arrow { fill: currentColor; opacity: 0.6; }
+  </style>
+  <defs>
+    <marker id="ahm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arrow" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <!-- column titles -->
+  <text class="ttl" x="120" y="28" text-anchor="middle">MODALITIES</text>
+  <text class="ttl" x="490" y="28" text-anchor="middle">FOUNDATION MODEL (pretrain once)</text>
+  <text class="ttl" x="860" y="28" text-anchor="middle">DENSE TASK HEADS</text>
+
+  <!-- inputs -->
+  <g>
+    <rect class="box inp" x="20" y="48" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="66">WSI — gigapixel H&amp;E</text>
+    <text class="sub" x="34" y="80">tiles → slide context</text>
+
+    <rect class="box inp" x="20" y="98" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="116">CT / MRI volumes</text>
+    <text class="sub" x="34" y="130">3D, multi-phase</text>
+
+    <rect class="box inp" x="20" y="148" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="166">Ultrasound / endoscopy</text>
+    <text class="sub" x="34" y="180">video frames</text>
+
+    <rect class="box inp" x="20" y="198" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="216">Chest X-ray</text>
+    <text class="sub" x="34" y="230">projection 2D</text>
+
+    <rect class="box inp" x="20" y="248" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="266">Microscopy</text>
+    <text class="sub" x="34" y="280">fluorescence / brightfield</text>
+
+    <rect class="box inp" x="20" y="298" width="200" height="40" rx="6"/>
+    <text class="lbl" x="34" y="316">Reports / captions</text>
+    <text class="sub" x="34" y="330">path. + radiology text</text>
+  </g>
+
+  <!-- encoder -->
+  <rect class="box enc" x="360" y="90" width="260" height="200" rx="10"/>
+  <text class="ttl" x="490" y="120" text-anchor="middle">Domain FM encoder</text>
+  <text class="sub" x="490" y="142" text-anchor="middle">DINOv2 / MAE self-supervision</text>
+  <text class="sub" x="490" y="160" text-anchor="middle">+ vision–language alignment</text>
+  <text class="sub" x="490" y="186" text-anchor="middle">tile encoder ⊕ slide aggregator</text>
+  <text class="sub" x="490" y="204" text-anchor="middle">(LongNet / ABMIL / Transformer)</text>
+  <text class="sub" x="490" y="230" text-anchor="middle">memory / 3D adapters for</text>
+  <text class="sub" x="490" y="248" text-anchor="middle">volumes &amp; video (SAM2-style)</text>
+  <text class="sub" x="490" y="274" text-anchor="middle">UNI2 · Virchow2 · GigaPath · TITAN</text>
+
+  <!-- outputs -->
+  <g>
+    <rect class="box out" x="760" y="58" width="200" height="38" rx="6"/>
+    <text class="lbl" x="774" y="82">Nuclei / cell detection</text>
+
+    <rect class="box out" x="760" y="106" width="200" height="38" rx="6"/>
+    <text class="lbl" x="774" y="130">Promptable segmentation</text>
+
+    <rect class="box out" x="760" y="154" width="200" height="38" rx="6"/>
+    <text class="lbl" x="774" y="178">3D lesion detection</text>
+
+    <rect class="box out" x="760" y="202" width="200" height="38" rx="6"/>
+    <text class="lbl" x="774" y="226">Slide / study classification</text>
+
+    <rect class="box out" x="760" y="250" width="200" height="38" rx="6"/>
+    <text class="lbl" x="774" y="274">Grounded report generation</text>
+  </g>
+
+  <!-- flows in -->
+  <path class="flow" d="M220,68 C290,68 300,170 358,175" marker-end="url(#ahm)"/>
+  <path class="flow" d="M220,118 C300,118 305,176 358,182" marker-end="url(#ahm)"/>
+  <path class="flow" d="M220,168 C300,168 320,184 358,188" marker-end="url(#ahm)"/>
+  <path class="flow" d="M220,218 C300,218 320,196 358,194" marker-end="url(#ahm)"/>
+  <path class="flow" d="M220,268 C300,268 320,206 358,200" marker-end="url(#ahm)"/>
+  <path class="flow" d="M220,318 C300,318 320,216 358,208" marker-end="url(#ahm)"/>
+
+  <!-- flows out -->
+  <path class="flow" d="M620,160 C690,160 700,77  758,77"  marker-end="url(#ahm)"/>
+  <path class="flow" d="M620,172 C690,172 700,125 758,125" marker-end="url(#ahm)"/>
+  <path class="flow" d="M620,190 C690,190 700,173 758,173" marker-end="url(#ahm)"/>
+  <path class="flow" d="M620,208 C690,208 700,221 758,221" marker-end="url(#ahm)"/>
+  <path class="flow" d="M620,220 C690,220 700,269 758,269" marker-end="url(#ahm)"/>
+
+  <!-- footer note -->
+  <text class="sub" x="490" y="408" text-anchor="middle">One encoder, many dense heads — labels are scarce, so most adaptation is linear-probe, MIL, or prompt-based rather than full fine-tuning.</text>
+  <text class="sub" x="490" y="424" text-anchor="middle">Stroke and text use currentColor; fills are translucent — diagram stays legible in light and dark themes.</text>
+</svg>

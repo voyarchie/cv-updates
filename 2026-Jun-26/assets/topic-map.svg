@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" role="img" aria-label="Topic map for the 2026-Jun-26 CV update">
+  <title>Topic map — 2026-Jun-26 CV update</title>
+  <desc>A radial topic map of six threads in medical and biomedical dense vision, grouped into three families: shared representation (pathology foundation models with reasoning copilots, and robustness, generalization and benchmarks), dense localization (nuclei and cell detection and classification, and 3D volumetric lesion detection in radiology), and dense classification and language (promptable and text-guided medical segmentation, and medical vision-language models with visually-grounded reporting).</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .rep    { fill: rgba(59,130,246,0.16); }
+    .loc    { fill: rgba(16,185,129,0.16); }
+    .lang   { fill: rgba(168,85,247,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="490" y1="280" x2="240" y2="120"/>
+  <line class="spoke" x1="490" y1="280" x2="740" y2="120"/>
+  <line class="spoke" x1="490" y1="280" x2="150" y2="290"/>
+  <line class="spoke" x1="490" y1="280" x2="830" y2="290"/>
+  <line class="spoke" x1="490" y1="280" x2="300" y2="470"/>
+  <line class="spoke" x1="490" y1="280" x2="680" y2="470"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="490" cy="280" r="62"/>
+  <text class="hublbl" x="490" y="270" text-anchor="middle">Biomedical</text>
+  <text class="hublbl" x="490" y="288" text-anchor="middle">dense vision</text>
+  <text class="sub"    x="490" y="306" text-anchor="middle">detect · segment · classify</text>
+
+  <!-- 1 Pathology FMs (rep) top-left -->
+  <rect class="node rep" x="120" y="78" width="240" height="64" rx="8"/>
+  <text class="lbl" x="135" y="100">1 · Pathology foundation models</text>
+  <text class="sub" x="135" y="118">UNI2 · Virchow2 · GigaPath · TITAN</text>
+  <text class="sub" x="135" y="133">+ reasoning copilots (SlideSeek)</text>
+
+  <!-- 2 Promptable seg (lang) top-right -->
+  <rect class="node lang" x="620" y="78" width="240" height="64" rx="8"/>
+  <text class="lbl" x="635" y="100">3 · Promptable / text-guided seg</text>
+  <text class="sub" x="635" y="118">MedSAM2 · BiomedParse v2</text>
+  <text class="sub" x="635" y="133">3D + video, prompt-only</text>
+
+  <!-- 6 Robustness (rep) left -->
+  <rect class="node rep" x="20" y="258" width="240" height="64" rx="8"/>
+  <text class="lbl" x="35" y="280">6 · Robustness &amp; benchmarks</text>
+  <text class="sub" x="35" y="298">scanner / stain / site bias</text>
+  <text class="sub" x="35" y="313">ScanGen · PathoROB</text>
+
+  <!-- 5 Medical VLMs (lang) right -->
+  <rect class="node lang" x="720" y="258" width="240" height="64" rx="8"/>
+  <text class="lbl" x="735" y="280">5 · Medical VLMs + grounding</text>
+  <text class="sub" x="735" y="298">grounded report generation</text>
+  <text class="sub" x="735" y="313">ChestGPT · phrase grounding</text>
+
+  <!-- 2 Nuclei/cell (loc) bottom-left -->
+  <rect class="node loc" x="160" y="438" width="240" height="64" rx="8"/>
+  <text class="lbl" x="175" y="460">2 · Nuclei &amp; cell detection</text>
+  <text class="sub" x="175" y="478">CellViT++ · Cellpose-SAM</text>
+  <text class="sub" x="175" y="493">instance seg + cell typing</text>
+
+  <!-- 4 3D lesion (loc) bottom-right -->
+  <rect class="node loc" x="580" y="438" width="240" height="64" rx="8"/>
+  <text class="lbl" x="595" y="460">4 · 3D volumetric detection</text>
+  <text class="sub" x="595" y="478">nnDetection · DETR lymph node</text>
+  <text class="sub" x="595" y="493">universal lesion detection</text>
+
+  <!-- legend -->
+  <g>
+    <rect class="swatch rep"  x="300" y="528" width="13" height="13" rx="2"/>
+    <text class="keylbl" x="320" y="539">shared representation</text>
+    <rect class="swatch loc"  x="470" y="528" width="13" height="13" rx="2"/>
+    <text class="keylbl" x="490" y="539">dense localization</text>
+    <rect class="swatch lang" x="630" y="528" width="13" height="13" rx="2"/>
+    <text class="keylbl" x="650" y="539">classification &amp; language</text>
+  </g>
+</svg>
