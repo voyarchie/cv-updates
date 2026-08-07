@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The MRI signal chain from spin excitation through k-space and reconstruction to a co-registered multi-contrast volume and dense recognition outputs">
+  <title>The MRI signal chain — from k-space to dense per-voxel labels</title>
+  <defs>
+    <marker id="mah" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <text x="470" y="30" text-anchor="middle" fill="#64748b" font-size="13" font-weight="700" letter-spacing="0.5">ACQUISITION IS UPSTREAM OF EVERY DOWNSTREAM TASK</text>
+
+  <!-- flow arrows -->
+  <g stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#mah)">
+    <line x1="182" y1="150" x2="205" y2="150"/>
+    <line x1="367" y1="150" x2="390" y2="150"/>
+    <line x1="552" y1="150" x2="575" y2="150"/>
+    <line x1="737" y1="150" x2="760" y2="150"/>
+  </g>
+
+  <!-- stage 1: spins -->
+  <g>
+    <rect x="22" y="86" width="160" height="128" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="102" y="112" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Spins</text>
+    <text x="102" y="136" text-anchor="middle" fill="#e0e7ff" font-size="10.5">RF pulses + gradients</text>
+    <text x="102" y="153" text-anchor="middle" fill="#e0e7ff" font-size="10.5">encode tissue relaxation</text>
+    <text x="102" y="170" text-anchor="middle" fill="#e0e7ff" font-size="10.5">(T1, T2, T2*, diffusion)</text>
+    <text x="102" y="193" text-anchor="middle" fill="#c7d2fe" font-size="10">contrast, not a density</text>
+  </g>
+
+  <!-- stage 2: k-space -->
+  <g>
+    <rect x="207" y="86" width="160" height="128" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="287" y="112" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">k-space</text>
+    <text x="287" y="136" text-anchor="middle" fill="#ede9fe" font-size="10.5">complex Fourier samples</text>
+    <text x="287" y="153" text-anchor="middle" fill="#ede9fe" font-size="10.5">acquired line by line</text>
+    <text x="287" y="170" text-anchor="middle" fill="#ede9fe" font-size="10.5">undersampled to save time</text>
+    <text x="287" y="193" text-anchor="middle" fill="#ddd6fe" font-size="10">time is the real budget</text>
+  </g>
+
+  <!-- stage 3: reconstruction -->
+  <g>
+    <rect x="392" y="86" width="160" height="128" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="472" y="112" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Reconstruction</text>
+    <text x="472" y="136" text-anchor="middle" fill="#ffe4e6" font-size="10.5">unrolled / diffusion nets</text>
+    <text x="472" y="153" text-anchor="middle" fill="#ffe4e6" font-size="10.5">fill the missing k-space</text>
+    <text x="472" y="170" text-anchor="middle" fill="#ffe4e6" font-size="10.5">hallucination risk here</text>
+    <text x="472" y="193" text-anchor="middle" fill="#fecdd3" font-size="10">recon errors flow downstream</text>
+  </g>
+
+  <!-- stage 4: multi-contrast volume -->
+  <g>
+    <rect x="577" y="86" width="160" height="128" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="657" y="112" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Contrast stack</text>
+    <text x="657" y="136" text-anchor="middle" fill="#ccfbf1" font-size="10.5">T1 &#183; T2 &#183; FLAIR</text>
+    <text x="657" y="153" text-anchor="middle" fill="#ccfbf1" font-size="10.5">DWI / ADC &#183; T1+contrast</text>
+    <text x="657" y="170" text-anchor="middle" fill="#ccfbf1" font-size="10.5">co-registered 3D channels</text>
+    <text x="657" y="193" text-anchor="middle" fill="#99f6e4" font-size="10">often mis-aligned in practice</text>
+  </g>
+
+  <!-- stage 5: dense recognition -->
+  <g>
+    <rect x="762" y="86" width="160" height="128" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="842" y="112" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Dense readout</text>
+    <text x="842" y="136" text-anchor="middle" fill="#fde68a" font-size="10.5">per-voxel segmentation</text>
+    <text x="842" y="153" text-anchor="middle" fill="#fde68a" font-size="10.5">&#8595; connected components</text>
+    <text x="842" y="170" text-anchor="middle" fill="#fde68a" font-size="10.5">&#8594; detection + grading</text>
+    <text x="842" y="193" text-anchor="middle" fill="#fcd34d" font-size="10">segment-first culture</text>
+  </g>
+
+  <!-- bottom band: the defining property -->
+  <rect x="22" y="256" width="900" height="86" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="472" y="286" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">What makes MRI its own primitive</text>
+  <text x="472" y="311" text-anchor="middle" fill="#cbd5e1" font-size="11.5">A voxel value has no absolute meaning &#8212; it shifts with scanner, coil, sequence, vendor and field strength.</text>
+  <text x="472" y="330" text-anchor="middle" fill="#cbd5e1" font-size="11.5">The class label lives in the <tspan font-style="italic">relative contrast across co-registered sequences</tspan>, never in a single intensity.</text>
+
+  <!-- feedback loop annotation -->
+  <path d="M287 214 C 287 244, 472 244, 472 220" stroke="#64748b" stroke-width="1.6" fill="none" stroke-dasharray="4 4" marker-end="url(#mah)"/>
+  <text x="379" y="240" text-anchor="middle" fill="#64748b" font-size="9.5">task-driven recon: let the downstream loss shape the sampling</text>
+</svg>
