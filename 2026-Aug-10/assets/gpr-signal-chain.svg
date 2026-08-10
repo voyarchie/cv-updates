@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How a compact buried target becomes a hyperbola in a GPR B-scan, and how B-scans stack into a C-scan volume">
+  <title>GPR signal chain: acquisition geometry &#8594; B-scan hyperbola &#8594; C-scan volume</title>
+  <defs>
+    <marker id="fah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ===== flow arrows between panels ===== -->
+  <g stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#fah)">
+    <line x1="312" y1="235" x2="352" y2="235"/>
+    <line x1="648" y1="235" x2="688" y2="235"/>
+  </g>
+
+  <!-- ================= Panel A: acquisition geometry ================= -->
+  <text x="20" y="34" fill="#4f46e5" font-size="14" font-weight="700">A &#183; Acquisition geometry</text>
+  <text x="20" y="52" fill="#64748b" font-size="11">antenna dragged along the line; a single trace = one A-scan</text>
+
+  <!-- soil block -->
+  <rect x="20" y="80" width="290" height="300" rx="6" fill="#f5b34211" stroke="#b45309" stroke-width="1"/>
+  <!-- surface line (air-ground boundary) -->
+  <line x1="20" y1="120" x2="310" y2="120" stroke="#b45309" stroke-width="2.5"/>
+  <text x="26" y="112" fill="#b45309" font-size="10.5">air / ground surface</text>
+  <text x="200" y="150" fill="#92400e" font-size="10.5" font-style="italic">heterogeneous soil (speed set by permittivity)</text>
+
+  <!-- antenna at three positions -->
+  <g fill="#4f46e5">
+    <rect x="70" y="104" width="20" height="12" rx="2"/>
+    <rect x="155" y="104" width="20" height="12" rx="2"/>
+    <rect x="240" y="104" width="20" height="12" rx="2"/>
+  </g>
+  <!-- buried point target -->
+  <circle cx="165" cy="300" r="9" fill="#be123c" stroke="#9f1239" stroke-width="1.5"/>
+  <text x="180" y="304" fill="#be123c" font-size="10.5">buried point target</text>
+  <!-- slant-range rays -->
+  <g stroke="#4f46e5" stroke-width="1.4" stroke-dasharray="4 3" fill="none">
+    <line x1="80" y1="116" x2="165" y2="300"/>
+    <line x1="165" y1="116" x2="165" y2="300"/>
+    <line x1="250" y1="116" x2="165" y2="300"/>
+  </g>
+  <text x="60" y="360" fill="#334155" font-size="10.5">range is shortest directly above the target &#8594; apex</text>
+
+  <!-- ================= Panel B: B-scan hyperbola ================= -->
+  <text x="360" y="34" fill="#0891b2" font-size="14" font-weight="700">B &#183; B-scan (radargram)</text>
+  <text x="360" y="52" fill="#64748b" font-size="11">stack the traces &#8594; the target draws a hyperbola</text>
+
+  <!-- radargram frame -->
+  <rect x="360" y="80" width="288" height="300" rx="6" fill="#0e243011" stroke="#0891b2" stroke-width="1.2"/>
+  <!-- air-ground reflection (dominant clutter) -->
+  <rect x="360" y="104" width="288" height="10" fill="#0891b2" opacity="0.55"/>
+  <text x="368" y="130" fill="#0e7490" font-size="10">direct air&#8211;ground wave (clutter)</text>
+  <!-- faint horizontal ringing / layer clutter -->
+  <g stroke="#0891b2" stroke-width="1" opacity="0.25">
+    <line x1="360" y1="150" x2="648" y2="150"/>
+    <line x1="360" y1="170" x2="648" y2="170"/>
+  </g>
+  <!-- the hyperbola -->
+  <path d="M 385,360 Q 504,150 623,360" fill="none" stroke="#be123c" stroke-width="3"/>
+  <!-- apex marker + depth line -->
+  <circle cx="504" cy="222" r="4" fill="#be123c"/>
+  <line x1="504" y1="222" x2="504" y2="360" stroke="#be123c" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="512" y="214" fill="#be123c" font-size="10.5">apex = target</text>
+  <!-- axes -->
+  <line x1="360" y1="80" x2="360" y2="380" stroke="#475569" stroke-width="1.5"/>
+  <text x="352" y="240" fill="#475569" font-size="10.5" transform="rotate(-90 352 240)" text-anchor="middle">two-way travel time (not depth) &#8595;</text>
+  <text x="504" y="398" fill="#475569" font-size="10.5" text-anchor="middle">distance along survey line &#8594;</text>
+
+  <!-- ================= Panel C: C-scan volume ================= -->
+  <text x="696" y="34" fill="#0f766e" font-size="14" font-weight="700">C &#183; C-scan volume</text>
+  <text x="696" y="52" fill="#64748b" font-size="11">parallel lines &#8594; a 3-D block; a pipe = a ridge</text>
+
+  <!-- isometric block: front face -->
+  <polygon points="706,150 866,150 866,360 706,360" fill="#0f766e" opacity="0.18" stroke="#0f766e" stroke-width="1.5"/>
+  <!-- top face -->
+  <polygon points="706,150 746,110 906,110 866,150" fill="#0f766e" opacity="0.30" stroke="#0f766e" stroke-width="1.5"/>
+  <!-- right face -->
+  <polygon points="866,150 906,110 906,320 866,360" fill="#0f766e" opacity="0.10" stroke="#0f766e" stroke-width="1.5"/>
+  <!-- stacked B-scan slices (front) -->
+  <g stroke="#0f766e" stroke-width="0.8" opacity="0.45">
+    <line x1="738" y1="150" x2="738" y2="360"/>
+    <line x1="770" y1="150" x2="770" y2="360"/>
+    <line x1="802" y1="150" x2="802" y2="360"/>
+    <line x1="834" y1="150" x2="834" y2="360"/>
+  </g>
+  <!-- buried linear utility (ridge) crossing the block -->
+  <path d="M 706,300 L 866,240 L 906,200" fill="none" stroke="#be123c" stroke-width="3"/>
+  <text x="712" y="330" fill="#0f766e" font-size="10">each slice is one B-scan</text>
+  <text x="700" y="392" fill="#be123c" font-size="10.5">continuous ridge &#8594; a buried linear utility</text>
+
+  <!-- footer note -->
+  <text x="20" y="440" fill="#475569" font-size="11" font-style="italic">The dense-vision task is written in this geometry: detect and fit hyperbolae (not boxes), segment ridges and layers, and recover depth only after estimating the soil's wave speed.</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six GPR dense-detection and classification threads arranged around the radargram primitive">
+  <title>GPR — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="460" y1="320" x2="180" y2="128"/>
+    <line x1="460" y1="320" x2="460" y2="126"/>
+    <line x1="460" y1="320" x2="740" y2="128"/>
+    <line x1="460" y1="320" x2="180" y2="512"/>
+    <line x1="460" y1="320" x2="460" y2="514"/>
+    <line x1="460" y1="320" x2="740" y2="512"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="312" y="266" width="296" height="108" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="460" y="294" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The GPR radargram</text>
+    <text x="460" y="316" text-anchor="middle" fill="#cbd5e1" font-size="11.5">a coherent EM echo section where a buried</text>
+    <text x="460" y="333" text-anchor="middle" fill="#cbd5e1" font-size="11.5">point target is a hyperbola in travel time,</text>
+    <text x="460" y="350" text-anchor="middle" fill="#cbd5e1" font-size="11.5">drowned in clutter, at a depth you cannot</text>
+    <text x="460" y="367" text-anchor="middle" fill="#cbd5e1" font-size="11.5">read without knowing the soil</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 clutter removal -->
+    <rect x="30" y="72" width="300" height="100" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="45" y="96" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Clutter removal (&#167;4)</text>
+    <text x="45" y="115" fill="#cffafe" font-size="11">a learned denoiser front-ends detection</text>
+    <text x="45" y="132" fill="#cffafe" font-size="11">encoder&#8211;decoder &#183; Cycle/Declutter/REN-GAN</text>
+    <text x="45" y="149" fill="#cffafe" font-size="11">Wavelet-GAN &#183; diffusion &#183; unsupervised</text>
+    <text x="45" y="166" fill="#cffafe" font-size="11">the air&#8211;ground wave and ringing dominate</text>
+
+    <!-- 2 dense detection -->
+    <rect x="310" y="68" width="300" height="100" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="325" y="92" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Dense detection (&#167;5)</text>
+    <text x="325" y="111" fill="#e0e7ff" font-size="11">the target is a hyperbola, not a blob</text>
+    <text x="325" y="128" fill="#e0e7ff" font-size="11">YOLOv8/11 &#183; Mask R-CNN keypoints</text>
+    <text x="325" y="145" fill="#e0e7ff" font-size="11">HFL-YOLOv8 &#183; topological (TDA) shape</text>
+    <text x="325" y="162" fill="#e0e7ff" font-size="11">buried-threat &amp; landmine detection</text>
+
+    <!-- 3 seg + classification -->
+    <rect x="590" y="72" width="300" height="100" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="605" y="96" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Segmentation &amp; class. (&#167;6)</text>
+    <text x="605" y="115" fill="#ffe4e6" font-size="11">U-Net per-pixel utility / void maps</text>
+    <text x="605" y="132" fill="#ffe4e6" font-size="11">pavement subsurface distress</text>
+    <text x="605" y="149" fill="#ffe4e6" font-size="11">tunnel lining &#183; bridge-deck rebar</text>
+    <text x="605" y="166" fill="#ffe4e6" font-size="11">shape class from the hyperbola profile</text>
+
+    <!-- 4 inversion + 3D -->
+    <rect x="30" y="468" width="300" height="100" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="45" y="492" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; Inversion &amp; 3D (&#167;7)</text>
+    <text x="45" y="511" fill="#fde68a" font-size="11">radargram &#8594; permittivity / geometry</text>
+    <text x="45" y="528" fill="#fde68a" font-size="11">DL forward solvers &#183; full-waveform inv.</text>
+    <text x="45" y="545" fill="#fde68a" font-size="11">GPR-TransUNet &#183; C-scan pipe recon</text>
+    <text x="45" y="562" fill="#fde68a" font-size="11">DBSCAN + RANSAC 3D trajectories</text>
+
+    <!-- 5 localization -->
+    <rect x="310" y="472" width="300" height="100" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="325" y="496" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; GPR as a localizer (&#167;8)</text>
+    <text x="325" y="515" fill="#ccfbf1" font-size="11">the flip: recognise place, not object</text>
+    <text x="325" y="532" fill="#ccfbf1" font-size="11">LGPR &#183; EDENet echo-direction encoding</text>
+    <text x="325" y="549" fill="#ccfbf1" font-size="11">spatio-temporal U-Net &#183; MarsLGPR</text>
+    <text x="325" y="566" fill="#ccfbf1" font-size="11">GPS-denied, all-weather subsurface map</text>
+
+    <!-- 6 data problem + foundation -->
+    <rect x="590" y="468" width="300" height="100" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="605" y="492" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Data &amp; foundations (&#167;9)</text>
+    <text x="605" y="511" fill="#ede9fe" font-size="11">gprMax FDTD synthetic dominance</text>
+    <text x="605" y="528" fill="#ede9fe" font-size="11">the sim-to-real domain gap &#183; hybrid data</text>
+    <text x="605" y="545" fill="#ede9fe" font-size="11">self-supervised / contrastive pretraining</text>
+    <text x="605" y="562" fill="#ede9fe" font-size="11">GDLC challenge &#183; foundation-model push</text>
+  </g>
+</svg>
