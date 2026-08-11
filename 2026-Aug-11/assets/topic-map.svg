@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 660" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of six terahertz dense-detection and classification threads arranged around the THz image and TDS pulse primitive">
+  <title>Terahertz — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="460" y1="330" x2="180" y2="132"/>
+    <line x1="460" y1="330" x2="460" y2="130"/>
+    <line x1="460" y1="330" x2="740" y2="132"/>
+    <line x1="460" y1="330" x2="180" y2="528"/>
+    <line x1="460" y1="330" x2="460" y2="530"/>
+    <line x1="460" y1="330" x2="740" y2="528"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="306" y="272" width="308" height="116" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="460" y="300" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The THz image / TDS pulse</text>
+    <text x="460" y="322" text-anchor="middle" fill="#cbd5e1" font-size="11.5">a sub-mm wave that sees through clothing,</text>
+    <text x="460" y="339" text-anchor="middle" fill="#cbd5e1" font-size="11.5">plastic and paint but not metal or water;</text>
+    <text x="460" y="356" text-anchor="middle" fill="#cbd5e1" font-size="11.5">the class label lives in a spectral fingerprint,</text>
+    <text x="460" y="373" text-anchor="middle" fill="#cbd5e1" font-size="11.5">carried by a low-SNR, diffraction-blurred pixel</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 computational imaging -->
+    <rect x="30" y="72" width="300" height="104" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="45" y="96" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Computational imaging (&#167;4)</text>
+    <text x="45" y="115" fill="#cffafe" font-size="11">a learned recon front-ends everything else</text>
+    <text x="45" y="132" fill="#cffafe" font-size="11">super-res (Real-ESRGAN, EARDB-GAN, attention)</text>
+    <text x="45" y="149" fill="#cffafe" font-size="11">single-pixel &#183; self-supervised denoise/deblur</text>
+    <text x="45" y="166" fill="#cffafe" font-size="11">untrained physics-driven ptychography</text>
+
+    <!-- 2 dense detection -->
+    <rect x="310" y="68" width="300" height="104" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="325" y="92" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Dense detection (&#167;5)</text>
+    <text x="325" y="111" fill="#e0e7ff" font-size="11">concealed objects on the body, low contrast</text>
+    <text x="325" y="128" fill="#e0e7ff" font-size="11">passive/active YOLO &#183; cross-feature transformer</text>
+    <text x="325" y="145" fill="#e0e7ff" font-size="11">adaptation-YOLO &#183; YOLO-AMDC &#183; SSD/MSER</text>
+    <text x="325" y="162" fill="#e0e7ff" font-size="11">few-shot + pseudo-annotation vs data scarcity</text>
+
+    <!-- 3 segmentation / NDT -->
+    <rect x="590" y="72" width="300" height="104" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="605" y="96" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Segmentation &amp; NDT (&#167;6)</text>
+    <text x="605" y="115" fill="#ffe4e6" font-size="11">per-pixel defect maps in opaque solids</text>
+    <text x="605" y="132" fill="#ffe4e6" font-size="11">DyHRMADet &#183; Faster R-CNN &#183; ResNet18-SVM</text>
+    <text x="605" y="149" fill="#ffe4e6" font-size="11">composite delamination &#183; barrier coatings</text>
+    <text x="605" y="166" fill="#ffe4e6" font-size="11">IR-thermography + THz multimodal fusion</text>
+
+    <!-- 4 spectral classification -->
+    <rect x="30" y="484" width="300" height="104" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="45" y="508" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; Spectral classification (&#167;7)</text>
+    <text x="45" y="527" fill="#fef3c7" font-size="11">the label is written in the TDS spectrum</text>
+    <text x="45" y="544" fill="#fef3c7" font-size="11">explosives/chemicals per-pixel from one pulse</text>
+    <text x="45" y="561" fill="#fef3c7" font-size="11">coal/rock &#183; cancer tissue (DECANet) &#183; CWT+CNN</text>
+    <text x="45" y="578" fill="#fef3c7" font-size="11">material-parameter extraction as inversion</text>
+
+    <!-- 5 depth / tomography / 3D -->
+    <rect x="310" y="488" width="300" height="104" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="325" y="512" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; Depth, tomography &amp; 3D (&#167;8)</text>
+    <text x="325" y="531" fill="#ccfbf1" font-size="11">time-of-flight gives depth for free</text>
+    <text x="325" y="548" fill="#ccfbf1" font-size="11">multi-head PINN depth &#183; THz-CT fusion</text>
+    <text x="325" y="565" fill="#ccfbf1" font-size="11">hidden paint/ink layers &#183; pharma film coating</text>
+    <text x="325" y="582" fill="#ccfbf1" font-size="11">BLIss sparse-input 3D reconstruction</text>
+
+    <!-- 6 data & foundation horizon -->
+    <rect x="590" y="484" width="300" height="104" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="605" y="508" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Data &amp; physics horizon (&#167;9)</text>
+    <text x="605" y="527" fill="#ede9fe" font-size="11">scarce, costly, tiny labeled corpora</text>
+    <text x="605" y="544" fill="#ede9fe" font-size="11">GAN/ACGAN augmentation &#183; pseudo-labels</text>
+    <text x="605" y="561" fill="#ede9fe" font-size="11">physics-informed &amp; untrained (zero-shot) nets</text>
+    <text x="605" y="578" fill="#ede9fe" font-size="11">no THz foundation model yet</text>
+  </g>
+</svg>

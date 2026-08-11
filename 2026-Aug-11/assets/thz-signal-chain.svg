@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How a broadband terahertz pulse interacts with a sample and becomes either a radiometric image, a per-pixel spectral cube, or a time-of-flight depth stack">
+  <title>The terahertz signal chain — from a sub-mm pulse to image, spectrum and depth</title>
+  <defs>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- A: source -->
+  <rect x="20" y="150" width="176" height="150" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="108" y="176" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Broadband THz source</text>
+  <text x="108" y="196" text-anchor="middle" fill="#cbd5e1" font-size="10.5">the &#8220;THz gap&#8221;: 0.1&#8211;10 THz,</text>
+  <text x="108" y="211" text-anchor="middle" fill="#cbd5e1" font-size="10.5">between electronics &amp; optics</text>
+  <!-- pulse glyph -->
+  <polyline points="34,258 60,258 72,232 84,284 96,246 108,258 182,258" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <text x="108" y="292" text-anchor="middle" fill="#94a3b8" font-size="9.5">a picosecond pulse</text>
+
+  <!-- B: sample interaction -->
+  <rect x="236" y="120" width="196" height="210" rx="10" fill="#0891b2" stroke="#0e7490"/>
+  <text x="334" y="146" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Sample interaction</text>
+  <text x="250" y="170" fill="#cffafe" font-size="10.5">&#10003; penetrates clothing, paper,</text>
+  <text x="250" y="185" fill="#cffafe" font-size="10.5">&#160;&#160;&#160;plastic, ceramic, dry wood, paint</text>
+  <text x="250" y="205" fill="#cffafe" font-size="10.5">&#10007; blocked / reflected by metal;</text>
+  <text x="250" y="220" fill="#cffafe" font-size="10.5">&#160;&#160;&#160;strongly absorbed by water</text>
+  <text x="250" y="240" fill="#cffafe" font-size="10.5">&#8776; molecules imprint absorption</text>
+  <text x="250" y="255" fill="#cffafe" font-size="10.5">&#160;&#160;&#160;lines &#8212; a spectral fingerprint</text>
+  <text x="250" y="275" fill="#cffafe" font-size="10.5">&#8212; non-ionizing, low-energy</text>
+  <text x="250" y="295" fill="#a5f3fc" font-size="10">low photon flux &#8594; poor SNR;</text>
+  <text x="250" y="310" fill="#a5f3fc" font-size="10">long &#955; &#8594; diffraction-blurred</text>
+
+  <!-- C top: passive image -->
+  <rect x="480" y="40" width="196" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="578" y="64" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Passive imaging</text>
+  <text x="494" y="84" fill="#e0e7ff" font-size="10.5">radiometric camera, no emitter;</text>
+  <text x="494" y="100" fill="#e0e7ff" font-size="10.5">a 2-D intensity image of the body</text>
+  <text x="494" y="116" fill="#c7d2fe" font-size="10">&#8594; low-contrast, blobby scene</text>
+
+  <!-- C mid: active TDS -->
+  <rect x="480" y="150" width="196" height="86" rx="10" fill="#b45309" stroke="#92400e"/>
+  <text x="578" y="174" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Active TDS (per pixel)</text>
+  <text x="494" y="194" fill="#fef3c7" font-size="10.5">record the full E-field pulse in</text>
+  <text x="494" y="210" fill="#fef3c7" font-size="10.5">time; FFT &#8594; amplitude + phase</text>
+  <text x="494" y="226" fill="#fde68a" font-size="10">spectrum, raster into a cube</text>
+
+  <!-- C bottom: time-of-flight -->
+  <rect x="480" y="260" width="196" height="86" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="578" y="284" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Time-of-flight depth</text>
+  <text x="494" y="304" fill="#ccfbf1" font-size="10.5">each buried interface echoes at</text>
+  <text x="494" y="320" fill="#ccfbf1" font-size="10.5">its own delay &#8594; a depth axis</text>
+  <text x="494" y="336" fill="#99f6e4" font-size="10">layers &amp; tomographic slices</text>
+
+  <!-- spectrum glyph inside cube stage region -->
+  <polyline points="690,150 700,150 706,150 712,150" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+
+  <!-- D: representations / downstream -->
+  <rect x="724" y="40" width="216" height="86" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="832" y="64" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Detection &amp; segmentation</text>
+  <text x="832" y="84" text-anchor="middle" fill="#cbd5e1" font-size="10.5">concealed-object boxes (&#167;5)</text>
+  <text x="832" y="100" text-anchor="middle" fill="#cbd5e1" font-size="10.5">per-pixel defect masks (&#167;6)</text>
+  <text x="832" y="116" text-anchor="middle" fill="#94a3b8" font-size="10">on a recon-cleaned image (&#167;4)</text>
+
+  <rect x="724" y="150" width="216" height="86" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="832" y="174" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Spectral classification</text>
+  <text x="832" y="194" text-anchor="middle" fill="#cbd5e1" font-size="10.5">material / chemical / explosive</text>
+  <text x="832" y="210" text-anchor="middle" fill="#cbd5e1" font-size="10.5">ID from the fingerprint (&#167;7)</text>
+  <text x="832" y="226" text-anchor="middle" fill="#94a3b8" font-size="10">a hyperspectral-like cube</text>
+
+  <rect x="724" y="260" width="216" height="86" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="832" y="284" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Depth &amp; 3-D recovery</text>
+  <text x="832" y="304" text-anchor="middle" fill="#cbd5e1" font-size="10.5">coating thickness, hidden layers,</text>
+  <text x="832" y="320" text-anchor="middle" fill="#cbd5e1" font-size="10.5">tomographic volumes (&#167;8)</text>
+  <text x="832" y="336" text-anchor="middle" fill="#94a3b8" font-size="10">depth is a nuisance-free output</text>
+
+  <!-- arrows -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a2)">
+    <line x1="196" y1="225" x2="232" y2="225"/>
+    <line x1="432" y1="180" x2="476" y2="83"/>
+    <line x1="432" y1="212" x2="476" y2="193"/>
+    <line x1="432" y1="250" x2="476" y2="303"/>
+    <line x1="676" y1="83" x2="720" y2="83"/>
+    <line x1="676" y1="193" x2="720" y2="193"/>
+    <line x1="676" y1="303" x2="720" y2="303"/>
+  </g>
+
+  <text x="480" y="420" fill="#94a3b8" font-size="10.5">One sensor, three data types: a low-contrast 2-D image, an (x, y, frequency) spectral cube, and an (x, y, time) depth stack &#8212;</text>
+  <text x="480" y="438" fill="#94a3b8" font-size="10.5">each feeds a different dense-vision task, and a learned reconstruction stage (&#167;4) usually cleans the raw data first.</text>
+</svg>
