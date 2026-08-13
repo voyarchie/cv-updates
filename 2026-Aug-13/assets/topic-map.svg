@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 680" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of six photoacoustic dense-detection and classification threads arranged around the photoacoustic signal primitive">
+  <title>Photoacoustic imaging — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="460" y1="340" x2="185" y2="150"/>
+    <line x1="460" y1="340" x2="460" y2="148"/>
+    <line x1="460" y1="340" x2="735" y2="150"/>
+    <line x1="460" y1="340" x2="185" y2="548"/>
+    <line x1="460" y1="340" x2="460" y2="550"/>
+    <line x1="460" y1="340" x2="735" y2="548"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="300" y="278" width="320" height="128" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="460" y="304" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The photoacoustic signal</text>
+    <text x="460" y="326" text-anchor="middle" fill="#cbd5e1" font-size="11.5">light in, sound out: a ns laser pulse is absorbed,</text>
+    <text x="460" y="343" text-anchor="middle" fill="#cbd5e1" font-size="11.5">tissue thermoelastically rings as broadband US.</text>
+    <text x="460" y="360" text-anchor="middle" fill="#cbd5e1" font-size="11.5">p0 = &#915;&#183;&#956;a&#183;&#934; couples TWO inverse problems:</text>
+    <text x="460" y="377" text-anchor="middle" fill="#cbd5e1" font-size="11.5">acoustic (sound&#8594;p0) then optical (p0&#8594;&#956;a).</text>
+    <text x="460" y="396" text-anchor="middle" fill="#93c5fd" font-size="11">endogenous contrast: HbO2/Hb, melanin, lipid, water</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 reconstruction -->
+    <rect x="30" y="46" width="310" height="108" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="45" y="70" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Reconstruction front end (&#167;4)</text>
+    <text x="45" y="89" fill="#cffafe" font-size="11">the acoustic inverse problem, learned</text>
+    <text x="45" y="106" fill="#cffafe" font-size="11">limited-view &amp; sparse-array artifacts</text>
+    <text x="45" y="123" fill="#cffafe" font-size="11">unrolled model-based (MUnet, GE-CNN)</text>
+    <text x="45" y="140" fill="#cffafe" font-size="11">self-supervised INR &#183; score-based diffusion</text>
+
+    <!-- 2 quantitative -->
+    <rect x="305" y="44" width="310" height="108" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="320" y="68" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Quantitative PAI (&#167;5)</text>
+    <text x="320" y="87" fill="#e0e7ff" font-size="11">the optical inverse: divide out fluence &#934;</text>
+    <text x="320" y="104" fill="#e0e7ff" font-size="11">spectral coloring breaks linear unmixing</text>
+    <text x="320" y="121" fill="#e0e7ff" font-size="11">blood oxygenation sO2 without &#934; estimation</text>
+    <text x="320" y="138" fill="#e0e7ff" font-size="11">Hybrid-Net &#183; distribution-informed oximetry</text>
+
+    <!-- 3 detection/seg -->
+    <rect x="580" y="46" width="310" height="108" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="595" y="70" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Detection &amp; segmentation (&#167;6)</text>
+    <text x="595" y="89" fill="#ffe4e6" font-size="11">3D microvasculature (S-UNET, DICE 0.88)</text>
+    <text x="595" y="106" fill="#ffe4e6" font-size="11">automatic tumor-border delineation</text>
+    <text x="595" y="123" fill="#ffe4e6" font-size="11">needle / interventional target tracking</text>
+    <text x="595" y="140" fill="#ffe4e6" font-size="11">semantic tissue-type maps from spectra</text>
+
+    <!-- 4 classification -->
+    <rect x="30" y="536" width="310" height="112" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="45" y="560" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; Classification &amp; clinic (&#167;7)</text>
+    <text x="45" y="579" fill="#fef3c7" font-size="11">melanoma vs benign (multispectral PAI)</text>
+    <text x="45" y="596" fill="#fef3c7" font-size="11">breast lump, PA + US/MRI multimodal</text>
+    <text x="45" y="613" fill="#fef3c7" font-size="11">RSOM skin: psoriasis / aging biomarkers</text>
+    <text x="45" y="630" fill="#fef3c7" font-size="11">depth&#8211;resolution trade is the clinical knob</text>
+
+    <!-- 5 data -->
+    <rect x="305" y="538" width="310" height="112" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="320" y="562" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; The data problem (&#167;8)</text>
+    <text x="320" y="581" fill="#ccfbf1" font-size="11">no ground truth in vivo &#8594; simulate</text>
+    <text x="320" y="598" fill="#ccfbf1" font-size="11">k-Wave / SIMPA forward models, OADAT</text>
+    <text x="320" y="615" fill="#ccfbf1" font-size="11">digital twins for full-reference QA</text>
+    <text x="320" y="632" fill="#ccfbf1" font-size="11">sim-to-real gap &#183; tissue-mimicking phantoms</text>
+
+    <!-- 6 foundation -->
+    <rect x="580" y="536" width="310" height="112" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="595" y="560" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Foundation models (&#167;9)</text>
+    <text x="595" y="579" fill="#ede9fe" font-size="11">training-free SAM/depth models on PA</text>
+    <text x="595" y="596" fill="#ede9fe" font-size="11">FM-Adapt: PEFT of a ViT for PA-guided US</text>
+    <text x="595" y="613" fill="#ede9fe" font-size="11">borrowed priors beat small in-domain sets</text>
+    <text x="595" y="630" fill="#ede9fe" font-size="11">data scarcity is the standing constraint</text>
+  </g>
+</svg>

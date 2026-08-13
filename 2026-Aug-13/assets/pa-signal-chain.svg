@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How a nanosecond laser pulse becomes an ultrasound wave and then two coupled inverse problems in photoacoustic imaging">
+  <title>The photoacoustic signal chain and its two coupled inverse problems</title>
+  <defs>
+    <marker id="fa" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- forward chain header -->
+  <text x="30" y="34" fill="#93c5fd" font-size="13" font-weight="700">FORWARD: the photoacoustic effect (physics fixes the signal)</text>
+
+  <!-- 1 laser pulse -->
+  <rect x="24" y="52" width="168" height="96" rx="10" fill="#b45309" stroke="#92400e"/>
+  <text x="108" y="82" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">ns laser pulse</text>
+  <text x="108" y="103" text-anchor="middle" fill="#fef3c7" font-size="10.5">short (~ns), multi-wavelength</text>
+  <text x="108" y="119" text-anchor="middle" fill="#fef3c7" font-size="10.5">near-infrared light into</text>
+  <text x="108" y="135" text-anchor="middle" fill="#fef3c7" font-size="10.5">tissue, fluence &#934;(&#955;)</text>
+
+  <!-- 2 absorption -->
+  <rect x="216" y="52" width="176" height="96" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="304" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">absorption + heat</text>
+  <text x="304" y="99" text-anchor="middle" fill="#ffe4e6" font-size="10.5">chromophores absorb (&#956;a):</text>
+  <text x="304" y="115" text-anchor="middle" fill="#ffe4e6" font-size="10.5">HbO2, Hb, melanin, lipid</text>
+  <text x="304" y="131" text-anchor="middle" fill="#ffe4e6" font-size="10.5">transient thermoelastic rise</text>
+
+  <!-- 3 pressure wave -->
+  <rect x="416" y="52" width="176" height="96" rx="10" fill="#0891b2" stroke="#0e7490"/>
+  <text x="504" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">pressure wave p0</text>
+  <text x="504" y="99" text-anchor="middle" fill="#cffafe" font-size="10.5">expansion launches broadband</text>
+  <text x="504" y="115" text-anchor="middle" fill="#cffafe" font-size="10.5">ultrasound (MHz). Source term:</text>
+  <text x="504" y="133" text-anchor="middle" fill="#e0f2fe" font-size="11.5" font-weight="700">p0 = &#915; &#183; &#956;a &#183; &#934;</text>
+
+  <!-- 4 transducer -->
+  <rect x="616" y="52" width="176" height="96" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="704" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">transducer array</text>
+  <text x="704" y="99" text-anchor="middle" fill="#ccfbf1" font-size="10.5">detects time-series at each</text>
+  <text x="704" y="115" text-anchor="middle" fill="#ccfbf1" font-size="10.5">element &#8594; sinogram. Often</text>
+  <text x="704" y="131" text-anchor="middle" fill="#ccfbf1" font-size="10.5">limited-view &amp; sparse</text>
+
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#fa)">
+    <line x1="192" y1="100" x2="214" y2="100"/>
+    <line x1="392" y1="100" x2="414" y2="100"/>
+    <line x1="592" y1="100" x2="614" y2="100"/>
+  </g>
+
+  <!-- turn down -->
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#fa)">
+    <path d="M704,148 L704,192"/>
+  </g>
+
+  <!-- inverse header -->
+  <text x="30" y="228" fill="#93c5fd" font-size="13" font-weight="700">INVERSE: two problems the network must solve, in sequence</text>
+
+  <!-- A acoustic inverse -->
+  <rect x="616" y="196" width="176" height="96" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="704" y="222" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">A &#183; acoustic inverse</text>
+  <text x="704" y="243" text-anchor="middle" fill="#cbd5e1" font-size="10.5">sinogram &#8594; initial-pressure</text>
+  <text x="704" y="259" text-anchor="middle" fill="#cbd5e1" font-size="10.5">map p0(x). Ill-posed under</text>
+  <text x="704" y="275" text-anchor="middle" fill="#cbd5e1" font-size="10.5">limited view: streaks, blur</text>
+
+  <!-- B optical inverse -->
+  <rect x="416" y="196" width="176" height="96" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="504" y="222" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">B &#183; optical inverse</text>
+  <text x="504" y="243" text-anchor="middle" fill="#cbd5e1" font-size="10.5">p0 &#8594; &#956;a by dividing out the</text>
+  <text x="504" y="259" text-anchor="middle" fill="#cbd5e1" font-size="10.5">unknown, depth-varying &#934;.</text>
+  <text x="504" y="275" text-anchor="middle" fill="#fca5a5" font-size="10.5">this is the quantitative wall</text>
+
+  <!-- outputs -->
+  <rect x="216" y="196" width="176" height="96" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="304" y="222" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">quantitative maps</text>
+  <text x="304" y="243" text-anchor="middle" fill="#ede9fe" font-size="10.5">&#956;a(&#955;) &#8594; spectral unmixing &#8594;</text>
+  <text x="304" y="259" text-anchor="middle" fill="#ede9fe" font-size="10.5">sO2, chromophore fractions,</text>
+  <text x="304" y="275" text-anchor="middle" fill="#ede9fe" font-size="10.5">tissue-type &amp; functional maps</text>
+
+  <!-- downstream -->
+  <rect x="24" y="196" width="168" height="96" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="108" y="228" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">dense vision</text>
+  <text x="108" y="249" text-anchor="middle" fill="#e0e7ff" font-size="10.5">detect / segment / classify:</text>
+  <text x="108" y="265" text-anchor="middle" fill="#e0e7ff" font-size="10.5">vessels, tumor borders,</text>
+  <text x="108" y="281" text-anchor="middle" fill="#e0e7ff" font-size="10.5">melanoma, needles</text>
+
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#fa)">
+    <line x1="614" y1="244" x2="594" y2="244"/>
+    <line x1="414" y1="244" x2="394" y2="244"/>
+    <line x1="214" y1="244" x2="194" y2="244"/>
+  </g>
+
+  <!-- note -->
+  <text x="30" y="340" fill="#64748b" font-size="11.5">Learned reconstruction (&#167;4) attacks A; quantitative PAI (&#167;5) attacks B. Most end-to-end networks fold A&#8594;B&#8594;downstream into</text>
+  <text x="30" y="358" fill="#64748b" font-size="11.5">one map, trading physical interpretability for speed. The optical inverse (B) &#8212; not the acoustic one &#8212; is what keeps sO2 hard.</text>
+  <text x="30" y="376" fill="#64748b" font-size="11.5">&#915; = Gr&#252;neisen parameter (heat&#8594;pressure efficiency); &#956;a = optical absorption; &#934; = local light fluence; &#955; = wavelength.</text>
+</svg>
