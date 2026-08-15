@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the seismic dense-vision report: one primitive feeding five families of learned tasks">
+  <title>Topic map — seismic reflection imaging as a dense-vision primitive</title>
+
+  <!-- center primitive -->
+  <rect x="360" y="188" width="240" height="94" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="480" y="220" text-anchor="middle" fill="#f8fafc" font-size="14.5" font-weight="700">Seismic reflection cube</text>
+  <text x="480" y="242" text-anchor="middle" fill="#cbd5e1" font-size="11">band-limited reflectivity in</text>
+  <text x="480" y="258" text-anchor="middle" fill="#cbd5e1" font-size="11">two-way time; label-scarce;</text>
+  <text x="480" y="274" text-anchor="middle" fill="#cbd5e1" font-size="11">trained mostly on synthetics</text>
+
+  <!-- top-left: structural interpretation -->
+  <rect x="30" y="40" width="250" height="98" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="155" y="66" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;3 Structural interpretation</text>
+  <text x="155" y="87" text-anchor="middle" fill="#ede9fe" font-size="10.5">3-D fault segmentation (FaultSeg</text>
+  <text x="155" y="103" text-anchor="middle" fill="#ede9fe" font-size="10.5">lineage &#8594; transformers, diffusion);</text>
+  <text x="155" y="119" text-anchor="middle" fill="#ede9fe" font-size="10.5">salt bodies, horizons/RGT, facies</text>
+
+  <!-- top-right: foundation models -->
+  <rect x="680" y="40" width="250" height="98" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="805" y="66" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;4 Foundation &amp; self-supervision</text>
+  <text x="805" y="87" text-anchor="middle" fill="#ccfbf1" font-size="10.5">masked-autoencoder pretraining</text>
+  <text x="805" y="103" text-anchor="middle" fill="#ccfbf1" font-size="10.5">(SFM, StorSeismic); transfer to</text>
+  <text x="805" y="119" text-anchor="middle" fill="#ccfbf1" font-size="10.5">interpretation with few labels</text>
+
+  <!-- mid-left: generative -->
+  <rect x="30" y="336" width="250" height="98" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="155" y="362" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;5 Generative &amp; restoration</text>
+  <text x="155" y="383" text-anchor="middle" fill="#ffe4e6" font-size="10.5">diffusion/GAN denoising,</text>
+  <text x="155" y="399" text-anchor="middle" fill="#ffe4e6" font-size="10.5">trace interpolation, super-res,</text>
+  <text x="155" y="415" text-anchor="middle" fill="#ffe4e6" font-size="10.5">generative priors for inversion</text>
+
+  <!-- mid-right: seismology detection -->
+  <rect x="680" y="336" width="250" height="98" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="805" y="362" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;6 Seismology detection</text>
+  <text x="805" y="383" text-anchor="middle" fill="#e0f2fe" font-size="10.5">phase picking (PhaseNet,</text>
+  <text x="805" y="399" text-anchor="middle" fill="#e0f2fe" font-size="10.5">EQTransformer &#8594; neural-operator</text>
+  <text x="805" y="415" text-anchor="middle" fill="#e0f2fe" font-size="10.5">&amp; foundation pickers); DAS</text>
+
+  <!-- bottom-center: inversion -->
+  <rect x="355" y="360" width="250" height="86" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="480" y="386" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;7 Physics inversion (FWI)</text>
+  <text x="480" y="407" text-anchor="middle" fill="#e0e7ff" font-size="10.5">data-driven &amp; physics-informed</text>
+  <text x="480" y="423" text-anchor="middle" fill="#e0e7ff" font-size="10.5">velocity estimation; OpenFWI,</text>
+  <text x="480" y="439" text-anchor="middle" fill="#e0e7ff" font-size="10.5">PINNs, diffusion velocity priors</text>
+
+  <!-- top-center: primitive framing -->
+  <rect x="355" y="30" width="250" height="86" rx="10" fill="#b45309" stroke="#92400e"/>
+  <text x="480" y="56" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;2 The primitive</text>
+  <text x="480" y="77" text-anchor="middle" fill="#fef3c7" font-size="10.5">why a migrated cube is not a</text>
+  <text x="480" y="93" text-anchor="middle" fill="#fef3c7" font-size="10.5">photo; the synthetic-training</text>
+  <text x="480" y="109" text-anchor="middle" fill="#fef3c7" font-size="10.5">paradigm &amp; the field domain gap</text>
+
+  <!-- connectors -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="360" y1="210" x2="280" y2="105"/>
+    <line x1="600" y1="210" x2="680" y2="105"/>
+    <line x1="360" y1="262" x2="280" y2="360"/>
+    <line x1="600" y1="262" x2="680" y2="360"/>
+    <line x1="480" y1="282" x2="480" y2="358"/>
+    <line x1="480" y1="188" x2="480" y2="118"/>
+  </g>
+
+  <text x="480" y="462" text-anchor="middle" fill="#64748b" font-size="10.5" font-style="italic">One primitive, five learned task families; &#167;8 draws the common through-line (label scarcity &#8594; synthetics, physics, and pretraining as three answers).</text>
+</svg>

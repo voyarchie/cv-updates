@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="How a seismic reflection survey becomes a migrated image and then a dense per-voxel interpretation problem">
+  <title>The seismic reflection signal chain: from field records to a migrated image to dense interpretation</title>
+  <defs>
+    <marker id="sa" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- forward / acquisition header -->
+  <text x="30" y="34" fill="#93c5fd" font-size="13" font-weight="700">ACQUISITION &amp; PROCESSING: physics + a long human pipeline fix the "image"</text>
+
+  <!-- 1 source -->
+  <rect x="24" y="52" width="170" height="98" rx="10" fill="#b45309" stroke="#92400e"/>
+  <text x="109" y="80" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">controlled source</text>
+  <text x="109" y="101" text-anchor="middle" fill="#fef3c7" font-size="10.5">airgun / vibroseis / shot</text>
+  <text x="109" y="117" text-anchor="middle" fill="#fef3c7" font-size="10.5">band-limited elastic pulse</text>
+  <text x="109" y="133" text-anchor="middle" fill="#fef3c7" font-size="10.5">into the subsurface</text>
+
+  <!-- 2 reflection -->
+  <rect x="218" y="52" width="178" height="98" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="307" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">reflection at contrasts</text>
+  <text x="307" y="99" text-anchor="middle" fill="#ffe4e6" font-size="10.5">waves reflect where acoustic</text>
+  <text x="307" y="115" text-anchor="middle" fill="#ffe4e6" font-size="10.5">impedance changes (&#961;&#183;v).</text>
+  <text x="307" y="131" text-anchor="middle" fill="#ffe4e6" font-size="10.5">Reflectivity r = &#916;Z / 2Z</text>
+
+  <!-- 3 receivers -->
+  <rect x="420" y="52" width="178" height="98" rx="10" fill="#0891b2" stroke="#0e7490"/>
+  <text x="509" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">receiver array</text>
+  <text x="509" y="99" text-anchor="middle" fill="#cffafe" font-size="10.5">geophones / hydrophones /</text>
+  <text x="509" y="115" text-anchor="middle" fill="#cffafe" font-size="10.5">streamers / OBN / DAS fiber</text>
+  <text x="509" y="131" text-anchor="middle" fill="#cffafe" font-size="10.5">record traces vs. time</text>
+
+  <!-- 4 processing -->
+  <rect x="622" y="52" width="178" height="98" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="711" y="78" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">processing pipeline</text>
+  <text x="711" y="99" text-anchor="middle" fill="#ccfbf1" font-size="10.5">deconvolution, NMO/stack,</text>
+  <text x="711" y="115" text-anchor="middle" fill="#ccfbf1" font-size="10.5">migration (PSDM / RTM),</text>
+  <text x="711" y="131" text-anchor="middle" fill="#ccfbf1" font-size="10.5">noise &amp; multiple removal</text>
+
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#sa)">
+    <line x1="194" y1="101" x2="216" y2="101"/>
+    <line x1="396" y1="101" x2="418" y2="101"/>
+    <line x1="598" y1="101" x2="620" y2="101"/>
+  </g>
+
+  <!-- turn down into image -->
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#sa)">
+    <path d="M711,150 L711,196"/>
+  </g>
+
+  <!-- the migrated image node -->
+  <rect x="622" y="200" width="178" height="104" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="711" y="226" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">migrated image (the "photo")</text>
+  <text x="711" y="247" text-anchor="middle" fill="#cbd5e1" font-size="10.5">3-D amplitude cube. Vertical axis</text>
+  <text x="711" y="263" text-anchor="middle" fill="#fca5a5" font-size="10.5">= two-way traveltime, NOT depth</text>
+  <text x="711" y="279" text-anchor="middle" fill="#cbd5e1" font-size="10.5">band-limited reflectivity; wavelet</text>
+  <text x="711" y="295" text-anchor="middle" fill="#cbd5e1" font-size="10.5">is the point-spread function</text>
+
+  <text x="30" y="184" fill="#93c5fd" font-size="13" font-weight="700">THE IMAGE, AND WHAT DENSE VISION IS ASKED TO DO WITH IT</text>
+
+  <!-- three interpretation targets -->
+  <rect x="420" y="200" width="178" height="104" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="509" y="226" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">structural interpretation</text>
+  <text x="509" y="247" text-anchor="middle" fill="#ede9fe" font-size="10.5">dense per-voxel labels:</text>
+  <text x="509" y="263" text-anchor="middle" fill="#ede9fe" font-size="10.5">faults, horizons, salt bodies,</text>
+  <text x="509" y="279" text-anchor="middle" fill="#ede9fe" font-size="10.5">channels, seismic facies &#8212;</text>
+  <text x="509" y="295" text-anchor="middle" fill="#ede9fe" font-size="10.5">3-D semantic segmentation</text>
+
+  <rect x="218" y="200" width="178" height="104" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="307" y="226" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">quantitative inversion</text>
+  <text x="307" y="247" text-anchor="middle" fill="#e0e7ff" font-size="10.5">recover physical properties:</text>
+  <text x="307" y="263" text-anchor="middle" fill="#e0e7ff" font-size="10.5">velocity, impedance (FWI),</text>
+  <text x="307" y="279" text-anchor="middle" fill="#e0e7ff" font-size="10.5">a dense regression under a</text>
+  <text x="307" y="295" text-anchor="middle" fill="#e0e7ff" font-size="10.5">wave-equation constraint</text>
+
+  <rect x="24" y="200" width="170" height="104" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="109" y="226" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">event detection</text>
+  <text x="109" y="247" text-anchor="middle" fill="#e0f2fe" font-size="10.5">the seismology side:</text>
+  <text x="109" y="263" text-anchor="middle" fill="#e0f2fe" font-size="10.5">phase picking, event vs.</text>
+  <text x="109" y="279" text-anchor="middle" fill="#e0f2fe" font-size="10.5">noise, association &#8212; dense</text>
+  <text x="109" y="295" text-anchor="middle" fill="#e0f2fe" font-size="10.5">detection in 1-D waveforms</text>
+
+  <g stroke="#94a3b8" stroke-width="2.2" fill="none" marker-end="url(#sa)">
+    <line x1="620" y1="252" x2="600" y2="252"/>
+    <line x1="418" y1="252" x2="398" y2="252"/>
+    <line x1="216" y1="252" x2="196" y2="252"/>
+  </g>
+
+  <!-- notes -->
+  <text x="30" y="350" fill="#64748b" font-size="11.5">Unlike a camera, nearly every property that makes a natural image easy is absent: no DC and no high frequencies (band-limited),</text>
+  <text x="30" y="368" fill="#64748b" font-size="11.5">low SNR, coherent noise (multiples, ground roll), migration smiles, a non-stationary wavelet that blurs every reflector, and a vertical</text>
+  <text x="30" y="386" fill="#64748b" font-size="11.5">axis measured in time. Ground truth exists only at sparse well ties, so most models train on synthetic forward-modeled data.</text>
+
+  <text x="30" y="418" fill="#64748b" font-size="11.5" font-style="italic">Z = acoustic impedance = density &#215; velocity; NMO = normal-moveout; PSDM = pre-stack depth migration; RTM = reverse-time migration;</text>
+  <text x="30" y="436" fill="#64748b" font-size="11.5" font-style="italic">OBN = ocean-bottom nodes; DAS = distributed acoustic sensing; FWI = full-waveform inversion.</text>
+</svg>
