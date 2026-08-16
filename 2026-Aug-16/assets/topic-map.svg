@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 486" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map: the Wi-Fi CSI channel at the center feeding five families of dense human-sensing tasks">
+  <title>Topic map — Wi-Fi / commodity-RF human sensing as a dense-vision primitive</title>
+
+  <defs>
+    <marker id="tm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- connectors (drawn first, behind boxes) -->
+  <line x1="360" y1="222" x2="240" y2="120" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="600" y1="222" x2="720" y2="120" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="360" y1="266" x2="240" y2="368" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="600" y1="266" x2="720" y2="368" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="480" y1="292" x2="480" y2="392" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+
+  <!-- center primitive -->
+  <rect x="356" y="200" width="248" height="92" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.7"/>
+  <text x="480" y="232" text-anchor="middle" fill="#f8fafc" font-size="14.5" font-weight="700">Wi-Fi / RF channel (CSI)</text>
+  <text x="480" y="253" text-anchor="middle" fill="#cbd5e1" font-size="10.5">multipath superposition, not a picture;</text>
+  <text x="480" y="269" text-anchor="middle" fill="#cbd5e1" font-size="10.5">no labels for humans &#8594; camera-taught;</text>
+  <text x="480" y="285" text-anchor="middle" fill="#cbd5e1" font-size="10.5">environment shift is the central enemy</text>
+
+  <!-- top-left: pose -->
+  <rect x="26" y="34" width="252" height="90" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="152" y="60" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;3 Dense pose &amp; body</text>
+  <text x="152" y="81" text-anchor="middle" fill="#ede9fe" font-size="10.5">2D keypoints &#8594; UV body surface</text>
+  <text x="152" y="96" text-anchor="middle" fill="#ede9fe" font-size="10.5">&#8594; 3D skeleton &#8594; SMPL mesh;</text>
+  <text x="152" y="111" text-anchor="middle" fill="#ede9fe" font-size="10.5">multi-person transformers</text>
+
+  <!-- top-right: classification -->
+  <rect x="682" y="34" width="252" height="90" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="808" y="60" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;4 Activity / gait ID</text>
+  <text x="808" y="81" text-anchor="middle" fill="#e0f2fe" font-size="10.5">gesture &amp; sign, activity HAR,</text>
+  <text x="808" y="96" text-anchor="middle" fill="#e0f2fe" font-size="10.5">gait-based person identity;</text>
+  <text x="808" y="111" text-anchor="middle" fill="#e0f2fe" font-size="10.5">domain-invariant features (BVP)</text>
+
+  <!-- mid-left: localization / counting -->
+  <rect x="26" y="360" width="252" height="90" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="152" y="386" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;5 Localize &amp; count</text>
+  <text x="152" y="407" text-anchor="middle" fill="#e0e7ff" font-size="10.5">device-free tracking (AoA/ToF/</text>
+  <text x="152" y="422" text-anchor="middle" fill="#e0e7ff" font-size="10.5">Doppler), fingerprinting,</text>
+  <text x="152" y="437" text-anchor="middle" fill="#e0e7ff" font-size="10.5">crowd counting, occupancy</text>
+
+  <!-- mid-right: presence / vitals -->
+  <rect x="682" y="360" width="252" height="90" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="808" y="386" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;5 Presence &amp; vitals</text>
+  <text x="808" y="407" text-anchor="middle" fill="#ffe4e6" font-size="10.5">fall detection, respiration &amp;</text>
+  <text x="808" y="422" text-anchor="middle" fill="#ffe4e6" font-size="10.5">heart rate from sub-cm chest</text>
+  <text x="808" y="437" text-anchor="middle" fill="#ffe4e6" font-size="10.5">motion, sleep staging</text>
+
+  <!-- bottom-center: foundations / standard -->
+  <rect x="352" y="396" width="256" height="80" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="480" y="421" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;6&#8211;7 Datasets, 802.11bf</text>
+  <text x="480" y="440" text-anchor="middle" fill="#ccfbf1" font-size="10.5">&amp; foundation models: benchmarks,</text>
+  <text x="480" y="455" text-anchor="middle" fill="#ccfbf1" font-size="10.5">masked/JEPA pretraining, generative</text>
+  <text x="480" y="470" text-anchor="middle" fill="#ccfbf1" font-size="10.5">CSI augmentation, multimodal fusion</text>
+</svg>
