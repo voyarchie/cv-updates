@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map: the cosmic-ray muon probe at the center feeding five families of dense detection and classification tasks">
+  <title>Topic map — muon tomography / muography as a dense-detection primitive</title>
+
+  <defs>
+    <marker id="tm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- connectors (drawn first, behind boxes) -->
+  <line x1="360" y1="230" x2="240" y2="122" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="600" y1="230" x2="720" y2="122" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="360" y1="278" x2="240" y2="378" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="600" y1="278" x2="720" y2="378" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+  <line x1="480" y1="304" x2="480" y2="402" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#tm-arrow)"/>
+
+  <!-- center primitive -->
+  <rect x="356" y="208" width="248" height="96" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.7"/>
+  <text x="480" y="238" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">Cosmic-ray muon probe</text>
+  <text x="480" y="259" text-anchor="middle" fill="#cbd5e1" font-size="10.5">free, uncontrolled, Poisson-starved;</text>
+  <text x="480" y="275" text-anchor="middle" fill="#cbd5e1" font-size="10.5">one angle per muon, not a pixel;</text>
+  <text x="480" y="291" text-anchor="middle" fill="#cbd5e1" font-size="10.5">contrast &#8733; Z&#178;, exposure is the enemy</text>
+
+  <!-- top-left: reconstruction -->
+  <rect x="26" y="36" width="252" height="92" rx="10" fill="#7c3aed" stroke="#5b21b6"/>
+  <text x="152" y="62" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;3 Reconstruction</text>
+  <text x="152" y="83" text-anchor="middle" fill="#ede9fe" font-size="10.5">PoCA / MLSD / EM baselines &#8594;</text>
+  <text x="152" y="98" text-anchor="middle" fill="#ede9fe" font-size="10.5">U-Nets, GANs, diffusion:</text>
+  <text x="152" y="113" text-anchor="middle" fill="#ede9fe" font-size="10.5">denoise, super-resolve, shorten</text>
+
+  <!-- top-right: classification -->
+  <rect x="682" y="36" width="252" height="92" rx="10" fill="#0369a1" stroke="#075985"/>
+  <text x="808" y="62" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;4 Classify &amp; material Z</text>
+  <text x="808" y="83" text-anchor="middle" fill="#e0f2fe" font-size="10.5">high-Z / SNM discrimination,</text>
+  <text x="808" y="98" text-anchor="middle" fill="#e0f2fe" font-size="10.5">cargo &amp; nuclear accountancy,</text>
+  <text x="808" y="113" text-anchor="middle" fill="#e0f2fe" font-size="10.5">false-alarm reduction</text>
+
+  <!-- mid-left: detection / segmentation -->
+  <rect x="26" y="368" width="252" height="92" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="152" y="394" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;5 Detect &amp; segment</text>
+  <text x="152" y="415" text-anchor="middle" fill="#e0e7ff" font-size="10.5">object segmentation &amp; quant.,</text>
+  <text x="152" y="430" text-anchor="middle" fill="#e0e7ff" font-size="10.5">void / cavity anomaly finding,</text>
+  <text x="152" y="445" text-anchor="middle" fill="#e0e7ff" font-size="10.5">background suppression</text>
+
+  <!-- mid-right: applications -->
+  <rect x="682" y="368" width="252" height="92" rx="10" fill="#be123c" stroke="#9f1239"/>
+  <text x="808" y="394" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;6 Applications</text>
+  <text x="808" y="415" text-anchor="middle" fill="#ffe4e6" font-size="10.5">volcanoes &amp; geoscience,</text>
+  <text x="808" y="430" text-anchor="middle" fill="#ffe4e6" font-size="10.5">pyramids &amp; heritage, reactors,</text>
+  <text x="808" y="445" text-anchor="middle" fill="#ffe4e6" font-size="10.5">blast furnaces, nuclear waste</text>
+
+  <!-- bottom-center: simulation / datasets -->
+  <rect x="352" y="406" width="256" height="84" rx="10" fill="#0f766e" stroke="#115e59"/>
+  <text x="480" y="431" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">&#167;7 Sim, momentum &amp; data</text>
+  <text x="480" y="450" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Geant4 training worlds, momentum</text>
+  <text x="480" y="465" text-anchor="middle" fill="#ccfbf1" font-size="10.5">estimation as an ML task, transfer</text>
+  <text x="480" y="480" text-anchor="middle" fill="#ccfbf1" font-size="10.5">learning &amp; the sim-to-real gap</text>
+</svg>
