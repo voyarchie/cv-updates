@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A document page decomposed into a dense hierarchy of nameable objects: regions, then text lines and words, then table rows and cells, with a reading-order path and a callout on why a page differs from a natural scene">
+  <title>The document page as a dense scene of nested, nameable objects</title>
+
+  <defs>
+    <marker id="pd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e11d48"/>
+    </marker>
+    <marker id="pd-arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== LEFT: the page ===================== -->
+  <!-- page sheet: its own white ground reads on light and dark themes -->
+  <rect x="28" y="30" width="372" height="480" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+
+  <!-- title region -->
+  <rect x="52" y="52" width="324" height="40" rx="5" fill="#7c3aed22" stroke="#7c3aed" stroke-width="1.6"/>
+  <text x="60" y="70" fill="#5b21b6" font-size="12" font-weight="700">title</text>
+  <rect x="60" y="74" width="230" height="9" rx="3" fill="#4c1d95"/>
+
+  <!-- author / meta line -->
+  <rect x="52" y="98" width="324" height="22" rx="4" fill="#0369a122" stroke="#0369a1" stroke-width="1.4"/>
+  <text x="60" y="113" fill="#075985" font-size="9.5" font-weight="700">metadata</text>
+  <rect x="132" y="107" width="150" height="6" rx="3" fill="#0c4a6e"/>
+
+  <!-- left text column (paragraph -> lines -> words) -->
+  <rect x="52" y="128" width="156" height="180" rx="5" fill="#0f766e18" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="60" y="144" fill="#115e59" font-size="10" font-weight="700">paragraph</text>
+  <g fill="#134e4a">
+    <rect x="60" y="150" width="140" height="6" rx="3"/><rect x="60" y="160" width="132" height="6" rx="3"/>
+    <rect x="60" y="170" width="140" height="6" rx="3"/><rect x="60" y="180" width="120" height="6" rx="3"/>
+    <rect x="60" y="190" width="138" height="6" rx="3"/><rect x="60" y="200" width="96" height="6" rx="3"/>
+  </g>
+  <text x="60" y="224" fill="#115e59" font-size="10" font-weight="700">text lines &#8594; words</text>
+  <g fill="#134e4a">
+    <rect x="60" y="230" width="140" height="6" rx="3"/><rect x="60" y="240" width="128" height="6" rx="3"/>
+    <rect x="60" y="250" width="140" height="6" rx="3"/><rect x="60" y="260" width="110" height="6" rx="3"/>
+    <rect x="60" y="270" width="136" height="6" rx="3"/><rect x="60" y="280" width="140" height="6" rx="3"/>
+    <rect x="60" y="290" width="72" height="6" rx="3"/>
+  </g>
+
+  <!-- right column: figure -->
+  <rect x="220" y="128" width="156" height="96" rx="5" fill="#b4530922" stroke="#b45309" stroke-width="1.6"/>
+  <text x="228" y="144" fill="#92400e" font-size="10" font-weight="700">figure</text>
+  <path d="M232 214 L262 176 L286 200 L312 166 L360 214 Z" fill="#f59e0b55" stroke="#b45309" stroke-width="1.3"/>
+  <circle cx="300" cy="160" r="8" fill="#fbbf24" stroke="#b45309" stroke-width="1.2"/>
+
+  <!-- caption -->
+  <rect x="220" y="230" width="156" height="18" rx="4" fill="#64748b22" stroke="#64748b" stroke-width="1.2"/>
+  <text x="228" y="243" fill="#475569" font-size="9" font-weight="700">caption</text>
+
+  <!-- table region -> rows -> cells -->
+  <rect x="52" y="322" width="324" height="168" rx="5" fill="#be123c18" stroke="#be123c" stroke-width="1.7"/>
+  <text x="60" y="338" fill="#9f1239" font-size="10.5" font-weight="700">table &#8594; rows &#8594; cells</text>
+  <g stroke="#9f1239" stroke-width="1.1">
+    <!-- header row -->
+    <rect x="60" y="344" width="308" height="24" fill="#fecdd344"/>
+    <line x1="137" y1="344" x2="137" y2="482"/><line x1="214" y1="344" x2="214" y2="482"/><line x1="291" y1="344" x2="291" y2="482"/>
+    <line x1="60" y1="368" x2="368" y2="368"/><line x1="60" y1="392" x2="368" y2="392"/>
+    <line x1="60" y1="416" x2="368" y2="416"/><line x1="60" y1="440" x2="368" y2="440"/>
+    <line x1="60" y1="464" x2="368" y2="464"/>
+    <rect x="60" y="344" width="308" height="138" fill="none"/>
+  </g>
+  <g fill="#881337">
+    <rect x="70" y="353" width="52" height="6" rx="3"/><rect x="147" y="353" width="52" height="6" rx="3"/>
+    <rect x="224" y="353" width="52" height="6" rx="3"/><rect x="301" y="353" width="52" height="6" rx="3"/>
+  </g>
+
+  <!-- reading-order path over the page -->
+  <polyline points="130,72 300,109 130,215 300,176 130,405 300,405"
+            fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"
+            marker-end="url(#pd-arrow)" opacity="0.85"/>
+  <text x="214" y="504" text-anchor="middle" fill="#e11d48" font-size="9.5" font-weight="700">- - - reading order (a learned relation, not raster scan)</text>
+
+  <!-- ===================== RIGHT: what makes it a different primitive ===================== -->
+  <g>
+    <rect x="440" y="44" width="492" height="188" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.6"/>
+    <text x="464" y="72" fill="#f8fafc" font-size="14.5" font-weight="700">Why a page is not a natural scene</text>
+    <text x="464" y="98" fill="#e2e8f0" font-size="11.5">&#8226; The <tspan font-weight="700">object is the text</tspan>: instances number in the thousands</text>
+    <text x="479" y="114" fill="#cbd5e1" font-size="11">per page, mostly tiny, axis-aligned, and near-identical.</text>
+    <text x="464" y="136" fill="#e2e8f0" font-size="11.5">&#8226; Objects are <tspan font-weight="700">nested &amp; hierarchical</tspan>: region &#8835; line &#8835; word;</text>
+    <text x="479" y="152" fill="#cbd5e1" font-size="11">table &#8835; row/column &#8835; cell (with spans).</text>
+    <text x="464" y="174" fill="#e2e8f0" font-size="11.5">&#8226; Localization is not enough &#8212; the label includes</text>
+    <text x="479" y="190" fill="#cbd5e1" font-size="11"><tspan font-weight="700">structure &amp; reading order</tspan>, a relation over the boxes.</text>
+    <text x="464" y="212" fill="#e2e8f0" font-size="11.5">&#8226; Supervision is <tspan font-weight="700">renderable</tspan>: synthetic pages give pixel</text>
+    <text x="479" y="228" fill="#cbd5e1" font-size="11">-perfect boxes for free &#8212; a luxury no camera modality has.</text>
+  </g>
+
+  <!-- object hierarchy chips -->
+  <g>
+    <rect x="440" y="252" width="492" height="258" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1.4"/>
+    <text x="464" y="280" fill="#f8fafc" font-size="13.5" font-weight="700">One page &#8594; four nested detection problems</text>
+
+    <rect x="464" y="298" width="204" height="46" rx="8" fill="#7c3aed" stroke="#5b21b6"/>
+    <text x="566" y="318" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">Layout regions (&#167;3)</text>
+    <text x="566" y="334" text-anchor="middle" fill="#ede9fe" font-size="10">title/para/figure/table/list</text>
+
+    <rect x="700" y="298" width="204" height="46" rx="8" fill="#0369a1" stroke="#075985"/>
+    <text x="802" y="318" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">Text &amp; words (&#167;5)</text>
+    <text x="802" y="334" text-anchor="middle" fill="#e0f2fe" font-size="10">polygon/Bezier spotting</text>
+
+    <rect x="464" y="356" width="204" height="46" rx="8" fill="#be123c" stroke="#9f1239"/>
+    <text x="566" y="376" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">Table cells (&#167;4)</text>
+    <text x="566" y="392" text-anchor="middle" fill="#ffe4e6" font-size="10">rows/cols/spans &#8594; grid</text>
+
+    <rect x="700" y="356" width="204" height="46" rx="8" fill="#0f766e" stroke="#115e59"/>
+    <text x="802" y="376" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">Reading order (&#167;6)</text>
+    <text x="802" y="392" text-anchor="middle" fill="#ccfbf1" font-size="10">relation over the boxes</text>
+
+    <rect x="464" y="418" width="440" height="72" rx="8" fill="#334155" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="684" y="443" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Two ways to solve all four (&#167;7)</text>
+    <text x="684" y="463" text-anchor="middle" fill="#e2e8f0" font-size="10.5">modular pipeline: detect &#8594; recognize &#8594; assemble</text>
+    <text x="684" y="479" text-anchor="middle" fill="#e2e8f0" font-size="10.5">vs. one VLM that <tspan font-weight="700">generates</tspan> the structured page end-to-end</text>
+  </g>
+
+  <!-- connector between page and hierarchy -->
+  <line x1="400" y1="270" x2="440" y2="321" stroke="#64748b" stroke-width="1.6" marker-end="url(#pd-arrow2)"/>
+</svg>
