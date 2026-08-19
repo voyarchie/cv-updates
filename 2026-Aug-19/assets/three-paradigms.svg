@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Three paradigms for dense detection on a spectrogram, shown side by side over the same soundscape: clip-tile multi-label classification (BirdCLEF, Perch), frame-level sound event detection (DCASE, ATST-SED, feeding SEBB post-processing), and explicit time-frequency object detection (BatDetect2, YOLO, DETR-style SEDT), with an open-vocabulary CLAP text-query overlay spanning all three">
+  <title>Three paradigms for dense detection on the spectrogram</title>
+  <defs>
+    <marker id="tp-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- self-contained light card so dark text stays legible on any page theme -->
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+
+  <text x="24" y="30" fill="#334155" font-size="17" font-weight="800">Three ways to read the same soundscape spectrogram</text>
+
+  <!-- ========== Panel 1: clip-tile classification ========== -->
+  <g>
+    <rect x="24" y="52" width="290" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <!-- energy blobs -->
+    <path d="M45,120 Q80,95 120,110 T200,105" fill="none" stroke="#fb923c" stroke-width="5" stroke-linecap="round"/>
+    <rect x="90" y="80" width="150" height="7" rx="3" fill="#fde047" opacity="0.8"/>
+    <g fill="#fb923c"><rect x="150" y="150" width="7" height="34" rx="2"/><rect x="164" y="150" width="7" height="34" rx="2"/><rect x="178" y="150" width="7" height="34" rx="2"/></g>
+    <!-- fixed tile split -->
+    <g stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3">
+      <line x1="120" y1="52" x2="120" y2="202"/><line x1="217" y1="52" x2="217" y2="202"/>
+    </g>
+    <rect x="26" y="188" width="90" height="12" fill="#38bdf822"/>
+  </g>
+  <text x="24" y="224" fill="#0369a1" font-size="13.5" font-weight="800">1 · Clip-tile classification</text>
+  <text x="24" y="244" fill="#475569" font-size="11.5">Fixed 3–5 s tiles &#8594; multi-label tags.</text>
+  <text x="24" y="261" fill="#475569" font-size="11.5">No onset/offset; weak labels only.</text>
+  <text x="24" y="278" fill="#334155" font-size="11.5" font-weight="700">BirdNET &#183; Perch 2.0 &#183; BirdCLEF+</text>
+
+  <!-- ========== Panel 2: frame-level SED ========== -->
+  <g>
+    <rect x="335" y="52" width="290" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <path d="M356,120 Q391,95 431,110 T511,105" fill="none" stroke="#fb923c" stroke-width="5" stroke-linecap="round"/>
+    <rect x="401" y="80" width="150" height="7" rx="3" fill="#fde047" opacity="0.8"/>
+    <!-- per-class activity curves under the panel -->
+    <polyline points="340,196 380,196 400,176 470,176 490,196 620,196" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+    <polyline points="340,200 411,200 421,182 551,182 561,200 620,200" fill="none" stroke="#34d399" stroke-width="2.5"/>
+  </g>
+  <text x="335" y="224" fill="#7c3aed" font-size="13.5" font-weight="800">2 · Frame-level SED</text>
+  <text x="335" y="244" fill="#475569" font-size="11.5">Per-frame, per-class activity curves</text>
+  <text x="335" y="261" fill="#475569" font-size="11.5">&#8594; thresholding / SEBB boxes (onset,offset).</text>
+  <text x="335" y="278" fill="#334155" font-size="11.5" font-weight="700">DCASE Task 4 &#183; ATST-SED &#183; FDY</text>
+
+  <!-- ========== Panel 3: explicit boxes ========== -->
+  <g>
+    <rect x="646" y="52" width="290" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <path d="M667,120 Q702,95 742,110 T822,105" fill="none" stroke="#fb923c" stroke-width="5" stroke-linecap="round"/>
+    <rect x="712" y="80" width="150" height="7" rx="3" fill="#fde047" opacity="0.8"/>
+    <g fill="#fb923c"><rect x="770" y="150" width="7" height="34" rx="2"/><rect x="784" y="150" width="7" height="34" rx="2"/><rect x="798" y="150" width="7" height="34" rx="2"/></g>
+    <!-- 2-D boxes -->
+    <rect x="667" y="98" width="118" height="42" rx="4" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="705" y="74" width="160" height="20" rx="4" fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="762" y="145" width="52" height="44" rx="4" fill="none" stroke="#34d399" stroke-width="2"/>
+  </g>
+  <text x="646" y="224" fill="#0f766e" font-size="13.5" font-weight="800">3 · Explicit T-F boxes</text>
+  <text x="646" y="244" fill="#475569" font-size="11.5">2-D boxes: onset+offset &#215; freq band</text>
+  <text x="646" y="261" fill="#475569" font-size="11.5">&#8594; anchors, NMS, IoU, set-prediction.</text>
+  <text x="646" y="278" fill="#334155" font-size="11.5" font-weight="700">BatDetect2 &#183; YOLO &#183; SEDT (DETR)</text>
+
+  <!-- granularity arrow across the three -->
+  <line x1="24" y1="304" x2="936" y2="304" stroke="#64748b" stroke-width="1.6" marker-end="url(#tp-arr)"/>
+  <text x="24" y="320" fill="#64748b" font-size="11" font-weight="700">weaker labels, coarser localization</text>
+  <text x="740" y="320" fill="#64748b" font-size="11" font-weight="700">stronger labels, tighter localization &#8594;</text>
+
+  <!-- open-vocab overlay band -->
+  <rect x="24" y="338" width="912" height="112" rx="8" fill="#be123c14" stroke="#be123c" stroke-width="1.6"/>
+  <text x="40" y="362" fill="#9f1239" font-size="13.5" font-weight="800">Open-vocabulary overlay — class names become text queries (the CLIP move, for sound)</text>
+  <text x="40" y="386" fill="#334155" font-size="12">A <tspan font-weight="700">CLAP</tspan> text/audio encoder scores each tile, frame or box against a written label —</text>
+  <text x="40" y="406" fill="#334155" font-size="12">so any of the three paradigms can detect classes it never saw in training (zero-shot).</text>
+  <text x="40" y="430" fill="#475569" font-size="11.5" font-weight="700">CLAP / LAION-CLAP &#183; DASM &#8220;Detect Any Sound&#8221; &#183; FlexSED &#183; AudioSep (language-queried separation)</text>
+</svg>

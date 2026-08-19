@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A bioacoustic soundscape spectrogram decomposed into a dense, overlapping set of time-frequency objects: a harmonic bird song, an insect stridulation band, a frog pulse train and a broadband transient, each drawn as a labelled bounding box on the time-frequency plane, with a callout on how a spectrogram differs from a natural image">
+  <title>The audio spectrogram as a dense scene of overlapping time-frequency objects</title>
+
+  <defs>
+    <marker id="sd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e11d48"/>
+    </marker>
+    <marker id="sd-arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <linearGradient id="sd-energy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde047"/>
+      <stop offset="0.5" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- self-contained light card so dark annotation text stays legible on any page theme -->
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- ===================== LEFT: the spectrogram panel ===================== -->
+  <!-- its own dark ground reads on light and dark themes, like a photo -->
+  <rect x="26" y="30" width="470" height="470" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+
+  <!-- axis labels -->
+  <text x="20" y="24" fill="#94a3b8" font-size="12" font-weight="700">frequency (kHz)</text>
+  <text x="352" y="524" fill="#94a3b8" font-size="12" font-weight="700">time (s) &#8594;</text>
+  <text x="16" y="270" fill="#94a3b8" font-size="12" font-weight="700" transform="rotate(-90 16 270)">&#8593;</text>
+
+  <!-- faint frequency gridlines -->
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="40" y1="110" x2="482" y2="110"/><line x1="40" y1="190" x2="482" y2="190"/>
+    <line x1="40" y1="270" x2="482" y2="270"/><line x1="40" y1="350" x2="482" y2="350"/>
+    <line x1="40" y1="430" x2="482" y2="430"/>
+  </g>
+  <g fill="#475569" font-size="9">
+    <text x="30" y="114">12</text><text x="30" y="194">9</text><text x="34" y="274">6</text>
+    <text x="34" y="354">3</text><text x="34" y="434">0</text>
+  </g>
+
+  <!-- background noise texture (broadband hiss) -->
+  <g fill="#1e3a5f" opacity="0.5">
+    <rect x="40" y="60" width="442" height="390"/>
+  </g>
+  <g fill="#243b55" opacity="0.6">
+    <rect x="40" y="380" width="442" height="70"/>
+  </g>
+
+  <!-- EVENT A: harmonic bird song (stacked harmonics, sweeping) -->
+  <g stroke="none">
+    <path d="M70,175 Q120,120 175,150 T280,140" fill="none" stroke="url(#sd-energy)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M70,215 Q120,168 175,196 T280,186" fill="none" stroke="url(#sd-energy)" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+    <path d="M70,255 Q120,214 175,242 T280,232" fill="none" stroke="url(#sd-energy)" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+    <path d="M70,295 Q120,262 175,288 T280,278" fill="none" stroke="url(#sd-energy)" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  </g>
+  <rect x="60" y="120" width="234" height="192" rx="6" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="60" y="102" width="196" height="18" rx="4" fill="#7c3aed"/>
+  <text x="66" y="115" fill="#ede9fe" font-size="11" font-weight="700">songbird A &#183; harmonic stack</text>
+
+  <!-- EVENT B: insect stridulation (narrow high-frequency band, sustained) -->
+  <rect x="150" y="70" width="300" height="16" rx="3" fill="url(#sd-energy)" opacity="0.85"/>
+  <rect x="146" y="64" width="308" height="28" rx="6" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="300" y="44" width="154" height="18" rx="4" fill="#0369a1"/>
+  <text x="306" y="57" fill="#e0f2fe" font-size="11" font-weight="700">insect &#183; narrowband tone</text>
+
+  <!-- EVENT C: frog pulse train (repeated broadband pulses, low freq) -->
+  <g fill="url(#sd-energy)">
+    <rect x="215" y="360" width="10" height="70" rx="2"/><rect x="238" y="360" width="10" height="70" rx="2"/>
+    <rect x="261" y="360" width="10" height="70" rx="2"/><rect x="284" y="360" width="10" height="70" rx="2"/>
+    <rect x="307" y="360" width="10" height="70" rx="2"/>
+  </g>
+  <rect x="206" y="352" width="122" height="86" rx="6" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="206" y="438" width="130" height="18" rx="4" fill="#0f766e"/>
+  <text x="212" y="451" fill="#ccfbf1" font-size="11" font-weight="700">frog &#183; pulse train</text>
+
+  <!-- EVENT D: broadband transient (overlaps A in time) -->
+  <rect x="330" y="150" width="20" height="240" rx="3" fill="url(#sd-energy)" opacity="0.7"/>
+  <rect x="322" y="142" width="36" height="256" rx="6" fill="none" stroke="#fb7185" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="360" y="150" fill="#fecdd3" font-size="11" font-weight="700">broadband</text>
+  <text x="360" y="164" fill="#fecdd3" font-size="11" font-weight="700">transient</text>
+
+  <!-- overlap marker (polyphony) -->
+  <circle cx="336" cy="200" r="7" fill="#e11d48"/>
+  <text x="348" y="205" fill="#fda4af" font-size="10" font-weight="700">overlap = polyphony</text>
+
+  <!-- ===================== RIGHT: annotations ===================== -->
+  <!-- What the model must output -->
+  <text x="524" y="52" fill="#e11d48" font-size="15" font-weight="800">The dense-detection task</text>
+  <g font-size="12.5">
+    <text x="524" y="78" fill="#334155" font-weight="700">Each event is an object:</text>
+    <text x="540" y="98" fill="#475569">&#8226; onset / offset time (localization in t)</text>
+    <text x="540" y="117" fill="#475569">&#8226; frequency extent (localization in f)</text>
+    <text x="540" y="136" fill="#475569">&#8226; a species / class label (classification)</text>
+    <text x="540" y="155" fill="#475569">&#8226; many events overlap &#8594; multi-label</text>
+  </g>
+
+  <!-- label granularity ladder -->
+  <rect x="524" y="176" width="410" height="96" rx="8" fill="#7c3aed14" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="536" y="197" fill="#5b21b6" font-size="12.5" font-weight="800">The label-granularity gap</text>
+  <text x="536" y="217" fill="#475569" font-size="11.5">weak / clip-level: &#8220;this 5-s clip contains species X&#8221;</text>
+  <text x="536" y="236" fill="#475569" font-size="11.5">strong / frame-level: onset&#8211;offset per event (rare, costly)</text>
+  <text x="536" y="257" fill="#475569" font-size="11.5">soft / multi-annotator: probabilistic presence per frame</text>
+
+  <!-- why a spectrogram is not a natural image -->
+  <rect x="524" y="286" width="410" height="214" rx="8" fill="#0369a114" stroke="#0369a1" stroke-width="1.4"/>
+  <text x="536" y="307" fill="#075985" font-size="12.5" font-weight="800">Why it is not a natural image</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="536" y="329">&#8226; Axes are not interchangeable: the y-axis is</text>
+    <text x="548" y="345">frequency, so vertical translation-equivariance is</text>
+    <text x="548" y="361">wrong &#8212; a call shifted up in pitch is a different sound.</text>
+    <text x="536" y="381">&#8226; Objects are semi-transparent &amp; additive: sources</text>
+    <text x="548" y="397">sum in energy, they do not occlude like solids.</text>
+    <text x="536" y="417">&#8226; Harmonics tie far-apart rows into one object.</text>
+    <text x="536" y="437">&#8226; Phase is discarded; log-mel + hop/window choices</text>
+    <text x="548" y="453">bake in a resolution trade the model cannot undo.</text>
+    <text x="536" y="473">&#8226; Class boundaries are blurred by distance, wind,</text>
+    <text x="548" y="489">reverberation &#8212; the domain shifts from clip to clip.</text>
+  </g>
+
+  <!-- arrow tying overlap to multi-label -->
+  <line x1="470" y1="205" x2="520" y2="150" stroke="#64748b" stroke-width="1.4" marker-end="url(#sd-arrow2)"/>
+</svg>
