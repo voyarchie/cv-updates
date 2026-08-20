@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A weather-radar reflectivity field decomposed into a dense scene of precipitation objects: a supercell with a hook echo, a squall line, scattered convective cells and a melting-layer bright-band ring, each drawn as a labelled bounding box on the plan-position plane, with callouts on the dense-detection task and how a reflectivity field differs from a natural image">
+  <title>The weather-radar reflectivity field as a dense scene of precipitation objects</title>
+
+  <defs>
+    <marker id="rd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e11d48"/>
+    </marker>
+    <marker id="rd-arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <!-- reflectivity colour ramp: green (light) -> yellow -> red (heavy) -->
+    <radialGradient id="rd-cell" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f43f5e"/>
+      <stop offset="0.45" stop-color="#fb923c"/>
+      <stop offset="0.75" stop-color="#fde047"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </radialGradient>
+    <linearGradient id="rd-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e"/>
+      <stop offset="0.5" stop-color="#fde047"/>
+      <stop offset="1" stop-color="#f43f5e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- self-contained light card so dark annotation text stays legible on any page theme -->
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- ===================== LEFT: the PPI radar panel ===================== -->
+  <!-- its own dark ground reads on light and dark themes, like a radar display -->
+  <rect x="26" y="30" width="470" height="470" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+
+  <!-- range rings centred on the radar -->
+  <g stroke="#1e3a5f" stroke-width="1" fill="none">
+    <circle cx="261" cy="265" r="70"/><circle cx="261" cy="265" r="140"/><circle cx="261" cy="265" r="205"/>
+  </g>
+  <!-- radar at centre -->
+  <circle cx="261" cy="265" r="5" fill="#38bdf8"/>
+  <text x="270" y="269" fill="#7dd3fc" font-size="9">radar</text>
+
+  <!-- axis labels -->
+  <text x="20" y="24" fill="#94a3b8" font-size="12" font-weight="700">plan position (km)</text>
+  <text x="360" y="524" fill="#94a3b8" font-size="11" font-weight="700">range increases outward &#8594;</text>
+
+  <!-- EVENT A: supercell with hook echo (isolated, intense) -->
+  <ellipse cx="150" cy="150" rx="44" ry="34" fill="url(#rd-cell)" opacity="0.95"/>
+  <!-- hook: a comma of reflectivity wrapping the rear flank -->
+  <path d="M150,178 Q120,196 118,168 Q117,150 138,152" fill="none" stroke="#f43f5e" stroke-width="9" stroke-linecap="round"/>
+  <rect x="96" y="108" width="112" height="104" rx="6" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="96" y="90" width="150" height="18" rx="4" fill="#be123c"/>
+  <text x="102" y="103" fill="#ffe4e6" font-size="11" font-weight="700">supercell &#183; hook echo</text>
+
+  <!-- EVENT B: squall line / QLCS (a long convective line) -->
+  <path d="M300,110 Q340,150 330,200 Q322,250 356,300 Q378,332 360,372" fill="none" stroke="url(#rd-line)" stroke-width="20" stroke-linecap="round" opacity="0.92"/>
+  <rect x="300" y="98" width="102" height="292" rx="6" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="300" y="378" width="150" height="18" rx="4" fill="#b45309"/>
+  <text x="306" y="391" fill="#fef3c7" font-size="11" font-weight="700">squall line (QLCS)</text>
+
+  <!-- EVENT C: scattered / pop-up convection (small weak cells) -->
+  <ellipse cx="150" cy="360" rx="20" ry="16" fill="url(#rd-cell)" opacity="0.8"/>
+  <ellipse cx="118" cy="400" rx="14" ry="11" fill="url(#rd-cell)" opacity="0.7"/>
+  <ellipse cx="190" cy="398" rx="12" ry="10" fill="url(#rd-cell)" opacity="0.7"/>
+  <rect x="96" y="336" width="118" height="86" rx="6" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="96" y="422" width="152" height="18" rx="4" fill="#0f766e"/>
+  <text x="102" y="435" fill="#ccfbf1" font-size="11" font-weight="700">scattered convection</text>
+
+  <!-- EVENT D: bright-band ring (melting layer, non-meteorological-looking) -->
+  <circle cx="261" cy="265" r="140" fill="none" stroke="#a78bfa" stroke-width="6" opacity="0.45" stroke-dasharray="3 6"/>
+  <rect x="330" y="430" width="150" height="34" rx="6" fill="none" stroke="#a78bfa" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="338" y="446" fill="#c4b5fd" font-size="10" font-weight="700">bright-band ring</text>
+  <text x="338" y="459" fill="#c4b5fd" font-size="9">(melting layer &#8212; an artifact, not a storm)</text>
+
+  <!-- growth/evolution marker -->
+  <circle cx="150" cy="150" r="7" fill="#e11d48"/>
+  <text x="60" y="230" fill="#fda4af" font-size="9" font-weight="700">cells grow / split / merge / decay</text>
+
+  <!-- ===================== RIGHT: annotations ===================== -->
+  <text x="524" y="52" fill="#e11d48" font-size="15" font-weight="800">The dense-detection task</text>
+  <g font-size="12.5">
+    <text x="524" y="78" fill="#334155" font-weight="700">Each precipitation feature is an object:</text>
+    <text x="540" y="98" fill="#475569">&#8226; location &amp; extent on the plan (detection)</text>
+    <text x="540" y="117" fill="#475569">&#8226; a track through the volume-scan sequence</text>
+    <text x="540" y="136" fill="#475569">&#8226; a class: rain / hail / supercell / MCS</text>
+    <text x="540" y="155" fill="#475569">&#8226; a forecast: where it will be in 0&#8211;3 h (nowcast)</text>
+  </g>
+
+  <!-- output ladder -->
+  <rect x="524" y="176" width="410" height="96" rx="8" fill="#7c3aed14" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="536" y="197" fill="#5b21b6" font-size="12.5" font-weight="800">The output ladder</text>
+  <text x="536" y="217" fill="#475569" font-size="11.5">reflectivity field &#8594; per-pixel rain rate (Z&#8211;R retrieval)</text>
+  <text x="536" y="236" fill="#475569" font-size="11.5">objects &#8594; storm cells identified, tracked, classified</text>
+  <text x="536" y="257" fill="#475569" font-size="11.5">future &#8594; a predicted field 5&#8211;180 min ahead (nowcast)</text>
+
+  <!-- why a reflectivity field is not a natural image -->
+  <rect x="524" y="286" width="410" height="214" rx="8" fill="#0369a114" stroke="#0369a1" stroke-width="1.4"/>
+  <text x="536" y="307" fill="#075985" font-size="12.5" font-weight="800">Why it is not a natural image</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="536" y="329">&#8226; Objects are not rigid: precipitation grows, decays,</text>
+    <text x="548" y="345">splits and merges &#8212; advection alone cannot predict it.</text>
+    <text x="536" y="365">&#8226; Values are dBZ (logarithmic power), not brightness;</text>
+    <text x="548" y="381">the Z&#8211;R map to rain rate is ambiguous.</text>
+    <text x="536" y="401">&#8226; Resolution degrades with range; the beam rises and</text>
+    <text x="548" y="417">broadens &#8212; the same object looks different far away.</text>
+    <text x="536" y="437">&#8226; Ground clutter, anomalous propagation, attenuation</text>
+    <text x="548" y="453">and the bright band inject structured non-weather echo.</text>
+    <text x="536" y="473">&#8226; Sources overlap in the beam &amp; along range; dual-pol</text>
+    <text x="548" y="489">(Z&#183;Z&#7488;&#7523;&#183;K&#7480;&#7488;&#183;&#961;&#7511;&#7525;) adds channels a camera never has.</text>
+  </g>
+
+  <!-- arrow tying growth to the not-an-image note -->
+  <line x1="470" y1="150" x2="520" y2="120" stroke="#64748b" stroke-width="1.4" marker-end="url(#rd-arrow2)"/>
+</svg>
