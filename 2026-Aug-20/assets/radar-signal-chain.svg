@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Signal chain from a transmitted radar pulse through the volume scan, dual-polarization variables, and the national mosaic, reshaped to feed a network, into dense weather tasks — with a callout on why a reflectivity field is not a natural image">
+  <title>The weather-radar signal chain — from pulse to dense forecast</title>
+
+  <defs>
+    <marker id="sc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- self-contained light card so text stays legible on any page theme -->
+  <rect x="0" y="0" width="980" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Stage 1 -->
+  <rect x="18" y="44" width="166" height="104" rx="11" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="101" y="72" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Transmit &amp; listen</text>
+  <text x="101" y="94" text-anchor="middle" fill="#cbd5e1" font-size="10">pulsed microwave beam;</text>
+  <text x="101" y="109" text-anchor="middle" fill="#cbd5e1" font-size="10">backscatter power &#8594; Z (dBZ),</text>
+  <text x="101" y="124" text-anchor="middle" fill="#cbd5e1" font-size="10">Doppler shift &#8594; radial</text>
+  <text x="101" y="139" text-anchor="middle" fill="#cbd5e1" font-size="10">velocity + spectrum width</text>
+
+  <!-- Stage 2 -->
+  <rect x="224" y="44" width="166" height="104" rx="11" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="307" y="72" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Volume scan</text>
+  <text x="307" y="93" text-anchor="middle" fill="#ede9fe" font-size="10">sweep elevations (VCP)</text>
+  <text x="307" y="108" text-anchor="middle" fill="#ede9fe" font-size="10">&#8594; PPI / RHI / CAPPI /</text>
+  <text x="307" y="123" text-anchor="middle" fill="#ede9fe" font-size="10">3-D volume; a new frame</text>
+  <text x="307" y="138" text-anchor="middle" fill="#ede9fe" font-size="10">every ~5 min</text>
+
+  <!-- Stage 3 -->
+  <rect x="430" y="44" width="166" height="104" rx="11" fill="#0369a1" stroke="#075985" stroke-width="1.5"/>
+  <text x="513" y="72" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Dual-pol channels</text>
+  <text x="513" y="93" text-anchor="middle" fill="#e0f2fe" font-size="10">Z reflectivity, Z&#7488;&#7523; shape,</text>
+  <text x="513" y="108" text-anchor="middle" fill="#e0f2fe" font-size="10">K&#7480;&#7488; rain rate, &#961;&#7511;&#7525; purity</text>
+  <text x="513" y="123" text-anchor="middle" fill="#e0f2fe" font-size="10">&#8594; hydrometeor identity,</text>
+  <text x="513" y="138" text-anchor="middle" fill="#e0f2fe" font-size="10">QC of non-weather echo</text>
+
+  <!-- Stage 4 -->
+  <rect x="636" y="44" width="166" height="104" rx="11" fill="#0f766e" stroke="#115e59" stroke-width="1.5"/>
+  <text x="719" y="72" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Mosaic &amp; grid</text>
+  <text x="719" y="93" text-anchor="middle" fill="#ccfbf1" font-size="10">merge many radars (MRMS)</text>
+  <text x="719" y="108" text-anchor="middle" fill="#ccfbf1" font-size="10">&#8594; a continental raster</text>
+  <text x="719" y="123" text-anchor="middle" fill="#ccfbf1" font-size="10">stack of frames = a</text>
+  <text x="719" y="138" text-anchor="middle" fill="#ccfbf1" font-size="10">&#8220;video&#8221; a ConvNet/ViT eats</text>
+
+  <!-- Stage 5 -->
+  <rect x="842" y="30" width="122" height="132" rx="11" fill="#be123c" stroke="#9f1239" stroke-width="1.5"/>
+  <text x="903" y="56" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Dense tasks</text>
+  <text x="903" y="78" text-anchor="middle" fill="#ffe4e6" font-size="9.5">precip nowcast</text>
+  <text x="903" y="94" text-anchor="middle" fill="#ffe4e6" font-size="9.5">cell detect + track</text>
+  <text x="903" y="110" text-anchor="middle" fill="#ffe4e6" font-size="9.5">hydrometeor class</text>
+  <text x="903" y="126" text-anchor="middle" fill="#ffe4e6" font-size="9.5">hail / tornado sig.</text>
+  <text x="903" y="142" text-anchor="middle" fill="#ffe4e6" font-size="9.5">rain-rate (QPE/QPF)</text>
+
+  <!-- arrows -->
+  <line x1="184" y1="96" x2="222" y2="96" stroke="#64748b" stroke-width="2" marker-end="url(#sc-arrow)"/>
+  <line x1="390" y1="96" x2="428" y2="96" stroke="#64748b" stroke-width="2" marker-end="url(#sc-arrow)"/>
+  <line x1="596" y1="96" x2="634" y2="96" stroke="#64748b" stroke-width="2" marker-end="url(#sc-arrow)"/>
+  <line x1="802" y1="96" x2="840" y2="96" stroke="#64748b" stroke-width="2" marker-end="url(#sc-arrow)"/>
+
+  <!-- callout: not an image -->
+  <rect x="18" y="196" width="946" height="118" rx="11" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="34" y="222" fill="#b45309" font-size="12.5" font-weight="800">Why a reflectivity field is not a natural image</text>
+  <text x="34" y="245" fill="#a16207" font-size="10.8">A pixel is <tspan font-weight="700">returned power in dBZ</tspan> (a logarithm), not reflected light. Its map to rain rate (the <tspan font-weight="700">Z&#8211;R relation</tspan>) is ambiguous and regime-dependent.</text>
+  <text x="34" y="264" fill="#a16207" font-size="10.8">The sampling geometry is <tspan font-weight="700">polar and range-degraded</tspan>: the beam rises and broadens with distance, so an object&#8217;s apparent size and altitude depend on where it is.</text>
+  <text x="34" y="283" fill="#a16207" font-size="10.8"><tspan font-weight="700">Ground clutter, anomalous propagation, attenuation, beam blockage and the melting-layer bright band</tspan> add structured echo no camera would ever see.</text>
+  <text x="34" y="302" fill="#a16207" font-size="10.8">And the objects <tspan font-weight="700">grow, decay, split and merge</tspan> between frames &#8212; a non-conservative flow that defeats pure optical-flow / advection extrapolation.</text>
+
+  <!-- contrast box -->
+  <rect x="18" y="342" width="946" height="108" rx="11" fill="#1e293b" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="34" y="368" fill="#f8fafc" font-size="12.5" font-weight="700">The consequence for the CV toolkit</text>
+  <text x="34" y="391" fill="#cbd5e1" font-size="10.8">A radar frame sequence <tspan fill="#7dd3fc" font-weight="700">looks like a video</tspan>, so the whole video toolkit ports over &#8212; ConvLSTM/PredRNN prediction, U-Net segmentation, DETR-style cell</text>
+  <text x="34" y="409" fill="#cbd5e1" font-size="10.8">detection, and diffusion/GAN generation for sharp, calibrated forecasts. But the <tspan fill="#fca5a5" font-weight="700">non-conservative evolution and the dBZ/geometry physics</tspan> mean the best</text>
+  <text x="34" y="427" fill="#cbd5e1" font-size="10.8">systems bolt a <tspan fill="#86efac" font-weight="700">physical prior</tspan> onto the learned model (advection&#8211;evolution splitting, spectral loss for detail) rather than trusting a generic image model to</text>
+  <text x="34" y="445" fill="#cbd5e1" font-size="10.8">discover the physics on its own &#8212; the recurring lesson of every non-optical primitive in this log.</text>
+</svg>
