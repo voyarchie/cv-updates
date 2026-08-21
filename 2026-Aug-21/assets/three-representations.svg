@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The same particle interaction expressed in the three data structures that detector-physics detectors use. Left: a sparse voxel or pixel grid processed by submanifold sparse convolutions. Middle: an unordered point cloud of energy depositions processed by point-cloud networks. Right: a graph whose nodes are hits or particle fragments and whose edges are learned relations, processed by a graph neural network. A banner notes that object condensation is the grid-free clustering objective shared across all three.">
+  <title>One interaction, three data structures: sparse grid, point cloud, graph</title>
+  <rect x="0" y="0" width="960" height="430" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">The same event, three ways to feed a detector network</text>
+
+  <!-- ============ Panel 1: sparse grid ============ -->
+  <g>
+    <rect x="24" y="52" width="290" height="210" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <!-- grid -->
+    <g stroke="#1e293b" stroke-width="1">
+      <line x1="24" y1="87" x2="314" y2="87"/><line x1="24" y1="122" x2="314" y2="122"/>
+      <line x1="24" y1="157" x2="314" y2="157"/><line x1="24" y1="192" x2="314" y2="192"/>
+      <line x1="24" y1="227" x2="314" y2="227"/>
+      <line x1="83" y1="52" x2="83" y2="262"/><line x1="141" y1="52" x2="141" y2="262"/>
+      <line x1="199" y1="52" x2="199" y2="262"/><line x1="257" y1="52" x2="257" y2="262"/>
+    </g>
+    <!-- only a few cells lit (sparse) -->
+    <g fill="#38bdf8">
+      <rect x="84" y="158" width="28" height="28"/><rect x="113" y="152" width="28" height="28"/>
+      <rect x="142" y="140" width="28" height="28"/><rect x="171" y="128" width="28" height="28"/>
+      <rect x="200" y="116" width="28" height="28"/>
+    </g>
+    <g fill="#a78bfa"><rect x="200" y="158" width="28" height="28"/><rect x="229" y="145" width="28" height="28"/></g>
+    <g fill="#fb923c"><rect x="113" y="187" width="28" height="28"/></g>
+    <text x="38" y="248" fill="#64748b" font-size="10.5">only lit cells stored &#183; &gt;99.9% empty</text>
+  </g>
+  <text x="24" y="286" fill="#0369a1" font-size="13.5" font-weight="800">1 &#183; Sparse voxel / pixel grid</text>
+  <text x="24" y="306" fill="#475569" font-size="11.5">Submanifold sparse convolution keeps</text>
+  <text x="24" y="323" fill="#475569" font-size="11.5">compute on occupied sites only.</text>
+  <text x="24" y="343" fill="#334155" font-size="11.5" font-weight="700">SparseConvNet &#183; MinkowskiEngine &#183; UResNet</text>
+
+  <!-- ============ Panel 2: point cloud ============ -->
+  <g>
+    <rect x="335" y="52" width="290" height="210" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <g fill="#38bdf8">
+      <circle cx="380" cy="200" r="3.4"/><circle cx="398" cy="192" r="3.4"/><circle cx="416" cy="184" r="3.4"/>
+      <circle cx="434" cy="176" r="3.4"/><circle cx="452" cy="168" r="3.4"/><circle cx="470" cy="160" r="3.4"/>
+      <circle cx="488" cy="152" r="3.4"/><circle cx="506" cy="144" r="3.4"/><circle cx="524" cy="136" r="3.4"/>
+    </g>
+    <g fill="#a78bfa">
+      <circle cx="470" cy="192" r="3.2"/><circle cx="492" cy="196" r="3.2"/><circle cx="512" cy="188" r="3.2"/>
+      <circle cx="530" cy="204" r="3.2"/><circle cx="548" cy="184" r="3.2"/><circle cx="500" cy="212" r="3.2"/>
+    </g>
+    <g fill="#fb923c"><circle cx="398" cy="216" r="3.6"/><circle cx="414" cy="228" r="3.6"/><circle cx="430" cy="240" r="3.6"/></g>
+    <path d="M470,160 l4,-11 4,11 11,4 -11,4 -4,11 -4,-11 -11,-4 z" fill="none"/>
+    <text x="349" y="248" fill="#64748b" font-size="10.5">unordered (x,y,z,charge) points &#183; no grid</text>
+  </g>
+  <text x="335" y="286" fill="#7c3aed" font-size="13.5" font-weight="800">2 &#183; Point cloud</text>
+  <text x="335" y="306" fill="#475569" font-size="11.5">Permutation-invariant sets; native to</text>
+  <text x="335" y="323" fill="#475569" font-size="11.5">the detector's real geometry.</text>
+  <text x="335" y="343" fill="#334155" font-size="11.5" font-weight="700">PointNet++ &#183; Point Transformer &#183; PoLAr-MAE</text>
+
+  <!-- ============ Panel 3: graph ============ -->
+  <g>
+    <rect x="646" y="52" width="290" height="210" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <!-- edges -->
+    <g stroke="#475569" stroke-width="1.6">
+      <line x1="690" y1="120" x2="756" y2="100"/><line x1="756" y1="100" x2="828" y2="128"/>
+      <line x1="690" y1="120" x2="720" y2="196"/><line x1="720" y1="196" x2="800" y2="212"/>
+      <line x1="828" y1="128" x2="880" y2="180"/><line x1="756" y1="100" x2="800" y2="212"/>
+      <line x1="720" y1="196" x2="690" y2="120"/>
+    </g>
+    <!-- nodes -->
+    <g>
+      <circle cx="690" cy="120" r="9" fill="#38bdf8"/><circle cx="756" cy="100" r="9" fill="#38bdf8"/>
+      <circle cx="828" cy="128" r="9" fill="#a78bfa"/><circle cx="880" cy="180" r="9" fill="#a78bfa"/>
+      <circle cx="720" cy="196" r="9" fill="#fb923c"/><circle cx="800" cy="212" r="9" fill="#f472b6"/>
+    </g>
+    <text x="660" y="248" fill="#64748b" font-size="10.5">nodes = hits / fragments &#183; edges = learned relations</text>
+  </g>
+  <text x="646" y="286" fill="#0f766e" font-size="13.5" font-weight="800">3 &#183; Graph</text>
+  <text x="646" y="306" fill="#475569" font-size="11.5">Message passing over hits or particle</text>
+  <text x="646" y="323" fill="#475569" font-size="11.5">fragments; relations are first-class.</text>
+  <text x="646" y="343" fill="#334155" font-size="11.5" font-weight="700">NuGraph2 &#183; GravNet/GarNet &#183; GrapPA</text>
+
+  <!-- shared objective banner -->
+  <rect x="24" y="366" width="912" height="44" rx="8" fill="#052e26" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="40" y="386" fill="#6ee7b7" font-size="12.5" font-weight="800">Shared objective &#8594; Object Condensation:</text>
+  <text x="300" y="386" fill="#a7f3d0" font-size="12">one grid-free loss that clusters pixels / points / nodes into an unknown number of objects and</text>
+  <text x="40" y="403" fill="#a7f3d0" font-size="12">regresses each object's properties in one shot &#8212; the same "detect a variable set of things" problem as image object detection, minus the boxes and NMS.</text>
+</svg>
