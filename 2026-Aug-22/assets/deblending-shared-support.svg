@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Why deblending is shared-support instance segmentation. Left panel: two overlapping galaxies whose light profiles add together into a single observed blob, shown as two bell curves summing into one measured curve. Middle panel: the deblending model factorizes the blob into per-source templates, each a spectral energy distribution times a spatial morphology, constrained to be non-negative and physically plausible. Right panel: the recovered two instances with separated flux, compared against the naive single-source measurement that is biased by the neighbour.">
+  <title>Deblending: overlapping light adds, so instances must be un-summed</title>
+  <rect x="0" y="0" width="960" height="430" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">Deblending = un-summing overlapping light into instances</text>
+
+  <!-- ============ Panel 1: light adds ============ -->
+  <g>
+    <rect x="24" y="52" width="290" height="300" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">observed: photons ADD (transparent)</text>
+    <!-- axes -->
+    <line x1="48" y1="300" x2="298" y2="300" stroke="#334155" stroke-width="1.5"/>
+    <!-- source A curve -->
+    <path d="M60,300 Q130,150 170,300" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.85"/>
+    <!-- source B curve -->
+    <path d="M150,300 Q210,180 270,300" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.85"/>
+    <!-- sum curve (bold) -->
+    <path d="M60,300 Q110,175 140,195 Q170,215 190,180 Q220,140 270,300" fill="none" stroke="#f8fafc" stroke-width="3"/>
+    <text x="80" y="330" fill="#fbbf24" font-size="10.5">galaxy A</text>
+    <text x="210" y="330" fill="#93c5fd" font-size="10.5">galaxy B</text>
+    <text x="120" y="130" fill="#f8fafc" font-size="10.5" font-weight="700">A + B (what you see)</text>
+  </g>
+  <text x="24" y="376" fill="#f59e0b" font-size="13.5" font-weight="800">1 &#183; The scene is additive, not occluding</text>
+
+  <!-- ============ Panel 2: factorize ============ -->
+  <g>
+    <rect x="335" y="52" width="290" height="300" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="349" y="74" fill="#94a3b8" font-size="11.5">model: each source = SED &#215; morphology</text>
+    <!-- factorization boxes -->
+    <g font-size="10.5">
+      <rect x="352" y="96" width="120" height="46" rx="6" fill="#3730a3" stroke="#4f46e5"/>
+      <text x="412" y="118" fill="#e0e7ff" text-anchor="middle" font-weight="700">spectrum (SED)</text>
+      <text x="412" y="132" fill="#c7d2fe" text-anchor="middle">"what colour"</text>
+      <text x="486" y="124" fill="#f8fafc" font-size="16" font-weight="800">&#215;</text>
+      <rect x="500" y="96" width="112" height="46" rx="6" fill="#0f766e" stroke="#14b8a6"/>
+      <text x="556" y="118" fill="#ccfbf1" text-anchor="middle" font-weight="700">morphology</text>
+      <text x="556" y="132" fill="#99f6e4" text-anchor="middle">"what shape"</text>
+    </g>
+    <text x="352" y="172" fill="#cbd5e1" font-size="11">constraints: non-negativity, monotone /</text>
+    <text x="352" y="188" fill="#cbd5e1" font-size="11">symmetric profile, PSF-matched, priors</text>
+    <!-- two components -->
+    <circle cx="420" cy="258" r="34" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="420" cy="258" r="8" fill="#f59e0b"/>
+    <text x="420" y="312" fill="#fbbf24" font-size="10.5" text-anchor="middle">component A</text>
+    <circle cx="530" cy="270" r="28" fill="none" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="530" cy="270" r="7" fill="#60a5fa"/>
+    <text x="530" y="312" fill="#93c5fd" font-size="10.5" text-anchor="middle">component B</text>
+  </g>
+  <text x="335" y="376" fill="#a78bfa" font-size="13.5" font-weight="800">2 &#183; Factorize into per-source templates</text>
+
+  <!-- ============ Panel 3: recovered instances ============ -->
+  <g>
+    <rect x="646" y="52" width="290" height="300" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="660" y="74" fill="#94a3b8" font-size="11.5">recovered: two instances, de-biased flux</text>
+    <line x1="670" y1="300" x2="912" y2="300" stroke="#334155" stroke-width="1.5"/>
+    <path d="M680,300 Q740,160 800,300" fill="#f59e0b" fill-opacity="0.28" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M770,300 Q825,185 890,300" fill="#60a5fa" fill-opacity="0.28" stroke="#60a5fa" stroke-width="2"/>
+    <text x="700" y="200" fill="#fbbf24" font-size="10.5">A: flux&#8321;</text>
+    <text x="812" y="215" fill="#93c5fd" font-size="10.5">B: flux&#8322;</text>
+    <!-- naive comparison -->
+    <text x="662" y="330" fill="#fca5a5" font-size="10.5">naive single-source fit &#8594; flux of A</text>
+    <text x="662" y="345" fill="#fca5a5" font-size="10.5">biased high by B's light</text>
+  </g>
+  <text x="646" y="376" fill="#0ea5e9" font-size="13.5" font-weight="800">3 &#183; Separated instances, unbiased photometry</text>
+
+  <!-- banner -->
+  <rect x="24" y="392" width="912" height="26" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="480" y="410" fill="#e2e8f0" font-size="12" text-anchor="middle">The instance-segmentation twin of the LArTPC case (Aug-21): objects share support and <tspan font-weight="800">add</tspan>, so detection means un-summing, not un-occluding.</text>
+</svg>
