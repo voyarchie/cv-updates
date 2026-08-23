@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A radio interferometer does not photograph the sky; it measures sparse samples of the sky's Fourier transform and must reconstruct an image. Stage 1: the true radio sky, a few compact and extended sources on a dark background. Stage 2: an array of dishes measures complex visibilities, which sample the Fourier (uv) plane only along sparse arcs, leaving most spatial frequencies unmeasured. Stage 3: inverting that incomplete sampling yields the dirty image, the true sky convolved with a dirty beam whose large sidelobes ring around every bright source. Stage 4: deconvolution such as CLEAN removes the beam response to produce a restored clean image. Stage 5: a source finder then detects, deblends, and characterizes each source into a catalogue. Detection therefore happens on a reconstruction with spatially correlated noise and deconvolution artifacts, not on a direct measurement.">
+  <title>A radio image is reconstructed from incomplete Fourier samples, then searched</title>
+  <defs>
+    <marker id="ri-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <radialGradient id="ri-src" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="45%" stop-color="#f59e0b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ri-src2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="45%" stop-color="#60a5fa" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- self-contained light card so dark text stays legible on any page theme -->
+  <rect x="0" y="0" width="1000" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">You never measure the radio sky — you sample its Fourier transform and reconstruct it</text>
+
+  <!-- ===== Stage 1: true sky ===== -->
+  <g>
+    <rect x="24" y="58" width="168" height="200" rx="8" fill="#070b16" stroke="#334155" stroke-width="2"/>
+    <text x="34" y="78" fill="#94a3b8" font-size="11">1 · true radio sky</text>
+    <circle cx="80" cy="120" r="12" fill="url(#ri-src)"/>
+    <ellipse cx="140" cy="160" rx="26" ry="10" fill="url(#ri-src2)"/>
+    <circle cx="70" cy="210" r="9" fill="url(#ri-src2)"/>
+    <circle cx="150" cy="220" r="7" fill="url(#ri-src)"/>
+    <text x="34" y="248" fill="#64748b" font-size="9.5">compact + extended sources</text>
+  </g>
+  <line x1="196" y1="158" x2="228" y2="158" stroke="#64748b" stroke-width="2" marker-end="url(#ri-arr)"/>
+  <text x="198" y="150" fill="#64748b" font-size="9">observe</text>
+
+  <!-- ===== Stage 2: uv sampling ===== -->
+  <g>
+    <rect x="232" y="58" width="168" height="200" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="242" y="78" fill="#94a3b8" font-size="11">2 · sampled uv-plane</text>
+    <!-- axes -->
+    <line x1="316" y1="95" x2="316" y2="235" stroke="#334155" stroke-width="1"/>
+    <line x1="250" y1="165" x2="382" y2="165" stroke="#334155" stroke-width="1"/>
+    <!-- sparse sampling arcs (each baseline traces an ellipse as Earth rotates) -->
+    <ellipse cx="316" cy="165" rx="52" ry="20" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="2 5"/>
+    <ellipse cx="316" cy="165" rx="30" ry="46" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="2 5"/>
+    <ellipse cx="316" cy="165" rx="60" ry="52" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="2 5"/>
+    <text x="242" y="248" fill="#64748b" font-size="9.5">complex visibilities · gaps everywhere</text>
+  </g>
+  <line x1="404" y1="158" x2="436" y2="158" stroke="#64748b" stroke-width="2" marker-end="url(#ri-arr)"/>
+  <text x="404" y="150" fill="#64748b" font-size="9">FT&#8315;&#185;</text>
+
+  <!-- ===== Stage 3: dirty image ===== -->
+  <g>
+    <rect x="440" y="58" width="168" height="200" rx="8" fill="#070b16" stroke="#334155" stroke-width="2"/>
+    <text x="450" y="78" fill="#94a3b8" font-size="11">3 · dirty image</text>
+    <!-- sources with sidelobe rings/streaks -->
+    <g stroke="#f59e0b" stroke-opacity="0.5" fill="none">
+      <ellipse cx="496" cy="120" rx="34" ry="8"/>
+      <ellipse cx="496" cy="120" rx="22" ry="20"/>
+    </g>
+    <circle cx="496" cy="120" r="11" fill="url(#ri-src)"/>
+    <g stroke="#60a5fa" stroke-opacity="0.5" fill="none">
+      <ellipse cx="556" cy="200" rx="40" ry="10"/>
+      <ellipse cx="556" cy="200" rx="18" ry="30"/>
+    </g>
+    <circle cx="556" cy="200" r="9" fill="url(#ri-src2)"/>
+    <text x="450" y="240" fill="#fca5a5" font-size="9.5">= true sky &#8859; dirty beam</text>
+    <text x="450" y="252" fill="#64748b" font-size="9.5">huge PSF sidelobes</text>
+  </g>
+  <line x1="612" y1="158" x2="644" y2="158" stroke="#64748b" stroke-width="2" marker-end="url(#ri-arr)"/>
+  <text x="612" y="150" fill="#64748b" font-size="9">CLEAN</text>
+
+  <!-- ===== Stage 4: clean image ===== -->
+  <g>
+    <rect x="648" y="58" width="168" height="200" rx="8" fill="#070b16" stroke="#334155" stroke-width="2"/>
+    <text x="658" y="78" fill="#94a3b8" font-size="11">4 · restored (clean) image</text>
+    <circle cx="704" cy="120" r="11" fill="url(#ri-src)"/>
+    <ellipse cx="764" cy="180" rx="24" ry="9" fill="url(#ri-src2)"/>
+    <circle cx="700" cy="220" r="8" fill="url(#ri-src2)"/>
+    <text x="658" y="248" fill="#64748b" font-size="9.5">deconvolved · residual noise floor</text>
+  </g>
+  <line x1="820" y1="158" x2="852" y2="158" stroke="#64748b" stroke-width="2" marker-end="url(#ri-arr)"/>
+  <text x="822" y="150" fill="#64748b" font-size="9">find</text>
+
+  <!-- ===== Stage 5: catalogue ===== -->
+  <g>
+    <rect x="856" y="58" width="120" height="200" rx="8" fill="#052e2b" stroke="#115e59" stroke-width="2"/>
+    <text x="866" y="78" fill="#5eead4" font-size="11">5 · catalogue</text>
+    <rect x="870" y="96" width="40" height="26" rx="3" fill="none" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="916" y="112" fill="#99f6e4" font-size="8.5">flux</text>
+    <rect x="870" y="132" width="52" height="26" rx="3" fill="none" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="866" y="176" fill="#99f6e4" font-size="8.5">position</text>
+    <text x="866" y="200" fill="#99f6e4" font-size="8.5">morphology</text>
+    <text x="866" y="216" fill="#99f6e4" font-size="8.5">FR-I / FR-II</text>
+    <text x="866" y="240" fill="#5eead4" font-size="8.5">redshift, spectrum</text>
+  </g>
+
+  <!-- bottom takeaway strip -->
+  <rect x="24" y="286" width="952" height="190" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="40" y="312" fill="#334155" font-size="13.5" font-weight="700">Consequences for detection — none of these appear in ordinary vision</text>
+
+  <g font-size="11.5">
+    <circle cx="48" cy="338" r="4" fill="#0369a1"/>
+    <text x="62" y="342" fill="#334155"><tspan font-weight="700">Detection runs on a reconstruction, not a measurement.</tspan> The image is an inverse-problem solution from sparse uv-samples, so its noise is spatially correlated and every deconvolution choice is baked in.</text>
+    <circle cx="48" cy="372" r="4" fill="#0369a1"/>
+    <text x="62" y="376" fill="#334155"><tspan font-weight="700">Sidelobes are structured hard negatives.</tspan> A bright source rings the field with beam artifacts that mimic faint sources; dynamic range, not raw sensitivity, sets the faint-source limit.</text>
+    <circle cx="48" cy="406" r="4" fill="#7c3aed"/>
+    <text x="62" y="410" fill="#334155"><tspan font-weight="700">Morphology is the class, and there is no up.</tspan> Extended lobes and jets (FR-I / FR-II) are defined by shape at arbitrary orientation — a bounding box is mostly empty sky, and the classifier must be rotation-invariant.</text>
+    <circle cx="48" cy="440" r="4" fill="#0f766e"/>
+    <text x="62" y="444" fill="#334155"><tspan font-weight="700">The forward model is known.</tspan> Sky &#8594; visibilities is exact linear physics, so the strongest methods fold imaging, deconvolution, and detection into one differentiable pass rather than treating the image as given.</text>
+  </g>
+</svg>
