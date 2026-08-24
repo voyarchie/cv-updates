@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A distributed acoustic sensing (DAS) record shown as a dense detection scene. A telecom fiber running under a road becomes an array of thousands of virtual strain sensors (channels). Their strain-rate time series stack into a two-dimensional channel-by-time image called a waterfall. In that image a passing vehicle traces a slanted line whose slope is its speed, an earthquake arrives as a coherent moveout across all channels, a digger near the fiber makes a bright localized burst, and footsteps make a faint intermittent track. The computer-vision job is to detect each of these as an object in the channel-time plane, segment its footprint, and classify what made it.">
+  <title>A DAS record is a channel-by-time image full of moving objects</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">A DAS record = telecom fiber &#8594; sensor array &#8594; a channel&#215;time image of moving objects</text>
+
+  <!-- ============ Panel 1: fiber becomes an array ============ -->
+  <g>
+    <rect x="24" y="52" width="300" height="386" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; one buried fiber = thousands of channels</text>
+
+    <!-- road surface -->
+    <rect x="40" y="150" width="268" height="30" fill="#1e293b" stroke="#334155"/>
+    <text x="46" y="145" fill="#64748b" font-size="10">road / rail / seabed</text>
+    <!-- the fiber -->
+    <line x1="44" y1="200" x2="304" y2="200" stroke="#38bdf8" stroke-width="3"/>
+    <text x="46" y="220" fill="#7dd3fc" font-size="10">telecom fiber (existing cable)</text>
+    <!-- channels as tick marks (gauge length) -->
+    <g stroke="#f59e0b" stroke-width="2">
+      <line x1="60" y1="193" x2="60" y2="207"/><line x1="84" y1="193" x2="84" y2="207"/>
+      <line x1="108" y1="193" x2="108" y2="207"/><line x1="132" y1="193" x2="132" y2="207"/>
+      <line x1="156" y1="193" x2="156" y2="207"/><line x1="180" y1="193" x2="180" y2="207"/>
+      <line x1="204" y1="193" x2="204" y2="207"/><line x1="228" y1="193" x2="228" y2="207"/>
+      <line x1="252" y1="193" x2="252" y2="207"/><line x1="276" y1="193" x2="276" y2="207"/>
+    </g>
+    <text x="46" y="248" fill="#fbbf24" font-size="10">each backscatter bin = 1 virtual strain-rate sensor</text>
+
+    <!-- a passing car -->
+    <rect x="150" y="128" width="34" height="18" rx="4" fill="#f472b6"/>
+    <circle cx="158" cy="148" r="4" fill="#0b1220" stroke="#f472b6"/><circle cx="176" cy="148" r="4" fill="#0b1220" stroke="#f472b6"/>
+    <text x="140" y="120" fill="#f9a8d4" font-size="10">vehicle load &#8594; ground strain</text>
+
+    <!-- backscatter concept -->
+    <text x="46" y="300" fill="#cbd5e1" font-size="10.5">&#934;-OTDR: a laser pulse is Rayleigh-</text>
+    <text x="46" y="316" fill="#cbd5e1" font-size="10.5">backscattered; the phase change between</text>
+    <text x="46" y="332" fill="#cbd5e1" font-size="10.5">two points measures strain rate there.</text>
+    <text x="46" y="360" fill="#94a3b8" font-size="10.5">typical: 1&#8211;100 km fiber, ~1&#8211;10 m spacing,</text>
+    <text x="46" y="376" fill="#94a3b8" font-size="10.5">1&#8211;10 kHz &#8594; 10&#8309;&#8211;10&#8311; channel-samples/s</text>
+    <text x="46" y="404" fill="#7dd3fc" font-size="10.5" font-weight="700">no sensors installed &#8212; the cable is the array</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M330,245 L352,245" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ============ Panel 2: the waterfall image ============ -->
+  <g>
+    <rect x="360" y="52" width="576" height="386" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="374" y="74" fill="#94a3b8" font-size="11.5">2 &#183; stack the channels &#8594; a dense image (the "waterfall")</text>
+
+    <!-- axes -->
+    <line x1="410" y1="98" x2="410" y2="404" stroke="#475569" stroke-width="1.5"/>
+    <line x1="410" y1="404" x2="912" y2="404" stroke="#475569" stroke-width="1.5"/>
+    <text x="392" y="250" fill="#94a3b8" font-size="11" transform="rotate(-90 392 250)" text-anchor="middle">channel  (distance along fiber)</text>
+    <text x="660" y="428" fill="#94a3b8" font-size="11" text-anchor="middle">time</text>
+
+    <!-- faint noise texture -->
+    <g stroke="#1e293b" stroke-width="1">
+      <line x1="410" y1="140" x2="912" y2="140"/><line x1="410" y1="200" x2="912" y2="200"/>
+      <line x1="410" y1="260" x2="912" y2="260"/><line x1="410" y1="320" x2="912" y2="320"/>
+    </g>
+
+    <!-- vehicle: slanted line, slope = speed -->
+    <line x1="430" y1="110" x2="700" y2="398" stroke="#f472b6" stroke-width="3.5" opacity="0.9"/>
+    <text x="470" y="130" fill="#f9a8d4" font-size="11" font-weight="700">vehicle</text>
+    <text x="470" y="145" fill="#f9a8d4" font-size="9.5">slope = 1/speed</text>
+
+    <!-- earthquake: near-vertical coherent moveout across all channels -->
+    <path d="M840,100 Q860,250 848,404" fill="none" stroke="#22d3ee" stroke-width="3.5" opacity="0.9"/>
+    <path d="M860,100 Q882,250 868,404" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.55"/>
+    <text x="800" y="98" fill="#67e8f9" font-size="11" font-weight="700">earthquake</text>
+    <text x="792" y="392" fill="#67e8f9" font-size="9.5">coherent moveout, all channels</text>
+
+    <!-- digger: bright localized burst on a few channels -->
+    <rect x="560" y="300" width="60" height="34" rx="4" fill="#f59e0b" opacity="0.85"/>
+    <rect x="566" y="306" width="48" height="22" rx="3" fill="#fbbf24" opacity="0.9"/>
+    <text x="540" y="352" fill="#fbbf24" font-size="11" font-weight="700">digger / tap (localized burst)</text>
+
+    <!-- footsteps: faint intermittent dashes -->
+    <g stroke="#a78bfa" stroke-width="3" stroke-dasharray="6 10" opacity="0.85">
+      <line x1="450" y1="360" x2="560" y2="330"/>
+    </g>
+    <text x="440" y="384" fill="#c4b5fd" font-size="10.5" font-weight="700">footsteps (faint track)</text>
+
+    <!-- detection boxes -->
+    <g fill="none" stroke="#f8fafc" stroke-width="1.4" stroke-dasharray="4 3">
+      <rect x="426" y="106" width="150" height="120" rx="4"/>
+      <rect x="552" y="294" width="76" height="46" rx="4"/>
+      <rect x="828" y="96" width="52" height="312" rx="4"/>
+    </g>
+    <text x="600" y="200" fill="#e2e8f0" font-size="10.5">detect &#8594; segment footprint &#8594; classify class + kinematics</text>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
