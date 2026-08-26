@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The learning landscape over a weather-radar volume, drawn as a pipeline. On the left, the raw moment stack (Z, V, ZDR, KDP, rho-hv) enters a quality-control and classification stage that removes ground clutter and biological echo and labels hydrometeor type per pixel; this feeds quantitative precipitation estimation. In the middle, an object-detection stage finds storm-scale objects: tornado and mesocyclone signatures, hail cores, and mesoscale convective systems, benchmarked on the TorNet polarimetric dataset. On the right, a dense-prediction stage extrapolates the echo field forward zero to three hours. The nowcasting model family is shown as an arc from optical-flow advection through ConvLSTM and RainNet, to adversarial DGMR, physics-hybrid NowcastNet, transformer Earthformer, and the current diffusion, flow-matching and Mamba generators, plus MetNet-3 which fuses sparse observations for twelve-to-twenty-four-hour lead times. A verification banner underneath lists CSI, fractions skill score, CRPS and the blurriness-versus-sharpness tension.">
+  <title>The learning landscape over a radar volume: QC and classification, object detection, and generative nowcasting</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">From raw moments to a forecast: three learning stages over one radar volume</text>
+
+  <!-- Stage 0: raw input -->
+  <g>
+    <rect x="24" y="58" width="150" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="80" fill="#94a3b8" font-size="11" font-weight="700">raw moment stack</text>
+    <g font-size="10.5" fill="#e2e8f0">
+      <text x="38" y="104">Z &#183; reflectivity</text>
+      <text x="38" y="122">V &#183; velocity</text>
+      <text x="38" y="140">&#963;&#7515; &#183; spectrum width</text>
+      <text x="38" y="158" fill="#c4b5fd">Z&#7503;&#7523; K&#7504;&#7527; &#961;&#7511;&#7515; (dual-pol)</text>
+    </g>
+    <text x="38" y="184" fill="#7dd3fc" font-size="9.5">polar grid, ~5-min volumes,</text>
+    <text x="38" y="197" fill="#7dd3fc" font-size="9.5">MRMS / WSR-88D / C-band</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M178 133 L210 133" stroke="#64748b" stroke-width="2.5" marker-end="url(#ah)"/>
+
+  <!-- Stage 1: QC + classification -->
+  <g>
+    <rect x="214" y="58" width="214" height="220" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="228" y="80" fill="#3730a3" font-size="12" font-weight="800">1 &#183; QC + dense classification</text>
+    <rect x="228" y="92" width="186" height="52" rx="5" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="238" y="110" fill="#3730a3" font-size="10.5" font-weight="700">echo / clutter QC</text>
+    <text x="238" y="126" fill="#475569" font-size="9.5">strip ground, sea, birds,</text>
+    <text x="238" y="138" fill="#475569" font-size="9.5">insects, chaff, AP, interference</text>
+
+    <rect x="228" y="150" width="186" height="52" rx="5" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="238" y="168" fill="#3730a3" font-size="10.5" font-weight="700">hydrometeor ID (per pixel)</text>
+    <text x="238" y="184" fill="#475569" font-size="9.5">rain/snow/graupel/hail/</text>
+    <text x="238" y="196" fill="#475569" font-size="9.5">melting layer &#183; fuzzy-logic &#8594; DL</text>
+
+    <rect x="228" y="208" width="186" height="52" rx="5" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="238" y="226" fill="#3730a3" font-size="10.5" font-weight="700">QPE (rain rate)</text>
+    <text x="238" y="242" fill="#475569" font-size="9.5">Z&#8211;R relations &#8594; learned,</text>
+    <text x="238" y="254" fill="#475569" font-size="9.5">gauge/citizen-science bias correct</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M432 168 L464 168" stroke="#64748b" stroke-width="2.5" marker-end="url(#ah)"/>
+
+  <!-- Stage 2: detection -->
+  <g>
+    <rect x="468" y="58" width="214" height="220" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+    <text x="482" y="80" fill="#065f46" font-size="12" font-weight="800">2 &#183; storm-object detection</text>
+    <rect x="482" y="92" width="186" height="40" rx="5" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="492" y="110" fill="#047857" font-size="10.5" font-weight="700">tornado / mesocyclone</text>
+    <text x="492" y="124" fill="#475569" font-size="9.5">velocity-couplet + hook, TorNet</text>
+
+    <rect x="482" y="138" width="186" height="38" rx="5" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="492" y="156" fill="#047857" font-size="10.5" font-weight="700">hail core / severe cell</text>
+    <text x="492" y="170" fill="#475569" font-size="9.5">&#961;&#7511;&#7515; drop, ZDR column</text>
+
+    <rect x="482" y="182" width="186" height="38" rx="5" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="492" y="200" fill="#047857" font-size="10.5" font-weight="700">MCS / cell track</text>
+    <text x="492" y="214" fill="#475569" font-size="9.5">MCSDNet, spatiotemporal</text>
+
+    <rect x="482" y="226" width="186" height="38" rx="5" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="492" y="244" fill="#047857" font-size="10.5" font-weight="700">convective initiation</text>
+    <text x="492" y="258" fill="#475569" font-size="9.5">first-echo onset, Bayesian UQ</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M686 168 L718 168" stroke="#64748b" stroke-width="2.5" marker-end="url(#ah)"/>
+
+  <!-- Stage 3: nowcasting -->
+  <g>
+    <rect x="722" y="58" width="214" height="220" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text x="736" y="80" fill="#9a3412" font-size="12" font-weight="800">3 &#183; dense prediction</text>
+    <text x="736" y="98" fill="#7c2d12" font-size="10">observed frames &#8594; 0&#8211;3 h ahead</text>
+    <!-- frame strip -->
+    <g>
+      <rect x="736" y="108" width="30" height="26" rx="3" fill="#1e293b"/><ellipse cx="751" cy="121" rx="7" ry="5" fill="#ef4444"/>
+      <rect x="770" y="108" width="30" height="26" rx="3" fill="#1e293b"/><ellipse cx="785" cy="121" rx="8" ry="5" fill="#ef4444"/>
+      <text x="804" y="126" fill="#7c2d12" font-size="13">&#8594;</text>
+      <rect x="820" y="108" width="30" height="26" rx="3" fill="#0b1220" stroke="#fb923c" stroke-dasharray="3 2"/><ellipse cx="835" cy="121" rx="9" ry="6" fill="#f59e0b"/>
+      <rect x="854" y="108" width="30" height="26" rx="3" fill="#0b1220" stroke="#fb923c" stroke-dasharray="3 2"/><ellipse cx="869" cy="121" rx="10" ry="6" fill="#f59e0b"/>
+    </g>
+    <text x="736" y="156" fill="#9a3412" font-size="10" font-weight="700">MetNet-3: fuse sparse obs,</text>
+    <text x="736" y="170" fill="#7c2d12" font-size="9.5">12&#8211;24 h, probabilistic (CRPS)</text>
+    <text x="736" y="192" fill="#9a3412" font-size="10" font-weight="700">generative extrapolation:</text>
+    <text x="736" y="206" fill="#7c2d12" font-size="9.5">sharp, calibrated ensembles</text>
+    <text x="736" y="226" fill="#9a3412" font-size="10" font-weight="700">the blur&#8211;sharpness trade:</text>
+    <text x="736" y="240" fill="#7c2d12" font-size="9.5">MSE regressors go blurry;</text>
+    <text x="736" y="254" fill="#7c2d12" font-size="9.5">GAN/diffusion stay sharp</text>
+  </g>
+
+  <!-- ===== nowcasting model arc ===== -->
+  <g>
+    <rect x="24" y="298" width="912" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="320" fill="#f8fafc" font-size="12.5" font-weight="800">The nowcasting model arc &#8212; from advection to generative video</text>
+
+    <!-- nodes -->
+    <g font-size="10">
+      <rect x="38" y="336" width="104" height="46" rx="6" fill="#1e293b" stroke="#475569"/>
+      <text x="48" y="356" fill="#e2e8f0" font-weight="700">optical flow</text>
+      <text x="48" y="372" fill="#94a3b8">advect echoes (pySTEPS)</text>
+
+      <rect x="160" y="336" width="104" height="46" rx="6" fill="#1e293b" stroke="#475569"/>
+      <text x="170" y="356" fill="#e2e8f0" font-weight="700">ConvLSTM /</text>
+      <text x="170" y="370" fill="#e2e8f0" font-weight="700">RainNet U-Net</text>
+
+      <rect x="282" y="336" width="104" height="46" rx="6" fill="#312e81" stroke="#6366f1"/>
+      <text x="292" y="356" fill="#e0e7ff" font-weight="700">DGMR (GAN)</text>
+      <text x="292" y="372" fill="#c7d2fe">sharp ensembles</text>
+
+      <rect x="404" y="336" width="112" height="46" rx="6" fill="#312e81" stroke="#6366f1"/>
+      <text x="414" y="356" fill="#e0e7ff" font-weight="700">NowcastNet</text>
+      <text x="414" y="372" fill="#c7d2fe">physics + learning</text>
+
+      <rect x="534" y="336" width="104" height="46" rx="6" fill="#1e293b" stroke="#475569"/>
+      <text x="544" y="356" fill="#e2e8f0" font-weight="700">Earthformer</text>
+      <text x="544" y="372" fill="#94a3b8">cuboid attention</text>
+
+      <rect x="656" y="336" width="128" height="46" rx="6" fill="#7c2d12" stroke="#fb923c"/>
+      <text x="666" y="356" fill="#ffedd5" font-weight="700">diffusion / flow</text>
+      <text x="666" y="372" fill="#fed7aa">PreDiff&#183;CasCast&#183;DiffCast</text>
+
+      <rect x="800" y="336" width="120" height="46" rx="6" fill="#7c2d12" stroke="#fb923c"/>
+      <text x="810" y="356" fill="#ffedd5" font-weight="700">flow-match / Mamba</text>
+      <text x="810" y="372" fill="#fed7aa">FlowCast &#183; MambaRain</text>
+    </g>
+    <!-- arc arrows -->
+    <g stroke="#64748b" stroke-width="2" fill="none">
+      <path d="M142 359 L158 359" marker-end="url(#ah)"/>
+      <path d="M264 359 L280 359" marker-end="url(#ah)"/>
+      <path d="M386 359 L402 359" marker-end="url(#ah)"/>
+      <path d="M516 359 L532 359" marker-end="url(#ah)"/>
+      <path d="M638 359 L654 359" marker-end="url(#ah)"/>
+      <path d="M784 359 L798 359" marker-end="url(#ah)"/>
+    </g>
+    <text x="38" y="404" fill="#94a3b8" font-size="10">deterministic, blurry at range</text>
+    <text x="282" y="404" fill="#c7d2fe" font-size="10">generative, sharp &#8212; the field&#8217;s pivot</text>
+    <text x="656" y="404" fill="#fed7aa" font-size="10">current frontier: fidelity + speed</text>
+
+    <text x="38" y="432" fill="#f8fafc" font-size="10.5" font-weight="700">Verification:</text>
+    <text x="120" y="432" fill="#e2e8f0" font-size="10">CSI / POD / FAR &#183; Fractions Skill Score &#183; CRPS (ensembles) &#183; forecasters&#8217; rank &#8212; and the sharpness&#8211;error trade-off no single score captures</text>
+  </g>
+
+  <!-- footer note -->
+  <text x="24" y="474" fill="#475569" font-size="10.5">Left-to-right is the data flow of one volume; the dark band is the time axis of how nowcasting models evolved. Colored borders group families:</text>
+  <text x="24" y="492" fill="#4338ca" font-size="10.5" font-weight="700">indigo = generative-milestone &#183; <tspan fill="#9a3412">orange = current generative frontier</tspan> &#183; <tspan fill="#334155">slate = deterministic baselines</tspan></text>
+  <text x="24" y="516" fill="#475569" font-size="10.5">Every stage shares one hard fact: the classes and objects live jointly across the moment channels and move between frames &#8212;</text>
+  <text x="24" y="534" fill="#475569" font-size="10.5">so quality control, detection and forecasting are all dense, multi-channel, spatiotemporal vision problems on a polar grid, not table lookups.</text>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#64748b"/></marker>
+  </defs>
+</svg>
