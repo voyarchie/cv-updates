@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A radio interferometer shown as a dense detection-and-classification scene. An array of antennas cross-correlates pairs to measure visibilities, one complex Fourier sample of the sky per baseline. As Earth rotates the baselines trace arcs, filling the uv-plane, but the coverage is always incomplete. An inverse Fourier transform of that sparse, weighted sampling gives the dirty image: the true sky convolved with the array's point-spread function, the dirty beam, which is riddled with sidelobes. Deconvolution, classically CLEAN and increasingly deep networks and diffusion priors, recovers a sky model. On that sky the computer-vision jobs are: reconstruct and deconvolve the image, detect and characterize sources at survey scale, and classify radio-galaxy morphology.">
+  <title>A radio-interferometric image is a sparsely Fourier-sampled sky full of sources to reconstruct, find, and classify</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">An interferometer measures the sky's Fourier plane &#8594; a dirty image full of sidelobes &#8594; a deconvolved sky of sources</text>
+
+  <!-- ============ Panel 1: array samples the uv-plane ============ -->
+  <g>
+    <rect x="24" y="52" width="292" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; an array samples the Fourier plane</text>
+
+    <!-- antennas -->
+    <g fill="#38bdf8">
+      <circle cx="60" cy="140" r="5"/><circle cx="120" cy="118" r="5"/><circle cx="196" cy="150" r="5"/>
+      <circle cx="252" cy="126" r="5"/><circle cx="96" cy="188" r="5"/><circle cx="170" cy="200" r="5"/>
+    </g>
+    <!-- baselines -->
+    <g stroke="#1e3a5f" stroke-width="1">
+      <line x1="60" y1="140" x2="120" y2="118"/><line x1="120" y1="118" x2="196" y2="150"/>
+      <line x1="196" y1="150" x2="252" y2="126"/><line x1="60" y1="140" x2="196" y2="150"/>
+      <line x1="96" y1="188" x2="170" y2="200"/><line x1="120" y1="118" x2="170" y2="200"/>
+      <line x1="252" y1="126" x2="96" y2="188"/>
+    </g>
+    <text x="38" y="228" fill="#7dd3fc" font-size="10">N antennas &#8594; N(N&#8722;1)/2 baselines</text>
+    <text x="38" y="243" fill="#64748b" font-size="9.5">each pair &#8594; one complex visibility V(u,v)</text>
+
+    <!-- uv-plane -->
+    <rect x="52" y="262" width="212" height="150" rx="6" fill="#020617" stroke="#334155"/>
+    <text x="64" y="280" fill="#94a3b8" font-size="10">uv-plane coverage (Earth-rotation arcs)</text>
+    <line x1="158" y1="290" x2="158" y2="404" stroke="#334155" stroke-width="0.8"/>
+    <line x1="64" y1="347" x2="252" y2="347" stroke="#334155" stroke-width="0.8"/>
+    <!-- sampling arcs -->
+    <g fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.9">
+      <path d="M96 300 A70 70 0 0 1 214 336"/>
+      <path d="M214 394 A70 70 0 0 1 96 358"/>
+      <path d="M116 310 A44 44 0 0 1 196 330"/>
+      <path d="M196 384 A44 44 0 0 1 116 364"/>
+    </g>
+    <text x="64" y="400" fill="#fbbf24" font-size="9">gaps = spatial frequencies never measured</text>
+
+    <text x="38" y="438" fill="#cbd5e1" font-size="10.5">the sky is measured in Fourier space,</text>
+    <text x="38" y="454" fill="#cbd5e1" font-size="10.5">sparsely and with correlated noise</text>
+    <text x="38" y="478" fill="#7dd3fc" font-size="10.5" font-weight="700">you never image the sky &#8212; you image its transform</text>
+  </g>
+
+  <!-- ============ Panel 2: dirty image = sky * dirty beam ============ -->
+  <g>
+    <rect x="332" y="52" width="300" height="440" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="346" y="74" fill="#3730a3" font-size="11.5" font-weight="700">2 &#183; incomplete sampling &#8594; a dirty image</text>
+
+    <!-- dirty beam card -->
+    <rect x="352" y="86" width="260" height="120" rx="5" fill="#0b1220"/>
+    <text x="364" y="104" fill="#f8fafc" font-size="11" font-weight="700">dirty beam (PSF) = FT of the uv sampling</text>
+    <!-- central peak + sidelobes -->
+    <ellipse cx="482" cy="158" rx="12" ry="12" fill="#f8fafc"/>
+    <g fill="#64748b" opacity="0.8">
+      <ellipse cx="440" cy="150" rx="7" ry="4"/><ellipse cx="524" cy="150" rx="7" ry="4"/>
+      <ellipse cx="482" cy="128" rx="4" ry="6"/><ellipse cx="482" cy="188" rx="4" ry="6"/>
+      <ellipse cx="452" cy="182" rx="5" ry="3"/><ellipse cx="512" cy="182" rx="5" ry="3"/>
+    </g>
+    <text x="364" y="200" fill="#94a3b8" font-size="9">bright core + ringing sidelobes across the field</text>
+
+    <!-- dirty vs clean -->
+    <rect x="352" y="216" width="124" height="120" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="360" y="232" fill="#cbd5e1" font-size="9.5" font-weight="700">dirty image</text>
+    <ellipse cx="414" cy="286" rx="11" ry="11" fill="#fca5a5"/>
+    <g stroke="#f59e0b" stroke-width="1" opacity="0.7" fill="none">
+      <ellipse cx="414" cy="286" rx="22" ry="22"/><ellipse cx="414" cy="286" rx="34" ry="34"/>
+    </g>
+    <text x="360" y="326" fill="#94a3b8" font-size="8.5">true sky &#10033; dirty beam</text>
+
+    <rect x="488" y="216" width="124" height="120" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="496" y="232" fill="#cbd5e1" font-size="9.5" font-weight="700">deconvolved</text>
+    <ellipse cx="550" cy="286" rx="8" ry="8" fill="#6ee7b7"/>
+    <circle cx="576" cy="262" r="3" fill="#6ee7b7"/><circle cx="524" cy="308" r="2.5" fill="#6ee7b7"/>
+    <text x="496" y="326" fill="#94a3b8" font-size="8.5">CLEAN / deep / diffusion</text>
+
+    <text x="352" y="358" fill="#3730a3" font-size="10">The measured image is the true sky</text>
+    <text x="352" y="373" fill="#3730a3" font-size="10">convolved with the dirty beam. Recovering</text>
+    <text x="352" y="388" fill="#3730a3" font-size="10">the sky is an ill-posed inverse problem:</text>
+    <text x="352" y="403" fill="#3730a3" font-size="10">many skies fit the same visibilities.</text>
+    <rect x="352" y="416" width="260" height="30" rx="5" fill="#1e1b4b"/>
+    <text x="364" y="435" fill="#c4b5fd" font-size="9.5" font-weight="700">huge dynamic range: a bright source hides faint ones</text>
+    <text x="352" y="466" fill="#4338ca" font-size="10.5" font-weight="700">no ground truth &#8212; only a model that fits the data</text>
+  </g>
+
+  <!-- ============ Panel 3: the three CV jobs ============ -->
+  <g>
+    <rect x="648" y="52" width="288" height="440" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+    <text x="662" y="74" fill="#065f46" font-size="11.5" font-weight="700">3 &#183; three dense-vision jobs</text>
+
+    <!-- job A: imaging / deconvolution -->
+    <rect x="662" y="88" width="260" height="104" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="108" fill="#047857" font-size="11" font-weight="800">A &#183; imaging / deconvolution</text>
+    <text x="674" y="126" fill="#334155" font-size="9.5">visibilities &#8594; artifact-free sky image</text>
+    <text x="674" y="140" fill="#334155" font-size="9.5">inverse problem with a learned prior</text>
+    <g>
+      <rect x="800" y="118" width="52" height="30" rx="3" fill="#1e293b"/><ellipse cx="826" cy="133" rx="10" ry="6" fill="#fca5a5"/>
+      <text x="858" y="137" fill="#334155" font-size="13">&#8594;</text>
+      <rect x="800" y="152" width="52" height="30" rx="3" fill="#0b1220" stroke="#10b981" stroke-dasharray="3 2"/><ellipse cx="826" cy="167" rx="7" ry="5" fill="#6ee7b7"/>
+    </g>
+    <text x="674" y="160" fill="#64748b" font-size="9">CLEAN &#183; deep image prior &#183; unrolled &#183; diffusion</text>
+    <text x="674" y="175" fill="#64748b" font-size="9">super-resolution beyond the beam</text>
+
+    <!-- job B: source finding -->
+    <rect x="662" y="200" width="260" height="128" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="220" fill="#047857" font-size="11" font-weight="800">B &#183; source finding (dense detection)</text>
+    <!-- field of sources with boxes -->
+    <g>
+      <circle cx="700" cy="252" r="8" fill="#38bdf8"/><rect x="686" y="238" width="28" height="28" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <ellipse cx="760" cy="260" rx="16" ry="7" fill="#38bdf8" opacity="0.7"/><rect x="738" y="246" width="44" height="28" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <circle cx="828" cy="248" r="4" fill="#38bdf8"/><circle cx="850" cy="266" r="3" fill="#38bdf8"/>
+    </g>
+    <text x="674" y="292" fill="#64748b" font-size="9">detect + deblend + characterize millions of sources</text>
+    <text x="674" y="306" fill="#64748b" font-size="9">PyBDSF / Aegean &#183; ClaRAN &#183; YOLO / U-Net</text>
+    <text x="674" y="320" fill="#64748b" font-size="9">associate components to one physical source</text>
+
+    <!-- job C: morphological classification -->
+    <rect x="662" y="336" width="260" height="140" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="356" fill="#047857" font-size="11" font-weight="800">C &#183; morphological classification</text>
+    <!-- FR-I vs FR-II sketch -->
+    <g>
+      <text x="674" y="378" fill="#334155" font-size="9" font-weight="700">FR-I (core-bright)</text>
+      <circle cx="690" cy="398" r="6" fill="#f59e0b"/>
+      <ellipse cx="668" cy="398" rx="10" ry="4" fill="#fca5a5" opacity="0.7"/><ellipse cx="712" cy="398" rx="10" ry="4" fill="#fca5a5" opacity="0.7"/>
+      <text x="782" y="378" fill="#334155" font-size="9" font-weight="700">FR-II (edge-bright)</text>
+      <circle cx="800" cy="398" r="3" fill="#f59e0b"/>
+      <circle cx="774" cy="398" r="6" fill="#ef4444"/><circle cx="826" cy="398" r="6" fill="#ef4444"/>
+    </g>
+    <text x="674" y="426" fill="#64748b" font-size="9">FR-I / FR-II / bent / compact &#183; host association</text>
+    <text x="674" y="444" fill="#334155" font-size="9.5">few labels, huge unlabeled archive &#8594;</text>
+    <text x="674" y="458" fill="#334155" font-size="9.5">self-supervised foundation models</text>
+    <text x="674" y="472" fill="#047857" font-size="9" font-weight="700">rotation has no meaning &#8594; equivariant nets</text>
+  </g>
+</svg>
