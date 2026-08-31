@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The deep-learning landscape for cryo-EM and cryo-ET particle detection and classification. Two parallel tracks. The 2-D single-particle-analysis picking track evolves from template matching and blob detection, to CNN detectors Topaz and crYOLO, to transformer detectors CryoTransformer and the semi-supervised UPicker, to Segment-Anything-based pickers CryoSegNet and CryoPromptSeg, to self-supervised and few-shot pickers and to particle-image foundation models such as Cryo-IEF trained on tens of millions of particles. The 3-D cryo-electron-tomography track evolves from template matching, to supervised segmentation with DeePiCt, to weakly supervised 3-D detection with DeepETPicker and PickYOLO, to reference-free metric-learning localizers TomoTwin and MiLoPYP, to training-free foundation-model segmentation with CryoSAM and membrane tools MemBrain. A community benchmark, the CZII CryoET Object Identification Kaggle challenge, sits across the tomography track. A time arc beneath runs from template matching in the 2010s, through CNN and YOLO detectors around 2019 to 2021, transformers and SAM adaptation around 2023 to 2024, to self-supervised and foundation models in 2025 to 2026.">
+  <title>Two tracks — 2-D single-particle picking and 3-D tomogram picking — both marching from template matching toward self-supervised foundation models</title>
+  <rect x="0" y="0" width="980" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="22" y="30" fill="#334155" font-size="16" font-weight="800">From template matching to foundation models &#8212; two parallel cryo tracks</text>
+
+  <!-- ===== Track A: 2D SPA picking ===== -->
+  <text x="22" y="60" fill="#0369a1" font-size="12.5" font-weight="800">A &#183; 2-D single-particle picking (purified molecule, thousands of near-identical views)</text>
+  <g font-size="10.5">
+    <!-- stage boxes -->
+    <rect x="22" y="72" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="32" y="92" fill="#e2e8f0" font-weight="700">template match</text>
+    <text x="32" y="108" fill="#94a3b8">+ blob / DoG</text>
+    <text x="32" y="124" fill="#64748b" font-size="9">hand-tuned, generalizes poorly</text>
+
+    <rect x="188" y="72" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="198" y="92" fill="#7dd3fc" font-weight="700">CNN detectors</text>
+    <text x="198" y="108" fill="#94a3b8">Topaz &#183; crYOLO</text>
+    <text x="198" y="124" fill="#64748b" font-size="9">PU-learning &#183; YOLO grid</text>
+
+    <rect x="354" y="72" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="364" y="92" fill="#a5b4fc" font-weight="700">transformers</text>
+    <text x="364" y="108" fill="#94a3b8">CryoTransformer</text>
+    <text x="364" y="124" fill="#94a3b8">UPicker (semi-sup)</text>
+
+    <rect x="520" y="72" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="530" y="92" fill="#6ee7b7" font-weight="700">SAM-adapted</text>
+    <text x="530" y="108" fill="#94a3b8">CryoSegNet</text>
+    <text x="530" y="124" fill="#94a3b8">CryoPromptSeg</text>
+
+    <rect x="686" y="72" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="696" y="92" fill="#fcd34d" font-weight="700">self-sup / few-shot</text>
+    <text x="696" y="108" fill="#94a3b8">cryoMAE &#183; SSL pickers</text>
+    <text x="696" y="124" fill="#64748b" font-size="9">label-efficient, generalizable</text>
+
+    <rect x="852" y="72" width="106" height="70" rx="7" fill="#132033" stroke="#f59e0b" stroke-width="1.8"/>
+    <text x="862" y="92" fill="#fbbf24" font-weight="800">foundation</text>
+    <text x="862" y="108" fill="#fcd34d">Cryo-IEF</text>
+    <text x="862" y="124" fill="#94a3b8" font-size="9">~65M particles</text>
+  </g>
+  <g stroke="#0ea5e9" stroke-width="2" opacity="0.85">
+    <path d="M172 107 h16" marker-end="url(#la)"/>
+    <path d="M338 107 h16" marker-end="url(#la)"/>
+    <path d="M504 107 h16" marker-end="url(#la)"/>
+    <path d="M670 107 h16" marker-end="url(#la)"/>
+    <path d="M836 107 h16" marker-end="url(#la)"/>
+  </g>
+
+  <!-- ===== Track B: 3D cryo-ET picking ===== -->
+  <text x="22" y="186" fill="#047857" font-size="12.5" font-weight="800">B &#183; 3-D cryo-ET picking &amp; segmentation (crowded cell, many different complexes in place)</text>
+  <g font-size="10.5">
+    <rect x="22" y="198" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="32" y="218" fill="#e2e8f0" font-weight="700">3-D template</text>
+    <text x="32" y="234" fill="#94a3b8">matching</text>
+    <text x="32" y="250" fill="#64748b" font-size="9">needs a known structure</text>
+
+    <rect x="188" y="198" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="198" y="218" fill="#7dd3fc" font-weight="700">supervised seg</text>
+    <text x="198" y="234" fill="#94a3b8">DeePiCt (U-Net)</text>
+    <text x="198" y="250" fill="#64748b" font-size="9">voxel labels, brittle</text>
+
+    <rect x="354" y="198" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="364" y="218" fill="#a5b4fc" font-weight="700">weak-sup 3-D det</text>
+    <text x="364" y="234" fill="#94a3b8">DeepETPicker</text>
+    <text x="364" y="250" fill="#94a3b8">PickYOLO</text>
+
+    <rect x="520" y="198" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="530" y="218" fill="#6ee7b7" font-weight="700">reference-free</text>
+    <text x="530" y="234" fill="#94a3b8">TomoTwin (metric)</text>
+    <text x="530" y="250" fill="#94a3b8">MiLoPYP</text>
+
+    <rect x="686" y="198" width="150" height="70" rx="7" fill="#0b1220" stroke="#334155" stroke-width="1.5"/>
+    <text x="696" y="218" fill="#fcd34d" font-weight="700">foundation / free</text>
+    <text x="696" y="234" fill="#94a3b8">CryoSAM (train-free)</text>
+    <text x="696" y="250" fill="#94a3b8">MemBrain v2</text>
+
+    <rect x="852" y="198" width="106" height="70" rx="7" fill="#132033" stroke="#34d399" stroke-width="1.8"/>
+    <text x="862" y="218" fill="#6ee7b7" font-weight="800">benchmark</text>
+    <text x="862" y="234" fill="#a7f3d0">CZII 2024&#8211;25</text>
+    <text x="862" y="250" fill="#94a3b8" font-size="9">6.8k teams</text>
+  </g>
+  <g stroke="#10b981" stroke-width="2" opacity="0.85">
+    <path d="M172 233 h16" marker-end="url(#lb)"/>
+    <path d="M338 233 h16" marker-end="url(#lb)"/>
+    <path d="M504 233 h16" marker-end="url(#lb)"/>
+    <path d="M670 233 h16" marker-end="url(#lb)"/>
+    <path d="M836 233 h16" marker-end="url(#lb)"/>
+  </g>
+
+  <!-- ===== shared theme box ===== -->
+  <g>
+    <rect x="22" y="292" width="936" height="86" rx="8" fill="#eef2fb" stroke="#cbd5e1"/>
+    <text x="34" y="314" fill="#334155" font-size="12.5" font-weight="800">Both tracks are running the same play</text>
+    <text x="34" y="336" fill="#475569" font-size="10.5">1&#160;&#183;&#160;escape hand-tuned template matching &#8594; learned detectors &#160;&#160;&#160; 2&#160;&#183;&#160;escape the voxel/box annotation bottleneck &#8594; weak, semi- and self-supervision</text>
+    <text x="34" y="356" fill="#475569" font-size="10.5">3&#160;&#183;&#160;borrow a general vision foundation model (SAM) and adapt it &#8594; cryo-native foundation models pre-trained on the field&#8217;s own unlabeled surplus of particles &amp; tomograms</text>
+    <text x="34" y="372" fill="#64748b" font-size="9.5" font-style="italic">the recall-over-precision, junk-rejection framing (F&#946;, &#946;=4 in CZII) is the throughline &#8212; a missed particle costs resolution; a false particle is cheap to sort out later</text>
+  </g>
+
+  <!-- ===== time arc ===== -->
+  <text x="22" y="404" fill="#334155" font-size="11.5" font-weight="800">Time arc of model families</text>
+  <line x1="34" y1="470" x2="946" y2="470" stroke="#94a3b8" stroke-width="2"/>
+  <g font-size="10" fill="#475569" text-anchor="middle">
+    <g><circle cx="120" cy="470" r="4" fill="#64748b"/><text x="120" y="494">&#8804;2018</text><text x="120" y="452" fill="#334155">template match</text></g>
+    <g><circle cx="330" cy="470" r="4" fill="#0ea5e9"/><text x="330" y="494">2019&#8211;2021</text><text x="330" y="452" fill="#0369a1">Topaz / crYOLO / DeePiCt</text></g>
+    <g><circle cx="540" cy="470" r="4" fill="#8b5cf6"/><text x="540" y="494">2023&#8211;2024</text><text x="540" y="452" fill="#6d28d9">transformers · SAM · DeepETPicker</text></g>
+    <g><circle cx="750" cy="470" r="4" fill="#10b981"/><text x="750" y="494">2024&#8211;2025</text><text x="750" y="452" fill="#047857">CZII · TomoTwin · CryoSAM · SSL</text></g>
+    <g><circle cx="912" cy="470" r="4" fill="#f59e0b"/><text x="912" y="494">2025&#8211;26</text><text x="912" y="452" fill="#b45309">foundation</text></g>
+  </g>
+
+  <!-- ===== caveat strip ===== -->
+  <text x="34" y="528" fill="#64748b" font-size="9.5" font-style="italic">Placement is schematic; several tools straddle stages (e.g. CryoSegNet/CryoPromptSeg = SAM + specialized U-Net; MiLoPYP = self-supervised exploration + localization).</text>
+  <text x="34" y="544" fill="#64748b" font-size="9.5" font-style="italic">Colors paint an explicit light card so the figure reads in both light and dark viewers; it does not rely on the page&#8217;s theme.</text>
+
+  <defs>
+    <marker id="la" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#0ea5e9"/></marker>
+    <marker id="lb" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#10b981"/></marker>
+  </defs>
+</svg>
