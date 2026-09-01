@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A single-particle cryo-EM micrograph shown as a dense detection-and-classification scene. Thousands of copies of a macromolecule are frozen in a thin layer of vitreous ice in random orientations. A low-dose electron beam projects the whole field onto a detector, producing an extremely noisy 2-D micrograph in which each particle is a faint, low-contrast blob buried in shot noise and surrounded by contaminants: ice crystals, carbon film edges, and aggregates. Dense detection means picking every true particle while rejecting the contaminants. The picked particles, seen from every direction, are grouped by orientation and averaged into clean 2-D class averages, then reconstructed into a 3-D volume. Because the molecule flexes and changes composition, the reconstruction is not one volume but a continuous landscape of conformations.">
+  <title>A cryo-EM micrograph is a field of near-invisible particles in random poses to pick, class, and reconstruct into a moving 3-D structure</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Frozen particles &#8594; a near-invisible noisy micrograph &#8594; pick every particle &#8594; 2-D classes &#8594; a moving 3-D structure</text>
+
+  <!-- ============ Panel 1: particles frozen in ice, beam projects ============ -->
+  <g>
+    <rect x="24" y="52" width="292" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; identical molecules, random poses, in ice</text>
+
+    <!-- electron beam -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.55">
+      <line x1="60" y1="86" x2="60" y2="150"/><line x1="96" y1="86" x2="96" y2="150"/>
+      <line x1="132" y1="86" x2="132" y2="150"/><line x1="168" y1="86" x2="168" y2="150"/>
+      <line x1="204" y1="86" x2="204" y2="150"/><line x1="240" y1="86" x2="240" y2="150"/>
+      <line x1="276" y1="86" x2="276" y2="150"/>
+    </g>
+    <text x="38" y="98" fill="#7dd3fc" font-size="10">low-dose electron beam (radiation-limited)</text>
+
+    <!-- ice slab -->
+    <rect x="40" y="150" width="260" height="150" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="52" y="168" fill="#5eead4" font-size="10">thin vitreous-ice layer</text>
+    <!-- particles: same shape L, various rotations -->
+    <g fill="none" stroke="#e2e8f0" stroke-width="2" opacity="0.9">
+      <path d="M70 200 l0 22 l16 0" transform="rotate(20 78 210)"/>
+      <path d="M120 190 l0 22 l16 0" transform="rotate(140 128 200)"/>
+      <path d="M180 200 l0 22 l16 0" transform="rotate(255 188 210)"/>
+      <path d="M240 192 l0 22 l16 0" transform="rotate(70 248 202)"/>
+      <path d="M96 250 l0 22 l16 0" transform="rotate(310 104 260)"/>
+      <path d="M156 254 l0 22 l16 0" transform="rotate(190 164 264)"/>
+      <path d="M216 250 l0 22 l16 0" transform="rotate(35 224 260)"/>
+    </g>
+    <text x="52" y="292" fill="#cbd5e1" font-size="10">one rigid shape, seen from all directions</text>
+
+    <!-- detector -->
+    <rect x="40" y="316" width="260" height="20" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="52" y="330" fill="#94a3b8" font-size="10">direct-electron detector (movie frames)</text>
+
+    <text x="38" y="360" fill="#cbd5e1" font-size="10.5">each exposure = one 2-D projection</text>
+    <text x="38" y="376" fill="#64748b" font-size="9.5">of the field, at an unknown per-particle pose</text>
+    <text x="38" y="404" fill="#f59e0b" font-size="10.5" font-weight="700">the pose is never measured &#8212;</text>
+    <text x="38" y="420" fill="#fbbf24" font-size="10">it must be inferred jointly with the volume</text>
+    <text x="38" y="452" fill="#94a3b8" font-size="10">dose limit &#8658; SNR &#8776; &#8722;10 dB: the</text>
+    <text x="38" y="468" fill="#94a3b8" font-size="10">signal is below the noise by construction</text>
+  </g>
+
+  <!-- ============ Panel 2: the noisy micrograph + picking ============ -->
+  <g>
+    <rect x="332" y="52" width="292" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="346" y="74" fill="#94a3b8" font-size="11.5">2 &#183; dense detection: pick particles, reject junk</text>
+
+    <rect x="348" y="86" width="260" height="238" rx="6" fill="#111a2e" stroke="#334155"/>
+    <!-- noise speckle -->
+    <g fill="#1e2a44">
+      <circle cx="380" cy="120" r="2"/><circle cx="420" cy="140" r="2"/><circle cx="470" cy="110" r="2"/>
+      <circle cx="520" cy="150" r="2"/><circle cx="560" cy="120" r="2"/><circle cx="400" cy="200" r="2"/>
+      <circle cx="450" cy="230" r="2"/><circle cx="500" cy="260" r="2"/><circle cx="540" cy="230" r="2"/>
+      <circle cx="380" cy="280" r="2"/><circle cx="580" cy="280" r="2"/><circle cx="430" cy="290" r="2"/>
+    </g>
+    <!-- faint true particles (correctly picked = green circles) -->
+    <g fill="#334155">
+      <circle cx="392" cy="150" r="11"/><circle cx="470" cy="170" r="11"/><circle cx="548" cy="145" r="11"/>
+      <circle cx="410" cy="250" r="11"/><circle cx="500" cy="215" r="11"/><circle cx="560" cy="270" r="11"/>
+    </g>
+    <g fill="none" stroke="#34d399" stroke-width="2">
+      <circle cx="392" cy="150" r="15"/><circle cx="470" cy="170" r="15"/><circle cx="548" cy="145" r="15"/>
+      <circle cx="410" cy="250" r="15"/><circle cx="500" cy="215" r="15"/><circle cx="560" cy="270" r="15"/>
+    </g>
+    <!-- contaminants (must be rejected = red X) -->
+    <path d="M370 300 q40 -18 80 0 q-10 20 -40 22 q-30 -2 -40 -22 z" fill="#3f1d2e" stroke="#7f1d1d"/>
+    <rect x="360" y="88" width="18" height="236" fill="#3f2d1d" opacity="0.7"/>
+    <g stroke="#f87171" stroke-width="2.4">
+      <line x1="398" y1="304" x2="418" y2="322"/><line x1="418" y1="304" x2="398" y2="322"/>
+      <line x1="362" y1="200" x2="376" y2="214"/><line x1="376" y1="200" x2="362" y2="214"/>
+    </g>
+    <text x="356" y="104" fill="#fca5a5" font-size="9">carbon edge</text>
+    <text x="404" y="298" fill="#fca5a5" font-size="9">ice / aggregate</text>
+
+    <text x="346" y="344" fill="#6ee7b7" font-size="10">&#9711; true particle (recall matters most)</text>
+    <text x="346" y="360" fill="#fca5a5" font-size="10">&#10005; contaminant (false-positive tax)</text>
+
+    <text x="346" y="388" fill="#cbd5e1" font-size="10.5" font-weight="700">the detection problem, precisely:</text>
+    <text x="346" y="406" fill="#94a3b8" font-size="10">find 10&#8319; faint identical blobs per dataset,</text>
+    <text x="346" y="422" fill="#94a3b8" font-size="10">at &#8776;0 contrast, without picking edges,</text>
+    <text x="346" y="438" fill="#94a3b8" font-size="10">ice, or aggregates &#8212; recall-first, because</text>
+    <text x="346" y="454" fill="#94a3b8" font-size="10">a missed view is a hole in Fourier space.</text>
+    <text x="346" y="478" fill="#fbbf24" font-size="10">Topaz &#183; crYOLO &#183; CryoTransformer &#183; CryoSegNet</text>
+  </g>
+
+  <!-- ============ Panel 3: 2D classes -> 3D volume -> heterogeneity ============ -->
+  <g>
+    <rect x="640" y="52" width="296" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="654" y="74" fill="#94a3b8" font-size="11.5">3 &#183; classify &#8594; reconstruct &#8594; a moving structure</text>
+
+    <!-- 2D class averages grid -->
+    <text x="654" y="98" fill="#7dd3fc" font-size="10">2-D class averages (group by pose, average)</text>
+    <g>
+      <rect x="654" y="106" width="40" height="40" rx="3" fill="#0f2233" stroke="#334155"/>
+      <rect x="700" y="106" width="40" height="40" rx="3" fill="#0f2233" stroke="#334155"/>
+      <rect x="746" y="106" width="40" height="40" rx="3" fill="#0f2233" stroke="#334155"/>
+      <rect x="792" y="106" width="40" height="40" rx="3" fill="#0f2233" stroke="#334155"/>
+      <rect x="838" y="106" width="40" height="40" rx="3" fill="#0f2233" stroke="#334155"/>
+      <g fill="none" stroke="#e2e8f0" stroke-width="1.8">
+        <path d="M666 118 l0 18 l14 0"/>
+        <path d="M712 118 l0 18 l14 0" transform="rotate(90 719 127)"/>
+        <path d="M758 118 l0 18 l14 0" transform="rotate(180 765 127)"/>
+        <path d="M804 118 l0 18 l14 0" transform="rotate(45 811 127)"/>
+        <path d="M850 118 l0 18 l14 0" transform="rotate(250 857 127)"/>
+      </g>
+    </g>
+
+    <!-- arrow -->
+    <path d="M790 152 l0 16" stroke="#64748b" stroke-width="1.5" marker-end="url(#ah)"/>
+
+    <!-- 3D volume -->
+    <text x="654" y="182" fill="#7dd3fc" font-size="10">3-D reconstruction (jointly solve pose + map)</text>
+    <ellipse cx="740" cy="238" rx="58" ry="46" fill="#12324a" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+    <ellipse cx="722" cy="226" rx="20" ry="18" fill="#1d4ed8" opacity="0.5"/>
+    <ellipse cx="760" cy="250" rx="22" ry="20" fill="#0ea5e9" opacity="0.45"/>
+    <text x="654" y="298" fill="#94a3b8" font-size="9.5">ab-initio &amp; pose: CryoAI &#183; CryoFIRE &#183; RELION/cryoSPARC</text>
+
+    <!-- heterogeneity landscape -->
+    <text x="654" y="322" fill="#7dd3fc" font-size="10">conformational landscape (not one map)</text>
+    <rect x="654" y="330" width="266" height="96" rx="6" fill="#0f1b30" stroke="#334155"/>
+    <path d="M660 410 C700 360 720 400 760 356 C800 320 850 392 914 350"
+          fill="none" stroke="#a78bfa" stroke-width="2.4"/>
+    <path d="M660 418 C700 392 730 414 770 388 C820 356 870 410 914 384"
+          fill="none" stroke="#f472b6" stroke-width="1.6" opacity="0.8"/>
+    <g fill="#c4b5fd">
+      <circle cx="700" cy="378" r="2.5"/><circle cx="760" cy="357" r="2.5"/>
+      <circle cx="820" cy="372" r="2.5"/><circle cx="880" cy="360" r="2.5"/>
+    </g>
+    <text x="662" y="344" fill="#c4b5fd" font-size="9">each point = a distinct conformation / state</text>
+
+    <text x="654" y="446" fill="#94a3b8" font-size="9.5">heterogeneity: cryoDRGN &#183; 3DFlex &#183; RECOVAR &#183; cryoSTAR</text>
+    <text x="654" y="470" fill="#fbbf24" font-size="10">and in cells: cryo-ET tomograms (DeepFinder,</text>
+    <text x="654" y="484" fill="#fbbf24" font-size="10">TomoTwin, DeePiCt, CZII 2024&#8211;25 challenge)</text>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
