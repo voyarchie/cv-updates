@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A volume electron microscopy connectomics dataset shown as a dense detection-and-classification scene. A stained brain block is cut into thousands of serial sections and imaged into an anisotropic 3-D volume, fine in the plane and coarse between sections. In a cropped section the only visible cue is the dark membrane outlining every cell, with darker organelles inside; the neuropil is completely filled with touching processes. Dense detection means predicting every membrane boundary, then segmenting each neurite into one connected object that may span the whole block, shown by flood-filling one neuron in colour. Synapses are detected and assigned pre- and post-synaptic partners, becoming directed edges. Organelles such as mitochondria are classified in parallel. The output is a connectome graph whose nodes are neurons and whose edges are synapses.">
+  <title>A vEM connectomics volume: predict every membrane, segment each neurite across the block, detect synapses as directed edges, classify organelles, emit a connectome graph</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16" font-weight="800">Stained brain block &#8594; serial sections &#8594; membrane is the only cue &#8594; segment each neurite &#8594; synapses as edges &#8594; a connectome</text>
+
+  <!-- ============ Panel 1: block -> serial sections -> anisotropic volume ============ -->
+  <g>
+    <rect x="24" y="52" width="292" height="462" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; one tissue block, imaged exhaustively</text>
+
+    <!-- resin block -->
+    <rect x="60" y="92" width="120" height="70" rx="4" fill="#1e293b" stroke="#64748b"/>
+    <text x="70" y="132" fill="#cbd5e1" font-size="10">resin-embedded,</text>
+    <text x="70" y="146" fill="#cbd5e1" font-size="10">heavy-metal-stained</text>
+    <!-- knife -->
+    <path d="M188 100 l40 14 l-40 14 z" fill="#38bdf8" opacity="0.85"/>
+    <text x="196" y="150" fill="#7dd3fc" font-size="9.5">diamond knife /</text>
+    <text x="196" y="162" fill="#7dd3fc" font-size="9.5">ion mill</text>
+
+    <!-- serial sections stack -->
+    <text x="38" y="196" fill="#5eead4" font-size="10.5">thousands of serial sections &#8594;</text>
+    <g>
+      <rect x="70" y="206" width="180" height="16" rx="2" fill="#132132" stroke="#334155"/>
+      <rect x="66" y="224" width="180" height="16" rx="2" fill="#152538" stroke="#334155"/>
+      <rect x="62" y="242" width="180" height="16" rx="2" fill="#172a3f" stroke="#334155"/>
+      <rect x="58" y="260" width="180" height="16" rx="2" fill="#1a2f47" stroke="#334155"/>
+      <rect x="54" y="278" width="180" height="16" rx="2" fill="#1d3450" stroke="#334155"/>
+    </g>
+
+    <!-- anisotropic voxel callout -->
+    <rect x="54" y="322" width="208" height="88" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="66" y="342" fill="#e2e8f0" font-size="11" font-weight="700">anisotropic voxel</text>
+    <rect x="66" y="352" width="46" height="46" fill="none" stroke="#5eead4" stroke-width="1.5"/>
+    <line x1="66" y1="364" x2="112" y2="364" stroke="#5eead4" stroke-width="0.6" opacity="0.6"/>
+    <line x1="66" y1="376" x2="112" y2="376" stroke="#5eead4" stroke-width="0.6" opacity="0.6"/>
+    <line x1="66" y1="388" x2="112" y2="388" stroke="#5eead4" stroke-width="0.6" opacity="0.6"/>
+    <text x="122" y="368" fill="#cbd5e1" font-size="10">~4&#8211;8 nm in-plane (x,y)</text>
+    <text x="122" y="386" fill="#fbbf24" font-size="10">~30&#8211;50 nm in z (&#8776;10&#215;)</text>
+
+    <text x="38" y="440" fill="#94a3b8" font-size="10">a cubic millimetre &#8776; a petabyte;</text>
+    <text x="38" y="456" fill="#94a3b8" font-size="10">a whole mouse brain &#8776; an exabyte.</text>
+    <text x="38" y="482" fill="#64748b" font-size="9.5">high SNR &#8212; the problem is scale &amp;</text>
+    <text x="38" y="496" fill="#64748b" font-size="9.5">a topological error model, not weak signal.</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M320 280 l24 0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ Panel 2: dense section, membranes, one neuron flood-filled ============ -->
+  <g>
+    <rect x="352" y="52" width="256" height="462" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="366" y="74" fill="#94a3b8" font-size="11.5">2 &#183; dense neuropil &#8212; membrane is the cue</text>
+
+    <!-- gray filled cell interiors separated by dark membranes -->
+    <g>
+      <rect x="366" y="86" width="228" height="240" rx="4" fill="#3b4657"/>
+      <!-- membrane mesh: every voxel belongs to a cell, all touching -->
+      <g stroke="#05070c" stroke-width="2.4" fill="#4b5566">
+        <path d="M366 140 q60 -20 120 6 q60 26 108 -4" fill="none"/>
+        <path d="M366 196 q54 24 118 2 q64 -22 110 10" fill="none"/>
+        <path d="M366 252 q66 -18 120 8 q56 24 108 -6" fill="none"/>
+        <path d="M420 86 q-14 70 8 130 q22 60 -6 110" fill="none"/>
+        <path d="M498 86 q16 66 -6 128 q-20 62 10 112" fill="none"/>
+        <path d="M552 86 q-10 74 6 132 q16 58 -8 108" fill="none"/>
+      </g>
+      <!-- organelles: mitochondria (darker blobs) -->
+      <g fill="#0b1220" stroke="#1e3a5f" stroke-width="1">
+        <ellipse cx="404" cy="120" rx="12" ry="7"/>
+        <ellipse cx="470" cy="230" rx="13" ry="8"/>
+        <ellipse cx="540" cy="160" rx="11" ry="7"/>
+      </g>
+      <!-- one neuron flood-filled in colour -->
+      <path d="M366 168 q40 -8 70 4 q30 12 40 40 q8 34 -18 60 q-30 26 -20 54 l-72 0 z" fill="#f59e0b" opacity="0.55" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="372" y="300" fill="#fde68a" font-size="10" font-weight="700">one neurite, flood-filled</text>
+    </g>
+    <text x="366" y="344" fill="#cbd5e1" font-size="10">100% foreground: no background class,</text>
+    <text x="366" y="358" fill="#cbd5e1" font-size="10">neighbouring membranes ~1 px apart.</text>
+
+    <!-- synapse callout -->
+    <rect x="366" y="372" width="228" height="126" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="378" y="392" fill="#e2e8f0" font-size="11" font-weight="700">synapse = a directed edge</text>
+    <!-- pre -> post -->
+    <circle cx="404" cy="430" r="18" fill="#334155" stroke="#a78bfa" stroke-width="2"/>
+    <text x="396" y="434" fill="#ddd6fe" font-size="10">pre</text>
+    <!-- vesicle cloud -->
+    <g fill="#a78bfa"><circle cx="398" cy="424" r="1.6"/><circle cx="404" cy="422" r="1.6"/><circle cx="410" cy="426" r="1.6"/><circle cx="402" cy="430" r="1.6"/><circle cx="408" cy="432" r="1.6"/></g>
+    <path d="M424 430 l70 0" stroke="#a78bfa" stroke-width="2.2" marker-end="url(#arv)"/>
+    <rect x="498" y="414" width="60" height="34" rx="6" fill="#334155" stroke="#5eead4" stroke-width="2"/>
+    <text x="512" y="435" fill="#a7f3d0" font-size="10">post</text>
+    <text x="378" y="470" fill="#94a3b8" font-size="9.5">detect the cleft, then assign the</text>
+    <text x="378" y="484" fill="#94a3b8" font-size="9.5">pre&#8594;post partner pair (Synful-style).</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M612 280 l24 0" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ Panel 3: outputs -> connectome graph ============ -->
+  <g>
+    <rect x="644" y="52" width="292" height="462" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="658" y="74" fill="#94a3b8" font-size="11.5">3 &#183; the output is a graph, not a mask</text>
+
+    <!-- reconstructed neurons -->
+    <text x="658" y="98" fill="#5eead4" font-size="10.5">segmented neurons (nodes)</text>
+    <g>
+      <circle cx="710" cy="150" r="16" fill="#f59e0b" opacity="0.85"/>
+      <circle cx="800" cy="132" r="16" fill="#38bdf8" opacity="0.85"/>
+      <circle cx="880" cy="168" r="16" fill="#34d399" opacity="0.85"/>
+      <circle cx="740" cy="222" r="16" fill="#a78bfa" opacity="0.85"/>
+      <circle cx="838" cy="230" r="16" fill="#f472b6" opacity="0.85"/>
+      <!-- directed synaptic edges -->
+      <g stroke="#cbd5e1" stroke-width="2" fill="none">
+        <path d="M724 145 l62 -8" marker-end="url(#ar2)"/>
+        <path d="M812 145 l56 16" marker-end="url(#ar2)"/>
+        <path d="M718 165 l16 44" marker-end="url(#ar2)"/>
+        <path d="M754 220 l70 6" marker-end="url(#ar2)"/>
+        <path d="M824 218 l48 -40" marker-end="url(#ar2)"/>
+      </g>
+    </g>
+    <text x="658" y="266" fill="#94a3b8" font-size="9.5">edges = synapses, directed &amp; weighted</text>
+
+    <!-- error model -->
+    <rect x="658" y="284" width="264" height="96" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="670" y="304" fill="#e2e8f0" font-size="11" font-weight="700">the metric is topological</text>
+    <text x="670" y="324" fill="#fca5a5" font-size="10">merge: two cells wrongly fused &#8212; costly,</text>
+    <text x="670" y="338" fill="#fca5a5" font-size="10">near-impossible to undo</text>
+    <text x="670" y="356" fill="#a7f3d0" font-size="10">split: one cell fragmented &#8212; cheap to fix</text>
+    <text x="670" y="372" fill="#cbd5e1" font-size="9.5">scored by VOI &amp; Expected Run Length &#8594; bias to splits</text>
+
+    <!-- proofreading -->
+    <rect x="658" y="392" width="264" height="106" rx="6" fill="#132132" stroke="#334155"/>
+    <text x="670" y="412" fill="#e2e8f0" font-size="11" font-weight="700">draft &#8594; proofread &#8594; connectome</text>
+    <text x="670" y="432" fill="#cbd5e1" font-size="10">automated segmentation gives a draft;</text>
+    <text x="670" y="446" fill="#cbd5e1" font-size="10">humans + error-detectors finish the graph</text>
+    <text x="670" y="466" fill="#7dd3fc" font-size="9.5">FlyWire: 139k neurons, ~130M synapses</text>
+    <text x="670" y="480" fill="#7dd3fc" font-size="9.5">MICrONS mm&#179;: ~200k cells, ~523M synapses</text>
+    <text x="670" y="494" fill="#64748b" font-size="9">Nature Methods &#183; Method of the Year 2025</text>
+  </g>
+
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker>
+    <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#cbd5e1"/></marker>
+    <marker id="arv" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#a78bfa"/></marker>
+  </defs>
+</svg>

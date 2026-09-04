@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The deep-learning connectomics pipeline as a chain of dense-vision tasks. Left to right: imaging and alignment turn a stained block into an aligned anisotropic volume (ssTEM, ATUM, SBF-SEM, FIB-SEM, multibeam SEM); dense boundary and affinity prediction with 3-D U-Nets, flood-filling networks, and local shape descriptors; agglomeration of supervoxels into neurons with watershed, mutex watershed and GASP, biased toward splits; synapse detection and pre-to-post partner assignment with Synful on the CREMI benchmark; organelle segmentation of mitochondria and whole cells with MitoEM and the CellMap challenge; and proofreading with Neuroglancer, CAVE and PyChunkedGraph plus automated proofreaders like Autoproof, producing the connectome graph. Underneath runs a generalist and foundation-model band: SegNeuron, microSAM, SAM4EM, and SegCLR embeddings. A bottom strip lists the topological error metrics variation of information and expected run length, and the split-versus-merge asymmetry.">
+  <title>The connectomics dense-vision pipeline: imaging and alignment, boundary/affinity prediction, agglomeration, synapse and organelle classification, proofreading, and the connectome graph, over a generalist foundation-model band</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16" font-weight="800">The connectomics pipeline as a chain of dense-vision tasks</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">each stage is a detection or classification problem with a topological error model &#8212; correctness is graph-level, not per-voxel</text>
+
+  <!-- Stage column geometry: 6 stages -->
+  <!-- Stage 1: Imaging & alignment -->
+  <g>
+    <rect x="24" y="70" width="140" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="34" y="90" fill="#7dd3fc" font-size="11.5" font-weight="700">1 &#183; imaging + align</text>
+    <text x="34" y="112" fill="#e2e8f0" font-size="10">stained block &#8594; volume</text>
+    <text x="34" y="132" fill="#cbd5e1" font-size="9.5">ssTEM / ATUM-SEM</text>
+    <text x="34" y="146" fill="#cbd5e1" font-size="9.5">SBF-SEM / FIB-SEM</text>
+    <text x="34" y="160" fill="#cbd5e1" font-size="9.5">multibeam SEM (61/91)</text>
+    <text x="34" y="180" fill="#fbbf24" font-size="9.5">anisotropic (~10&#215; z)</text>
+    <text x="34" y="196" fill="#94a3b8" font-size="9">elastic section alignment</text>
+    <text x="34" y="210" fill="#94a3b8" font-size="9">= its own vision task</text>
+  </g>
+  <!-- Stage 2: Boundary/affinity -->
+  <g>
+    <rect x="180" y="70" width="140" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="190" y="90" fill="#5eead4" font-size="11.5" font-weight="700">2 &#183; boundary detect</text>
+    <text x="190" y="112" fill="#e2e8f0" font-size="10">membrane is the cue</text>
+    <text x="190" y="132" fill="#cbd5e1" font-size="9.5">3-D U-Net affinities</text>
+    <text x="190" y="146" fill="#cbd5e1" font-size="9.5">Flood-Filling Networks</text>
+    <text x="190" y="160" fill="#cbd5e1" font-size="9.5">+ Local Shape Descriptors</text>
+    <text x="190" y="178" fill="#a7f3d0" font-size="9">LSD &#8776; FFN accuracy,</text>
+    <text x="190" y="190" fill="#a7f3d0" font-size="9">~100&#215; cheaper</text>
+    <text x="190" y="210" fill="#94a3b8" font-size="9">MALIS / mutex-watershed loss</text>
+  </g>
+  <!-- Stage 3: Agglomeration -->
+  <g>
+    <rect x="336" y="70" width="140" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="346" y="90" fill="#fbbf24" font-size="11.5" font-weight="700">3 &#183; agglomerate</text>
+    <text x="346" y="112" fill="#e2e8f0" font-size="10">supervoxels &#8594; neurons</text>
+    <text x="346" y="132" fill="#cbd5e1" font-size="9.5">watershed fragments</text>
+    <text x="346" y="146" fill="#cbd5e1" font-size="9.5">GASP (signed graphs)</text>
+    <text x="346" y="160" fill="#cbd5e1" font-size="9.5">learned edge classifier</text>
+    <text x="346" y="180" fill="#fca5a5" font-size="9.5">operating point biased</text>
+    <text x="346" y="192" fill="#fca5a5" font-size="9.5">toward splits</text>
+    <text x="346" y="212" fill="#94a3b8" font-size="9">block-wise, overlap-consistent</text>
+  </g>
+  <!-- Stage 4: Synapses -->
+  <g>
+    <rect x="492" y="70" width="140" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="502" y="90" fill="#a78bfa" font-size="11.5" font-weight="700">4 &#183; synapses</text>
+    <text x="502" y="112" fill="#e2e8f0" font-size="10">the graph's edges</text>
+    <text x="502" y="132" fill="#cbd5e1" font-size="9.5">cleft segmentation</text>
+    <text x="502" y="146" fill="#cbd5e1" font-size="9.5">pre&#8594;post assignment</text>
+    <text x="502" y="160" fill="#cbd5e1" font-size="9.5">Synful vector field</text>
+    <text x="502" y="180" fill="#ddd6fe" font-size="9.5">benchmark: CREMI</text>
+    <text x="502" y="200" fill="#94a3b8" font-size="9">directed, weighted</text>
+    <text x="502" y="212" fill="#94a3b8" font-size="9">adjacency matrix</text>
+  </g>
+  <!-- Stage 5: Organelles -->
+  <g>
+    <rect x="648" y="70" width="140" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="658" y="90" fill="#f472b6" font-size="11.5" font-weight="700">5 &#183; organelles</text>
+    <text x="658" y="112" fill="#e2e8f0" font-size="10">semantic classification</text>
+    <text x="658" y="132" fill="#cbd5e1" font-size="9.5">mitochondria (MitoEM,</text>
+    <text x="658" y="146" fill="#cbd5e1" font-size="9.5">MitoEM 2.0 multiscale)</text>
+    <text x="658" y="160" fill="#cbd5e1" font-size="9.5">whole-cell (COSEM)</text>
+    <text x="658" y="180" fill="#f9a8d4" font-size="9.5">CellMap: 40+ classes,</text>
+    <text x="658" y="192" fill="#f9a8d4" font-size="9.5">289 eFIB-SEM volumes</text>
+    <text x="658" y="212" fill="#94a3b8" font-size="9">features for cell typing</text>
+  </g>
+  <!-- Stage 6: Proofread + graph -->
+  <g>
+    <rect x="804" y="70" width="132" height="150" rx="8" fill="#0f2233" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="814" y="90" fill="#38bdf8" font-size="11.5" font-weight="700">6 &#183; proofread</text>
+    <text x="814" y="112" fill="#e2e8f0" font-size="10">draft &#8594; connectome</text>
+    <text x="814" y="132" fill="#cbd5e1" font-size="9.5">Neuroglancer</text>
+    <text x="814" y="146" fill="#cbd5e1" font-size="9.5">CAVE / PyChunkedGraph</text>
+    <text x="814" y="160" fill="#cbd5e1" font-size="9.5">Autoproof (auto-fix)</text>
+    <text x="814" y="180" fill="#7dd3fc" font-size="9.5">error-detectors flag</text>
+    <text x="814" y="192" fill="#7dd3fc" font-size="9.5">the ~1% to check</text>
+    <text x="814" y="212" fill="#a7f3d0" font-size="9.5" font-weight="700">&#8594; connectome graph</text>
+  </g>
+
+  <!-- flow arrows between stages -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M164 145 l16 0" marker-end="url(#arF)"/>
+    <path d="M320 145 l16 0" marker-end="url(#arF)"/>
+    <path d="M476 145 l16 0" marker-end="url(#arF)"/>
+    <path d="M632 145 l16 0" marker-end="url(#arF)"/>
+    <path d="M788 145 l16 0" marker-end="url(#arF)"/>
+  </g>
+
+  <!-- Foundation-model band -->
+  <g>
+    <rect x="24" y="248" width="912" height="86" rx="8" fill="#12233a" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="40" y="272" fill="#7dd3fc" font-size="12.5" font-weight="800">Generalist &amp; foundation-model band &#8212; pretrain once, transfer across species / stain / microscope</text>
+    <g font-size="10.5">
+      <rect x="40" y="286" width="150" height="34" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="52" y="300" fill="#e2e8f0">SegNeuron (MICCAI'24)</text>
+      <text x="52" y="314" fill="#94a3b8" font-size="9">generalist neuron instance, EMNeuron 22B vox</text>
+
+      <rect x="204" y="286" width="150" height="34" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="216" y="300" fill="#e2e8f0">&#956;SAM (Nat. Meth.'24)</text>
+      <text x="216" y="314" fill="#94a3b8" font-size="9">promptable, light + electron microscopy</text>
+
+      <rect x="368" y="286" width="150" height="34" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="380" y="300" fill="#e2e8f0">SAM4EM (2025)</text>
+      <text x="380" y="314" fill="#94a3b8" font-size="9">prompt-free SAM-2 adapter, 3-D stacks</text>
+
+      <rect x="532" y="286" width="164" height="34" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="544" y="300" fill="#e2e8f0">SegCLR embeddings</text>
+      <text x="544" y="314" fill="#94a3b8" font-size="9">self-supervised &#8594; cell-type classification</text>
+
+      <rect x="710" y="286" width="212" height="34" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="722" y="300" fill="#e2e8f0">"VFMs foundational for EM?" (2026)</text>
+      <text x="722" y="314" fill="#94a3b8" font-size="9">how far does generic pretraining transfer?</text>
+    </g>
+  </g>
+
+  <!-- Error-model strip -->
+  <g>
+    <rect x="24" y="346" width="912" height="122" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="40" y="370" fill="#e2e8f0" font-size="12.5" font-weight="800">Why the whole stack is shaped this way: the error model is topological</text>
+
+    <rect x="40" y="382" width="280" height="72" rx="6" fill="#132132" stroke="#334155"/>
+    <text x="52" y="402" fill="#a7f3d0" font-size="10.5" font-weight="700">split &#8212; one cell fragmented</text>
+    <text x="52" y="420" fill="#cbd5e1" font-size="10">cheap to fix (just re-join in proofreading)</text>
+    <text x="52" y="440" fill="#94a3b8" font-size="9.5">&#8594; segment conservatively, over-split on purpose</text>
+
+    <rect x="336" y="382" width="280" height="72" rx="6" fill="#132132" stroke="#334155"/>
+    <text x="348" y="402" fill="#fca5a5" font-size="10.5" font-weight="700">merge &#8212; two cells wrongly fused</text>
+    <text x="348" y="420" fill="#cbd5e1" font-size="10">costly, often impossible to find &amp; undo</text>
+    <text x="348" y="440" fill="#94a3b8" font-size="9.5">&#8594; the failure the entire pipeline is tuned to avoid</text>
+
+    <rect x="632" y="382" width="284" height="72" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="644" y="402" fill="#5eead4" font-size="10.5" font-weight="700">metrics speak topology</text>
+    <text x="644" y="420" fill="#cbd5e1" font-size="10">VOI (split/merge), Rand, Expected Run Length</text>
+    <text x="644" y="440" fill="#94a3b8" font-size="9.5">objective: cheapest drafts to correct, not max IoU</text>
+  </g>
+
+  <text x="24" y="492" fill="#334155" font-size="11" font-weight="700">Landmarks the stack produced:</text>
+  <text x="24" y="510" fill="#475569" font-size="10.5">FlyWire &#8212; adult fly whole brain (139k neurons, ~130M synapses, Nature 2024) &#183; MICrONS &#8212; mouse cortex mm&#179; (~200k cells, ~523M synapses, Nature 2025)</text>
+  <text x="24" y="528" fill="#475569" font-size="10.5">H01 &#8212; petavoxel human cortex fragment (Science 2024) &#183; BANC &#8212; fly brain + nerve cord (2025) &#183; EM connectomics = Nature Methods Method of the Year 2025</text>
+  <text x="24" y="548" fill="#94a3b8" font-size="9.5">Original standalone SVG &#183; no external URLs &#183; authored to read in light and dark viewers.</text>
+
+  <defs>
+    <marker id="arF" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker>
+  </defs>
+</svg>
