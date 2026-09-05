@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The deep-learning stack for histopathology whole-slide images, drawn as four bands. The bottom band is dense cell-level detection: nucleus segmentation and classification (HoVer-Net, HoVer-NeXt, CellViT, CellViT++, NuLite, PathoSAM, PanopMamba) and mitosis detection under domain shift (the MIDOG 2025 challenge). The next band up is tile or patch foundation models pretrained by self-supervision on millions of tiles: UNI and UNI2, Virchow and Virchow2, Prov-GigaPath, H-optimus, and the vision-language CONCH. Above that is slide-level aggregation: multiple-instance learning heads (ABMIL, TransMIL, DTFD, TDA-MIL) and whole-slide foundation models (Prov-GigaPath's LongNet slide encoder, PRISM, CHIEF, TITAN). The top band is language and agents: vision-language models (CONCH, MUSK, PathChat, PathGen), report generation, and multi-agent slide-reasoning systems (PathFinder, SlideSeek, PathAgent). A vertical clinical bar on the right marks regulatory-cleared products (Paige Prostate Detect, Paige PanCancer Detect, ArteraAI Prostate) and the domain-shift and weak-supervision problems that gate deployment.">
+  <title>The histopathology WSI stack: dense cell detection, tile foundation models, slide-level MIL and slide foundation models, and language/agents — over a clinical deployment bar</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16" font-weight="800">The whole-slide-image deep-learning stack &#8212; four bands from the nucleus to the report, gated by the clinic</text>
+
+  <!-- clinical bar (right) -->
+  <g>
+    <rect x="742" y="52" width="194" height="462" rx="8" fill="#10241c" stroke="#14532d" stroke-width="2"/>
+    <text x="756" y="74" fill="#34d399" font-size="12" font-weight="800">Clinical gate</text>
+    <text x="756" y="98" fill="#86efac" font-size="10.5" font-weight="700">regulatory-cleared</text>
+    <text x="756" y="116" fill="#d1fae5" font-size="10">&#8226; Paige Prostate Detect</text>
+    <text x="766" y="130" fill="#6ee7b7" font-size="9">FDA 2021 (first in path.)</text>
+    <text x="756" y="150" fill="#d1fae5" font-size="10">&#8226; Paige PanCancer Detect</text>
+    <text x="766" y="164" fill="#6ee7b7" font-size="9">FDA Apr 2025</text>
+    <text x="756" y="184" fill="#d1fae5" font-size="10">&#8226; ArteraAI Prostate</text>
+    <text x="766" y="198" fill="#6ee7b7" font-size="9">de novo, Aug 2025 (prognosis)</text>
+
+    <line x1="756" y1="214" x2="922" y2="214" stroke="#14532d" stroke-width="1"/>
+    <text x="756" y="234" fill="#fca5a5" font-size="10.5" font-weight="700">what gates deployment</text>
+    <text x="756" y="254" fill="#fecaca" font-size="9.5">&#8226; scanner / stain domain shift</text>
+    <text x="756" y="270" fill="#fecaca" font-size="9.5">&#8226; weak (slide-only) labels</text>
+    <text x="756" y="286" fill="#fecaca" font-size="9.5">&#8226; rare-event recall (a missed</text>
+    <text x="766" y="300" fill="#fca5a5" font-size="9.5">micro-metastasis)</text>
+    <text x="756" y="316" fill="#fecaca" font-size="9.5">&#8226; gigapixel compute + storage</text>
+    <text x="756" y="332" fill="#fecaca" font-size="9.5">&#8226; explainability &amp; audit</text>
+
+    <line x1="756" y1="348" x2="922" y2="348" stroke="#14532d" stroke-width="1"/>
+    <text x="756" y="368" fill="#93c5fd" font-size="10.5" font-weight="700">public benchmarks</text>
+    <text x="756" y="386" fill="#bfdbfe" font-size="9.5">CAMELYON16/17 &#183; TCGA</text>
+    <text x="756" y="401" fill="#bfdbfe" font-size="9.5">PanNuke &#183; MoNuSeg &#183; Lizard</text>
+    <text x="756" y="416" fill="#bfdbfe" font-size="9.5">MIDOG &#183; PAIP &#183; TIGER</text>
+    <text x="756" y="431" fill="#bfdbfe" font-size="9.5">PANDA (prostate grading)</text>
+    <text x="756" y="446" fill="#bfdbfe" font-size="9.5">HEST-1k &#183; Patho-Bench</text>
+    <line x1="756" y1="462" x2="922" y2="462" stroke="#14532d" stroke-width="1"/>
+    <text x="756" y="482" fill="#94a3b8" font-size="9">the label is a molecular / IHC</text>
+    <text x="756" y="495" fill="#94a3b8" font-size="9">assay or an outcome, not a box</text>
+  </g>
+
+  <!-- Band 1 (bottom): dense cell detection -->
+  <g>
+    <rect x="24" y="422" width="700" height="92" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="444" fill="#f0abfc" font-size="12.5" font-weight="800">1 &#183; Dense cell-level detection &#8212; the nucleus / mitosis as the object</text>
+    <g font-size="10.5">
+      <rect x="38" y="454" width="150" height="22" rx="5" fill="#3b1d5f"/><text x="46" y="469" fill="#f5d0fe">HoVer-Net &#183; HoVer-NeXt</text>
+      <rect x="196" y="454" width="150" height="22" rx="5" fill="#3b1d5f"/><text x="204" y="469" fill="#f5d0fe">CellViT &#183; CellViT++</text>
+      <rect x="354" y="454" width="120" height="22" rx="5" fill="#3b1d5f"/><text x="362" y="469" fill="#f5d0fe">NuLite &#183; PathoSAM</text>
+      <rect x="482" y="454" width="120" height="22" rx="5" fill="#3b1d5f"/><text x="490" y="469" fill="#f5d0fe">PanopMamba</text>
+      <rect x="610" y="454" width="104" height="22" rx="5" fill="#7c2d3a"/><text x="618" y="469" fill="#fecdd3">MIDOG 2025</text>
+    </g>
+    <text x="38" y="497" fill="#94a3b8" font-size="9.5">segment + classify every nucleus (PanNuke: ~200k nuclei, 5 classes, 19 tissues) &#183; count &amp; grade mitoses across species and scanners</text>
+  </g>
+
+  <!-- Band 2: tile foundation models -->
+  <g>
+    <rect x="24" y="316" width="700" height="92" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="338" fill="#7dd3fc" font-size="12.5" font-weight="800">2 &#183; Tile foundation models &#8212; self-supervised on millions of 256&#215;256 tiles</text>
+    <g font-size="10.5">
+      <rect x="38" y="348" width="118" height="22" rx="5" fill="#0f3a52"/><text x="46" y="363" fill="#bae6fd">UNI &#183; UNI2</text>
+      <rect x="164" y="348" width="150" height="22" rx="5" fill="#0f3a52"/><text x="172" y="363" fill="#bae6fd">Virchow &#183; Virchow2</text>
+      <rect x="322" y="348" width="132" height="22" rx="5" fill="#0f3a52"/><text x="330" y="363" fill="#bae6fd">Prov-GigaPath</text>
+      <rect x="462" y="348" width="118" height="22" rx="5" fill="#0f3a52"/><text x="470" y="363" fill="#bae6fd">H-optimus</text>
+      <rect x="588" y="348" width="126" height="22" rx="5" fill="#134e4a"/><text x="596" y="363" fill="#99f6e4">CONCH (VL)</text>
+    </g>
+    <text x="38" y="391" fill="#94a3b8" font-size="9.5">DINOv2 / iBOT / MAE pretraining &#8594; a frozen embedding per tile &#183; external benchmark leaders: Virchow2 &#8776; 0.82, UNI2 &#8776; 0.79, GigaPath &#8776; 0.79</text>
+  </g>
+
+  <!-- Band 3: slide aggregation -->
+  <g>
+    <rect x="24" y="210" width="700" height="92" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="232" fill="#fbbf24" font-size="12.5" font-weight="800">3 &#183; Slide-level aggregation &#8212; pool tens of thousands of tiles into one vector</text>
+    <g font-size="10.5">
+      <rect x="38" y="242" width="210" height="22" rx="5" fill="#5b3d0a"/><text x="46" y="257" fill="#fde68a">MIL heads: ABMIL &#183; TransMIL &#183; DTFD</text>
+      <rect x="256" y="242" width="120" height="22" rx="5" fill="#5b3d0a"/><text x="264" y="257" fill="#fde68a">TDA-MIL (2025)</text>
+      <rect x="384" y="242" width="330" height="22" rx="5" fill="#7c5a12"/><text x="392" y="257" fill="#fef3c7">Slide FMs: GigaPath-LongNet &#183; PRISM &#183; CHIEF &#183; TITAN</text>
+    </g>
+    <text x="38" y="285" fill="#94a3b8" font-size="9.5">weak supervision: one label for ~10&#8308; tiles &#183; attention says which tiles matter &#8594; subtype, grade, biomarker (MSI/HER2/TMB), survival</text>
+  </g>
+
+  <!-- Band 4: language & agents -->
+  <g>
+    <rect x="24" y="104" width="700" height="92" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="126" fill="#c4b5fd" font-size="12.5" font-weight="800">4 &#183; Language &amp; agents &#8212; from an embedding to a report and a second read</text>
+    <g font-size="10.5">
+      <rect x="38" y="136" width="230" height="22" rx="5" fill="#3b2f6b"/><text x="46" y="151" fill="#ddd6fe">VLMs: CONCH &#183; MUSK &#183; PathChat &#183; PathGen</text>
+      <rect x="276" y="136" width="150" height="22" rx="5" fill="#3b2f6b"/><text x="284" y="151" fill="#ddd6fe">report generation</text>
+      <rect x="434" y="136" width="280" height="22" rx="5" fill="#4c2f6b"/><text x="442" y="151" fill="#e9d5ff">agents: PathFinder &#183; SlideSeek &#183; PathAgent</text>
+    </g>
+    <text x="38" y="179" fill="#94a3b8" font-size="9.5">instruction-tuned MLLMs answer questions, draft reports, and navigate the pyramid; multi-agent copilots triage &#8594; navigate &#8594; describe &#8594; diagnose</text>
+  </g>
+
+  <!-- up arrows between bands -->
+  <g stroke="#475569" stroke-width="2" fill="none">
+    <path d="M374 422 l0 -12" marker-end="url(#au)"/>
+    <path d="M374 316 l0 -12" marker-end="url(#au)"/>
+    <path d="M374 210 l0 -12" marker-end="url(#au)"/>
+  </g>
+  <text x="386" y="415" fill="#64748b" font-size="9">embeddings feed up</text>
+  <text x="386" y="309" fill="#64748b" font-size="9">tiles &#8594; slide</text>
+  <text x="386" y="203" fill="#64748b" font-size="9">slide &#8594; language</text>
+
+  <defs>
+    <marker id="au" markerWidth="9" markerHeight="9" refX="4" refY="2" orient="auto">
+      <path d="M0 6 L4 0 L8 6 z" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>
