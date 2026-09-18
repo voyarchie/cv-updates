@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A cryo-EM experiment shown as a dense detection-and-classification scene. Many copies of a protein are frozen in random orientations in a thin slab of vitreous ice. The electron beam projects the whole slab onto a detector, giving a single 2-D micrograph in which hundreds of near-identical particles sit in overwhelming noise. Particle picking is the dense detection job: box every true particle while rejecting ice, carbon edges, and aggregates. The picked particles are aligned and averaged into 2-D class averages, sorted from junk, and their unknown orientations are estimated, then back-projected into a single 3-D density map. The tomography variant tilts the stage and reconstructs a 3-D tomogram in which the same picking-and-classification job happens on 3-D subvolumes.">
+  <title>A cryo-EM image is a dense field of near-identical particles, buried in noise, that must be found, sorted by pose, and reconstructed</title>
+  <rect x="0" y="0" width="980" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="22" y="30" fill="#334155" font-size="16" font-weight="800">Random-pose particles in ice &#8594; one very noisy projection &#8594; pick every particle &#8594; sort by pose &#8594; a 3-D map</text>
+
+  <!-- ============ Panel 1: particles in vitreous ice ============ -->
+  <g>
+    <rect x="20" y="48" width="196" height="316" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="34" y="70" fill="#94a3b8" font-size="11">1 &#183; identical copies, random poses</text>
+    <text x="34" y="86" fill="#64748b" font-size="9.5">frozen in a thin slab of vitreous ice</text>
+    <!-- ice slab -->
+    <rect x="40" y="98" width="156" height="230" rx="6" fill="#071018" stroke="#1e3a5f"/>
+    <!-- particles as little rotated glyphs -->
+    <g stroke="#38bdf8" stroke-width="1.6" fill="none" opacity="0.95">
+      <g transform="translate(72,132) rotate(18)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(140,120) rotate(-40)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(96,176) rotate(72)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(160,182) rotate(140)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(64,222) rotate(-15)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(126,236) rotate(100)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(170,272) rotate(50)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+      <g transform="translate(88,288) rotate(-80)"><circle r="9"/><line x1="-9" y1="0" x2="9" y2="0"/></g>
+    </g>
+    <!-- electron beam arrows -->
+    <g stroke="#fbbf24" stroke-width="1.4" opacity="0.9">
+      <line x1="60" y1="102" x2="60" y2="86" marker-end="url(#ah)"/>
+      <line x1="118" y1="102" x2="118" y2="86" marker-end="url(#ah)"/>
+      <line x1="176" y1="102" x2="176" y2="86" marker-end="url(#ah)"/>
+    </g>
+    <text x="34" y="348" fill="#fcd34d" font-size="9.5">low electron dose &#8594; extreme noise</text>
+  </g>
+
+  <!-- arrow 1->2 -->
+  <path d="M220 206 h26" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah2)"/>
+
+  <!-- ============ Panel 2: the noisy micrograph (dense detection scene) ============ -->
+  <g>
+    <rect x="252" y="48" width="212" height="316" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="266" y="70" fill="#94a3b8" font-size="11">2 &#183; one 2-D micrograph &#8212; SNR &#8776; 0.1</text>
+    <!-- noise field -->
+    <rect x="266" y="82" width="184" height="230" rx="6" fill="#050b14" stroke="#1e3a5f"/>
+    <g fill="#1e2b3a">
+      <circle cx="290" cy="110" r="2"/><circle cx="330" cy="98" r="2.4"/><circle cx="378" cy="120" r="2"/><circle cx="420" cy="104" r="2.6"/>
+      <circle cx="300" cy="150" r="2.2"/><circle cx="356" cy="140" r="2"/><circle cx="404" cy="160" r="2.4"/><circle cx="436" cy="146" r="2"/>
+      <circle cx="284" cy="196" r="2.4"/><circle cx="340" cy="188" r="2"/><circle cx="392" cy="204" r="2.6"/><circle cx="430" cy="196" r="2"/>
+      <circle cx="308" cy="238" r="2"/><circle cx="360" cy="246" r="2.4"/><circle cx="410" cy="238" r="2"/><circle cx="438" cy="250" r="2.6"/>
+      <circle cx="292" cy="286" r="2.4"/><circle cx="346" cy="292" r="2"/><circle cx="400" cy="284" r="2.4"/><circle cx="432" cy="294" r="2"/>
+    </g>
+    <!-- faint particles hidden in noise -->
+    <g stroke="#5b7a99" stroke-width="1.4" fill="none" opacity="0.75">
+      <circle cx="312" cy="126" r="9"/><circle cx="392" cy="132" r="9"/>
+      <circle cx="330" cy="212" r="9"/><circle cx="416" cy="228" r="9"/>
+      <circle cx="300" cy="268" r="9"/><circle cx="384" cy="266" r="9"/>
+    </g>
+    <!-- confounders -->
+    <path d="M266 300 q40 -18 80 4 t100 -6" stroke="#f472b6" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <text x="266" y="330" fill="#f9a8d4" font-size="9">ice contamination, carbon edges, aggregates = false positives</text>
+    <text x="266" y="346" fill="#7dd3fc" font-size="9.5">true signal is invisible by eye at single-particle level</text>
+  </g>
+
+  <!-- arrow 2->3 -->
+  <path d="M468 206 h26" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah2)"/>
+
+  <!-- ============ Panel 3: picking (dense detection) ============ -->
+  <g>
+    <rect x="500" y="48" width="212" height="316" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="514" y="70" fill="#34d399" font-size="11" font-weight="700">3 &#183; particle picking = dense detection</text>
+    <rect x="514" y="82" width="184" height="230" rx="6" fill="#050b14" stroke="#1e3a5f"/>
+    <!-- boxes over true particles -->
+    <g stroke="#34d399" stroke-width="2" fill="none">
+      <rect x="548" y="108" width="26" height="26" rx="2"/>
+      <rect x="628" y="114" width="26" height="26" rx="2"/>
+      <rect x="566" y="194" width="26" height="26" rx="2"/>
+      <rect x="652" y="210" width="26" height="26" rx="2"/>
+      <rect x="536" y="250" width="26" height="26" rx="2"/>
+      <rect x="620" y="248" width="26" height="26" rx="2"/>
+    </g>
+    <!-- rejected confounder marked -->
+    <g stroke="#f87171" stroke-width="1.8" fill="none">
+      <rect x="588" y="150" width="24" height="24" rx="2" stroke-dasharray="3 3"/>
+      <line x1="588" y1="150" x2="612" y2="174"/><line x1="612" y1="150" x2="588" y2="174"/>
+    </g>
+    <text x="514" y="330" fill="#6ee7b7" font-size="9.5">box every true particle (recall-critical),</text>
+    <text x="514" y="346" fill="#fca5a5" font-size="9.5">reject junk (precision) &#8594; 10&#8309;&#8211;10&#8310; boxes/dataset</text>
+  </g>
+
+  <!-- arrow 3->4 -->
+  <path d="M716 150 h26" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah2)"/>
+  <path d="M716 262 h26" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah2)"/>
+
+  <!-- ============ Panel 4a: 2D class averages ============ -->
+  <g>
+    <rect x="748" y="48" width="212" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="762" y="70" fill="#a78bfa" font-size="11" font-weight="700">4a &#183; align, sort, classify by pose</text>
+    <g>
+      <rect x="762" y="82" width="34" height="34" rx="3" fill="#1e293b" stroke="#475569"/>
+      <rect x="804" y="82" width="34" height="34" rx="3" fill="#1e293b" stroke="#475569"/>
+      <rect x="846" y="82" width="34" height="34" rx="3" fill="#1e293b" stroke="#475569"/>
+      <rect x="888" y="82" width="34" height="34" rx="3" fill="#3f2540" stroke="#9d5aa8"/>
+      <circle cx="779" cy="99" r="10" fill="none" stroke="#c4b5fd" stroke-width="1.6"/>
+      <ellipse cx="821" cy="99" rx="11" ry="7" fill="none" stroke="#c4b5fd" stroke-width="1.6"/>
+      <ellipse cx="863" cy="99" rx="6" ry="11" fill="none" stroke="#c4b5fd" stroke-width="1.6"/>
+      <path d="M898 110 l14 -20" stroke="#f87171" stroke-width="1.6"/><path d="M912 110 l-14 -20" stroke="#f87171" stroke-width="1.6"/>
+    </g>
+    <text x="762" y="140" fill="#c4b5fd" font-size="9">2-D class averages = clean views by orientation</text>
+    <text x="762" y="156" fill="#fca5a5" font-size="9">pink class = junk / bad particles removed</text>
+    <text x="762" y="176" fill="#94a3b8" font-size="9">heterogeneity &#8594; multiple conformational states</text>
+  </g>
+
+  <!-- ============ Panel 4b: 3D map ============ -->
+  <g>
+    <rect x="748" y="214" width="212" height="150" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="762" y="236" fill="#38bdf8" font-size="11" font-weight="700">4b &#183; back-project &#8594; 3-D density map</text>
+    <g transform="translate(854,300)">
+      <ellipse cx="0" cy="0" rx="46" ry="30" fill="none" stroke="#38bdf8" stroke-width="1.4" opacity="0.5"/>
+      <ellipse cx="0" cy="0" rx="30" ry="46" fill="none" stroke="#38bdf8" stroke-width="1.4" opacity="0.5" transform="rotate(60)"/>
+      <ellipse cx="0" cy="0" rx="30" ry="46" fill="none" stroke="#38bdf8" stroke-width="1.4" opacity="0.5" transform="rotate(120)"/>
+      <circle r="12" fill="#0ea5e9" opacity="0.5"/>
+    </g>
+    <text x="762" y="352" fill="#7dd3fc" font-size="9">resolution set by how well particles were found &amp; posed</text>
+  </g>
+
+  <!-- ============ tomography footnote strip ============ -->
+  <g>
+    <rect x="20" y="378" width="940" height="120" rx="8" fill="#eef2fb" stroke="#cbd5e1"/>
+    <text x="34" y="400" fill="#334155" font-size="12.5" font-weight="800">The tomography variant (cryo-ET): the scene is intrinsically 3-D</text>
+    <text x="34" y="422" fill="#475569" font-size="10.5">Instead of many copies of one purified molecule, tilt the stage &#177;60&#176; and reconstruct a 3-D <tspan font-style="italic">tomogram</tspan> of a whole cell &#8212; a crowded 3-D scene of many <tspan font-style="italic">different</tspan> complexes in place.</text>
+    <text x="34" y="442" fill="#475569" font-size="10.5">Dense detection now happens on 3-D subvolumes: find and label every ribosome, membrane, and complex, despite a <tspan font-weight="700">missing wedge</tspan> of unmeasured directions and even lower SNR.</text>
+    <g font-size="10">
+      <rect x="34" y="456" width="150" height="30" rx="5" fill="#0b1220"/><text x="46" y="475" fill="#7dd3fc">3-D tomogram (cell)</text>
+      <path d="M188 471 h20" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ah2)"/>
+      <rect x="212" y="456" width="168" height="30" rx="5" fill="#0b1220"/><text x="224" y="475" fill="#6ee7b7">3-D picking / segmentation</text>
+      <path d="M384 471 h20" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ah2)"/>
+      <rect x="408" y="456" width="180" height="30" rx="5" fill="#0b1220"/><text x="420" y="475" fill="#c4b5fd">subtomogram averaging &#8594; map</text>
+    </g>
+    <text x="612" y="475" fill="#64748b" font-size="10" font-style="italic">same primitive, one dimension up</text>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#fbbf24"/></marker>
+    <marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker>
+  </defs>
+</svg>
