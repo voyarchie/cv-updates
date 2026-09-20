@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A map of the single-photon dense-vision stack in four layers. The bottom layer is the sensor: passive SPAD and quanta image sensor arrays that emit binary photon frames, and active pulsed systems whose detectors emit per-photon timestamps. The second layer is the data form: a photon cube of binary frames for passive sensing, and per-pixel timing histograms for active sensing, both of which are sparse, Poisson-distributed and enormous in volume. The third layer is the processing family: restoration and reconstruction that turns photons into a conventional image or depth map; model-based and unrolled inference that fits a physical forward model; direct task inference that predicts labels, boxes or depth straight from counts; and sensor-in-the-loop co-design that changes how photons are collected in the first place. The top layer is the dense-vision job: detection and classification in near-darkness, 3D detection on photon-counting LiDAR, imaging and classifying objects hidden around corners, photon-timing biomedical classification, and long-range or space-based target detection. Arrows show that reconstruction-first routes and direct-inference routes both reach the same jobs, but pay different photon and energy costs.">
+  <title>The single-photon dense-vision stack: sensors, photon data forms, processing families, and the detection jobs they serve</title>
+  <rect x="0" y="0" width="980" height="600" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">From photon arrivals to dense decisions: four layers, two routes</text>
+  <text x="24" y="52" fill="#64748b" font-size="11">Representative systems are named as anchors, not as a ranking.</text>
+
+  <!-- ================= Layer 1: sensors ================= -->
+  <g>
+    <rect x="24" y="486" width="932" height="96" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="508" fill="#94a3b8" font-size="11.5" font-weight="700">SENSOR &#183; what the silicon actually reports</text>
+
+    <rect x="40" y="518" width="444" height="52" rx="6" fill="#111a2e" stroke="#475569"/>
+    <text x="54" y="538" fill="#5eead4" font-size="11" font-weight="700">Passive: SPAD array / quanta image sensor</text>
+    <text x="54" y="556" fill="#cbd5e1" font-size="9.8">megapixel arrays, 3D-stacked; kilo- to mega-frame/s binary readout</text>
+
+    <rect x="496" y="518" width="444" height="52" rx="6" fill="#111a2e" stroke="#475569"/>
+    <text x="510" y="538" fill="#c4b5fd" font-size="11" font-weight="700">Active: pulsed laser + time-correlated photon counting</text>
+    <text x="510" y="556" fill="#cbd5e1" font-size="9.8">picosecond timing per photon; dToF modules already ship in phones and cars</text>
+  </g>
+
+  <!-- arrows up -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+      </marker>
+    </defs>
+    <line x1="262" y1="486" x2="262" y2="462"/>
+    <line x1="718" y1="486" x2="718" y2="462"/>
+  </g>
+
+  <!-- ================= Layer 2: data form ================= -->
+  <g>
+    <rect x="24" y="352" width="932" height="110" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="374" fill="#94a3b8" font-size="11.5" font-weight="700">DATA FORM &#183; sparse, Poisson, and far too large to move</text>
+
+    <rect x="40" y="384" width="444" height="66" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="54" y="404" fill="#5eead4" font-size="11" font-weight="700">photon cube: T binary frames &#215; H &#215; W</text>
+    <text x="54" y="421" fill="#cbd5e1" font-size="9.8">each entry Bernoulli; a single frame is unreadable; exposure is</text>
+    <text x="54" y="437" fill="#cbd5e1" font-size="9.8">a variable you set after capture, per pixel and per region</text>
+
+    <rect x="496" y="384" width="444" height="66" rx="6" fill="#2a1f3d" stroke="#5b4b8a"/>
+    <text x="510" y="404" fill="#d8b4fe" font-size="11" font-weight="700">timing histograms: H &#215; W &#215; B bins of arrival times</text>
+    <text x="510" y="421" fill="#cbd5e1" font-size="9.8">peak &#8594; depth; amplitude &#8594; reflectivity; tail &#8594; indirect light</text>
+    <text x="510" y="437" fill="#fca5a5" font-size="9.8">distorted by dead time (pile-up), ambient floor, jitter</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <line x1="262" y1="352" x2="262" y2="328"/>
+    <line x1="718" y1="352" x2="718" y2="328"/>
+  </g>
+
+  <!-- ================= Layer 3: processing families ================= -->
+  <g>
+    <rect x="24" y="168" width="932" height="160" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="190" fill="#94a3b8" font-size="11.5" font-weight="700">PROCESSING &#183; four families, and the route they imply</text>
+
+    <!-- A: restoration -->
+    <rect x="40" y="200" width="216" height="114" rx="6" fill="#111a2e" stroke="#38bdf8"/>
+    <text x="52" y="220" fill="#7dd3fc" font-size="10.5" font-weight="700">A &#183; restore, then detect</text>
+    <text x="52" y="238" fill="#cbd5e1" font-size="9.3">align-and-sum bursts, self-supervised</text>
+    <text x="52" y="252" fill="#cbd5e1" font-size="9.3">photon prediction, video restoration,</text>
+    <text x="52" y="266" fill="#cbd5e1" font-size="9.3">generative priors on sparse detections</text>
+    <text x="52" y="286" fill="#94a3b8" font-size="9">Quanta Burst &#183; bit2bit &#183; QUIVER &#183; gQIR</text>
+    <text x="52" y="304" fill="#fbbf24" font-size="9">pays full photon cost of a picture</text>
+
+    <!-- B: model-based -->
+    <rect x="266" y="200" width="216" height="114" rx="6" fill="#111a2e" stroke="#818cf8"/>
+    <text x="278" y="220" fill="#a5b4fc" font-size="10.5" font-weight="700">B &#183; model-based / unrolled</text>
+    <text x="278" y="238" fill="#cbd5e1" font-size="9.3">the Poisson forward model is known,</text>
+    <text x="278" y="252" fill="#cbd5e1" font-size="9.3">so unroll it: Bayesian unrolling,</text>
+    <text x="278" y="266" fill="#cbd5e1" font-size="9.3">pile-up correction, joint depth+albedo</text>
+    <text x="278" y="286" fill="#94a3b8" font-size="9">deep unrolling &#183; transient NeRF/SDF fits</text>
+    <text x="278" y="304" fill="#4ade80" font-size="9">few photons, but needs calibration</text>
+
+    <!-- C: direct inference -->
+    <rect x="498" y="200" width="216" height="114" rx="6" fill="#111a2e" stroke="#2dd4bf"/>
+    <text x="510" y="220" fill="#5eead4" font-size="10.5" font-weight="700">C &#183; infer directly on photons</text>
+    <text x="510" y="238" fill="#cbd5e1" font-size="9.3">boxes, labels and semantics straight</text>
+    <text x="510" y="252" fill="#cbd5e1" font-size="9.3">from counts/timestamps; distillation</text>
+    <text x="510" y="266" fill="#cbd5e1" font-size="9.3">from bright-light teachers; probabilistic</text>
+    <text x="510" y="280" fill="#cbd5e1" font-size="9.3">point clouds that keep the uncertainty</text>
+    <text x="510" y="304" fill="#4ade80" font-size="9">skips photons a picture needs, a decision doesn&#8217;t</text>
+
+    <!-- D: co-design -->
+    <rect x="724" y="200" width="216" height="114" rx="6" fill="#111a2e" stroke="#fbbf24"/>
+    <text x="736" y="220" fill="#fcd34d" font-size="10.5" font-weight="700">D &#183; change the capture itself</text>
+    <text x="736" y="238" fill="#cbd5e1" font-size="9.3">photon inhibition / attention at the</text>
+    <text x="736" y="252" fill="#cbd5e1" font-size="9.3">pixel, adaptive gating and photon</text>
+    <text x="736" y="266" fill="#cbd5e1" font-size="9.3">budgets, on-sensor reduction, online</text>
+    <text x="736" y="280" fill="#cbd5e1" font-size="9.3">streaming instead of buffered cubes</text>
+    <text x="736" y="304" fill="#4ade80" font-size="9">attacks the real bottleneck: bandwidth &amp; energy</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+    <line x1="148" y1="168" x2="148" y2="146"/>
+    <line x1="374" y1="168" x2="374" y2="146"/>
+    <line x1="606" y1="168" x2="606" y2="146"/>
+    <line x1="832" y1="168" x2="832" y2="146"/>
+  </g>
+
+  <!-- ================= Layer 4: jobs ================= -->
+  <g>
+    <rect x="24" y="66" width="932" height="80" rx="8" fill="#0f2233" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="38" y="88" fill="#94a3b8" font-size="11.5" font-weight="700">THE DENSE-VISION JOB</text>
+
+    <rect x="40" y="96" width="176" height="42" rx="6" fill="#15304a" stroke="#38bdf8"/>
+    <text x="52" y="114" fill="#e2e8f0" font-size="10" font-weight="700">detect &amp; classify</text>
+    <text x="52" y="130" fill="#cbd5e1" font-size="9.3">at &lt;1 photon per pixel</text>
+
+    <rect x="226" y="96" width="176" height="42" rx="6" fill="#15304a" stroke="#818cf8"/>
+    <text x="238" y="114" fill="#e2e8f0" font-size="10" font-weight="700">3D detection</text>
+    <text x="238" y="130" fill="#cbd5e1" font-size="9.3">on photon-counting LiDAR</text>
+
+    <rect x="412" y="96" width="176" height="42" rx="6" fill="#15304a" stroke="#c084fc"/>
+    <text x="424" y="114" fill="#e2e8f0" font-size="10" font-weight="700">see around corners</text>
+    <text x="424" y="130" fill="#cbd5e1" font-size="9.3">NLOS detect / track / classify</text>
+
+    <rect x="598" y="96" width="176" height="42" rx="6" fill="#15304a" stroke="#2dd4bf"/>
+    <text x="610" y="114" fill="#e2e8f0" font-size="10" font-weight="700">photon-timing biology</text>
+    <text x="610" y="130" fill="#cbd5e1" font-size="9.3">lifetime as the class label</text>
+
+    <rect x="784" y="96" width="156" height="42" rx="6" fill="#15304a" stroke="#fbbf24"/>
+    <text x="796" y="114" fill="#e2e8f0" font-size="10" font-weight="700">long range / space</text>
+    <text x="796" y="130" fill="#cbd5e1" font-size="9.3">km-scale, through scatter</text>
+  </g>
+</svg>

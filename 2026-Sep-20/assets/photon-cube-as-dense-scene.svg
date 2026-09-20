@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A comparison of a conventional integrating camera and a single-photon sensor as dense-vision surfaces. On the left, a CMOS pixel integrates many photons over one exposure and reports a single analog intensity, with read noise added at the end; motion during the exposure becomes blur and bright regions saturate. In the middle, a SPAD or quanta image sensor reports individual photon arrivals: the same exposure becomes a stack of thousands of binary frames, a photon cube, in which each pixel is a Bernoulli sample and any single frame looks like pure noise. Summing frames trades temporal resolution for signal, and the choice of how to sum is a per-pixel decision. On the right, in active mode each photon also carries a picosecond timestamp relative to a laser pulse, so a pixel accumulates a timing histogram whose peak gives depth and whose late tail carries light that bounced around a corner. The dense detection problem is to find and classify objects on this surface, either by reconstructing an image first or by running inference directly on photon counts and timestamps.">
+  <title>A photon cube is not an image: binary photon frames and per-photon timestamps as the dense-vision surface</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">One exposure, three surfaces: an integrated intensity &#8594; a stack of binary photon frames &#8594; per-photon timestamps</text>
+
+  <!-- ================= Panel 1: conventional integrating pixel ================= -->
+  <g>
+    <rect x="24" y="52" width="292" height="480" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; conventional CMOS: integrate, then read</text>
+
+    <!-- incoming photons -->
+    <g fill="#fbbf24">
+      <circle cx="60" cy="96" r="2.6"/><circle cx="92" cy="104" r="2.6"/><circle cx="126" cy="92" r="2.6"/>
+      <circle cx="158" cy="108" r="2.6"/><circle cx="192" cy="94" r="2.6"/><circle cx="226" cy="106" r="2.6"/>
+      <circle cx="258" cy="96" r="2.6"/><circle cx="286" cy="108" r="2.6"/>
+      <circle cx="76" cy="120" r="2.6"/><circle cx="142" cy="122" r="2.6"/><circle cx="210" cy="120" r="2.6"/>
+    </g>
+    <text x="38" y="142" fill="#fcd34d" font-size="10">photons arrive at random times (Poisson)</text>
+
+    <!-- the well -->
+    <rect x="70" y="158" width="200" height="86" rx="6" fill="#111a2e" stroke="#475569"/>
+    <rect x="70" y="200" width="200" height="44" rx="0" fill="#1d4ed8" opacity="0.45"/>
+    <text x="84" y="180" fill="#cbd5e1" font-size="10.5">charge well: photons are summed</text>
+    <text x="84" y="228" fill="#93c5fd" font-size="10">analog charge &#8594; one number per pixel</text>
+
+    <!-- read noise stamp -->
+    <rect x="70" y="258" width="200" height="28" rx="5" fill="#3f1d2e" stroke="#9f1239"/>
+    <text x="84" y="277" fill="#fda4af" font-size="10">+ read noise, added once at readout</text>
+
+    <!-- resulting image: blurred + saturated -->
+    <rect x="70" y="300" width="200" height="120" rx="6" fill="#0f172a" stroke="#334155"/>
+    <g opacity="0.85">
+      <rect x="86" y="318" width="60" height="44" rx="4" fill="#e2e8f0" opacity="0.25"/>
+      <rect x="94" y="322" width="60" height="44" rx="4" fill="#e2e8f0" opacity="0.25"/>
+      <rect x="102" y="326" width="60" height="44" rx="4" fill="#e2e8f0" opacity="0.25"/>
+      <text x="86" y="390" fill="#94a3b8" font-size="9.5">motion during exposure &#8594; blur</text>
+      <rect x="196" y="316" width="56" height="56" rx="28" fill="#fef3c7"/>
+      <text x="178" y="390" fill="#94a3b8" font-size="9.5">bright region &#8594; clipped</text>
+    </g>
+
+    <text x="38" y="448" fill="#f87171" font-size="10.5" font-weight="700">the exposure decision is made before you see the data</text>
+    <text x="38" y="466" fill="#94a3b8" font-size="10">SNR, motion blur and dynamic range are all</text>
+    <text x="38" y="482" fill="#94a3b8" font-size="10">baked in by the time a detector sees the frame</text>
+    <text x="38" y="508" fill="#64748b" font-size="9.5">a detector inherits one fixed trade-off</text>
+  </g>
+
+  <!-- ================= Panel 2: photon cube ================= -->
+  <g>
+    <rect x="332" y="52" width="292" height="480" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="346" y="74" fill="#94a3b8" font-size="11.5">2 &#183; passive single-photon: a cube of binary frames</text>
+
+    <!-- stacked binary frames -->
+    <g>
+      <rect x="360" y="92" width="150" height="104" rx="4" fill="#0f172a" stroke="#334155"/>
+      <rect x="374" y="104" width="150" height="104" rx="4" fill="#0f172a" stroke="#334155"/>
+      <rect x="388" y="116" width="150" height="104" rx="4" fill="#111a2e" stroke="#475569"/>
+      <!-- sparse ones in the front frame -->
+      <g fill="#5eead4">
+        <rect x="400" y="128" width="4" height="4"/><rect x="430" y="140" width="4" height="4"/>
+        <rect x="468" y="126" width="4" height="4"/><rect x="510" y="150" width="4" height="4"/>
+        <rect x="414" y="166" width="4" height="4"/><rect x="452" y="182" width="4" height="4"/>
+        <rect x="492" y="172" width="4" height="4"/><rect x="524" y="132" width="4" height="4"/>
+        <rect x="440" y="204" width="4" height="4"/><rect x="480" y="196" width="4" height="4"/>
+      </g>
+      <text x="552" y="150" fill="#64748b" font-size="9.5" transform="rotate(90 552 150)">time &#8594;</text>
+    </g>
+    <text x="346" y="240" fill="#cbd5e1" font-size="10.5">each pixel per frame is a coin flip:</text>
+    <text x="346" y="256" fill="#5eead4" font-size="10.5" font-weight="700">1 = a photon was detected, 0 = nothing</text>
+    <text x="346" y="272" fill="#64748b" font-size="9.5">P(1) = 1 &#8722; exp(&#8722;&#966;&#964;) &#8212; Bernoulli, not Gaussian</text>
+
+    <!-- one frame is noise -->
+    <rect x="348" y="288" width="128" height="80" rx="5" fill="#0f172a" stroke="#334155"/>
+    <text x="358" y="306" fill="#94a3b8" font-size="9.5">1 frame</text>
+    <g fill="#334155">
+      <rect x="360" y="316" width="3" height="3"/><rect x="392" y="324" width="3" height="3"/>
+      <rect x="430" y="318" width="3" height="3"/><rect x="456" y="340" width="3" height="3"/>
+      <rect x="376" y="348" width="3" height="3"/><rect x="418" y="352" width="3" height="3"/>
+    </g>
+    <text x="358" y="362" fill="#f87171" font-size="9.5">unreadable on its own</text>
+
+    <rect x="488" y="288" width="128" height="80" rx="5" fill="#0f172a" stroke="#334155"/>
+    <text x="498" y="306" fill="#94a3b8" font-size="9.5">sum of N frames</text>
+    <rect x="500" y="312" width="104" height="44" rx="4" fill="#38bdf8" opacity="0.35"/>
+    <rect x="530" y="320" width="34" height="28" rx="3" fill="#e2e8f0" opacity="0.7"/>
+    <text x="498" y="362" fill="#7dd3fc" font-size="9.5">signal appears as N grows</text>
+
+    <!-- the exposure is now a variable -->
+    <rect x="348" y="384" width="268" height="66" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="360" y="404" fill="#5eead4" font-size="10.5" font-weight="700">exposure becomes a post-capture variable</text>
+    <text x="360" y="420" fill="#cbd5e1" font-size="9.8">sum few frames for fast motion, many for dark</text>
+    <text x="360" y="436" fill="#cbd5e1" font-size="9.8">regions &#8212; per pixel, chosen after the fact</text>
+
+    <text x="346" y="474" fill="#fbbf24" font-size="10.5" font-weight="700">the cost: bandwidth and energy</text>
+    <text x="346" y="490" fill="#94a3b8" font-size="10">a megapixel array at kilo-frame rates is</text>
+    <text x="346" y="506" fill="#94a3b8" font-size="10">gigabits/s of mostly-zero bits to move or reduce</text>
+  </g>
+
+  <!-- ================= Panel 3: timestamps / active ================= -->
+  <g>
+    <rect x="640" y="52" width="296" height="480" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="654" y="74" fill="#94a3b8" font-size="11.5">3 &#183; active single-photon: every photon is timed</text>
+
+    <!-- laser pulse + scene -->
+    <g>
+      <rect x="656" y="88" width="24" height="14" rx="3" fill="#f59e0b"/>
+      <text x="686" y="100" fill="#fcd34d" font-size="9.5">pulsed laser (ps)</text>
+      <line x1="668" y1="106" x2="668" y2="140" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <rect x="700" y="120" width="60" height="34" rx="4" fill="#1e293b" stroke="#64748b"/>
+      <text x="706" y="142" fill="#cbd5e1" font-size="9.5">target</text>
+      <rect x="800" y="112" width="18" height="60" rx="3" fill="#334155" stroke="#64748b"/>
+      <text x="824" y="148" fill="#94a3b8" font-size="9.5">wall</text>
+    </g>
+
+    <!-- histogram -->
+    <rect x="656" y="176" width="264" height="132" rx="6" fill="#111a2e" stroke="#475569"/>
+    <text x="668" y="194" fill="#cbd5e1" font-size="10">per-pixel histogram of photon arrival times</text>
+    <!-- axis -->
+    <line x1="676" y1="288" x2="906" y2="288" stroke="#64748b" stroke-width="1"/>
+    <line x1="676" y1="204" x2="676" y2="288" stroke="#64748b" stroke-width="1"/>
+    <!-- background counts -->
+    <g fill="#334155">
+      <rect x="684" y="280" width="6" height="8"/><rect x="696" y="282" width="6" height="6"/>
+      <rect x="708" y="278" width="6" height="10"/><rect x="720" y="283" width="6" height="5"/>
+      <rect x="756" y="281" width="6" height="7"/><rect x="768" y="284" width="6" height="4"/>
+      <rect x="840" y="282" width="6" height="6"/><rect x="852" y="280" width="6" height="8"/>
+      <rect x="864" y="284" width="6" height="4"/><rect x="888" y="282" width="6" height="6"/>
+    </g>
+    <!-- signal peak -->
+    <g fill="#38bdf8">
+      <rect x="784" y="254" width="6" height="34"/><rect x="792" y="230" width="6" height="58"/>
+      <rect x="800" y="214" width="6" height="74"/><rect x="808" y="236" width="6" height="52"/>
+      <rect x="816" y="262" width="6" height="26"/>
+    </g>
+    <text x="776" y="208" fill="#7dd3fc" font-size="9.5">direct return &#8594; depth</text>
+    <!-- late tail -->
+    <g fill="#c084fc">
+      <rect x="866" y="272" width="6" height="16"/><rect x="874" y="268" width="6" height="20"/>
+      <rect x="882" y="274" width="6" height="14"/>
+    </g>
+    <text x="820" y="264" fill="#d8b4fe" font-size="9">late tail: multi-bounce /</text>
+    <text x="820" y="276" fill="#d8b4fe" font-size="9">around-the-corner light</text>
+    <text x="668" y="302" fill="#64748b" font-size="9">arrival time (picoseconds &#8594; centimetres)</text>
+
+    <!-- distortions -->
+    <rect x="656" y="320" width="264" height="86" rx="6" fill="#3f1d2e" stroke="#9f1239"/>
+    <text x="668" y="340" fill="#fda4af" font-size="10.5" font-weight="700">the histogram is a distorted measurement</text>
+    <text x="668" y="356" fill="#fecdd3" font-size="9.5">dead time &#8594; early bins shadow later ones (pile-up)</text>
+    <text x="668" y="372" fill="#fecdd3" font-size="9.5">ambient sunlight &#8594; a floor of false counts</text>
+    <text x="668" y="388" fill="#fecdd3" font-size="9.5">jitter, afterpulsing, crosstalk &#8594; correlated noise</text>
+
+    <!-- the two routes -->
+    <rect x="656" y="420" width="264" height="96" rx="6" fill="#0f2233" stroke="#1e3a5f"/>
+    <text x="668" y="440" fill="#5eead4" font-size="10.5" font-weight="700">two routes to a dense decision</text>
+    <text x="668" y="458" fill="#cbd5e1" font-size="9.8">A &#183; reconstruct an image/depth map, then detect</text>
+    <text x="668" y="474" fill="#cbd5e1" font-size="9.8">B &#183; infer labels and boxes straight from counts</text>
+    <text x="668" y="490" fill="#94a3b8" font-size="9.5">B skips the photons a picture needs but a</text>
+    <text x="668" y="504" fill="#94a3b8" font-size="9.5">decision does not &#8212; fewer photons, less energy</text>
+  </g>
+</svg>
