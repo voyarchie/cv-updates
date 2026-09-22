@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A diagram showing why, for transparent biological specimens, the class label is carried by the optical phase rather than by brightness. The first panel shows a conventional brightfield capture of an unstained cell, which is nearly invisible because the cell absorbs almost no light: the amplitude channel is close to empty and a classifier trained on it has almost no signal. The second panel shows the same cell as a quantitative phase map, where each pixel reports the optical path difference the light accumulated passing through it; this is proportional to integrated refractive index, which is in turn proportional to the cell's dry mass, so the phase image is a physical measurement in picograms rather than an arbitrary intensity, and morphology, mass and internal structure all become measurable. The third panel shows a three-dimensional refractive index tomogram built from many illumination angles, which resolves organelles, but it is missing a cone of spatial frequencies along the optical axis because no illumination angle can capture them, so axial resolution is systematically worse and the reconstruction must be regularized. A band at the bottom shows the wrapped phase problem: the measured phase is only known modulo two pi, so a smooth physical thickness appears as a sawtooth with artificial discontinuities, and a real-valued convolutional network reads those wrap edges as real object edges unless the phase is unwrapped first or the network is made complex-valued.">
+  <title>Phase as the class label: an empty amplitude channel, a quantitative phase map, a refractive-index tomogram, and the wrapping problem</title>
+
+  <rect x="0" y="0" width="980" height="620" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Where the class label actually lives: amplitude is nearly empty, phase is a physical measurement</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">An unstained cell is a <tspan font-style="italic">phase object</tspan>: it barely absorbs light, but it delays it. Recovering that delay is what makes label-free classification possible at all.</text>
+
+  <!-- ===== Panel 1: amplitude ===== -->
+  <g>
+    <rect x="22" y="68" width="298" height="392" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="36" y="90" fill="#94a3b8" font-size="11.5">1 &#183; amplitude channel &#8212; brightfield</text>
+
+    <rect x="54" y="104" width="234" height="164" rx="5" fill="#cbd5e1"/>
+    <g opacity="0.16">
+      <ellipse cx="146" cy="172" rx="46" ry="38" fill="none" stroke="#0f172a" stroke-width="2"/>
+      <ellipse cx="212" cy="204" rx="30" ry="26" fill="none" stroke="#0f172a" stroke-width="2"/>
+      <circle cx="146" cy="172" r="12" fill="#0f172a"/>
+    </g>
+    <text x="66" y="290" fill="#94a3b8" font-size="10">transmitted intensity |U|&#178; &#8776; constant</text>
+
+    <rect x="54" y="302" width="234" height="44" rx="5" fill="#3f1d2e" stroke="#9f1239"/>
+    <text x="66" y="322" fill="#fda4af" font-size="10">contrast &#8776; 1&#8211;2%: the object is there,</text>
+    <text x="66" y="337" fill="#fda4af" font-size="10">but almost nothing was absorbed.</text>
+
+    <text x="36" y="376" fill="#f87171" font-size="11" font-weight="700">the usual fix is to destroy the sample</text>
+    <text x="36" y="396" fill="#cbd5e1" font-size="10">Stains and fluorescent labels add contrast, but</text>
+    <text x="36" y="412" fill="#cbd5e1" font-size="10">they are toxic, photobleach, and take hours of</text>
+    <text x="36" y="428" fill="#cbd5e1" font-size="10">prep &#8212; so you cannot watch the same live cell</text>
+    <text x="36" y="444" fill="#cbd5e1" font-size="10">for a day, and you cannot do it at flow rates.</text>
+  </g>
+
+  <!-- ===== Panel 2: quantitative phase ===== -->
+  <g>
+    <rect x="336" y="68" width="298" height="392" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="350" y="90" fill="#94a3b8" font-size="11.5">2 &#183; phase channel &#8212; quantitative phase (QPI)</text>
+
+    <rect x="368" y="104" width="234" height="164" rx="5" fill="#0f172a" stroke="#334155"/>
+    <!-- phase "heat" rendering of same cell -->
+    <ellipse cx="460" cy="172" rx="46" ry="38" fill="#1d4ed8" opacity="0.55"/>
+    <ellipse cx="460" cy="172" rx="34" ry="28" fill="#0ea5e9" opacity="0.6"/>
+    <ellipse cx="460" cy="172" rx="22" ry="18" fill="#fbbf24" opacity="0.75"/>
+    <circle cx="460" cy="172" r="10" fill="#f87171"/>
+    <ellipse cx="526" cy="204" rx="30" ry="26" fill="#1d4ed8" opacity="0.55"/>
+    <ellipse cx="526" cy="204" rx="19" ry="16" fill="#0ea5e9" opacity="0.65"/>
+    <circle cx="526" cy="204" r="8" fill="#fbbf24" opacity="0.85"/>
+    <!-- colorbar -->
+    <g>
+      <rect x="380" y="240" width="112" height="9" fill="#1d4ed8"/>
+      <rect x="380" y="240" width="74" height="9" fill="#0ea5e9"/>
+      <rect x="380" y="240" width="38" height="9" fill="#fbbf24"/>
+      <text x="380" y="262" fill="#94a3b8" font-size="9">high OPD</text>
+      <text x="452" y="262" fill="#94a3b8" font-size="9">low OPD</text>
+    </g>
+
+    <rect x="368" y="278" width="234" height="66" rx="5" fill="#0c2a22" stroke="#15803d"/>
+    <text x="380" y="298" fill="#86efac" font-size="10.5">&#966;(x,y) = (2&#960;/&#955;) &#183; &#8747; &#916;n(x,y,z) dz</text>
+    <text x="380" y="316" fill="#bbf7d0" font-size="10">optical path difference &#8594; integrated</text>
+    <text x="380" y="332" fill="#bbf7d0" font-size="10">refractive index &#8594; <tspan font-weight="700">dry mass in picograms</tspan></text>
+
+    <text x="350" y="376" fill="#4ade80" font-size="11" font-weight="700">the pixel value has physical units</text>
+    <text x="350" y="396" fill="#cbd5e1" font-size="10">Unlike an RGB intensity, &#966; is calibrated and</text>
+    <text x="350" y="412" fill="#cbd5e1" font-size="10">instrument-independent. Two labs&#8217; phase maps of</text>
+    <text x="350" y="428" fill="#cbd5e1" font-size="10">the same cell should agree in <tspan font-style="italic">value</tspan> &#8212; a much</text>
+    <text x="350" y="444" fill="#cbd5e1" font-size="10">stronger basis for transfer than a stain intensity.</text>
+  </g>
+
+  <!-- ===== Panel 3: 3D RI tomogram ===== -->
+  <g>
+    <rect x="650" y="68" width="308" height="392" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="664" y="90" fill="#94a3b8" font-size="11.5">3 &#183; 3D refractive index &#8212; holotomography</text>
+
+    <rect x="682" y="104" width="244" height="164" rx="5" fill="#0f172a" stroke="#334155"/>
+    <!-- illumination angles -->
+    <g stroke="#fbbf24" stroke-width="0.9" opacity="0.7" fill="none">
+      <path d="M700 120 L790 176"/><path d="M724 112 L790 176"/><path d="M790 108 L790 176"/>
+      <path d="M856 112 L790 176"/><path d="M880 120 L790 176"/>
+    </g>
+    <text x="690" y="118" fill="#fcd34d" font-size="9">many illumination angles</text>
+    <!-- cell volume -->
+    <ellipse cx="790" cy="196" rx="52" ry="40" fill="#1e3a8a" opacity="0.6"/>
+    <ellipse cx="790" cy="196" rx="34" ry="26" fill="#0ea5e9" opacity="0.55"/>
+    <circle cx="778" cy="192" r="11" fill="#fbbf24" opacity="0.9"/>
+    <circle cx="806" cy="204" r="7" fill="#f87171" opacity="0.9"/>
+    <circle cx="796" cy="182" r="5" fill="#a78bfa" opacity="0.9"/>
+    <text x="700" y="254" fill="#93c5fd" font-size="9.5">n(x,y,z): nucleoli, lipid droplets, mitochondria</text>
+
+    <!-- missing cone -->
+    <g>
+      <rect x="682" y="278" width="244" height="66" rx="5" fill="#2a1d3f" stroke="#7e22ce"/>
+      <path d="M856 336 L886 296 L916 336 Z" fill="#7e22ce" opacity="0.45" stroke="#c084fc" stroke-dasharray="3 2"/>
+      <text x="694" y="298" fill="#e9d5ff" font-size="10.5" font-weight="700">the missing cone</text>
+      <text x="694" y="315" fill="#d8b4fe" font-size="9.5">No illumination angle reaches</text>
+      <text x="694" y="330" fill="#d8b4fe" font-size="9.5">these axial frequencies &#8212; ever.</text>
+    </g>
+
+    <text x="664" y="376" fill="#c084fc" font-size="11" font-weight="700">axial resolution is structurally worse</text>
+    <text x="664" y="396" fill="#cbd5e1" font-size="10">The tomogram is not an under-sampled volume that</text>
+    <text x="664" y="412" fill="#cbd5e1" font-size="10">more data would fix; a whole band of frequencies is</text>
+    <text x="664" y="428" fill="#cbd5e1" font-size="10">absent. Whatever fills it &#8212; a prior, a regularizer, a</text>
+    <text x="664" y="444" fill="#cbd5e1" font-size="10">diffusion model &#8212; is inference, not measurement.</text>
+  </g>
+
+  <!-- ===== bottom band: wrapped phase ===== -->
+  <g>
+    <rect x="22" y="474" width="936" height="128" rx="8" fill="#14243a" stroke="#475569"/>
+    <text x="38" y="496" fill="#fbbf24" font-size="12" font-weight="700">&#8230; and the phase you measure is not the phase you want: it is known only modulo 2&#960;</text>
+
+    <!-- true phase ramp -->
+    <g>
+      <text x="38" y="518" fill="#94a3b8" font-size="9.5">true optical thickness</text>
+      <path d="M40 586 C 120 586, 180 516, 300 512" fill="none" stroke="#4ade80" stroke-width="2.2"/>
+      <line x1="40" y1="590" x2="300" y2="590" stroke="#475569"/>
+    </g>
+    <text x="316" y="556" fill="#94a3b8" font-size="18">&#8594;</text>
+
+    <!-- wrapped -->
+    <g>
+      <text x="348" y="518" fill="#94a3b8" font-size="9.5">what the sensor reports (wrapped)</text>
+      <g fill="none" stroke="#f87171" stroke-width="2.2">
+        <path d="M350 586 L398 528"/><path d="M400 586 L448 528"/><path d="M450 586 L498 528"/><path d="M500 586 L548 528"/>
+      </g>
+      <g stroke="#fca5a5" stroke-width="1" stroke-dasharray="3 2">
+        <line x1="399" y1="528" x2="399" y2="586"/><line x1="449" y1="528" x2="449" y2="586"/><line x1="499" y1="528" x2="499" y2="586"/>
+      </g>
+      <line x1="350" y1="590" x2="560" y2="590" stroke="#475569"/>
+    </g>
+
+    <rect x="580" y="508" width="364" height="82" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="594" y="528" fill="#fca5a5" font-size="10.5" font-weight="700">why this breaks an ordinary CNN</text>
+    <text x="594" y="546" fill="#e2e8f0" font-size="10">Those vertical jumps are not object boundaries &#8212; they are an</text>
+    <text x="594" y="562" fill="#e2e8f0" font-size="10">artefact of arctangent. A real-valued edge-sensitive network reads</text>
+    <text x="594" y="578" fill="#e2e8f0" font-size="10">them as structure. Fix: unwrap first, or go complex-valued.</text>
+  </g>
+</svg>
