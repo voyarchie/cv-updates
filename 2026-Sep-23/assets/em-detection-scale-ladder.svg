@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A length-scale ladder for dense detection and classification in materials electron microscopy. From about 0.1 nanometres to 10 micrometres, four rungs: atomic columns and point defects detected by fully convolutional heatmaps and classified with metadata-conditioned networks; extended defects and nanoparticles such as dislocation loops, cavities and supported particles detected with YOLO11 or Mask R-CNN and augmented with mask-conditioned diffusion; diffraction-space classes read per pixel from 4D-STEM for polarization, phase and orientation; and microstructure at the SEM scale segmented by foundation models, EM3M-trained instance segmenters and MLLM-prompted SAM. A band across all rungs shows the cross-cutting layer: simulation-to-real transfer, self-supervised and metadata-conditioned pretraining, performance prediction without labels, and agentic or autonomous microscopes that choose where to look next.">
+  <title>Materials EM dense detection by length scale: atoms, defects and particles, diffraction classes, microstructure</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">What counts as an "object" depends on the rung: four detection problems, five decades of length</text>
+
+  <!-- scale axis -->
+  <line x1="50" y1="436" x2="50" y2="96" stroke="#475569" stroke-width="2"/>
+  <polygon points="44,96 50,84 56,96" fill="#475569"/>
+  <text x="40" y="270" fill="#475569" font-size="11" font-weight="700" transform="rotate(-90 40 270)" text-anchor="middle">length scale of the "object"</text>
+
+  <!-- rung 4: microstructure (top) -->
+  <rect x="80" y="88" width="856" height="74" rx="8" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="96" y="110" fill="#065f46" font-size="13.5" font-weight="800">4 · Microstructure (SEM / low-mag TEM): grains, precipitates, pores, particles by the thousand</text>
+  <text x="96" y="130" fill="#064e3b" font-size="11.5">EM3M: 5,091 micrographs, ~3M instance masks — detection- and query-based segmenters struggle at extreme density; flow-based baseline</text>
+  <text x="96" y="148" fill="#064e3b" font-size="11.5">SEM MoE-MAE foundation model &#8226; EMSeek reference-guided one-for-all segmentation &#8226; MLLM (Qwen3-VL + LoRA) &#8594; point prompts &#8594; frozen SAM</text>
+
+  <!-- rung 3: diffraction-space classes -->
+  <rect x="80" y="172" width="856" height="74" rx="8" fill="#f0f9ff" stroke="#38bdf8"/>
+  <text x="96" y="194" fill="#075985" font-size="13.5" font-weight="800">3 · Diffraction-space classes (4D-STEM): the class of a pixel is read from its diffraction pattern</text>
+  <text x="96" y="214" fill="#0c4a6e" font-size="11.5">Polarization direction (CNN domain mapping; ResNet/VGG/PCA-kNN benchmark — the sim&#8594;experiment gap dominates) &#8226; phase/orientation/strain</text>
+  <text x="96" y="232" fill="#0c4a6e" font-size="11.5">Unsupervised contour clustering in py4DSTEM (4D &amp; 5D, CPU) &#8226; learned ptychography: PtyRANNOSAUR, zero-shot cross-material phase</text>
+
+  <!-- rung 2: extended defects & particles -->
+  <rect x="80" y="256" width="856" height="74" rx="8" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="96" y="278" fill="#9a3412" font-size="13.5" font-weight="800">2 · Extended defects &amp; nanoparticles: dislocation lines/loops, cavities, supported and liquid-cell particles</text>
+  <text x="96" y="298" fill="#7c2d12" font-size="11.5">YOLO11 transfer learning segments lines + loops on unseen alloys &#8226; Mask R-CNN + mask-conditioned latent diffusion (10/50/100 real images)</text>
+  <text x="96" y="316" fill="#7c2d12" font-size="11.5">YOLO + Mobile-UNet at ~102 FPS in liquid-cell TEM &#8226; random-forest F1 predictor (MAE 0.09, R&#178; 0.77) flags when not to trust the detector</text>
+
+  <!-- rung 1: atoms -->
+  <rect x="80" y="340" width="856" height="96" rx="8" fill="#eef2ff" stroke="#818cf8"/>
+  <text x="96" y="362" fill="#3730a3" font-size="13.5" font-weight="800">1 · Atomic columns &amp; point defects (HAADF / ABF-STEM, HRTEM)</text>
+  <text x="96" y="382" fill="#312e81" font-size="11.5">FCN heatmaps &#8594; column positions (benchmarks: strong in-distribution, weak at interfaces) &#8226; CycleGAN + U-Net from a single image (MoS&#8322;)</text>
+  <text x="96" y="400" fill="#312e81" font-size="11.5">Context-aware classifier: pixels + composition, kV, detector angles; ~55M simulated patches, 96 doped TMDs, &gt;98% sim, near-human on real</text>
+  <text x="96" y="418" fill="#312e81" font-size="11.5">CrSBr defect library (PRX 2025): "single vacancies" turn out to be complexes &#8226; AtomDiffuser separates drift and beam damage</text>
+
+  <!-- cross-cutting band -->
+  <rect x="80" y="452" width="856" height="86" rx="8" fill="#fdf2f8" stroke="#f472b6"/>
+  <text x="96" y="474" fill="#9d174d" font-size="13.5" font-weight="800">Cross-cutting layer (every rung)</text>
+  <text x="96" y="494" fill="#831843" font-size="11.5">Simulate-to-train (multislice / Bloch-wave) and close the sim&#8594;real gap &#8226; CIMP: CLIP-style image &#8596; 7-D acquisition-metadata pretraining (7,330 pairs)</text>
+  <text x="96" y="512" fill="#831843" font-size="11.5">Label-free reliability estimates &#8226; MLLMs still far below experts on characterization (MatCha, 1,500 Qs / 21 tasks)</text>
+  <text x="96" y="530" fill="#831843" font-size="11.5">Closed loop: detections steer the next scan — novelty-driven / Pareto acquisition (PATHFINDER), agentic analysis in 2–5 min per image (EMSeek)</text>
+  <g font-size="11" font-weight="700" text-anchor="end">
+    <text x="926" y="110" fill="#065f46">0.1&#8211;10 &#181;m</text>
+    <text x="926" y="194" fill="#075985">maps over nm&#8211;&#181;m</text>
+    <text x="926" y="278" fill="#9a3412">~1&#8211;100 nm</text>
+    <text x="926" y="362" fill="#3730a3">~0.1&#8211;1 nm</text>
+  </g>
+</svg>
