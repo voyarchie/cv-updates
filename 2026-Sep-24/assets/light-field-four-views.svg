@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="One 4D light field L(u,v,s,t) can be read in four ways, and each way feeds a different family of dense detectors. The raw lenslet image, a mosaic of macro-pixels, is used by single-pipeline methods such as LF Tracy and by microscopy reconstruction such as SeReNet. The sub-aperture image grid, a U by V array of slightly shifted views, is used by view-wise models such as OAFuser and LFX and by SAM 2 mask propagation. The epipolar plane image, where a scene point becomes a line whose slope is its disparity, is used for depth, occlusion and transparency cues. The focal stack plus all-in-focus image is the main input to light-field salient object detection models such as LFSamba and SPLF-SAM. A bottom band lists what is different from RGB: angle-dependent appearance, a spatial versus angular resolution trade-off, and few labelled datasets.">
+  <title>One 4D light field, four readings, four detector families</title>
+  <rect x="0" y="0" width="960" height="600" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">One capture L(u,v,s,t): four ways to slice it, four families of dense detectors</text>
+  <text x="24" y="52" fill="#475569" font-size="12">(u,v) = angular coordinate (which microlens pixel / which view) &#8226; (s,t) = spatial coordinate (where in the scene)</text>
+
+  <!-- Panel 1: lenslet -->
+  <rect x="24" y="70" width="216" height="330" rx="8" fill="#eef2ff" stroke="#818cf8"/>
+  <text x="36" y="92" fill="#3730a3" font-size="13.5" font-weight="800">1 · Raw lenslet image</text>
+  <g stroke="#6366f1" stroke-width="1" fill="#c7d2fe">
+    <circle cx="72" cy="132" r="15"/><circle cx="104" cy="132" r="15"/><circle cx="136" cy="132" r="15"/><circle cx="168" cy="132" r="15"/><circle cx="200" cy="132" r="15"/>
+    <circle cx="88" cy="160" r="15"/><circle cx="120" cy="160" r="15"/><circle cx="152" cy="160" r="15"/><circle cx="184" cy="160" r="15"/>
+    <circle cx="72" cy="188" r="15"/><circle cx="104" cy="188" r="15"/><circle cx="136" cy="188" r="15" fill="#a5b4fc"/><circle cx="168" cy="188" r="15"/><circle cx="200" cy="188" r="15"/>
+    <circle cx="88" cy="216" r="15"/><circle cx="120" cy="216" r="15"/><circle cx="152" cy="216" r="15"/><circle cx="184" cy="216" r="15"/>
+  </g>
+  <text x="36" y="258" fill="#312e81" font-size="11.5">Each disc = one macro-pixel:</text>
+  <text x="36" y="274" fill="#312e81" font-size="11.5">all ray angles hitting one</text>
+  <text x="36" y="290" fill="#312e81" font-size="11.5">scene point (Lytro, Raytrix, LFM)</text>
+  <text x="36" y="320" fill="#3730a3" font-size="11.5" font-weight="700">Used by</text>
+  <text x="36" y="338" fill="#312e81" font-size="11.5">LF Tracy (single pipeline)</text>
+  <text x="36" y="354" fill="#312e81" font-size="11.5">SeReNet / HYPER-Net (LFM,</text>
+  <text x="36" y="370" fill="#312e81" font-size="11.5">physics-in-the-loss 3D recon)</text>
+
+  <!-- Panel 2: SAI grid -->
+  <rect x="254" y="70" width="216" height="330" rx="8" fill="#f0f9ff" stroke="#38bdf8"/>
+  <text x="266" y="92" fill="#075985" font-size="13.5" font-weight="800">2 · Sub-aperture views</text>
+  <g stroke="#0284c7" stroke-width="1" fill="#bae6fd">
+    <rect x="284" y="112" width="46" height="34" rx="3"/><rect x="338" y="112" width="46" height="34" rx="3"/><rect x="392" y="112" width="46" height="34" rx="3"/>
+    <rect x="284" y="154" width="46" height="34" rx="3"/><rect x="338" y="154" width="46" height="34" rx="3" fill="#7dd3fc"/><rect x="392" y="154" width="46" height="34" rx="3"/>
+    <rect x="284" y="196" width="46" height="34" rx="3"/><rect x="338" y="196" width="46" height="34" rx="3"/><rect x="392" y="196" width="46" height="34" rx="3"/>
+  </g>
+  <g fill="#0c4a6e"><circle cx="305" cy="129" r="5"/><circle cx="361" cy="129" r="5"/><circle cx="417" cy="129" r="5"/>
+  <circle cx="307" cy="171" r="5"/><circle cx="361" cy="171" r="5"/><circle cx="415" cy="171" r="5"/>
+  <circle cx="309" cy="213" r="5"/><circle cx="361" cy="213" r="5"/><circle cx="413" cy="213" r="5"/></g>
+  <text x="266" y="258" fill="#0c4a6e" font-size="11.5">U&#215;V grid (e.g. 9&#215;9) of views;</text>
+  <text x="266" y="274" fill="#0c4a6e" font-size="11.5">the object shifts by its disparity</text>
+  <text x="266" y="290" fill="#0c4a6e" font-size="11.5">from view to view</text>
+  <text x="266" y="320" fill="#075985" font-size="11.5" font-weight="700">Used by</text>
+  <text x="266" y="338" fill="#0c4a6e" font-size="11.5">OAFuser, LFX (semantic seg)</text>
+  <text x="266" y="354" fill="#0c4a6e" font-size="11.5">SAM 2 + epipolar prompting</text>
+  <text x="266" y="370" fill="#0c4a6e" font-size="11.5">(view-consistent masks)</text>
+
+  <!-- Panel 3: EPI -->
+  <rect x="484" y="70" width="216" height="330" rx="8" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="496" y="92" fill="#9a3412" font-size="13.5" font-weight="800">3 · Epipolar-plane image</text>
+  <rect x="510" y="110" width="164" height="120" rx="3" fill="#fed7aa" stroke="#ea580c"/>
+  <line x1="530" y1="230" x2="560" y2="110" stroke="#9a3412" stroke-width="4"/>
+  <line x1="590" y1="230" x2="600" y2="110" stroke="#c2410c" stroke-width="4"/>
+  <line x1="630" y1="230" x2="630" y2="110" stroke="#7c2d12" stroke-width="4" stroke-dasharray="6 4"/>
+  <text x="500" y="124" fill="#7c2d12" font-size="10" transform="rotate(-90 500 170)">view u</text>
+  <text x="560" y="244" fill="#7c2d12" font-size="10">spatial s</text>
+  <text x="496" y="266" fill="#7c2d12" font-size="11.5">Slope of each line = disparity</text>
+  <text x="496" y="282" fill="#7c2d12" font-size="11.5">= depth. Broken or curved lines</text>
+  <text x="496" y="298" fill="#7c2d12" font-size="11.5">mark occlusion, glass, specularity</text>
+  <text x="496" y="320" fill="#9a3412" font-size="11.5" font-weight="700">Used by</text>
+  <text x="496" y="338" fill="#7c2d12" font-size="11.5">Depth / occlusion cost volumes</text>
+  <text x="496" y="354" fill="#7c2d12" font-size="11.5">TransCut, LIT (transparency)</text>
+  <text x="496" y="370" fill="#7c2d12" font-size="11.5">material recognition, face PAD</text>
+
+  <!-- Panel 4: focal stack -->
+  <rect x="714" y="70" width="222" height="330" rx="8" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="726" y="92" fill="#065f46" font-size="13.5" font-weight="800">4 · Focal stack + all-in-focus</text>
+  <g stroke="#059669" stroke-width="1">
+    <rect x="780" y="110" width="110" height="74" rx="3" fill="#d1fae5"/>
+    <rect x="770" y="120" width="110" height="74" rx="3" fill="#a7f3d0"/>
+    <rect x="760" y="130" width="110" height="74" rx="3" fill="#6ee7b7"/>
+    <rect x="750" y="140" width="110" height="74" rx="3" fill="#34d399"/>
+  </g>
+  <circle cx="805" cy="177" r="16" fill="#064e3b"/>
+  <text x="726" y="248" fill="#064e3b" font-size="11.5">Refocused slices (shift-and-add</text>
+  <text x="726" y="264" fill="#064e3b" font-size="11.5">over views) + one sharp image;</text>
+  <text x="726" y="280" fill="#064e3b" font-size="11.5">"in focus" in a slice = "at that</text>
+  <text x="726" y="296" fill="#064e3b" font-size="11.5">depth" = figure/ground cue</text>
+  <text x="726" y="320" fill="#065f46" font-size="11.5" font-weight="700">Used by</text>
+  <text x="726" y="338" fill="#064e3b" font-size="11.5">Most LF salient-object models:</text>
+  <text x="726" y="354" fill="#064e3b" font-size="11.5">LFSamba (SAM + Mamba over</text>
+  <text x="726" y="370" fill="#064e3b" font-size="11.5">slices), SPLF-SAM, LFX (SOD)</text>
+
+  <!-- bottom band -->
+  <rect x="24" y="416" width="912" height="164" rx="8" fill="#fdf2f8" stroke="#f472b6"/>
+  <text x="40" y="440" fill="#9d174d" font-size="13.5" font-weight="800">Why this is not "RGB with extra channels"</text>
+  <text x="40" y="462" fill="#831843" font-size="11.5">&#8226; Appearance depends on angle: a glass cup or a printed face breaks the EPI line pattern that a real Lambertian object obeys — the class signal lives in (u,v).</text>
+  <text x="40" y="482" fill="#831843" font-size="11.5">&#8226; One sensor, fixed pixel budget: more views = lower spatial resolution (Lytro Illum &#8776; 625&#215;434 per view). Detectors fight for small objects; SR is part of the pipeline.</text>
+  <text x="40" y="502" fill="#831843" font-size="11.5">&#8226; A mask must be consistent across all U&#215;V views, and part of the object is visible only in some of them (occlusion is a feature, not noise).</text>
+  <text x="40" y="522" fill="#831843" font-size="11.5">&#8226; Data poverty: the biggest labelled sets are ~10&#8308; captures (PKU-LF &gt;10K; DUTLF-FS 1,462; UrbanLF 1,074) — so 2024–26 work borrows SAM / SAM 2 / DINO-style</text>
+  <text x="54" y="540" fill="#831843" font-size="11.5">backbones and adds LF-specific adapters, rather than pretraining an LF foundation model.</text>
+  <text x="40" y="562" fill="#831843" font-size="11.5">&#8226; Same 4D math at three scales: street-scene cameras, light-field microscopes (neurons, cells, molecules) and plenoptic particle detectors (neutrinos).</text>
+</svg>

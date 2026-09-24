@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The same microlens-array light field used at three physical scales, each with its own dense detection problem. Scene scale: Lytro, Raytrix and camera arrays for salient object detection, urban semantic segmentation, view-consistent SAM masks, transparent and reflective objects, 6DoF tracking and occlusion removal. Microscope scale: light-field and Fourier light-field microscopes for neuron and cell detection in reconstructed volumes, with SeReNet, HYPER-Net, 2PiLnet and volumetric localization microscopy. Detector scale: plenoptic cameras on SPAD sensors looking into a monolithic scintillator, PLATON and PRISM, reconstructing particle tracks and interaction vertices, with a transformer over photon hits. A bottom row notes the common move: put the optics physics into the loss or the representation instead of learning it from labels.">
+  <title>Light-field dense detection at three scales: scene, microscope, particle detector</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Same microlens-array optics, three scales, three kinds of "object"</text>
+
+  <rect x="24" y="52" width="296" height="300" rx="8" fill="#f0f9ff" stroke="#38bdf8"/>
+  <text x="40" y="76" fill="#075985" font-size="14" font-weight="800">Scene scale (metres)</text>
+  <text x="40" y="96" fill="#0c4a6e" font-size="11.5">Lytro Illum / Raytrix / camera arrays</text>
+  <text x="40" y="122" fill="#075985" font-size="12" font-weight="700">Objects</text>
+  <text x="40" y="140" fill="#0c4a6e" font-size="11.5">salient objects, urban classes (14),</text>
+  <text x="40" y="156" fill="#0c4a6e" font-size="11.5">glass &amp; mirrors, spoof faces,</text>
+  <text x="40" y="172" fill="#0c4a6e" font-size="11.5">objects behind foliage</text>
+  <text x="40" y="198" fill="#075985" font-size="12" font-weight="700">2024–26 methods</text>
+  <text x="40" y="216" fill="#0c4a6e" font-size="11.5">LFSamba, SPLF-SAM, LFX (SOD)</text>
+  <text x="40" y="232" fill="#0c4a6e" font-size="11.5">OAFuser, LFX, Mlpfseg (LF + LiDAR)</text>
+  <text x="40" y="248" fill="#0c4a6e" font-size="11.5">SAM 2 + epipolar prompts (7&#215; faster)</text>
+  <text x="40" y="264" fill="#0c4a6e" font-size="11.5">LiFT-6DoF: Gaussian-splat tracking</text>
+  <text x="40" y="280" fill="#0c4a6e" font-size="11.5">LFI + VLM occlusion removal</text>
+  <text x="40" y="306" fill="#075985" font-size="12" font-weight="700">Main bottleneck</text>
+  <text x="40" y="324" fill="#0c4a6e" font-size="11.5">labelled data; low per-view resolution</text>
+
+  <rect x="332" y="52" width="296" height="300" rx="8" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="348" y="76" fill="#065f46" font-size="14" font-weight="800">Microscope scale (&#181;m)</text>
+  <text x="348" y="96" fill="#064e3b" font-size="11.5">LFM, scanning LFM, Fourier LFM</text>
+  <text x="348" y="122" fill="#065f46" font-size="12" font-weight="700">Objects</text>
+  <text x="348" y="140" fill="#064e3b" font-size="11.5">neurons (calcium sources), cells,</text>
+  <text x="348" y="156" fill="#064e3b" font-size="11.5">immune-cell dynamics, single</text>
+  <text x="348" y="172" fill="#064e3b" font-size="11.5">molecules — in a 3D volume per frame</text>
+  <text x="348" y="198" fill="#065f46" font-size="12" font-weight="700">2025–26 methods</text>
+  <text x="348" y="216" fill="#064e3b" font-size="11.5">SeReNet: self-supervised via 4D PSF</text>
+  <text x="348" y="232" fill="#064e3b" font-size="11.5">(~700&#215; faster, &gt;300K volumes)</text>
+  <text x="348" y="248" fill="#064e3b" font-size="11.5">HYPER-Net (FLFM, PSF-conditioned)</text>
+  <text x="348" y="264" fill="#064e3b" font-size="11.5">2PiLnet: 2P-like contrast &#8594; segment</text>
+  <text x="348" y="280" fill="#064e3b" font-size="11.5">VLM: light-field single-molecule 3D</text>
+  <text x="348" y="306" fill="#065f46" font-size="12" font-weight="700">Main bottleneck</text>
+  <text x="348" y="324" fill="#064e3b" font-size="11.5">scattering; PSF mismatch; no 3D GT</text>
+
+  <rect x="640" y="52" width="296" height="300" rx="8" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="656" y="76" fill="#9a3412" font-size="14" font-weight="800">Detector scale (mm, ns)</text>
+  <text x="656" y="96" fill="#7c2d12" font-size="11.5">plenoptic cameras on SPAD arrays</text>
+  <text x="656" y="122" fill="#9a3412" font-size="12" font-weight="700">Objects</text>
+  <text x="656" y="140" fill="#7c2d12" font-size="11.5">particle tracks and interaction</text>
+  <text x="656" y="156" fill="#7c2d12" font-size="11.5">vertices inside one unsegmented</text>
+  <text x="656" y="172" fill="#7c2d12" font-size="11.5">scintillator block (neutrinos, &#947;)</text>
+  <text x="656" y="198" fill="#9a3412" font-size="12" font-weight="700">2025–26 methods</text>
+  <text x="656" y="216" fill="#7c2d12" font-size="11.5">PLATON (Nat. Commun. 2026):</text>
+  <text x="656" y="232" fill="#7c2d12" font-size="11.5">~200 &#181;m event reconstruction;</text>
+  <text x="656" y="248" fill="#7c2d12" font-size="11.5">transformer over photon hits</text>
+  <text x="656" y="264" fill="#7c2d12" font-size="11.5">PRISM: multifocal MLA, ~1 mm 3D</text>
+  <text x="656" y="280" fill="#7c2d12" font-size="11.5">localization (ADCG-style solver)</text>
+  <text x="656" y="306" fill="#9a3412" font-size="12" font-weight="700">Main bottleneck</text>
+  <text x="656" y="324" fill="#7c2d12" font-size="11.5">photon starvation; pile-up of events</text>
+
+  <rect x="24" y="366" width="912" height="84" rx="8" fill="#fdf2f8" stroke="#f472b6"/>
+  <text x="40" y="390" fill="#9d174d" font-size="13.5" font-weight="800">The shared move across all three</text>
+  <text x="40" y="412" fill="#831843" font-size="11.5">Put the optics into the model instead of learning it from labels: epipolar geometry for mask propagation (scene), the measured 4D PSF as the</text>
+  <text x="40" y="430" fill="#831843" font-size="11.5">forward operator in a self-supervised loss (microscope), and the MLA's ray model plus photon timing as the input structure (particle detector).</text>
+</svg>
