@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="RAW detection datasets placed by bit depth. PASCALRAW, 12 bit, about 4.3 thousand images, 3 classes, normal light with synthetic dark and over-exposed variants. LOD, reported 14 to 16 bit, 2,230 images, 8 classes, low light. NOD, 14 bit, about 6.7 thousand images from Sony and Nikon, 3 classes, night. AODRaw, 14 bit, 7,785 images, 62 classes, 9 light and weather conditions. ROD, 24 bit HDR, about 25 thousand images, driving day, night and tunnel. Multi-RAW, 10 to 24 bit across four sensors, 7,208 images, 11 classes. RAWDet-7, about 32.6 thousand images, 7 classes, evaluated after quantization to 4, 6 and 8 bit.">
+  <title>RAW detection datasets by bit depth, size and conditions</title>
+  <rect x="0" y="0" width="960" height="420" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">RAW detection benchmarks: bit depth is the axis sRGB datasets don't have</text>
+
+  <!-- axis -->
+  <g font-size="11" fill="#475569">
+    <line x1="200" y1="370" x2="920" y2="370" stroke="#94a3b8"/>
+    <text x="200" y="388" text-anchor="middle">4</text>
+    <text x="290" y="388" text-anchor="middle">6</text>
+    <text x="380" y="388" text-anchor="middle">8</text>
+    <text x="470" y="388" text-anchor="middle">10</text>
+    <text x="560" y="388" text-anchor="middle">12</text>
+    <text x="650" y="388" text-anchor="middle">14</text>
+    <text x="740" y="388" text-anchor="middle">16</text>
+    <text x="920" y="388" text-anchor="middle">24</text>
+    <text x="830" y="388" text-anchor="middle">…</text>
+    <text x="560" y="408" text-anchor="middle" font-weight="700">bits per pixel (sensor or evaluation)</text>
+  </g>
+  <line x1="380" y1="52" x2="380" y2="370" stroke="#f97316" stroke-dasharray="4 3"/>
+  <text x="386" y="64" fill="#c2410c" font-size="11" font-weight="700">sRGB = 8 bit</text>
+
+  <g font-size="12">
+    <!-- rows: y centers 88,128,168,208,248,288,328 -->
+    <text x="24" y="92" fill="#1e293b" font-weight="700">PASCALRAW</text>
+    <rect x="200" y="80" width="360" height="16" rx="3" fill="#bae6fd" stroke="#0284c7"/>
+    <text x="566" y="93" fill="#075985" font-size="11">12 b · ~4.3k img · 3 cls · + synthetic dark / over-exposed</text>
+
+    <text x="24" y="132" fill="#1e293b" font-weight="700">LOD</text>
+    <rect x="200" y="120" width="450" height="16" rx="3" fill="#bae6fd" stroke="#0284c7"/>
+    <rect x="650" y="120" width="90" height="16" rx="3" fill="#e0f2fe" stroke="#0284c7" stroke-dasharray="3 2"/>
+    <text x="746" y="133" fill="#075985" font-size="11">2,230 img · 8 cls · low light</text>
+
+    <text x="24" y="172" fill="#1e293b" font-weight="700">NOD (Sony / Nikon)</text>
+    <rect x="200" y="160" width="450" height="16" rx="3" fill="#bae6fd" stroke="#0284c7"/>
+    <text x="656" y="173" fill="#075985" font-size="11">~6.7k img · 3 cls · night</text>
+
+    <text x="24" y="212" fill="#1e293b" font-weight="700">AODRaw (CVPR'25)</text>
+    <rect x="200" y="200" width="450" height="16" rx="3" fill="#99f6e4" stroke="#0d9488"/>
+    <text x="656" y="213" fill="#115e59" font-size="11">7,785 img · 62 cls · 9 light/weather</text>
+
+    <text x="24" y="252" fill="#1e293b" font-weight="700">ROD (CVPR'23)</text>
+    <rect x="200" y="240" width="720" height="16" rx="3" fill="#bae6fd" stroke="#0284c7"/>
+    <text x="206" y="253" fill="#075985" font-size="11">24-bit HDR · ~25k img · driving: day, night, tunnel</text>
+
+    <text x="24" y="292" fill="#1e293b" font-weight="700">Multi-RAW</text>
+    <rect x="470" y="280" width="450" height="16" rx="3" fill="#99f6e4" stroke="#0d9488"/>
+    <text x="206" y="293" fill="#115e59" font-size="11">4 sensors, 10–24 b · 7,208 img · 11 cls →</text>
+
+    <text x="24" y="332" fill="#1e293b" font-weight="700">RAWDet-7 ('26)</text>
+    <rect x="200" y="320" width="180" height="16" rx="3" fill="#c7d2fe" stroke="#4f46e5"/>
+    <circle cx="200" cy="328" r="5" fill="#4f46e5"/><circle cx="290" cy="328" r="5" fill="#4f46e5"/><circle cx="380" cy="328" r="5" fill="#4f46e5"/>
+    <text x="392" y="333" fill="#3730a3" font-size="11">~32.6k img · 7 cls · tested at 4 / 6 / 8 b + object descriptions</text>
+  </g>
+  <text x="24" y="360" fill="#64748b" font-size="10.5">Bars span 4 b → native depth. Dashed = reported depth varies by source. Teal = multi-condition / multi-sensor sets.</text>
+</svg>
