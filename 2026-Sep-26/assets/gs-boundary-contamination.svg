@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Why labelling Gaussians is hard at object boundaries. Left panel: a chair and a wall are reconstructed by anisotropic Gaussians. One large elongated Gaussian straddles the boundary; it is needed for appearance but receives the chair label when 2D masks are lifted, so the 3D chair mask bleeds into the wall. Middle panel: fixes that change the label, not the Gaussian: dual opacity in OP2GS keeps colour opacity for rendering and adds a separate instance opacity; axis-aware boundary refinement in VCAR compresses the Gaussian only along the axis causing leakage; pairwise relations in PairGS cluster Gaussians by affinity instead of per-Gaussian votes. Right panel: fixes at the input: 3DGS-DET adds 2D boundary guidance during fitting and prunes background with frustums from Grounding DINO boxes; NormLift uses the norm of the lifted CLIP feature as a reliability score.">
+  <title>Boundary contamination: one Gaussian, two objects</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The boundary problem: a Gaussian fitted for appearance does not respect objects</text>
+
+  <!-- panel 1 -->
+  <rect x="24" y="52" width="290" height="324" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="169" y="76" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="800">Lifting 2D masks naively</text>
+  <!-- wall region -->
+  <rect x="40" y="92" width="258" height="200" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="270" y="110" text-anchor="end" fill="#475569" font-size="11">wall</text>
+  <!-- chair gaussians -->
+  <g fill="#0d9488" fill-opacity="0.55" stroke="#0f766e">
+    <ellipse cx="110" cy="200" rx="26" ry="12"/>
+    <ellipse cx="96" cy="236" rx="8" ry="30"/>
+    <ellipse cx="136" cy="236" rx="8" ry="30"/>
+    <ellipse cx="96" cy="164" rx="8" ry="30"/>
+    <ellipse cx="124" cy="168" rx="18" ry="10"/>
+  </g>
+  <!-- straddling gaussian -->
+  <ellipse cx="176" cy="178" rx="58" ry="11" transform="rotate(-18 176 178)" fill="#e11d48" fill-opacity="0.45" stroke="#be123c" stroke-width="1.5"/>
+  <text x="110" y="276" text-anchor="middle" fill="#115e59" font-size="11" font-weight="700">chair</text>
+  <g font-size="11" fill="#334155">
+    <text x="40" y="314">Red Gaussian is needed for colour but</text>
+    <text x="40" y="330">gets the <tspan font-weight="700">chair</tspan> label → the 3D mask</text>
+    <text x="40" y="346">bleeds into the wall. Seen from one</text>
+    <text x="40" y="362">view it looks fine; from others it doesn't.</text>
+  </g>
+
+  <!-- panel 2 -->
+  <rect x="334" y="52" width="290" height="324" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="479" y="76" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="800">Fix the label, keep the Gaussian</text>
+  <g font-size="11.5">
+    <rect x="350" y="92" width="258" height="80" rx="6" fill="#ccfbf1" stroke="#0d9488"/>
+    <text x="362" y="112" fill="#134e4a" font-weight="800">Dual opacity (OP2GS)</text>
+    <text x="362" y="130" fill="#115e59">α for rendering, a second α* for</text>
+    <text x="362" y="146" fill="#115e59">"does this Gaussian belong to the</text>
+    <text x="362" y="162" fill="#115e59">mask?" + one integer label.</text>
+
+    <rect x="350" y="182" width="258" height="80" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="362" y="202" fill="#0c4a6e" font-weight="800">Axis-aware refinement (VCAR)</text>
+    <text x="362" y="220" fill="#075985">split projected 2D covariance per</text>
+    <text x="362" y="236" fill="#075985">axis; shrink only the axis that</text>
+    <text x="362" y="252" fill="#075985">leaks across the boundary.</text>
+
+    <rect x="350" y="272" width="258" height="94" rx="6" fill="#e0e7ff" stroke="#4f46e5"/>
+    <text x="362" y="292" fill="#312e81" font-weight="800">Pairwise relations (PairGS)</text>
+    <text x="362" y="310" fill="#3730a3">score Gaussian–Gaussian affinity</text>
+    <text x="362" y="326" fill="#3730a3">from view weights + mask evidence,</text>
+    <text x="362" y="342" fill="#3730a3">build a cluster tree → multi-</text>
+    <text x="362" y="358" fill="#3730a3">granular instances, training-free.</text>
+  </g>
+
+  <!-- panel 3 -->
+  <rect x="644" y="52" width="292" height="324" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="790" y="76" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="800">Fix the input / weight the evidence</text>
+  <g font-size="11.5">
+    <rect x="660" y="92" width="260" height="112" rx="6" fill="#fef3c7" stroke="#d97706"/>
+    <text x="672" y="112" fill="#78350f" font-weight="800">Boundary guidance (3DGS-DET)</text>
+    <text x="672" y="130" fill="#92400e">add 2D boundary maps while fitting</text>
+    <text x="672" y="146" fill="#92400e">so Gaussians separate at edges;</text>
+    <text x="672" y="162" fill="#92400e">prune background with frustums</text>
+    <text x="672" y="178" fill="#92400e">cast from Grounding DINO boxes</text>
+    <text x="672" y="194" fill="#92400e">before the 3D detector runs.</text>
+
+    <rect x="660" y="214" width="260" height="96" rx="6" fill="#ffe4e6" stroke="#e11d48"/>
+    <text x="672" y="234" fill="#881337" font-weight="800">Feature norm = reliability (NormLift)</text>
+    <text x="672" y="252" fill="#9f1239">norm of lifted CLIP feature grows</text>
+    <text x="672" y="268" fill="#9f1239">with multi-view agreement; use it to</text>
+    <text x="672" y="284" fill="#9f1239">vote, not average — boundary</text>
+    <text x="672" y="300" fill="#9f1239">Gaussians score low.</text>
+  </g>
+  <text x="660" y="336" fill="#475569" font-size="11">Common thread: an appearance-optimal</text>
+  <text x="660" y="352" fill="#475569" font-size="11">Gaussian is not a semantic unit; treat</text>
+  <text x="660" y="368" fill="#475569" font-size="11">its label as a separate, weighted quantity.</text>
+</svg>

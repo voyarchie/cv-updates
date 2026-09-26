@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Five routes to a labelled 3D Gaussian. Inputs are posed or unposed multi-view images plus 2D foundation models such as CLIP, SAM and open-vocabulary detectors. Route 1, render-and-distill feature fields, optimizes a feature per Gaussian per scene through the rasterizer, as in LangSplat, LangSplatV2 and Feature 3DGS; cost is minutes to hours per scene. Route 2, training-free lifting, back-projects 2D features to Gaussians in closed form, as in Occam's LGS, Dr. Splat, Splat Feature Solver, NormLift and SCOUP; cost is seconds to a minute. Route 3, identity and grouping, gives each Gaussian an instance ID or opacity from SAM masks, as in Gaussian Grouping, Trace3D, OP2GS, PairGS and VCAR. Route 4, native 3D encoders, runs a point-transformer-style network directly on Gaussian parameters, as in SceneSplat, trained on SceneSplat-7K and 49K. Route 5, feed-forward, predicts semantic Gaussians straight from images in one pass, as in LSM, Uni3R, SemanticSplat, SegSplat, EmbodiedSplat and COVScene. All routes output labelled Gaussians used for open-vocabulary segmentation, 3D boxes, referring grounding and 3D VLM reasoning.">
+  <title>Five routes to a labelled 3D Gaussian</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Five routes to a labelled Gaussian — where the per-scene cost lives</text>
+
+  <!-- inputs -->
+  <rect x="24" y="70" width="170" height="380" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="109" y="96" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="800">Inputs</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="40" y="126">• multi-view images</text>
+    <text x="52" y="142">(posed or unposed)</text>
+    <text x="40" y="172">• 2D foundation models</text>
+    <text x="52" y="188">CLIP / SigLIP</text>
+    <text x="52" y="204">SAM / SAM 2</text>
+    <text x="52" y="220">DINO features</text>
+    <text x="52" y="236">OV detectors</text>
+    <text x="52" y="252">VLMs</text>
+    <text x="40" y="282">• optionally a fitted</text>
+    <text x="52" y="298">3DGS scene</text>
+    <text x="52" y="314">(~1–3 M Gaussians,</text>
+    <text x="52" y="330">59 floats each)</text>
+  </g>
+
+  <!-- routes -->
+  <g font-size="11.5">
+    <!-- 1 -->
+    <rect x="232" y="70" width="470" height="64" rx="8" fill="#e0e7ff" stroke="#4f46e5"/>
+    <text x="246" y="92" fill="#312e81" font-size="13" font-weight="800">1 · Render-and-distill feature field</text>
+    <text x="246" y="110" fill="#3730a3">optimize a feature per Gaussian through the rasterizer</text>
+    <text x="246" y="126" fill="#3730a3">LangSplat → LangSplatV2 (sparse codes), Feature 3DGS</text>
+    <!-- 2 -->
+    <rect x="232" y="146" width="470" height="64" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="246" y="168" fill="#0c4a6e" font-size="13" font-weight="800">2 · Training-free lifting (closed form)</text>
+    <text x="246" y="186" fill="#075985">back-project 2D features, weight by blending contribution</text>
+    <text x="246" y="202" fill="#075985">Occam's LGS, Dr. Splat, Splat Feature Solver, NormLift, SCOUP</text>
+    <!-- 3 -->
+    <rect x="232" y="222" width="470" height="64" rx="8" fill="#ccfbf1" stroke="#0d9488"/>
+    <text x="246" y="244" fill="#134e4a" font-size="13" font-weight="800">3 · Identity / grouping (instances first)</text>
+    <text x="246" y="262" fill="#115e59">per-Gaussian instance ID, weight or opacity from SAM masks</text>
+    <text x="246" y="278" fill="#115e59">Gaussian Grouping, Trace3D, UniC-Lift, OP2GS, PairGS, VCAR</text>
+    <!-- 4 -->
+    <rect x="232" y="298" width="470" height="64" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="246" y="320" fill="#78350f" font-size="13" font-weight="800">4 · Native 3D encoder on Gaussian parameters</text>
+    <text x="246" y="338" fill="#92400e">network reads (μ, Σ, α, colour) directly; no rendering at test time</text>
+    <text x="246" y="354" fill="#92400e">SceneSplat on SceneSplat-7K / -49K</text>
+    <!-- 5 -->
+    <rect x="232" y="374" width="470" height="76" rx="8" fill="#ffe4e6" stroke="#e11d48"/>
+    <text x="246" y="396" fill="#881337" font-size="13" font-weight="800">5 · Feed-forward semantic Gaussians</text>
+    <text x="246" y="414" fill="#9f1239">images → Gaussians + semantics in one pass, no per-scene fit</text>
+    <text x="246" y="430" fill="#9f1239">LSM, Uni3R, SemanticSplat, SegSplat, EmbodiedSplat (online),</text>
+    <text x="246" y="446" fill="#9f1239">COVScene (+ occupancy)</text>
+  </g>
+
+  <!-- cost column -->
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <text x="752" y="62" font-weight="800">per-scene cost</text>
+    <text x="752" y="106">min → hours</text>
+    <text x="752" y="182">seconds → 1 min</text>
+    <text x="752" y="258">minutes</text>
+    <text x="752" y="334">one forward pass*</text>
+    <text x="752" y="416">one forward pass</text>
+  </g>
+
+  <!-- arrows in -->
+  <g stroke="#64748b" stroke-width="1.4" fill="none">
+    <path d="M194 260 L232 102"/>
+    <path d="M194 260 L232 178"/>
+    <path d="M194 260 L232 254"/>
+    <path d="M194 260 L232 330"/>
+    <path d="M194 260 L232 412"/>
+  </g>
+
+  <!-- output -->
+  <rect x="812" y="150" width="128" height="220" rx="8" fill="#334155" stroke="#94a3b8"/>
+  <text x="876" y="176" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="800">Labelled</text>
+  <text x="876" y="192" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="800">Gaussians</text>
+  <g font-size="11" fill="#e2e8f0">
+    <text x="824" y="222">• OV 3D semantic</text>
+    <text x="834" y="236">segmentation</text>
+    <text x="824" y="260">• instance masks</text>
+    <text x="824" y="284">• 3D boxes</text>
+    <text x="824" y="308">• referring /</text>
+    <text x="834" y="322">grounding</text>
+    <text x="824" y="346">• 3D-VLM tokens</text>
+  </g>
+  <g stroke="#64748b" stroke-width="1.4" fill="none">
+    <path d="M790 260 L812 260"/>
+  </g>
+  <polygon points="812,260 804,255 804,265" fill="#64748b"/>
+
+  <text x="24" y="480" fill="#475569" font-size="11">* route 4 still needs a fitted 3DGS scene as input; route 5 needs only images. Costs are indicative, taken from the papers' own claims.</text>
+</svg>
