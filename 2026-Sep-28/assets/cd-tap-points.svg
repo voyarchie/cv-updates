@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Where a detector can tap a compressed stream. Top row: the decoder pipeline from bitstream, through entropy decoding, to syntax elements (motion vectors, block modes, bits per block), then dequantized coefficients or learned latents, then inverse transform and reconstruction to pixels. Taps are marked T0 to T4. T0 bitstream syntax only: motion vectors and modes, used by MV tracking such as See Without Decoding, MVP and ComPrivDet. T1 coefficients or latents: DCT-domain detectors, JPEG AI latent consumers. T2 partial decode: low-frequency only reconstruction, the LFSP distillation framework. T3 full pixels: the conventional detector. T4 is different: the encoder side ships intermediate neural features, MPEG FCM, split inference. Cost falls to the left, accuracy rises to the right.">
+  <title>Five tap points on a compressed stream</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Where the detector reads the stream: five tap points</text>
+
+  <!-- decoder pipeline -->
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="24" y="62" width="130" height="58" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="89" y="87" fill="#1e293b">Bitstream</text>
+    <text x="89" y="104" fill="#475569" font-weight="400" font-size="11">H.264/HEVC/AV1, JPEG</text>
+
+    <rect x="196" y="62" width="130" height="58" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="261" y="87" fill="#1e293b">Entropy decode</text>
+    <text x="261" y="104" fill="#475569" font-weight="400" font-size="11">CABAC / Huffman / AE</text>
+
+    <rect x="368" y="62" width="150" height="58" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="443" y="87" fill="#1e293b">Coefficients / latents</text>
+    <text x="443" y="104" fill="#475569" font-weight="400" font-size="11">DCT blocks or codec latent ŷ</text>
+
+    <rect x="560" y="62" width="150" height="58" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="635" y="87" fill="#1e293b">Inverse transform</text>
+    <text x="635" y="104" fill="#475569" font-weight="400" font-size="11">IDCT / synthesis net + MC</text>
+
+    <rect x="752" y="62" width="184" height="58" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="844" y="87" fill="#1e293b">Pixels (RGB)</text>
+    <text x="844" y="104" fill="#475569" font-weight="400" font-size="11">what detectors usually see</text>
+  </g>
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <path d="M154 91 H192"/><path d="M326 91 H364"/><path d="M518 91 H556"/><path d="M710 91 H748"/>
+  </g>
+  <g fill="#64748b"><path d="M192 86 l8 5 l-8 5z"/><path d="M364 86 l8 5 l-8 5z"/><path d="M556 86 l8 5 l-8 5z"/><path d="M748 86 l8 5 l-8 5z"/></g>
+
+  <!-- tap markers -->
+  <g stroke-width="2" stroke-dasharray="4 3" fill="none">
+    <path d="M261 120 V168" stroke="#0d9488"/>
+    <path d="M443 120 V168" stroke="#2563eb"/>
+    <path d="M635 120 V168" stroke="#7c3aed"/>
+    <path d="M844 120 V168" stroke="#475569"/>
+  </g>
+
+  <!-- tap cards -->
+  <g font-size="11">
+    <rect x="176" y="170" width="170" height="150" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="261" y="191" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="800">T0 · syntax only</text>
+    <text x="188" y="212" fill="#334155">Motion vectors, block</text>
+    <text x="188" y="227" fill="#334155">modes, bits per block.</text>
+    <text x="188" y="248" fill="#0f766e" font-weight="700">Box propagation between</text>
+    <text x="188" y="263" fill="#0f766e" font-weight="700">keyframes (§4)</text>
+    <text x="188" y="284" fill="#475569">See Without Decoding,</text>
+    <text x="188" y="299" fill="#475569">MVP, ComPrivDet</text>
+
+    <rect x="358" y="170" width="170" height="150" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="443" y="191" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="800">T1 · coefficients</text>
+    <text x="370" y="212" fill="#334155">8×8 DCT blocks or the</text>
+    <text x="370" y="227" fill="#334155">quantized latent ŷ.</text>
+    <text x="370" y="248" fill="#1d4ed8" font-weight="700">Detector stem rewired</text>
+    <text x="370" y="263" fill="#1d4ed8" font-weight="700">for frequency input (§3, §5)</text>
+    <text x="370" y="284" fill="#475569">DCT-SSD lineage, JPEG AI</text>
+    <text x="370" y="299" fill="#475569">latent consumers</text>
+
+    <rect x="550" y="170" width="170" height="150" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="635" y="191" text-anchor="middle" fill="#6d28d9" font-size="13" font-weight="800">T2 · partial decode</text>
+    <text x="562" y="212" fill="#334155">Keep low frequencies,</text>
+    <text x="562" y="227" fill="#334155">skip the rest.</text>
+    <text x="562" y="248" fill="#6d28d9" font-weight="700">Pixel teacher distils</text>
+    <text x="562" y="263" fill="#6d28d9" font-weight="700">into the student (§3.3)</text>
+    <text x="562" y="284" fill="#475569">LFSP + GFD/FBFD/LRD</text>
+    <text x="562" y="299" fill="#475569">(pixel→compressed KD, 2026)</text>
+
+    <rect x="742" y="170" width="194" height="150" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="839" y="191" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">T3 · full pixels</text>
+    <text x="754" y="212" fill="#334155">Standard detector. Codec</text>
+    <text x="754" y="227" fill="#334155">side-info still usable as</text>
+    <text x="754" y="242" fill="#334155">a scheduler / pruner.</text>
+    <text x="754" y="263" fill="#334155" font-weight="700">Codec-guided VLMs (§6)</text>
+    <text x="754" y="284" fill="#475569">Mage-VL, CoPE, AdaCodec,</text>
+    <text x="754" y="299" fill="#475569">CodecSight</text>
+  </g>
+
+  <!-- T4 -->
+  <rect x="24" y="338" width="912" height="66" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="40" y="364" fill="#c2410c" font-size="13" font-weight="800">T4 · the encoder ships features, not a picture (§5)</text>
+  <text x="40" y="384" fill="#334155" font-size="11.5">Backbone split at the edge → feature reduction → pack → VVC or learned codec → detection head in the cloud.</text>
+  <text x="40" y="396" fill="#475569" font-size="11">MPEG-AI FCM (Part 4) · Visual Token Codec · multiscale feature-importance bit allocation</text>
+
+  <!-- axis -->
+  <path d="M60 434 H900" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M60 434 l10 -5 v10z" fill="#94a3b8"/>
+  <path d="M900 434 l-10 -5 v10z" fill="#94a3b8"/>
+  <text x="70" y="456" fill="#0f766e" font-size="11.5" font-weight="700">← cheaper to read, more bits skipped</text>
+  <text x="890" y="456" text-anchor="end" fill="#334155" font-size="11.5" font-weight="700">more information, closer to pixel-domain accuracy →</text>
+</svg>
