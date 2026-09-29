@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The lensless privacy ladder: what actually reduces identity leakage. Numbers from the 2026 lensless-gaze audit, arXiv 2609.09188, with a simulated fixed known PSF and 36-subject closed-set identification. Original eye crops give 97.7 percent top-1 identification. Raw simulated lensless measurements give 96.7 percent, so being unreadable to a human removes almost nothing. An MAE embedding retains 94.3 percent. An 8-dimensional PCA retains 93.2 percent and a matched 8-dimensional bottleneck 91.8 percent, so compression alone helps little. Separately trained 8-dimensional GSPL bottlenecks bring recovery down to 77.5 percent mean over three seeds. Beyond the audit's scope are defences that change the optics: low-resolution learned optical embeddings, shift-variant PSFs, and programmable masks that vary per capture as a key.">
+  <title>Lensless privacy ladder — identity leakage by disclosure surface</title>
+  <rect x="0" y="0" width="960" height="440" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">"Unreadable" is not "private": identity recovered from each disclosure surface</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Top-1 identification, 36-subject closed set, simulated lensless gaze, fixed known PSF (arXiv 2609.09188, ECCV 2026 PFATCV workshop). Lower = more private.</text>
+
+  <!-- axis -->
+  <g font-size="10.5" fill="#64748b">
+    <line x1="300" y1="78" x2="300" y2="318" stroke="#94a3b8"/>
+    <line x1="300" y1="318" x2="900" y2="318" stroke="#94a3b8"/>
+    <text x="300" y="334" text-anchor="middle">0%</text>
+    <text x="450" y="334" text-anchor="middle">25%</text>
+    <text x="600" y="334" text-anchor="middle">50%</text>
+    <text x="750" y="334" text-anchor="middle">75%</text>
+    <text x="900" y="334" text-anchor="middle">100%</text>
+    <line x1="450" y1="78" x2="450" y2="318" stroke="#cbd5e1" stroke-dasharray="3 3"/>
+    <line x1="600" y1="78" x2="600" y2="318" stroke="#cbd5e1" stroke-dasharray="3 3"/>
+    <line x1="750" y1="78" x2="750" y2="318" stroke="#cbd5e1" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- bars: width = pct*6 -->
+  <g font-size="12" fill="#1e293b">
+    <text x="288" y="100" text-anchor="end">original eye crop (lensed)</text>
+    <rect x="300" y="86" width="586.2" height="22" rx="3" fill="#334155"/>
+    <text x="880" y="102" text-anchor="end" fill="#f8fafc" font-weight="700">97.7%</text>
+
+    <text x="288" y="138" text-anchor="end">raw lensless measurement</text>
+    <rect x="300" y="124" width="580.2" height="22" rx="3" fill="#9f1239"/>
+    <text x="874" y="140" text-anchor="end" fill="#ffe4e6" font-weight="700">96.7%</text>
+
+    <text x="288" y="176" text-anchor="end">MAE embedding</text>
+    <rect x="300" y="162" width="565.8" height="22" rx="3" fill="#be123c"/>
+    <text x="860" y="178" text-anchor="end" fill="#ffe4e6" font-weight="700">94.3%</text>
+
+    <text x="288" y="214" text-anchor="end">8-D PCA</text>
+    <rect x="300" y="200" width="559.2" height="22" rx="3" fill="#075985"/>
+    <text x="853" y="216" text-anchor="end" fill="#e0f2fe" font-weight="700">93.2%</text>
+
+    <text x="288" y="252" text-anchor="end">matched 8-D bottleneck</text>
+    <rect x="300" y="238" width="550.8" height="22" rx="3" fill="#0369a1"/>
+    <text x="845" y="254" text-anchor="end" fill="#e0f2fe" font-weight="700">91.8%</text>
+
+    <text x="288" y="290" text-anchor="end">8-D GSPL bottleneck (3 seeds)</text>
+    <rect x="300" y="276" width="465" height="22" rx="3" fill="#0f766e"/>
+    <text x="759" y="292" text-anchor="end" fill="#ccfbf1" font-weight="700">77.5%</text>
+  </g>
+
+  <!-- footer -->
+  <rect x="24" y="352" width="912" height="72" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="40" y="374" fill="#1e293b" font-size="12.5" font-weight="800">Read-out</text>
+  <g font-size="11" fill="#334155">
+    <text x="40" y="392">Multiplexing is a known, invertible linear map — a learned adversary treats it as a change of basis. Compression alone barely helps; a trained bottleneck helps some.</text>
+    <text x="40" y="410">Stronger defences change H itself (out of the audit's scope): low-res learned optical embeddings, shift-variant PSFs, or a programmable mask that varies per capture as a key.</text>
+  </g>
+</svg>

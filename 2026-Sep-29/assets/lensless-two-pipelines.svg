@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The lensless camera and its two inference pipelines. A scene is encoded by a thin mask a millimetre or two in front of the sensor; every scene point spreads into a large point-spread function, so the sensor records a globally multiplexed measurement y equal to H times x plus noise, which is unreadable to a person. Pipeline A, reconstruct then detect: an inversion step such as Wiener, ADMM, an unrolled network, FlatNet, a modular pre and post processor, IFIN, RTLViT or a diffusion prior like DifuzCam and PhoCoLens produces an image, which a standard detector, segmenter or classifier consumes. Its costs are compute, hallucinated detail, and a visible image existing on the device. Pipeline B, infer from the measurement: a network with a global receptive field reads y directly, often starting with an optics-aware layer, and outputs labels, masks, boxes, poses or identities, as in RGANet, LenslessFace, LPSNet, Raw3dNet and FlatTrack. Its benefits are no visible image and less compute; its costs are that ImageNet-pretrained backbones do not transfer directly and that it may still leak identity. Optionally the mask itself is learned jointly with the task network.">
+  <title>Lensless camera: reconstruct-then-detect vs infer-from-measurement</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">A lensless camera, and the two ways to get a label out of it</text>
+
+  <!-- optics -->
+  <rect x="24" y="56" width="300" height="200" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="174" y="80" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="800">Capture (optics = encoder)</text>
+  <!-- scene -->
+  <circle cx="60" cy="150" r="16" fill="#0f766e"/>
+  <rect x="44" y="176" width="32" height="26" fill="#9f1239"/>
+  <text x="60" y="226" text-anchor="middle" fill="#334155" font-size="11">scene x</text>
+  <!-- rays -->
+  <g stroke="#94a3b8" stroke-width="1.2">
+    <line x1="78" y1="150" x2="150" y2="110"/><line x1="78" y1="150" x2="150" y2="150"/><line x1="78" y1="150" x2="150" y2="200"/>
+    <line x1="78" y1="189" x2="150" y2="120"/><line x1="78" y1="189" x2="150" y2="170"/><line x1="78" y1="189" x2="150" y2="215"/>
+  </g>
+  <!-- mask -->
+  <rect x="150" y="100" width="8" height="125" fill="#334155"/>
+  <g fill="#f4f6fb"><rect x="150" y="108" width="8" height="6"/><rect x="150" y="128" width="8" height="10"/><rect x="150" y="150" width="8" height="5"/><rect x="150" y="168" width="8" height="12"/><rect x="150" y="194" width="8" height="6"/><rect x="150" y="210" width="8" height="8"/></g>
+  <text x="154" y="244" text-anchor="middle" fill="#334155" font-size="11">mask / diffuser</text>
+  <text x="154" y="94" text-anchor="middle" fill="#64748b" font-size="10.5">≈1–2 mm gap</text>
+  <!-- sensor -->
+  <rect x="176" y="100" width="10" height="125" fill="#075985"/>
+  <!-- measurement -->
+  <rect x="200" y="104" width="112" height="118" rx="4" fill="#cbd5e1" stroke="#64748b"/>
+  <g fill="#64748b" opacity="0.55">
+    <circle cx="222" cy="126" r="9"/><circle cx="262" cy="118" r="6"/><circle cx="292" cy="140" r="10"/><circle cx="236" cy="168" r="12"/>
+    <circle cx="280" cy="186" r="8"/><circle cx="214" cy="204" r="6"/><circle cx="300" cy="206" r="7"/><circle cx="258" cy="150" r="5"/>
+  </g>
+  <g fill="#9f1239" opacity="0.35"><circle cx="246" cy="130" r="10"/><circle cx="290" cy="166" r="11"/><circle cx="226" cy="190" r="9"/></g>
+  <text x="256" y="244" text-anchor="middle" fill="#1e293b" font-size="11.5" font-weight="700">y = Hx + n</text>
+
+  <g font-size="11" fill="#334155">
+    <text x="36" y="272">• every scene point → a sensor-wide PSF</text>
+    <text x="36" y="288">• local image structure is gone; global mixing</text>
+    <text x="36" y="304">• thin, cheap, light — and unreadable to a person</text>
+  </g>
+
+  <!-- pipeline A -->
+  <rect x="360" y="56" width="576" height="170" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="376" y="80" fill="#075985" font-size="13" font-weight="800">A · Reconstruct, then run a normal model</text>
+  <rect x="376" y="96" width="200" height="82" rx="6" fill="#075985"/>
+  <g fill="#e0f2fe" font-size="11">
+    <text x="476" y="116" text-anchor="middle" font-weight="700">inversion  y → x̂</text>
+    <text x="476" y="134" text-anchor="middle">Wiener / ADMM / unrolled</text>
+    <text x="476" y="150" text-anchor="middle">FlatNet · modular pre/post · IFIN</text>
+    <text x="476" y="166" text-anchor="middle">RTLViT · DifuzCam · PhoCoLens</text>
+  </g>
+  <line x1="578" y1="137" x2="612" y2="137" stroke="#475569" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="614" y="112" width="70" height="50" rx="4" fill="#bae6fd" stroke="#0369a1"/>
+  <text x="649" y="142" text-anchor="middle" fill="#075985" font-size="11" font-weight="700">image x̂</text>
+  <line x1="686" y1="137" x2="720" y2="137" stroke="#475569" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="722" y="96" width="198" height="82" rx="6" fill="#0369a1"/>
+  <g fill="#e0f2fe" font-size="11">
+    <text x="821" y="118" text-anchor="middle" font-weight="700">any off-the-shelf model</text>
+    <text x="821" y="136" text-anchor="middle">detector · segmenter · OCR</text>
+    <text x="821" y="152" text-anchor="middle">(CTPN+CRNN, face nets,</text>
+    <text x="821" y="168" text-anchor="middle">pose regressors…)</text>
+  </g>
+  <g font-size="10.8" fill="#075985">
+    <text x="376" y="198">+ reuses the entire pretrained 2D model zoo</text>
+    <text x="376" y="214">− extra compute · hallucinated detail (esp. diffusion) · a visible image now exists on-device</text>
+  </g>
+
+  <!-- pipeline B -->
+  <rect x="360" y="240" width="576" height="170" rx="8" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="376" y="264" fill="#115e59" font-size="13" font-weight="800">B · Infer directly from the measurement</text>
+  <rect x="376" y="280" width="250" height="82" rx="6" fill="#0f766e"/>
+  <g fill="#ccfbf1" font-size="11">
+    <text x="501" y="300" text-anchor="middle" font-weight="700">optics-aware first layer</text>
+    <text x="501" y="318" text-anchor="middle">(learned/trainable inversion, frequency</text>
+    <text x="501" y="334" text-anchor="middle">cues) + global-receptive-field backbone</text>
+    <text x="501" y="350" text-anchor="middle">(transformer / attention)</text>
+  </g>
+  <line x1="628" y1="321" x2="662" y2="321" stroke="#475569" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="664" y="280" width="256" height="82" rx="6" fill="#115e59"/>
+  <g fill="#ccfbf1" font-size="11">
+    <text x="792" y="300" text-anchor="middle" font-weight="700">task output, no image</text>
+    <text x="792" y="318" text-anchor="middle">masks — RGANet (ICLR'25)</text>
+    <text x="792" y="334" text-anchor="middle">faces — LenslessFace · LFD</text>
+    <text x="792" y="350" text-anchor="middle">pose — LPSNet · gaze — FlatTrack</text>
+  </g>
+  <g font-size="10.8" fill="#115e59">
+    <text x="376" y="382">+ no visible image anywhere · less compute · end-to-end loss on the task</text>
+    <text x="376" y="398">− ImageNet backbones don't transfer as-is · "unreadable" ≠ private (identity still leaks)</text>
+  </g>
+
+  <!-- arrows from measurement -->
+  <path d="M314,150 C335,150 340,137 372,137" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path d="M314,180 C340,200 340,321 372,321" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- joint design -->
+  <rect x="24" y="428" width="912" height="72" rx="8" fill="#ffe4e6" stroke="#be123c"/>
+  <text x="40" y="452" fill="#9f1239" font-size="13" font-weight="800">Optional third lever: learn the mask with the task network</text>
+  <g font-size="11" fill="#881337">
+    <text x="40" y="472">Programmable / learned masks (optical embeddings, LCD masks) make H part of the model — pick multiplexing to match object sparsity (info-optimal design),</text>
+    <text x="40" y="488">shrink the sensor-side embedding for privacy, or vary the mask per capture as a key (encryption / authentication).</text>
+  </g>
+</svg>
