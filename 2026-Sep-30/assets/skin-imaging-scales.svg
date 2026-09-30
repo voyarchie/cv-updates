@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Four skin-imaging scales and the dense task each one poses. 3D total-body photography covers the whole body at centimetre scale and poses whole-body lesion detection, triage and longitudinal tracking of hundreds of lesions per patient. Clinical photographs from phones or cameras cover a body region and pose differential diagnosis over hundreds of conditions. Dermoscopy covers one lesion at about 10 times magnification with polarised light and poses melanoma versus nevus classification, lesion segmentation and dermoscopic structure detection. Dermatopathology whole-slide images cover biopsy tissue at micrometre scale and pose tissue classification. PanDerm pretrains one encoder on all four modalities.">
+  <title>Skin imaging — four scales, four dense tasks</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">One organ, four imaging scales — and a different dense task at each</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Field of view shrinks left → right; the unit that gets detected or classified changes from "every lesion on a body" to "one tissue patch".</text>
+
+  <!-- column cards -->
+  <g font-size="12">
+    <!-- TBP -->
+    <rect x="24" y="72" width="216" height="270" rx="8" fill="#334155" stroke="#94a3b8"/>
+    <text x="132" y="96" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="800">3D total-body photo</text>
+    <text x="132" y="114" text-anchor="middle" fill="#cbd5e1" font-size="11">Vectra WB360-class, 92 cameras</text>
+    <!-- body silhouette -->
+    <circle cx="132" cy="140" r="11" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+    <path d="M132 151 L132 200 M112 166 L152 166 M132 200 L118 232 M132 200 L146 232" stroke="#e2e8f0" stroke-width="2" fill="none"/>
+    <g fill="#fbbf24"><circle cx="126" cy="172" r="2.2"/><circle cx="138" cy="182" r="2.2"/><circle cx="120" cy="164" r="2.2"/><circle cx="143" cy="170" r="2.2"/><circle cx="130" cy="192" r="2.2"/><circle cx="123" cy="215" r="2.2"/><circle cx="142" cy="222" r="2.2"/></g>
+    <circle cx="138" cy="182" r="6" fill="none" stroke="#fb7185" stroke-width="2"/>
+    <text x="40" y="262" fill="#f8fafc" font-weight="700">Unit: every lesion, whole body</text>
+    <text x="40" y="282" fill="#e2e8f0">• detect 100s of lesions / patient</text>
+    <text x="40" y="300" fill="#e2e8f0">• triage the "ugly duckling"</text>
+    <text x="40" y="318" fill="#e2e8f0">• match lesions across visits</text>
+
+    <!-- Clinical -->
+    <rect x="256" y="72" width="216" height="270" rx="8" fill="#075985" stroke="#38bdf8"/>
+    <text x="364" y="96" text-anchor="middle" fill="#e0f2fe" font-size="14" font-weight="800">Clinical photograph</text>
+    <text x="364" y="114" text-anchor="middle" fill="#bae6fd" font-size="11">phone / camera, uncontrolled</text>
+    <rect x="314" y="130" width="100" height="100" rx="6" fill="#0c4a6e" stroke="#7dd3fc"/>
+    <ellipse cx="350" cy="172" rx="18" ry="12" fill="#f472b6" opacity="0.75"/>
+    <ellipse cx="380" cy="196" rx="12" ry="8" fill="#f472b6" opacity="0.6"/>
+    <ellipse cx="372" cy="160" rx="7" ry="5" fill="#f472b6" opacity="0.6"/>
+    <text x="272" y="262" fill="#e0f2fe" font-weight="700">Unit: a body region</text>
+    <text x="272" y="282" fill="#e0f2fe">• differential over 100s of</text>
+    <text x="272" y="300" fill="#e0f2fe">  conditions (inflammatory,</text>
+    <text x="272" y="318" fill="#e0f2fe">  infectious, neoplastic)</text>
+
+    <!-- Dermoscopy -->
+    <rect x="488" y="72" width="216" height="270" rx="8" fill="#0f766e" stroke="#2dd4bf"/>
+    <text x="596" y="96" text-anchor="middle" fill="#ccfbf1" font-size="14" font-weight="800">Dermoscopy</text>
+    <text x="596" y="114" text-anchor="middle" fill="#99f6e4" font-size="11">~10× · polarised · contact/non-contact</text>
+    <circle cx="596" cy="180" r="50" fill="#134e4a" stroke="#5eead4"/>
+    <path d="M572 170 C580 150 612 148 620 168 C628 190 610 210 590 206 C572 202 566 186 572 170 Z" fill="#78350f" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4 3"/>
+    <line x1="560" y1="214" x2="632" y2="214" stroke="#e2e8f0" stroke-width="1.5"/>
+    <g stroke="#e2e8f0" stroke-width="1"><line x1="570" y1="210" x2="570" y2="214"/><line x1="584" y1="210" x2="584" y2="214"/><line x1="598" y1="210" x2="598" y2="214"/><line x1="612" y1="210" x2="612" y2="214"/><line x1="626" y1="210" x2="626" y2="214"/></g>
+    <text x="504" y="262" fill="#ccfbf1" font-weight="700">Unit: one lesion</text>
+    <text x="504" y="282" fill="#ccfbf1">• melanoma vs nevus vs BCC…</text>
+    <text x="504" y="300" fill="#ccfbf1">• boundary segmentation</text>
+    <text x="504" y="318" fill="#ccfbf1">• ruler / ink = shortcut risk</text>
+
+    <!-- Dermpath -->
+    <rect x="720" y="72" width="216" height="270" rx="8" fill="#6d28d9" stroke="#c4b5fd"/>
+    <text x="828" y="96" text-anchor="middle" fill="#ede9fe" font-size="14" font-weight="800">Dermatopathology WSI</text>
+    <text x="828" y="114" text-anchor="middle" fill="#ddd6fe" font-size="11">H&amp;E biopsy · µm · gigapixel</text>
+    <rect x="778" y="130" width="100" height="100" rx="4" fill="#4c1d95" stroke="#c4b5fd"/>
+    <g fill="#f0abfc" opacity="0.85"><circle cx="795" cy="148" r="3"/><circle cx="808" cy="160" r="3"/><circle cx="822" cy="150" r="3"/><circle cx="836" cy="170" r="3"/><circle cx="850" cy="158" r="3"/><circle cx="862" cy="182" r="3"/><circle cx="800" cy="196" r="3"/><circle cx="818" cy="208" r="3"/><circle cx="846" cy="214" r="3"/><circle cx="830" cy="190" r="3"/></g>
+    <text x="736" y="262" fill="#ede9fe" font-weight="700">Unit: a tissue patch / slide</text>
+    <text x="736" y="282" fill="#ede9fe">• tissue &amp; tumour classes</text>
+    <text x="736" y="300" fill="#ede9fe">• the ground-truth source for</text>
+    <text x="736" y="318" fill="#ede9fe">  the other three columns</text>
+  </g>
+
+  <!-- scale arrow -->
+  <line x1="40" y1="364" x2="920" y2="364" stroke="#64748b" stroke-width="2"/>
+  <path d="M920 364 l-10 -6 v12 z" fill="#64748b"/>
+  <g font-size="11" fill="#475569">
+    <text x="132" y="382" text-anchor="middle">~2 m body</text>
+    <text x="364" y="382" text-anchor="middle">~10–30 cm region</text>
+    <text x="596" y="382" text-anchor="middle">~1–2 cm lesion</text>
+    <text x="828" y="382" text-anchor="middle">~µm cells</text>
+  </g>
+
+  <!-- unified encoder -->
+  <rect x="120" y="402" width="720" height="48" rx="8" fill="#9f1239" stroke="#fb7185"/>
+  <text x="480" y="424" text-anchor="middle" fill="#ffe4e6" font-size="13.5" font-weight="800">PanDerm (Nature Medicine 2025): one self-supervised encoder, &gt;2 M images, all four columns</text>
+  <text x="480" y="441" text-anchor="middle" fill="#fecdd3" font-size="11.5">11 institutions · 28 benchmarks · often beats prior models with 10% of the labels</text>
+</svg>
