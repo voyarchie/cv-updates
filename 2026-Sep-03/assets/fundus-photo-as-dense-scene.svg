@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A color fundus photograph shown as a dense detection-and-classification scene. A fundus camera shines light through the pupil onto the curved, living, blood-perfused inner surface of the eye and captures a single wide-angle reflectance photograph. That photograph is a scene of many small, low-contrast, class-defined objects on a red-orange background: the bright optic disc where vessels and the nerve enter, the darker macula at the center of vision, a branching tree of arteries and veins, and scattered pathological lesions — tiny red microaneurysms, larger dark hemorrhages, bright-yellow hard exudates, and fluffy cotton-wool spots. Dense detection means finding and classifying every lesion while rejecting vessels, reflections, and normal anatomy. Dense segmentation means tracing every vessel and outlining the optic disc and cup. Whole-image classification then grades diabetic-retinopathy severity, macular edema risk, and glaucoma, all from the same photograph.">
+  <title>A color fundus photograph is a wide-angle reflectance scene of tiny class-defined lesions, vessels, and the optic disc to detect, segment, and grade</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Light into a living eye &#8594; one reflectance photograph &#8594; detect &amp; classify every lesion &#8594; segment vessels/disc &#8594; grade the disease</text>
+
+  <!-- ============ Panel 1: eye + fundus camera ============ -->
+  <g>
+    <rect x="24" y="52" width="252" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; camera light through the pupil</text>
+
+    <!-- eye globe -->
+    <circle cx="150" cy="230" r="92" fill="#111c2e" stroke="#1e3a5f" stroke-width="2"/>
+    <!-- curved retina (inner back surface) -->
+    <path d="M92 168 A92 92 0 0 0 92 292" fill="none" stroke="#b45309" stroke-width="10" opacity="0.8"/>
+    <text x="60" y="150" fill="#f59e0b" font-size="10">curved retina (back inner wall)</text>
+    <!-- cornea / pupil at front -->
+    <path d="M240 205 A44 44 0 0 1 240 255" fill="#0f2233" stroke="#38bdf8" stroke-width="2"/>
+    <text x="196" y="300" fill="#7dd3fc" font-size="10">pupil</text>
+    <!-- illumination + imaging rays -->
+    <g stroke="#38bdf8" stroke-width="1.4" opacity="0.6">
+      <line x1="300" y1="215" x2="120" y2="205"/>
+      <line x1="300" y1="230" x2="112" y2="230"/>
+      <line x1="300" y1="245" x2="120" y2="256"/>
+    </g>
+    <rect x="300" y="196" width="6" height="70" rx="2" fill="#38bdf8" opacity="0.8"/>
+    <text x="150" y="360" fill="#94a3b8" font-size="10">single 2-D projection of a</text>
+    <text x="150" y="374" fill="#94a3b8" font-size="10">3-D, self-occluding surface</text>
+    <text x="150" y="398" fill="#cbd5e1" font-size="10">no depth &#183; reflection artifacts</text>
+    <text x="150" y="412" fill="#cbd5e1" font-size="10">illumination varies across field</text>
+    <text x="150" y="440" fill="#5eead4" font-size="10">device/operator &#8594; strong</text>
+    <text x="150" y="454" fill="#5eead4" font-size="10">domain shift (color, contrast)</text>
+  </g>
+
+  <!-- ============ Panel 2: the fundus photograph with lesions ============ -->
+  <g>
+    <rect x="288" y="52" width="360" height="440" rx="8" fill="#1a0d08" stroke="#334155" stroke-width="2"/>
+    <text x="302" y="74" fill="#fca5a5" font-size="11.5">2 &#183; the red-orange fundus &#8212; a field of small objects</text>
+    <!-- fundus disc background -->
+    <circle cx="468" cy="285" r="185" fill="#7c2d12"/>
+    <circle cx="468" cy="285" r="185" fill="none" stroke="#b45309" stroke-width="2" opacity="0.5"/>
+    <!-- macula (dark central zone) -->
+    <circle cx="470" cy="300" r="34" fill="#5a1e0b"/>
+    <circle cx="470" cy="300" r="6" fill="#3a1207"/>
+    <text x="470" y="352" fill="#fdba74" font-size="9.5" text-anchor="middle">macula / fovea</text>
+    <!-- optic disc (bright) -->
+    <ellipse cx="372" cy="268" rx="30" ry="34" fill="#fde68a"/>
+    <ellipse cx="372" cy="268" rx="15" ry="18" fill="#fcd34d"/>
+    <text x="372" y="222" fill="#fef3c7" font-size="9.5" text-anchor="middle">optic disc (cup inside)</text>
+    <!-- vessels: arteries/veins arcades -->
+    <g fill="none" stroke="#9a1c1c" stroke-width="3.2" opacity="0.92" stroke-linecap="round">
+      <path d="M388 258 C 440 210, 520 200, 600 190"/>
+      <path d="M388 280 C 450 320, 540 360, 620 392"/>
+      <path d="M366 292 C 340 350, 330 410, 336 452"/>
+      <path d="M360 250 C 320 210, 300 180, 296 150"/>
+    </g>
+    <g fill="none" stroke="#c0392b" stroke-width="1.7" opacity="0.85" stroke-linecap="round">
+      <path d="M470 232 C 500 205, 545 198, 590 196"/>
+      <path d="M452 330 C 470 380, 500 415, 528 440"/>
+      <path d="M402 300 C 372 340, 358 395, 360 440"/>
+    </g>
+    <text x="612" y="188" fill="#fecaca" font-size="9.5">vessels (A/V)</text>
+    <!-- microaneurysms: tiny red dots -->
+    <g fill="#dc2626">
+      <circle cx="512" cy="252" r="3"/><circle cx="548" cy="300" r="2.6"/>
+      <circle cx="430" cy="360" r="3"/><circle cx="500" cy="360" r="2.4"/>
+      <circle cx="418" cy="238" r="2.6"/><circle cx="560" cy="336" r="3"/>
+    </g>
+    <!-- hemorrhages: larger dark red blotches -->
+    <g fill="#7f1d1d">
+      <ellipse cx="540" cy="230" rx="10" ry="7" transform="rotate(20 540 230)"/>
+      <ellipse cx="438" cy="330" rx="9" ry="6" transform="rotate(-15 438 330)"/>
+      <ellipse cx="520" cy="392" rx="8" ry="6"/>
+    </g>
+    <!-- hard exudates: bright yellow flecks -->
+    <g fill="#facc15">
+      <circle cx="498" cy="284" r="3"/><circle cx="506" cy="292" r="2.4"/>
+      <circle cx="524" cy="316" r="3.2"/><circle cx="452" cy="256" r="2.6"/>
+      <circle cx="486" cy="332" r="2.6"/>
+    </g>
+    <!-- cotton-wool spot: fuzzy pale patch -->
+    <g fill="#fef9c3" opacity="0.85">
+      <ellipse cx="558" cy="272" rx="12" ry="8"/>
+    </g>
+    <!-- lesion legend -->
+    <g font-size="9.5">
+      <circle cx="306" cy="470" r="3.4" fill="#dc2626"/><text x="314" y="473" fill="#fecaca">microaneurysm</text>
+      <ellipse cx="404" cy="470" rx="6" ry="4" fill="#7f1d1d"/><text x="414" y="473" fill="#fecaca">hemorrhage</text>
+      <circle cx="486" cy="470" r="3.4" fill="#facc15"/><text x="494" y="473" fill="#fef3c7">hard exudate</text>
+      <ellipse cx="576" cy="470" rx="6" ry="4" fill="#fef9c3"/><text x="586" y="473" fill="#fef3c7">cotton-wool</text>
+    </g>
+  </g>
+
+  <!-- ============ Panel 3: tasks ============ -->
+  <g>
+    <rect x="660" y="52" width="276" height="440" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="674" y="74" fill="#94a3b8" font-size="11.5">3 &#183; three coupled dense-vision jobs</text>
+
+    <rect x="674" y="90" width="248" height="112" rx="6" fill="#111c2e" stroke="#334155"/>
+    <text x="686" y="110" fill="#fca5a5" font-size="11" font-weight="700">Dense detection &amp; classification</text>
+    <text x="686" y="128" fill="#cbd5e1" font-size="10">15&#8211;60 &#181;m microaneurysms; hemorrhages;</text>
+    <text x="686" y="142" fill="#cbd5e1" font-size="10">hard exudates; cotton-wool; neovessels</text>
+    <text x="686" y="160" fill="#94a3b8" font-size="9.5">many tiny objects, extreme class imbalance,</text>
+    <text x="686" y="173" fill="#94a3b8" font-size="9.5">reject vessels / reflections / drusen</text>
+    <text x="686" y="191" fill="#5eead4" font-size="9.5">IDRiD &#183; DDR &#183; e-ophtha &#183; DIARETDB1 &#183; ROC</text>
+
+    <rect x="674" y="212" width="248" height="96" rx="6" fill="#111c2e" stroke="#334155"/>
+    <text x="686" y="232" fill="#93c5fd" font-size="11" font-weight="700">Dense segmentation</text>
+    <text x="686" y="250" fill="#cbd5e1" font-size="10">vessel tree; artery/vein separation;</text>
+    <text x="686" y="264" fill="#cbd5e1" font-size="10">optic disc &amp; cup &#8594; cup-to-disc ratio</text>
+    <text x="686" y="282" fill="#94a3b8" font-size="9.5">thin, branching, low-contrast structures</text>
+    <text x="686" y="298" fill="#5eead4" font-size="9.5">DRIVE &#183; STARE &#183; CHASE &#183; REFUGE &#183; RITE</text>
+
+    <rect x="674" y="318" width="248" height="104" rx="6" fill="#111c2e" stroke="#334155"/>
+    <text x="686" y="338" fill="#fcd34d" font-size="11" font-weight="700">Whole-image classification / grading</text>
+    <text x="686" y="356" fill="#cbd5e1" font-size="10">DR severity 0&#8211;4 &#183; referable DR &#183; DME</text>
+    <text x="686" y="370" fill="#cbd5e1" font-size="10">glaucoma &#183; AMD &#183; multi-label disease</text>
+    <text x="686" y="388" fill="#94a3b8" font-size="9.5">grade is defined BY lesion counts &amp; location</text>
+    <text x="686" y="404" fill="#94a3b8" font-size="9.5">&#8594; detection and grading are one problem</text>
+    <text x="686" y="418" fill="#5eead4" font-size="9.5">EyePACS &#183; Messidor-2 &#183; APTOS &#183; DeepDR</text>
+
+    <text x="674" y="446" fill="#a78bfa" font-size="9.5">oculomics: same pixels &#8594; age, sex,</text>
+    <text x="674" y="460" fill="#a78bfa" font-size="9.5">cardiovascular &amp; metabolic risk</text>
+    <text x="674" y="480" fill="#64748b" font-size="9">complementary to the OCT primitive (Jul-24):</text>
+    <text x="674" y="491" fill="#64748b" font-size="9">2-D reflectance en-face vs depth-resolved B-scans</text>
+  </g>
+</svg>
