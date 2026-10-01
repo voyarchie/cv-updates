@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Four ways an AI exam score is wired into a screening programme, with the evidence for each. One: triage, as in the Swedish MASAI randomised trial: low-score exams get one reader, high-score exams get two readers with AI marks; sensitivity rose from 73.8 to 80.5 percent, specificity stayed 98.5 percent, interval cancers 1.55 versus 1.76 per 1,000. Two: safety net and normal triaging, as in the German PRAIM real-world study of 463,094 women: detection rose from 5.7 to 6.7 per 1,000 with recall 37.4 versus 38.3 per 1,000. Three: partially autonomous, as in the Spanish paired trial of 31,301 women: AI low-risk exams are reported normal without a reader; workload fell 63.6 percent and detection rose 15.2 percent, but recall rose 14.8 percent and a few cancers were in the low-risk group. Four: certified dismissal, as in the TRUST paper: the dismissal threshold is set so a one-sided 99 percent upper bound on cancer prevalence among dismissed exams holds; it dismissed about 20 percent of cases on NLBS at 95 to 98 percent recall targets.">
+  <title>Four ways to wire an AI exam score into screening</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Same score, four workflows: where the threshold sits decides what the AI is</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Per-exam malignancy score from one detector/classifier → routing rule. Numbers are as reported in each study; settings differ and are not directly comparable.</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#64748b"/></marker>
+  </defs>
+
+  <!-- source box -->
+  <rect x="24" y="186" width="130" height="110" rx="8" fill="#334155" stroke="#94a3b8"/>
+  <text x="89" y="214" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="800">4-view exam</text>
+  <text x="89" y="236" text-anchor="middle" fill="#e2e8f0" font-size="11.5">→ AI score</text>
+  <text x="89" y="254" text-anchor="middle" fill="#e2e8f0" font-size="11.5">(e.g. 1–10)</text>
+  <text x="89" y="276" text-anchor="middle" fill="#cbd5e1" font-size="11">+ lesion marks</text>
+
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <path d="M154 241 C 175 241, 175 108, 196 108" marker-end="url(#ah)"/>
+    <path d="M154 241 C 175 241, 175 204, 196 204" marker-end="url(#ah)"/>
+    <path d="M154 241 C 175 241, 175 300, 196 300" marker-end="url(#ah)"/>
+    <path d="M154 241 C 175 241, 175 396, 196 396" marker-end="url(#ah)"/>
+  </g>
+
+  <g font-size="11.5">
+    <!-- lane 1 -->
+    <rect x="200" y="70" width="736" height="84" rx="8" fill="#075985" stroke="#38bdf8"/>
+    <text x="214" y="92" fill="#e0f2fe" font-size="13" font-weight="800">① Triage — MASAI RCT (Sweden, ~105K women; Lancet 2026)</text>
+    <text x="214" y="112" fill="#e0f2fe">low score → single reader · high score → double reader with AI marks</text>
+    <text x="214" y="132" fill="#e0f2fe">sensitivity 73.8% → 80.5% · specificity 98.5% both arms · interval cancers 1.76 → 1.55 / 1,000 (non-inferior)</text>
+    <text x="214" y="148" fill="#bae6fd" font-size="11">fewer invasive, T2+ and non-luminal-A interval cancers</text>
+
+    <!-- lane 2 -->
+    <rect x="200" y="166" width="736" height="84" rx="8" fill="#0f766e" stroke="#2dd4bf"/>
+    <text x="214" y="188" fill="#ccfbf1" font-size="13" font-weight="800">② Normal-triage + safety net — PRAIM (Germany, 463,094 women; Nat Med 2025)</text>
+    <text x="214" y="208" fill="#ccfbf1">double reading stays; AI tags confident normals and alerts on missed suspicious exams</text>
+    <text x="214" y="228" fill="#ccfbf1">detection 5.7 → 6.7 / 1,000 (+17.6%) · recall 38.3 → 37.4 / 1,000 (non-inferior)</text>
+    <text x="214" y="244" fill="#99f6e4" font-size="11">observational, radiologists chose whether to use the AI-supported viewer</text>
+
+    <!-- lane 3 -->
+    <rect x="200" y="262" width="736" height="84" rx="8" fill="#9a3412" stroke="#fb923c"/>
+    <text x="214" y="284" fill="#ffedd5" font-size="13" font-weight="800">③ Partially autonomous — paired trial (Spain, 31,301 women, DM + DBT; Nat Med 2026)</text>
+    <text x="214" y="304" fill="#ffedd5">AI low-risk → reported normal with no reader · rest → double reading with AI support</text>
+    <text x="214" y="324" fill="#ffedd5">reader workload −63.6% · detection 6.3 → 7.3 / 1,000 (+15.2%) · recall +14.8% (not non-inferior)</text>
+    <text x="214" y="340" fill="#fed7aa" font-size="11">a small number of cancers fell in the AI low-risk group</text>
+
+    <!-- lane 4 -->
+    <rect x="200" y="358" width="736" height="92" rx="8" fill="#9f1239" stroke="#fb7185"/>
+    <text x="214" y="380" fill="#ffe4e6" font-size="13" font-weight="800">④ Certified dismissal — TRUST (research, arXiv 2609.00300, Sep 2026)</text>
+    <text x="214" y="400" fill="#ffe4e6">threshold chosen so a one-sided 99% Clopper–Pearson bound on cancer rate among dismissed exams holds;</text>
+    <text x="214" y="416" fill="#ffe4e6">threshold is recomputed during training and positives near it are penalised</text>
+    <text x="214" y="436" fill="#ffe4e6">NLBS: 19.74% / 21.70% of cases dismissed at 98% / 95% recall · RSNA: 7.04 → 14.31% and 13.49 → 19.69%</text>
+  </g>
+</svg>
