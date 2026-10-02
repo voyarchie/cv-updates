@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Dental imaging as a detection primitive. Six acquisition geometries: bitewing and periapical intraoral radiographs (small 2D detector inside the mouth, a few teeth per image, used for caries and periapical lesions); the panoramic radiograph or OPG (one curved-layer 2D image of both full arches, used for tooth enumeration and multi-condition screening); the lateral cephalogram (skull profile, used for landmark detection in orthodontics); cone-beam CT (a 3D volume of the jaws, used for multi-structure segmentation such as teeth, canals and sinuses); and the intraoral 3D scan (a surface mesh of the teeth, used for per-tooth mesh segmentation and landmarks). On the right, the label hierarchy shared by all of them: the FDI two-digit tooth number (quadrant 1 to 4, then position 1 to 8, giving 32 permanent teeth), and under each tooth the condition labels such as caries, periapical lesion, impaction, restoration or implant.">
+  <title>Dental imaging — six geometries, one tooth-numbered label space</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Dental imaging: six geometries, one tooth-numbered label space</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Typical geometry and the dense task each modality is used for. Sizes are indicative and vary by vendor.</text>
+
+  <!-- left panel: modalities -->
+  <rect x="24" y="68" width="560" height="412" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="40" y="90" fill="#334155" font-size="13" font-weight="800">Acquisition geometry → main dense task</text>
+
+  <g font-size="11.5">
+    <!-- bitewing -->
+    <rect x="40" y="102" width="168" height="112" rx="6" fill="#334155"/>
+    <rect x="58" y="122" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <rect x="84" y="122" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <rect x="110" y="122" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <rect x="58" y="164" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <rect x="84" y="164" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <rect x="110" y="164" width="22" height="36" rx="6" fill="#cbd5e1"/>
+    <circle cx="106" cy="150" r="4" fill="#f59e0b"/>
+    <text x="142" y="122" fill="#f8fafc" font-weight="800">Bitewing</text>
+    <text x="142" y="140" fill="#cbd5e1" font-size="10.5">2D, in-mouth</text>
+    <text x="142" y="154" fill="#cbd5e1" font-size="10.5">sensor / PSP</text>
+    <text x="142" y="186" fill="#fde68a" font-size="10.5">proximal</text>
+    <text x="142" y="200" fill="#fde68a" font-size="10.5">caries</text>
+
+    <!-- periapical -->
+    <rect x="218" y="102" width="168" height="112" rx="6" fill="#334155"/>
+    <rect x="240" y="112" width="24" height="92" rx="8" fill="#cbd5e1"/>
+    <rect x="270" y="112" width="24" height="92" rx="8" fill="#cbd5e1"/>
+    <circle cx="282" cy="200" r="8" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="304" y="122" fill="#f8fafc" font-weight="800">Periapical</text>
+    <text x="304" y="140" fill="#cbd5e1" font-size="10.5">whole root</text>
+    <text x="304" y="154" fill="#cbd5e1" font-size="10.5">1–3 teeth</text>
+    <text x="304" y="186" fill="#fde68a" font-size="10.5">periapical</text>
+    <text x="304" y="200" fill="#fde68a" font-size="10.5">lesions</text>
+
+    <!-- OPG -->
+    <rect x="396" y="102" width="172" height="112" rx="6" fill="#334155"/>
+    <path d="M412 136 Q 482 176 552 136" fill="none" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+    <path d="M412 172 Q 482 140 552 172" fill="none" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+    <text x="406" y="120" fill="#f8fafc" font-weight="800">Panoramic (OPG)</text>
+    <text x="406" y="196" fill="#cbd5e1" font-size="10.5">both arches, curved layer</text>
+    <text x="406" y="209" fill="#fde68a" font-size="10.5">enumerate + multi-condition</text>
+
+    <!-- ceph -->
+    <rect x="40" y="226" width="168" height="112" rx="6" fill="#334155"/>
+    <path d="M70 320 C 60 270, 80 240, 120 238 C 160 236, 180 262, 172 292 L 160 316 Z" fill="#64748b"/>
+    <circle cx="96" cy="270" r="3" fill="#f59e0b"/>
+    <circle cx="140" cy="262" r="3" fill="#f59e0b"/>
+    <circle cx="156" cy="300" r="3" fill="#f59e0b"/>
+    <circle cx="112" cy="312" r="3" fill="#f59e0b"/>
+    <text x="48" y="244" fill="#f8fafc" font-weight="800">Cephalogram</text>
+    <text x="48" y="332" fill="#fde68a" font-size="10.5">~19–29 landmarks (mm error)</text>
+
+    <!-- CBCT -->
+    <rect x="218" y="226" width="168" height="112" rx="6" fill="#334155"/>
+    <g fill="none" stroke="#cbd5e1" stroke-width="1.5">
+      <rect x="240" y="262" width="62" height="50"/>
+      <rect x="252" y="252" width="62" height="50"/>
+      <rect x="264" y="242" width="62" height="50"/>
+    </g>
+    <path d="M270 300 Q 290 285 312 300" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="226" y="244" fill="#f8fafc" font-weight="800">CBCT</text>
+    <text x="334" y="270" fill="#cbd5e1" font-size="10.5">3D</text>
+    <text x="334" y="284" fill="#cbd5e1" font-size="10.5">volume</text>
+    <text x="226" y="332" fill="#fde68a" font-size="10.5">42–77-class voxel seg</text>
+
+    <!-- IOS -->
+    <rect x="396" y="226" width="172" height="112" rx="6" fill="#334155"/>
+    <g fill="#94a3b8" stroke="#cbd5e1" stroke-width="1">
+      <polygon points="420,300 440,270 462,296"/>
+      <polygon points="440,270 462,296 478,264"/>
+      <polygon points="462,296 478,264 500,292"/>
+      <polygon points="478,264 500,292 520,268"/>
+      <polygon points="500,292 520,268 540,300"/>
+    </g>
+    <text x="406" y="244" fill="#f8fafc" font-weight="800">Intraoral 3D scan</text>
+    <text x="406" y="318" fill="#cbd5e1" font-size="10.5">triangle surface mesh</text>
+    <text x="406" y="332" fill="#fde68a" font-size="10.5">per-vertex tooth labels</text>
+  </g>
+
+  <!-- row tags -->
+  <text x="40" y="364" fill="#334155" font-size="12" font-weight="800">What makes it a distinct primitive</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="40" y="384">• Strong prior: 32 teeth in a known order, so detection = <tspan font-weight="800">enumeration</tspan></text>
+    <text x="40" y="402">• Every finding is reported <tspan font-weight="800">per tooth</tspan> (and per surface or root)</text>
+    <text x="40" y="420">• Missing, extra, impacted and restored teeth break the prior</text>
+    <text x="40" y="438">• Metal (fillings, implants) causes artefacts, worst in CBCT</text>
+    <text x="40" y="456">• Small lesions: early enamel caries, thin root-tip radiolucency</text>
+  </g>
+
+  <!-- right panel: label hierarchy -->
+  <rect x="600" y="68" width="336" height="412" rx="8" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="616" y="90" fill="#134e4a" font-size="13" font-weight="800">The label hierarchy (FDI notation)</text>
+
+  <g font-size="11.5">
+    <rect x="616" y="104" width="304" height="58" rx="6" fill="#f8fafc" stroke="#0f766e"/>
+    <text x="628" y="124" fill="#134e4a" font-weight="800">Level 1 · quadrant (first digit)</text>
+    <text x="628" y="142" fill="#334155">1 upper-right · 2 upper-left</text>
+    <text x="628" y="156" fill="#334155">3 lower-left · 4 lower-right</text>
+
+    <rect x="616" y="182" width="304" height="58" rx="6" fill="#f8fafc" stroke="#0f766e"/>
+    <text x="628" y="202" fill="#134e4a" font-weight="800">Level 2 · position (second digit)</text>
+    <text x="628" y="220" fill="#334155">1 central incisor … 8 third molar</text>
+    <text x="628" y="234" fill="#334155">e.g. 36 = lower-left first molar</text>
+
+    <rect x="616" y="260" width="304" height="78" rx="6" fill="#f8fafc" stroke="#9f1239"/>
+    <text x="628" y="280" fill="#9f1239" font-weight="800">Level 3 · condition per tooth</text>
+    <text x="628" y="298" fill="#334155">caries · deep caries · periapical lesion</text>
+    <text x="628" y="314" fill="#334155">impacted · bone loss · restoration</text>
+    <text x="628" y="330" fill="#334155">root-canal filling · implant · crown</text>
+  </g>
+  <path d="M768 162 L768 180" stroke="#0f766e" stroke-width="2" fill="none"/>
+  <path d="M768 240 L768 258" stroke="#0f766e" stroke-width="2" fill="none"/>
+
+  <g font-size="11.5" fill="#134e4a">
+    <text x="616" y="364" font-weight="800">Why it matters for models</text>
+    <text x="616" y="384">DENTEX labels exactly these 3 levels, and</text>
+    <text x="616" y="400">many images have only some levels labelled.</text>
+    <text x="616" y="422">VLM benchmarks (MMOral, PanDent) score</text>
+    <text x="616" y="438">answers on tooth number as well as</text>
+    <text x="616" y="454">finding. A large share of VLM errors</text>
+    <text x="616" y="470">are localisation: the wrong tooth.</text>
+  </g>
+</svg>
