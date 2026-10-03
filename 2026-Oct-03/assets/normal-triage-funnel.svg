@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Normal-chest-radiograph triage as an operating-point problem, using the 2026 UK silent trial. 63,083 chest radiographs from five NHS sites over 12 months. The AI called 50,661 (80 percent) abnormal and 12,422 (20 percent) normal. Sensitivity 97 percent, specificity 35 percent, positive predictive value 57 percent, negative predictive value 94 percent. AI and radiologist agreed the study was normal for 18.5 percent of all radiographs. After removing 412 report-labelling errors, expert review found 31 clinically significant misses, an estimated 0.05 percent miss rate, mostly subtle or overlapping lesions. For comparison, a 2023 retrospective autonomous-reporting study found 7.8 percent of all radiographs (28 percent of normal PA films) could be reported autonomously with sensitivity above 99 percent, and a vendor case study at Leiden reported 15 to 20 percent autonomously reported at 99.9 percent sensitivity.">
+  <title>Normal-CXR triage: the operating point</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Removing normals: what a 97%-sensitive CXR triage model actually does</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">UK silent trial, 5 NHS sites, 12 months (Radiology: AI 2026). Top three bars are to scale.</text>
+
+  <g font-size="12">
+    <!-- full -->
+    <rect x="24" y="76" width="900" height="44" rx="6" fill="#334155"/>
+    <text x="38" y="103" fill="#f8fafc" font-weight="800">63,083 chest radiographs</text>
+
+    <!-- split: 80 / 20 -->
+    <rect x="24" y="134" width="720" height="44" rx="6" fill="#fde68a" stroke="#b45309"/>
+    <text x="38" y="153" fill="#78350f" font-weight="800">AI: abnormal — 50,661 (80%)</text>
+    <text x="38" y="170" fill="#78350f" font-size="11">read by radiologists as usual; PPV 57%, so many are true normals</text>
+    <rect x="750" y="134" width="174" height="44" rx="6" fill="#99f6e4" stroke="#0f766e"/>
+    <text x="760" y="153" fill="#134e4a" font-weight="800">AI: normal</text>
+    <text x="760" y="170" fill="#134e4a" font-size="11">12,422 (20%) · NPV 94%</text>
+
+    <!-- concordant normal -->
+    <rect x="757" y="192" width="167" height="44" rx="6" fill="#0f766e"/>
+    <text x="766" y="211" fill="#f0fdfa" font-weight="800">AI + report normal</text>
+    <text x="766" y="228" fill="#f0fdfa" font-size="11">18.5% of all films</text>
+    <path d="M840 178 L840 192" stroke="#0f766e" stroke-width="2"/>
+
+    <!-- misses -->
+    <rect x="757" y="250" width="167" height="44" rx="6" fill="#fee2e2" stroke="#b91c1c"/>
+    <text x="766" y="269" fill="#7f1d1d" font-weight="800">31 significant misses</text>
+    <text x="766" y="286" fill="#7f1d1d" font-size="11">in AI-normal set · ≈0.05%</text>
+  </g>
+
+  <!-- metrics -->
+  <g font-size="12">
+    <rect x="24" y="192" width="710" height="102" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="38" y="214" fill="#334155" font-weight="800" font-size="13">Operating point</text>
+    <text x="38" y="238" fill="#334155">Sensitivity <tspan font-weight="800">97%</tspan>  ·  Specificity <tspan font-weight="800">35%</tspan>  ·  412 NLP report-label errors removed before review</text>
+    <text x="38" y="260" fill="#334155">The model is tuned to almost never call an abnormal film normal, so it releases only the most</text>
+    <text x="38" y="278" fill="#334155">obviously normal ~1 in 5 films. Workload saved is bounded by specificity, not by accuracy.</text>
+  </g>
+
+  <!-- comparisons -->
+  <text x="24" y="324" fill="#334155" font-weight="800" font-size="13">Same trade-off, other settings</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="24" y="346">• Retrospective multicentre (Radiology 2023): <tspan font-weight="800">7.8%</tspan> of all films (28% of normal PA films) autonomously reportable, sensitivity &gt;99%.</text>
+    <text x="24" y="366">• Oxipit ChestLink (CE IIb autonomous; vendor case study, Leiden): <tspan font-weight="800">15–20%</tspan> of studies auto-reported at 99.9% sensitivity.</text>
+    <text x="24" y="386" fill="#64748b" font-size="10.5">Vendor figures are marketing claims, not independent evaluations. Settings, case mix and definitions of "significant miss" differ.</text>
+  </g>
+</svg>
