@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Sensitivity of fundus-photograph AI in screening evidence from 2025 and 2026. North East London diabetic eye screening, eight automated systems on 202,886 encounters: referable diabetic retinopathy 83.7 to 98.7 percent across vendors, moderate to severe non-proliferative 96.7 to 99.8 percent, proliferative 95.8 to 99.5 percent. Meta-analysis of regulator-approved systems, 82 studies and 887,244 examinations: pooled per-patient sensitivity 93 percent, 95 percent confidence interval 91 to 95. AEYE-DS on the handheld Optomed Aurora in an endocrinology clinic: sensitivity 92.6 percent, specificity 95.3 percent. Offline smartphone camera in Liberia: sensitivity 90.9 percent with confidence interval 58.7 to 100 because only 11 participants had referable disease, specificity 99.7 percent. Portable camera in eight rural Indian primary health centres, 612 patients: sensitivity 91.3 percent, specificity 88.7 percent. Retinopathy of prematurity from smartphone video in low-resource settings: patient-level sensitivity 93.3 percent, confidence interval 86.4 to 100.">
+  <title>Fundus screening AI: where the sensitivities sit</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Screening evidence, 2025–26: sensitivity of fundus AI by setting</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Bars = range across vendors or 95% CI; dots = point estimate. Different references, grades and populations — read rows, do not rank them.</text>
+
+  <!-- axis -->
+  <g font-size="11" fill="#64748b">
+    <line x1="330" y1="76" x2="330" y2="420" stroke="#cbd5e1"/>
+    <line x1="444" y1="76" x2="444" y2="420" stroke="#cbd5e1"/>
+    <line x1="558" y1="76" x2="558" y2="420" stroke="#cbd5e1"/>
+    <line x1="672" y1="76" x2="672" y2="420" stroke="#cbd5e1"/>
+    <line x1="786" y1="76" x2="786" y2="420" stroke="#cbd5e1"/>
+    <line x1="900" y1="76" x2="900" y2="420" stroke="#cbd5e1"/>
+    <text x="330" y="438" text-anchor="middle">50%</text>
+    <text x="444" y="438" text-anchor="middle">60%</text>
+    <text x="558" y="438" text-anchor="middle">70%</text>
+    <text x="672" y="438" text-anchor="middle">80%</text>
+    <text x="786" y="438" text-anchor="middle">90%</text>
+    <text x="900" y="438" text-anchor="middle">100%</text>
+    <text x="615" y="458" text-anchor="middle" fill="#334155">sensitivity</text>
+  </g>
+
+  <g font-size="11.5">
+    <!-- group: national programme -->
+    <text x="24" y="88" fill="#1e3a8a" font-weight="800">England NE London DESP · 8 ARIAS · 202,886 encounters</text>
+
+    <text x="36" y="112" fill="#334155">referable DR</text>
+    <rect x="714" y="102" width="171" height="12" rx="6" fill="#93c5fd" stroke="#1d4ed8"/>
+
+    <text x="36" y="140" fill="#334155">moderate–severe NPDR</text>
+    <rect x="862" y="130" width="36" height="12" rx="6" fill="#93c5fd" stroke="#1d4ed8"/>
+
+    <text x="36" y="168" fill="#334155">proliferative DR</text>
+    <rect x="852" y="158" width="42" height="12" rx="6" fill="#93c5fd" stroke="#1d4ed8"/>
+    <text x="474" y="140" fill="#1e3a8a" font-size="10.5">consistent across age, sex, ethnicity, deprivation</text>
+
+    <!-- meta-analysis -->
+    <text x="24" y="204" fill="#5b21b6" font-weight="800">Meta-analysis · 82 studies · 25 approved devices · 28 countries</text>
+    <text x="36" y="228" fill="#334155">pooled, per patient</text>
+    <rect x="797" y="218" width="46" height="12" rx="6" fill="#ddd6fe" stroke="#6d28d9"/>
+    <circle cx="820" cy="224" r="5" fill="#6d28d9"/>
+
+    <!-- point of care -->
+    <text x="24" y="264" fill="#065f46" font-weight="800">Point-of-care, handheld and smartphone cameras</text>
+
+    <text x="36" y="288" fill="#334155">AEYE-DS + handheld Aurora (US)</text>
+    <text x="36" y="302" fill="#64748b" font-size="10.5">specificity 95.3%</text>
+    <circle cx="816" cy="288" r="5" fill="#047857"/>
+
+    <text x="36" y="326" fill="#334155">offline smartphone, Liberia</text>
+    <text x="36" y="340" fill="#64748b" font-size="10.5">specificity 99.7% · only 11 positives</text>
+    <rect x="429" y="320" width="471" height="12" rx="6" fill="#a7f3d0" stroke="#047857"/>
+    <circle cx="796" cy="326" r="5" fill="#047857"/>
+
+    <text x="36" y="364" fill="#334155">portable camera, 8 rural Indian PHCs</text>
+    <text x="36" y="378" fill="#64748b" font-size="10.5">specificity 88.7% · n = 612</text>
+    <circle cx="801" cy="364" r="5" fill="#047857"/>
+
+    <text x="36" y="402" fill="#334155">ROP from smartphone video</text>
+    <text x="36" y="416" fill="#64748b" font-size="10.5">infants, low-resource settings</text>
+    <rect x="745" y="396" width="155" height="12" rx="6" fill="#fde68a" stroke="#b45309"/>
+    <circle cx="824" cy="402" r="5" fill="#b45309"/>
+  </g>
+</svg>
