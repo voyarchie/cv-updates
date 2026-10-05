@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The low-dose chest CT as a detection primitive. Left: one screening volume is roughly 300 to 500 slices of 512 by 512 pixels at about 1 millimetre, covering roughly 6 litres of lung. A 6 millimetre solid nodule is about 113 cubic millimetres, about one fifty-thousandth of the lung volume. Lung-RADS version 2022 baseline solid-nodule bands: under 6 millimetres category 2, 6 to under 8 category 3, 8 to under 15 category 4A, 15 or more category 4B. The indeterminate band of 5 to 15 millimetres used by LUNA25 is highlighted. Right: five output layers stacked on the same volume: candidate 3D boxes, nodule type and volume, per-nodule malignancy probability, scan-level future cancer risk over 1 to 6 years, and incidental findings such as coronary calcium, emphysema and bone density.">
+  <title>Low-dose chest CT: one volume, five output layers</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The screening LDCT: a needle-sized target in a lung-sized volume</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Approximate, typical values. Lung-RADS bands are the v2022 baseline solid-nodule thresholds; part-solid and ground-glass rules differ.</text>
+
+  <!-- Left panel: scale -->
+  <rect x="24" y="72" width="430" height="424" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="96" fill="#334155" font-size="13" font-weight="700">Scale</text>
+
+  <!-- volume stack -->
+  <g>
+    <rect x="60" y="130" width="120" height="120" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="70" y="120" width="120" height="120" rx="4" fill="#dbeafe" stroke="#3b82f6" opacity="0.85"/>
+    <rect x="80" y="110" width="120" height="120" rx="4" fill="#dbeafe" stroke="#3b82f6" opacity="0.7"/>
+    <circle cx="160" cy="160" r="3" fill="#dc2626"/>
+    <line x1="163" y1="160" x2="236" y2="150" stroke="#dc2626" stroke-width="1"/>
+  </g>
+  <g font-size="11.5" fill="#334155">
+    <text x="240" y="122" font-weight="700">One screening volume</text>
+    <text x="240" y="139">≈300–500 slices × 512²</text>
+    <text x="240" y="155">≈1 mm slices, ≈1–2 mSv</text>
+    <text x="240" y="171">≈6 L of lung</text>
+    <text x="240" y="196" fill="#dc2626" font-weight="700">6 mm solid nodule</text>
+    <text x="240" y="212" fill="#dc2626">≈113 mm³ ≈ 1 / 50,000</text>
+    <text x="240" y="228" fill="#dc2626">of the lung volume</text>
+  </g>
+
+  <!-- Lung-RADS size bar -->
+  <text x="40" y="290" fill="#334155" font-size="12.5" font-weight="700">Lung-RADS v2022, baseline solid nodule (mean diameter)</text>
+  <g font-size="11">
+    <rect x="40" y="304" width="120" height="30" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="100" y="323" text-anchor="middle" fill="#14532d" font-weight="700">2 · &lt;6 mm</text>
+    <rect x="160" y="304" width="40" height="30" fill="#fef9c3" stroke="#ca8a04"/>
+    <text x="180" y="323" text-anchor="middle" fill="#713f12" font-weight="700">3</text>
+    <rect x="200" y="304" width="140" height="30" fill="#fed7aa" stroke="#ea580c"/>
+    <text x="270" y="323" text-anchor="middle" fill="#7c2d12" font-weight="700">4A · 8–15 mm</text>
+    <rect x="340" y="304" width="96" height="30" fill="#fecaca" stroke="#dc2626"/>
+    <text x="388" y="323" text-anchor="middle" fill="#7f1d1d" font-weight="700">4B · ≥15</text>
+    <!-- 20 px/mm from x=40 up to 15 mm; LUNA25 band 5–15 mm: x=140..340 -->
+    <line x1="140" y1="346" x2="340" y2="346" stroke="#7c3aed" stroke-width="3"/>
+    <line x1="140" y1="340" x2="140" y2="352" stroke="#7c3aed" stroke-width="2"/>
+    <line x1="340" y1="340" x2="340" y2="352" stroke="#7c3aed" stroke-width="2"/>
+    <text x="240" y="366" text-anchor="middle" fill="#6d28d9" font-weight="700">LUNA25 "indeterminate" band, 5–15 mm</text>
+  </g>
+  <g font-size="11.2" fill="#475569">
+    <text x="40" y="398">Most screen-detected nodules are benign; the hard cases sit in</text>
+    <text x="40" y="414">the purple band, where size alone separates poorly and where</text>
+    <text x="40" y="430">AI vs radiologist comparisons are now made (LUNA25: AUC 0.78</text>
+    <text x="40" y="446">vs 0.70 for 65 readers). Volume (NELSON-style) is preferred to</text>
+    <text x="40" y="462">diameter, but no public benchmark scored volumetry until</text>
+    <text x="40" y="478">LUNOVO26.</text>
+  </g>
+
+  <!-- Right panel: output layers -->
+  <rect x="470" y="72" width="466" height="424" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="486" y="96" fill="#334155" font-size="13" font-weight="700">Five output layers on the same volume</text>
+
+  <g font-size="11.5">
+    <rect x="486" y="112" width="434" height="62" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="498" y="132" fill="#075985" font-weight="800">1 · Candidates — 3D boxes / centroids</text>
+    <text x="498" y="150" fill="#0c4a6e">RetinaNet / nnDetection / YOLO-3D; metric: CPM, FROC</text>
+    <text x="498" y="166" fill="#0c4a6e">at 1/8…8 false positives per scan (LUNA16, DLCS24)</text>
+
+    <rect x="486" y="182" width="434" height="62" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="498" y="202" fill="#5b21b6" font-weight="800">2 · Type and size — solid / part-solid / GGN, volume</text>
+    <text x="498" y="220" fill="#4c1d95">segmentation → mm³, VDT, Lung-RADS category;</text>
+    <text x="498" y="236" fill="#4c1d95">longitudinal matching to the prior scan</text>
+
+    <rect x="486" y="252" width="434" height="62" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="498" y="272" fill="#991b1b" font-weight="800">3 · Per-nodule malignancy probability</text>
+    <text x="498" y="290" fill="#7f1d1d">3D CNN / FM probe vs Brock / PanCan; LUNA25;</text>
+    <text x="498" y="306" fill="#7f1d1d">cleared products (e.g. RevealAI-Lung mSI 0–1)</text>
+
+    <rect x="486" y="322" width="434" height="62" rx="6" fill="#ffedd5" stroke="#ea580c"/>
+    <text x="498" y="342" fill="#9a3412" font-weight="800">4 · Scan-level future risk, 1–6 years</text>
+    <text x="498" y="360" fill="#7c2d12">whole-volume, no nodule required (Sybil, Sybil-Epi);</text>
+    <text x="498" y="376" fill="#7c2d12">drives screening interval, not work-up</text>
+
+    <rect x="486" y="392" width="434" height="62" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="498" y="412" fill="#166534" font-weight="800">5 · Incidental / opportunistic findings</text>
+    <text x="498" y="430" fill="#14532d">coronary calcium, emphysema, ILA, aorta, bone density,</text>
+    <text x="498" y="446" fill="#14532d">body composition — often the larger mortality signal</text>
+  </g>
+  <text x="486" y="480" fill="#64748b" font-size="11">Layers 1–3 decide work-up; 4 decides when to re-scan; 5 is everything else.</text>
+</svg>
