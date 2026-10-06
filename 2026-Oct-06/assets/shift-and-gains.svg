@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Before and after values reported in 2025 to 2026 smear papers, on a 0 to 1 scale. Cervical randomised crossover trial: reader sensitivity 0.713 manual to 0.857 with deep-learning assistance. AIxURO urine cytology: sensitivity 0.846 microscopy to 0.932 with AI, while specificity fell from 0.593 to 0.500. CoSWA-YOLOv12: P. falciparum recall 0.63 to 0.74. MORPHA thin-to-thick transfer: F1 0.578 to 0.699. WBCBench 2026: ResNet-50 baseline macro-F1 0.635 to winner 0.777. Frozen hematology foundation models: in-domain macro-F1 about 0.99 falls by 34 to 72 percent off-domain; shown as 0.99 to 0.28 at the worst case. Each row is a different task and cohort, so rows are not comparable.">
+  <title>Smear AI in 2025–26: gains and the shift penalty</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Reported before → after values (abstract-level; rows are different tasks)</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Hollow dot = baseline / reference; filled dot = method or AI-assisted. Red row = a drop, not a gain.</text>
+
+  <rect x="24" y="68" width="912" height="428" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <!-- axis: x from 380 (0.0) to 900 (1.0) => 520 px per unit -->
+  <g stroke="#e2e8f0">
+    <line x1="380" y1="84" x2="380" y2="456"/>
+    <line x1="484" y1="84" x2="484" y2="456"/>
+    <line x1="588" y1="84" x2="588" y2="456"/>
+    <line x1="692" y1="84" x2="692" y2="456"/>
+    <line x1="796" y1="84" x2="796" y2="456"/>
+    <line x1="900" y1="84" x2="900" y2="456"/>
+  </g>
+  <g fill="#64748b" font-size="11" text-anchor="middle">
+    <text x="380" y="474">0.0</text><text x="484" y="474">0.2</text><text x="588" y="474">0.4</text>
+    <text x="692" y="474">0.6</text><text x="796" y="474">0.8</text><text x="900" y="474">1.0</text>
+  </g>
+
+  <g font-size="12" fill="#334155">
+    <!-- row 1: cervical RCT 0.713 -> 0.857 -->
+    <text x="40" y="110" font-weight="700">Cervical cytology RCT</text>
+    <text x="40" y="126" fill="#64748b" font-size="11">reader sensitivity, manual → DL-assisted</text>
+    <line x1="750.8" y1="114" x2="825.6" y2="114" stroke="#0284c7" stroke-width="3"/>
+    <circle cx="750.8" cy="114" r="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="825.6" cy="114" r="6" fill="#0284c7"/>
+    <text x="742" y="100" text-anchor="end" font-size="11">0.713</text>
+    <text x="834" y="100" font-size="11">0.857</text>
+
+    <!-- row 2: AIxURO sens 0.846 -> 0.932 -->
+    <text x="40" y="164" font-weight="700">AIxURO urine (sensitivity)</text>
+    <text x="40" y="180" fill="#64748b" font-size="11">microscopy → AI, biopsy-confirmed</text>
+    <line x1="819.9" y1="168" x2="864.6" y2="168" stroke="#0284c7" stroke-width="3"/>
+    <circle cx="819.9" cy="168" r="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="864.6" cy="168" r="6" fill="#0284c7"/>
+    <text x="812" y="154" text-anchor="end" font-size="11">0.846</text>
+    <text x="872" y="154" font-size="11">0.932</text>
+
+    <!-- row 3: AIxURO spec 0.593 -> 0.500 (drop) -->
+    <text x="40" y="218" font-weight="700">AIxURO urine (specificity)</text>
+    <text x="40" y="234" fill="#64748b" font-size="11">the price of the sensitivity gain</text>
+    <line x1="640" y1="222" x2="688.4" y2="222" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="688.4" cy="222" r="6" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+    <circle cx="640" cy="222" r="6" fill="#dc2626"/>
+    <text x="632" y="208" text-anchor="end" font-size="11">0.500</text>
+    <text x="696" y="208" font-size="11">0.593</text>
+
+    <!-- row 4: CoSWA recall 0.63 -> 0.74 -->
+    <text x="40" y="272" font-weight="700">CoSWA-YOLOv12 (malaria)</text>
+    <text x="40" y="288" fill="#64748b" font-size="11">P. falciparum recall, baseline → method</text>
+    <line x1="707.6" y1="276" x2="764.8" y2="276" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="707.6" cy="276" r="6" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="764.8" cy="276" r="6" fill="#7c3aed"/>
+    <text x="700" y="262" text-anchor="end" font-size="11">0.63</text>
+    <text x="773" y="262" font-size="11">0.74</text>
+
+    <!-- row 5: MORPHA F1 0.578 -> 0.699 -->
+    <text x="40" y="326" font-weight="700">MORPHA (malaria, thin → thick)</text>
+    <text x="40" y="342" fill="#64748b" font-size="11">cross-acquisition binary F1</text>
+    <line x1="680.6" y1="330" x2="743.5" y2="330" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="680.6" cy="330" r="6" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="743.5" cy="330" r="6" fill="#7c3aed"/>
+    <text x="673" y="316" text-anchor="end" font-size="11">0.578</text>
+    <text x="752" y="316" font-size="11">0.699</text>
+
+    <!-- row 6: WBCBench 0.635 -> 0.777 -->
+    <text x="40" y="380" font-weight="700">WBCBench 2026</text>
+    <text x="40" y="396" fill="#64748b" font-size="11">macro-F1, ResNet-50 baseline → winner</text>
+    <line x1="710.2" y1="384" x2="784" y2="384" stroke="#16a34a" stroke-width="3"/>
+    <circle cx="710.2" cy="384" r="6" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+    <circle cx="784" cy="384" r="6" fill="#16a34a"/>
+    <text x="702" y="370" text-anchor="end" font-size="11">0.635</text>
+    <text x="792" y="370" font-size="11">0.777</text>
+
+    <!-- row 7: frozen FM 0.99 -> ~0.28 (72% drop) -->
+    <text x="40" y="434" font-weight="700">Frozen hematology FMs</text>
+    <text x="40" y="450" fill="#64748b" font-size="11">macro-F1 in-domain → most-shifted (−72 %)</text>
+    <line x1="525.6" y1="438" x2="894.8" y2="438" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="894.8" cy="438" r="6" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+    <circle cx="525.6" cy="438" r="6" fill="#dc2626"/>
+    <text x="517" y="424" text-anchor="end" font-size="11">≈0.28</text>
+    <text x="870" y="424" text-anchor="end" font-size="11">≈0.99</text>
+  </g>
+  <text x="380" y="490" fill="#64748b" font-size="11">Sources: PMC13230729, PMC13181225, arXiv 2609.29527, 2609.05990, 2604.10797, 2608.25148.</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The cytology and haematology smear as a detection primitive. Left: one glass slide holds tens of thousands to millions of cells in a mostly single layer, with overlapping clusters that are three-dimensional, so scanners capture several focal planes. Typical targets: a cervical liquid-based slide needs at least 5,000 squamous cells for adequacy and the abnormal cells may be a handful; a blood-smear differential counts 100 to 200 white cells among millions of red cells; a thick malaria smear counts parasites against 200 white cells, and ring-stage parasites are a few tens of pixels wide. Right: four stacked output layers read from the same slide: cell instances, cell class, slide-level grade such as Bethesda or Paris category, and a patient decision such as refer, repeat or treat.">
+  <title>The smear: one slide, many cells, four output layers</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The smear: a few diagnostic cells hidden among 10⁴–10⁶ ordinary ones</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Approximate, typical values. Counts vary by preparation (conventional vs liquid-based), stain and scanner.</text>
+
+  <!-- Left panel -->
+  <rect x="24" y="72" width="440" height="444" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="96" fill="#334155" font-size="13" font-weight="700">One slide, three preparations</text>
+
+  <!-- slide drawing -->
+  <rect x="44" y="112" width="200" height="64" rx="4" fill="#e0f2fe" stroke="#0284c7"/>
+  <rect x="44" y="112" width="44" height="64" rx="4" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="66" y="148" text-anchor="middle" fill="#334155" font-size="10">label</text>
+  <g fill="#c4b5fd" stroke="#7c3aed" stroke-width="0.8">
+    <circle cx="110" cy="130" r="6"/><circle cx="125" cy="150" r="6"/><circle cx="142" cy="128" r="6"/>
+    <circle cx="160" cy="156" r="6"/><circle cx="176" cy="132" r="6"/><circle cx="196" cy="150" r="6"/>
+    <circle cx="214" cy="128" r="6"/><circle cx="228" cy="158" r="6"/><circle cx="104" cy="160" r="6"/>
+    <circle cx="150" cy="142" r="6"/><circle cx="186" cy="162" r="6"/>
+  </g>
+  <circle cx="204" cy="140" r="7" fill="#fecaca" stroke="#dc2626" stroke-width="1.6"/>
+  <line x1="211" y1="140" x2="262" y2="132" stroke="#dc2626"/>
+  <g font-size="11.5" fill="#334155">
+    <text x="266" y="122" font-weight="700">Mostly a monolayer…</text>
+    <text x="266" y="138">…plus 3-D clusters, so scanners</text>
+    <text x="266" y="153">take several focal planes (z-stack)</text>
+    <text x="266" y="172" fill="#dc2626" font-weight="700">target = one abnormal cell</text>
+  </g>
+
+  <!-- three rows -->
+  <g font-size="11.5">
+    <rect x="40" y="198" width="408" height="92" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="52" y="218" fill="#4c1d95" font-weight="700">Cervical / urine cytology (Pap, LBC, urine)</text>
+    <text x="52" y="236" fill="#334155">≥ 5,000 squamous cells for LBC adequacy; 10⁴–10⁵ on a slide</text>
+    <text x="52" y="253" fill="#334155">positives may be a handful of cells (ASC-US … HSIL, HGUC)</text>
+    <text x="52" y="270" fill="#334155">readout: Bethesda / Paris category per slide</text>
+
+    <rect x="40" y="300" width="408" height="92" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="52" y="320" fill="#14532d" font-weight="700">Peripheral blood / bone marrow smear</text>
+    <text x="52" y="338" fill="#334155">differential = 100–200 white cells among millions of red cells</text>
+    <text x="52" y="355" fill="#334155">13+ fine-grained classes; blasts and rare cells are the long tail</text>
+    <text x="52" y="372" fill="#334155">readout: cell counts → leukaemia / AML subtype flag</text>
+
+    <rect x="40" y="402" width="408" height="98" rx="6" fill="#fef3c7" stroke="#d97706"/>
+    <text x="52" y="422" fill="#78350f" font-weight="700">Malaria thin / thick smear</text>
+    <text x="52" y="440" fill="#334155">thick film: parasites counted against 200 white cells (WHO)</text>
+    <text x="52" y="457" fill="#334155">ring-stage P. falciparum ≈ a few tens of pixels wide</text>
+    <text x="52" y="474" fill="#334155">species (4) + stage; field images from phones / cheap scopes</text>
+    <text x="52" y="491" fill="#334155">readout: positive?, species, parasitaemia</text>
+  </g>
+
+  <!-- Right panel: output layers -->
+  <rect x="488" y="72" width="448" height="444" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="504" y="96" fill="#334155" font-size="13" font-weight="700">Four output layers on the same slide</text>
+
+  <g font-size="12">
+    <rect x="508" y="112" width="408" height="78" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="520" y="134" fill="#0c4a6e" font-weight="700">1 · Cell instances</text>
+    <text x="520" y="153" fill="#334155">boxes / masks in dense, touching, overlapping cells</text>
+    <text x="520" y="171" fill="#334155">metric: mAP@50, recall of tiny objects, count correlation</text>
+
+    <rect x="508" y="200" width="408" height="78" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="520" y="222" fill="#4c1d95" font-weight="700">2 · Cell class</text>
+    <text x="520" y="241" fill="#334155">WBC type, parasite species/stage, atypia grade</text>
+    <text x="520" y="259" fill="#334155">metric: macro-F1 (long tail), calibration under shift</text>
+
+    <rect x="508" y="288" width="408" height="78" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="520" y="310" fill="#14532d" font-weight="700">3 · Slide grade</text>
+    <text x="520" y="329" fill="#334155">MIL / top-k aggregation over 10⁴+ cells</text>
+    <text x="520" y="347" fill="#334155">metric: slide AUC; sensitivity at a fixed specificity</text>
+
+    <rect x="508" y="376" width="408" height="78" rx="6" fill="#fef3c7" stroke="#d97706"/>
+    <text x="520" y="398" fill="#78350f" font-weight="700">4 · Patient decision</text>
+    <text x="520" y="417" fill="#334155">refer / repeat / treat; triage of what a human reads</text>
+    <text x="520" y="435" fill="#334155">metric: reader-study sensitivity, review time, NPV</text>
+  </g>
+  <path d="M712 458 L712 468" stroke="#64748b"/>
+  <text x="712" y="488" text-anchor="middle" fill="#64748b" font-size="11">Layer 1 is mostly solved on clean data;</text>
+  <text x="712" y="503" text-anchor="middle" fill="#64748b" font-size="11">2025–26 progress is in layers 2–4 and in robustness to slide shift.</text>
+</svg>
