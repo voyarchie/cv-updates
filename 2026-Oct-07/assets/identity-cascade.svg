@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Left: on the GroceryVision retrieval benchmark the best open vision-language embeddings reach 94.5 percent Recall at 5 but only 77.0 percent Recall at 1, a 17.5 point gap: embeddings find the right product family but cannot rank sibling SKUs. Right: the 2025-26 answer is a cascade. A cheap embedding shortlist (for example SigLIP top 35) feeds a local verifier (pixel matching such as LightGlue, or a distilled cross-encoder that auto-accepts at 98 percent precision), and only the ambiguous tail goes to an agentic vision-language model; in one production system this raised coverage from 68 to 77 percent.">
+  <title>Why SKU identity needs a cascade</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">SKU identity: embeddings find the family, verifiers pick the sibling</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Abstract-level numbers from different papers and tasks; the two panels are not directly comparable.</text>
+
+  <!-- Left: bars -->
+  <rect x="24" y="72" width="400" height="404" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="96" fill="#334155" font-size="13" font-weight="700">GroceryVision, 190 open VLMs, zero-shot</text>
+  <text x="40" y="114" fill="#64748b" font-size="11">best model, product retrieval (409 SKUs, 74.2k images)</text>
+  <!-- axis: y from 140 (100%) to 420 (0%) -->
+  <line x1="80" y1="420" x2="400" y2="420" stroke="#94a3b8"/>
+  <line x1="80" y1="140" x2="80" y2="420" stroke="#94a3b8"/>
+  <g fill="#64748b" font-size="10.5" text-anchor="end">
+    <text x="74" y="424">0</text><text x="74" y="354">25</text><text x="74" y="284">50</text><text x="74" y="214">75</text><text x="74" y="144">100</text>
+  </g>
+  <g stroke="#e2e8f0"><line x1="80" y1="350" x2="400" y2="350"/><line x1="80" y1="280" x2="400" y2="280"/><line x1="80" y1="210" x2="400" y2="210"/><line x1="80" y1="140" x2="400" y2="140"/></g>
+  <!-- 94.5% -> height 264.6 ; 77.0 -> 215.6 -->
+  <rect x="130" y="155.4" width="80" height="264.6" fill="#2563eb"/>
+  <rect x="260" y="204.4" width="80" height="215.6" fill="#7c3aed"/>
+  <text x="170" y="148" text-anchor="middle" fill="#1e3a8a" font-size="13" font-weight="800">94.5 %</text>
+  <text x="300" y="197" text-anchor="middle" fill="#4c1d95" font-size="13" font-weight="800">77.0 %</text>
+  <text x="170" y="440" text-anchor="middle" fill="#334155" font-size="12">Recall@5</text>
+  <text x="300" y="440" text-anchor="middle" fill="#334155" font-size="12">Recall@1</text>
+  <line x1="215" y1="155.4" x2="255" y2="155.4" stroke="#dc2626" stroke-dasharray="4 3"/>
+  <line x1="235" y1="155.4" x2="235" y2="204.4" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="240" y="184" fill="#dc2626" font-size="11.5" font-weight="700">−17.5 pp</text>
+  <text x="40" y="462" fill="#475569" font-size="11">Filtered pre-training data: up to +16.6 % — more than 2× parameters.</text>
+
+  <!-- Right: cascade -->
+  <rect x="440" y="72" width="496" height="404" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="456" y="96" fill="#334155" font-size="13" font-weight="700">The 2025–26 recipe: shortlist → verify → escalate</text>
+
+  <g font-size="11.5">
+    <rect x="456" y="112" width="464" height="76" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="470" y="132" fill="#1e3a8a" font-weight="800">Tier 1 · embedding shortlist</text>
+    <text x="470" y="150" fill="#1e293b">CLIP / SigLIP / MobileCLIP / CLIP+DINOv2 → top-k catalogue items</text>
+    <text x="470" y="168" fill="#475569">e.g. PRISM keeps SigLIP top-35 · cost ≈ one vector search</text>
+
+    <path d="M688 188 L688 204" stroke="#64748b" stroke-width="2"/>
+    <path d="M682 198 L688 206 L694 198" fill="none" stroke="#64748b" stroke-width="2"/>
+
+    <rect x="476" y="208" width="424" height="76" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="490" y="228" fill="#4c1d95" font-weight="800">Tier 2 · local verifier</text>
+    <text x="490" y="246" fill="#1e293b">foreground mask (YOLO-E) + LightGlue matches, OCR text,</text>
+    <text x="490" y="264" fill="#1e293b">or a VLM-distilled cross-encoder auto-accepting at 98 % precision</text>
+
+    <path d="M688 284 L688 300" stroke="#64748b" stroke-width="2"/>
+    <path d="M682 294 L688 302 L694 294" fill="none" stroke="#64748b" stroke-width="2"/>
+
+    <rect x="508" y="304" width="360" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+    <text x="522" y="324" fill="#78350f" font-weight="800">Tier 3 · agentic VLM (+ web search)</text>
+    <text x="522" y="342" fill="#1e293b">only the ambiguous tail; ~10⁵× tier-1 cost per pair</text>
+    <text x="522" y="360" fill="#1e293b">self-hosted 88 % vs frontier 92 % recall</text>
+
+    <rect x="456" y="396" width="464" height="58" rx="6" fill="#ccfbf1" stroke="#0d9488"/>
+    <text x="470" y="418" fill="#134e4a" font-weight="800">Outcome (Retrieve, Match, Escalate)</text>
+    <text x="470" y="438" fill="#1e293b">coverage 68 % → 77 % by escalating only the hard tail</text>
+  </g>
+</svg>
