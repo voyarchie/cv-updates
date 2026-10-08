@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The camera-trap image as a detection primitive. Left: a motion or heat trigger fires a burst of three frames from one fixed camera. Most bursts are blank; the rest hold small, partly hidden animals, often in infrared at night. Right: six output layers read from the same burst, from blank filtering through detection, species, individual identity and behaviour to the ecological estimate. Errors at each layer carry into the estimate.">
+  <title>The camera-trap image: one fixed camera, triggered bursts, six output layers</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The camera-trap image: a fixed camera, a trigger, a burst — and an ecological estimate at the end</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Schematic. Layer names follow §2 of the report; the error notes on the right are the failure each layer passes downstream.</text>
+
+  <!-- Left panel -->
+  <rect x="24" y="70" width="408" height="466" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="94" fill="#334155" font-size="13" font-weight="700">One site, one fixed viewpoint, months of triggers</text>
+
+  <!-- camera body -->
+  <rect x="44" y="116" width="62" height="78" rx="8" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+  <circle cx="75" cy="146" r="15" fill="#334155"/>
+  <circle cx="75" cy="146" r="7" fill="#94a3b8"/>
+  <rect x="56" y="172" width="38" height="8" rx="2" fill="#b91c1c" opacity="0.75"/>
+  <text x="75" y="210" text-anchor="middle" fill="#475569" font-size="10.5">PIR / heat</text>
+  <text x="75" y="223" text-anchor="middle" fill="#475569" font-size="10.5">trigger</text>
+  <path d="M110 146 L150 146" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+  </defs>
+
+  <!-- burst of 3 frames -->
+  <g>
+    <rect x="156" y="104" width="250" height="86" rx="4" fill="#d1fae5" stroke="#059669"/>
+    <rect x="164" y="112" width="74" height="70" fill="#bbf7d0"/>
+    <rect x="246" y="112" width="74" height="70" fill="#bbf7d0"/>
+    <rect x="328" y="112" width="70" height="70" fill="#bbf7d0"/>
+    <!-- animal only partly in frames -->
+    <ellipse cx="232" cy="160" rx="10" ry="6" fill="#92400e"/>
+    <ellipse cx="282" cy="156" rx="16" ry="9" fill="#92400e"/>
+    <rect x="270" y="145" width="26" height="22" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+    <text x="201" y="200" text-anchor="middle" fill="#475569" font-size="10.5">t₀ edge</text>
+    <text x="283" y="200" text-anchor="middle" fill="#475569" font-size="10.5">t₁ small</text>
+    <text x="363" y="200" text-anchor="middle" fill="#475569" font-size="10.5">t₂ gone</text>
+  </g>
+
+  <!-- night IR frame -->
+  <rect x="156" y="222" width="120" height="84" rx="4" fill="#475569" stroke="#334155"/>
+  <ellipse cx="226" cy="270" rx="18" ry="9" fill="#e2e8f0" opacity="0.85"/>
+  <circle cx="244" cy="266" r="3" fill="#ffffff"/>
+  <text x="216" y="320" text-anchor="middle" fill="#475569" font-size="10.5">night: IR, monochrome</text>
+
+  <!-- blank frame -->
+  <rect x="286" y="222" width="120" height="84" rx="4" fill="#bbf7d0" stroke="#059669"/>
+  <path d="M300 300 Q320 250 340 300 M350 300 Q368 240 390 300" stroke="#15803d" stroke-width="2" fill="none"/>
+  <text x="346" y="320" text-anchor="middle" fill="#475569" font-size="10.5">blank: wind, sun, grass</text>
+
+  <!-- properties -->
+  <g font-size="11.5" fill="#334155">
+    <text x="40" y="358" font-weight="700">What makes it its own primitive</text>
+    <text x="40" y="380">• Fixed camera → background repeats, so models learn the site</text>
+    <text x="40" y="400">• Trigger-driven → most frames are blank; bursts, not single images</text>
+    <text x="40" y="420">• Small, cut-off, blurred or IR animals near the frame edge</text>
+    <text x="40" y="440">• Long tail of species; strong shift between sites and seasons</text>
+    <text x="40" y="460">• Labels at many levels: species, individual, behaviour</text>
+    <text x="40" y="480">• The real output is a number for ecologists — density,</text>
+    <text x="52" y="498">occupancy, richness — and model errors bias it</text>
+    <text x="40" y="520" fill="#64748b" font-size="10.5">Typical sensors: PIR trigger, white/IR flash, 3–10 frame burst or short clip.</text>
+  </g>
+
+  <!-- Right panel: layers -->
+  <rect x="448" y="70" width="488" height="466" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="464" y="94" fill="#334155" font-size="13" font-weight="700">Six output layers from the same burst</text>
+
+  <g font-size="11.5">
+    <!-- L0 -->
+    <rect x="464" y="108" width="290" height="58" rx="6" fill="#e0e7ff" stroke="#4f46e5"/>
+    <text x="476" y="128" fill="#312e81" font-weight="700">0 · Blank / animal / person / vehicle</text>
+    <text x="476" y="146" fill="#3730a3">MegaDetector v6 (YOLOv9/11, RT-DETR)</text>
+    <text x="476" y="160" fill="#3730a3" font-size="10.5">§3</text>
+    <!-- L1 -->
+    <rect x="464" y="174" width="290" height="58" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="476" y="194" fill="#1e3a8a" font-weight="700">1 · Boxes per frame and per burst</text>
+    <text x="476" y="212" fill="#1e40af">regional detectors, motion cues at night</text>
+    <text x="476" y="226" fill="#1e40af" font-size="10.5">§3</text>
+    <!-- L2 -->
+    <rect x="464" y="240" width="290" height="58" rx="6" fill="#ccfbf1" stroke="#0d9488"/>
+    <text x="476" y="260" fill="#134e4a" font-weight="700">2 · Species (or a higher taxon)</text>
+    <text x="476" y="278" fill="#115e59">SpeciesNet, DeepFaune, BioCLIP 2, VLMs</text>
+    <text x="476" y="292" fill="#115e59" font-size="10.5">§4–§5</text>
+    <!-- L3 -->
+    <rect x="464" y="306" width="290" height="58" rx="6" fill="#fef3c7" stroke="#d97706"/>
+    <text x="476" y="326" fill="#78350f" font-weight="700">3 · Which individual</text>
+    <text x="476" y="344" fill="#92400e">MegaDescriptor, MiewID, local matching</text>
+    <text x="476" y="358" fill="#92400e" font-size="10.5">§6</text>
+    <!-- L4 -->
+    <rect x="464" y="372" width="290" height="58" rx="6" fill="#fce7f3" stroke="#db2777"/>
+    <text x="476" y="392" fill="#831843" font-weight="700">4 · What it is doing</text>
+    <text x="476" y="410" fill="#9d174d">video behaviour models, zero-shot VLMs</text>
+    <text x="476" y="424" fill="#9d174d" font-size="10.5">§7</text>
+    <!-- L5 -->
+    <rect x="464" y="438" width="290" height="80" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="476" y="458" fill="#4c1d95" font-weight="700">5 · The ecological estimate</text>
+    <text x="476" y="476" fill="#5b21b6">density via depth + distance sampling,</text>
+    <text x="476" y="492" fill="#5b21b6">occupancy, richness, activity</text>
+    <text x="476" y="510" fill="#5b21b6" font-size="10.5">§8</text>
+
+    <!-- error notes -->
+    <g fill="#475569" font-size="10.5">
+      <text x="766" y="132">missed animal →</text>
+      <text x="766" y="146">false absence</text>
+      <text x="766" y="198">edge / IR crop →</text>
+      <text x="766" y="212">bad crop for layer 2</text>
+      <text x="766" y="264">new site / season →</text>
+      <text x="766" y="278">wrong or rolled-up label</text>
+      <text x="766" y="330">false merge →</text>
+      <text x="766" y="344">undercounted population</text>
+      <text x="766" y="396">few labelled clips →</text>
+      <text x="766" y="410">coarse behaviour classes</text>
+      <text x="766" y="462">low precision on rare</text>
+      <text x="766" y="476">species → biased</text>
+      <text x="766" y="490">occupancy / density</text>
+    </g>
+  </g>
+  <path d="M760 120 L760 506" stroke="#94a3b8" stroke-dasharray="3 3"/>
+</svg>

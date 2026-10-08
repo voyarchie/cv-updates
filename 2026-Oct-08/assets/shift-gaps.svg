@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Three within-study comparisons of camera-trap accuracy under shift. WildIng: a CLIP-plus-adapter model trained on African data reaches 84.77 percent in domain and 16.17 percent on American data. Edge VLM study: BioCLIP loses 18.0 points and the best small VLM 22.3 points from clean photos to camera-trap images. UK detector: mAP50 0.984 on held-out images from the same sites, with performance at new sites not measured.">
+  <title>Accuracy under shift: three within-study comparisons</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Same model, different camera: where camera-trap accuracy goes</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Each panel compares numbers from one study only. Panels use different tasks and metrics, so do not compare across them. Abstract-level figures.</text>
+
+  <!-- Panel 1 -->
+  <rect x="24" y="70" width="290" height="306" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="94" fill="#334155" font-size="13" font-weight="700">Across continents</text>
+  <text x="40" y="111" fill="#64748b" font-size="10.5">WildIng (2601.00993): CLIP + adapter, accuracy</text>
+  <line x1="60" y1="330" x2="290" y2="330" stroke="#94a3b8"/>
+  <!-- scale: 100% = 190px -->
+  <rect x="85" y="169" width="70" height="161" fill="#2563eb"/>
+  <text x="120" y="162" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="700">84.8 %</text>
+  <text x="120" y="348" text-anchor="middle" fill="#334155" font-size="11">Africa → Africa</text>
+  <rect x="195" y="299" width="70" height="31" fill="#dc2626"/>
+  <text x="230" y="292" text-anchor="middle" fill="#7f1d1d" font-size="12" font-weight="700">16.2 %</text>
+  <text x="230" y="348" text-anchor="middle" fill="#334155" font-size="11">Africa → America</text>
+  <text x="40" y="368" fill="#64748b" font-size="10.5">WildIng adds text descriptions: ~+30 % for BioCLIP.</text>
+
+  <!-- Panel 2 -->
+  <rect x="334" y="70" width="290" height="306" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="350" y="94" fill="#334155" font-size="13" font-weight="700">From clean photos to camera traps</text>
+  <text x="350" y="111" fill="#64748b" font-size="10.5">Edge-VLM study (2609.11916): accuracy drop, points</text>
+  <line x1="370" y1="330" x2="600" y2="330" stroke="#94a3b8"/>
+  <!-- scale: 30 pts = 180px -->
+  <rect x="395" y="222" width="70" height="108" fill="#0d9488"/>
+  <text x="430" y="215" text-anchor="middle" fill="#134e4a" font-size="12" font-weight="700">−18.0</text>
+  <text x="430" y="348" text-anchor="middle" fill="#334155" font-size="11">BioCLIP</text>
+  <rect x="505" y="196" width="70" height="134" fill="#d97706"/>
+  <text x="540" y="189" text-anchor="middle" fill="#78350f" font-size="12" font-weight="700">−22.3</text>
+  <text x="540" y="348" text-anchor="middle" fill="#334155" font-size="11">best small VLM</text>
+  <text x="350" y="368" fill="#64748b" font-size="10.5">Drops not significantly different; VLMs: 9.6–26.6.</text>
+
+  <!-- Panel 3 -->
+  <rect x="644" y="70" width="292" height="306" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="660" y="94" fill="#334155" font-size="13" font-weight="700">Same sites vs new sites</text>
+  <text x="660" y="111" fill="#64748b" font-size="10.5">UK YOLO26x detector (2606.10940): mAP@0.5</text>
+  <line x1="680" y1="330" x2="910" y2="330" stroke="#94a3b8"/>
+  <rect x="705" y="143" width="70" height="187" fill="#7c3aed"/>
+  <text x="740" y="136" text-anchor="middle" fill="#4c1d95" font-size="12" font-weight="700">0.984</text>
+  <text x="740" y="348" text-anchor="middle" fill="#334155" font-size="11">held-out, same sites</text>
+  <rect x="815" y="143" width="70" height="187" fill="none" stroke="#64748b" stroke-dasharray="5 4"/>
+  <text x="850" y="240" text-anchor="middle" fill="#475569" font-size="22" font-weight="700">?</text>
+  <text x="850" y="348" text-anchor="middle" fill="#334155" font-size="11">new sites</text>
+  <text x="660" y="368" fill="#64748b" font-size="10.5">Not measured; the authors leave it to future work.</text>
+</svg>
