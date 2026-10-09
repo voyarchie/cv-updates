@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The in-field crop image as a detection primitive. Left: five capture platforms, from a sprayer boom camera a metre above the soil to a UAV tens of metres up, all looking at green plants on green or brown backgrounds. Right: six output layers read from the same image, from crop and weed masks through instances, organ counts, species lists and disease classes to an action or an estimate. Some outputs drive an actuator within milliseconds, others feed a seasonal yield or survey number.">
+  <title>The in-field crop image: green on green, one season at a time</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The in-field crop image: plants on plants, a moving target, an actuator at the end</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Schematic. Layer names follow §2 of the report. Right-hand notes give the latency budget and the main failure for each layer.</text>
+
+  <!-- Left panel -->
+  <rect x="24" y="70" width="408" height="466" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="94" fill="#334155" font-size="13" font-weight="700">Five platforms, one scene type</text>
+
+  <!-- soil band -->
+  <rect x="40" y="250" width="376" height="40" fill="#d6c3a5"/>
+  <!-- crop row: regular plants -->
+  <g fill="#16a34a">
+    <ellipse cx="70" cy="248" rx="14" ry="10"/>
+    <ellipse cx="130" cy="248" rx="14" ry="10"/>
+    <ellipse cx="190" cy="248" rx="14" ry="10"/>
+    <ellipse cx="250" cy="248" rx="14" ry="10"/>
+    <ellipse cx="310" cy="248" rx="14" ry="10"/>
+    <ellipse cx="370" cy="248" rx="14" ry="10"/>
+  </g>
+  <!-- weeds: irregular -->
+  <g fill="#65a30d">
+    <circle cx="100" cy="262" r="5"/>
+    <circle cx="158" cy="270" r="4"/>
+    <circle cx="214" cy="258" r="6"/>
+    <circle cx="282" cy="272" r="4"/>
+    <circle cx="338" cy="262" r="5"/>
+  </g>
+  <rect x="205" y="250" width="18" height="17" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="40" y="306" fill="#475569" font-size="10.5">red box: weed beside crop: same colour, similar shape</text>
+
+  <!-- platforms -->
+  <g font-size="10.5" fill="#475569">
+    <!-- boom camera -->
+    <rect x="52" y="168" width="70" height="8" fill="#94a3b8"/>
+    <rect x="80" y="176" width="14" height="14" rx="2" fill="#334155"/>
+    <path d="M87 190 L70 238 M87 190 L104 238" stroke="#94a3b8" stroke-dasharray="3 3"/>
+    <text x="40" y="160">boom cam ~1 m</text>
+    <!-- rover -->
+    <rect x="150" y="196" width="48" height="22" rx="4" fill="#cbd5e1" stroke="#475569"/>
+    <circle cx="160" cy="222" r="5" fill="#475569"/><circle cx="188" cy="222" r="5" fill="#475569"/>
+    <text x="146" y="188">rover / robot</text>
+    <!-- handheld -->
+    <rect x="232" y="186" width="16" height="26" rx="3" fill="#334155"/>
+    <text x="218" y="178">phone</text>
+    <!-- quadrat -->
+    <rect x="280" y="196" width="40" height="30" fill="none" stroke="#b45309" stroke-width="1.5"/>
+    <text x="270" y="188">quadrat</text>
+    <!-- uav -->
+    <rect x="352" y="112" width="34" height="10" rx="3" fill="#334155"/>
+    <line x1="344" y1="108" x2="394" y2="108" stroke="#334155" stroke-width="2"/>
+    <path d="M369 122 L330 238 M369 122 L408 238" stroke="#94a3b8" stroke-dasharray="3 3"/>
+    <text x="340" y="100">UAV 10–60 m</text>
+  </g>
+
+  <!-- properties -->
+  <g font-size="11.5" fill="#334155">
+    <text x="40" y="336" font-weight="700">What makes it its own primitive</text>
+    <text x="40" y="358">• Target and clutter are both plants (green on green)</text>
+    <text x="40" y="378">• Dense, overlapping, repeated texture → counts, not boxes</text>
+    <text x="40" y="398">• The object changes shape week to week (phenology)</text>
+    <text x="40" y="418">• Every field and season is a new domain</text>
+    <text x="40" y="438">• Output drives a nozzle or laser in ms, or a yield number</text>
+    <text x="40" y="458">• Train on close-ups, test on whole plots (PlantCLEF)</text>
+  </g>
+  <rect x="40" y="476" width="376" height="46" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="52" y="496" fill="#92400e" font-size="11">Most public scores are same-field, same-season splits.</text>
+  <text x="52" y="512" fill="#92400e" font-size="11">Cross-season and cross-field numbers are much lower (§3, §7).</text>
+
+  <!-- Right panel: layers -->
+  <rect x="448" y="70" width="488" height="466" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="464" y="94" fill="#334155" font-size="13" font-weight="700">Six output layers from the same image</text>
+
+  <g font-size="11.5">
+    <rect x="464" y="108" width="210" height="52" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="476" y="128" fill="#1e3a8a" font-weight="700">0 · vegetation / soil mask</text>
+    <text x="476" y="146" fill="#1e3a8a">DepthCropSeg++, ExG</text>
+    <rect x="464" y="176" width="210" height="52" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="476" y="196" fill="#1e3a8a" font-weight="700">1 · crop vs weed (boxes, masks)</text>
+    <text x="476" y="214" fill="#1e3a8a">YOLO26 + DINOv3, Carbon LPM</text>
+    <rect x="464" y="244" width="210" height="52" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="476" y="264" fill="#14532d" font-weight="700">2 · plant / leaf instances</text>
+    <text x="476" y="282" fill="#14532d">PhenoBench, WeedsGalore</text>
+    <rect x="464" y="312" width="210" height="52" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="476" y="332" fill="#14532d" font-weight="700">3 · organ counts (heads, fruit)</text>
+    <text x="476" y="350" fill="#14532d">TasselNetV4, FruitLangGS</text>
+    <rect x="464" y="380" width="210" height="52" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="476" y="400" fill="#4c1d95" font-weight="700">4 · species list per plot</text>
+    <text x="476" y="418" fill="#4c1d95">PlantCLEF tiling + priors</text>
+    <rect x="464" y="448" width="210" height="52" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="476" y="468" fill="#4c1d95" font-weight="700">5 · disease / stress class</text>
+    <text x="476" y="486" fill="#4c1d95">CNN/ViT, VLMs (AgroBench)</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.4">
+    <path d="M569 160 L569 174" marker-end="url(#a)"/>
+    <path d="M569 228 L569 242" marker-end="url(#a)"/>
+    <path d="M569 296 L569 310" marker-end="url(#a)"/>
+    <path d="M569 364 L569 378" marker-end="url(#a)"/>
+    <path d="M569 432 L569 446" marker-end="url(#a)"/>
+  </g>
+  <g font-size="10.8" fill="#475569">
+    <text x="690" y="130">budget: per frame, real time</text>
+    <text x="690" y="146">fails: night, residue, shadows</text>
+    <text x="690" y="198" fill="#b91c1c" font-weight="700">→ nozzle / laser in ms</text>
+    <text x="690" y="214">fails: new season, new weed</text>
+    <text x="690" y="266">budget: offline, phenotyping</text>
+    <text x="690" y="282">fails: overlapping leaves</text>
+    <text x="690" y="334" fill="#b91c1c" font-weight="700">→ yield estimate</text>
+    <text x="690" y="350">fails: occlusion, double counts</text>
+    <text x="690" y="402" fill="#b91c1c" font-weight="700">→ survey / biodiversity record</text>
+    <text x="690" y="418">fails: close-up → plot shift</text>
+    <text x="690" y="470" fill="#b91c1c" font-weight="700">→ treatment decision</text>
+    <text x="690" y="486">fails: lab → field (~99 → 60–70%)</text>
+  </g>
+</svg>
