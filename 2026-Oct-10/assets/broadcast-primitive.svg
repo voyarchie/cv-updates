@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The sports broadcast video as a dense-vision primitive. Left: five properties of the broadcast frame: a moving, zooming camera with cuts and replays; a tiny, blurred ball; twenty-two near-identical players per team kit; identity carried by a jersey number that is often unreadable; and a time axis where events last a few frames. Right: six output layers, each with a representative 2025-26 method, a reported number, and its main failure. Layer 0 camera and pitch registration, PnLCalib. Layer 1 player and ball detection, YOLO-family detectors and TrackNetV5 at F1 0.986 on shuttle and tennis data. Layer 2 tracking and re-identification, CAMELTrack and SportMamba, above 80 HOTA on SportsMOT. Layer 3 identity, team, role and jersey number, with a vision-language model in Broadcast2Pitch, GS-HOTA 63.90. Layer 4 events, spotting, attribution to a player and anticipation, T-DEED Team-mAP at 1 second 60.03, FAANTRA-WS 24.08 mAP. Layer 5 metric 3D and semantics, SynLoc 97.67 mAP-LocSim, skeletal tracking score 0.593, novel view synthesis 29.89 dB, VQA 98.0 percent.">
+  <title>The sports broadcast video: five properties, six output layers</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The sports broadcast video as a dense-vision primitive</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Left: what makes the frame hard. Right: what a system reads from it, with one representative 2025–26 result per layer (abstract-level, different metrics per row).</text>
+
+  <!-- Left: the frame -->
+  <rect x="24" y="70" width="262" height="466" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="94" fill="#334155" font-size="13.5" font-weight="700">The broadcast frame</text>
+  <!-- mini pitch -->
+  <rect x="40" y="106" width="230" height="120" rx="4" fill="#3f8f5a"/>
+  <line x1="155" y1="106" x2="155" y2="226" stroke="#e8f5ec" stroke-width="1.5"/>
+  <circle cx="155" cy="166" r="20" fill="none" stroke="#e8f5ec" stroke-width="1.5"/>
+  <rect x="40" y="136" width="30" height="60" fill="none" stroke="#e8f5ec" stroke-width="1.5"/>
+  <circle cx="95" cy="150" r="5" fill="#2563eb"/><circle cx="120" cy="185" r="5" fill="#2563eb"/><circle cx="175" cy="140" r="5" fill="#2563eb"/>
+  <circle cx="110" cy="160" r="5" fill="#dc2626"/><circle cx="190" cy="190" r="5" fill="#dc2626"/><circle cx="215" cy="150" r="5" fill="#dc2626"/>
+  <circle cx="140" cy="172" r="2.2" fill="#facc15" stroke="#1f2937" stroke-width="0.6"/>
+  <rect x="86" y="114" width="150" height="104" fill="none" stroke="#f8fafc" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="90" y="126" fill="#f8fafc" font-size="9.5">camera view (pans, zooms, cuts)</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="40" y="252" font-weight="700">1 · The camera moves</text>
+    <text x="40" y="267" fill="#64748b">PTZ broadcast, cuts, replays, close-ups:</text>
+    <text x="40" y="281" fill="#64748b">calibration must be re-solved every frame</text>
+    <text x="40" y="303" font-weight="700">2 · The key object is tiny</text>
+    <text x="40" y="318" fill="#64748b">ball of a few pixels, motion-blurred,</text>
+    <text x="40" y="332" fill="#64748b">occluded, sometimes off screen</text>
+    <text x="40" y="354" font-weight="700">3 · Same-kit players</text>
+    <text x="40" y="369" fill="#64748b">appearance re-ID barely separates</text>
+    <text x="40" y="383" fill="#64748b">teammates; ID switches on every cluster</text>
+    <text x="40" y="405" font-weight="700">4 · Identity is a number</text>
+    <text x="40" y="420" fill="#64748b">the jersey digit is the label, and it is</text>
+    <text x="40" y="434" fill="#64748b">unreadable in most frames ("null" class)</text>
+    <text x="40" y="456" font-weight="700">5 · Events last frames</text>
+    <text x="40" y="471" fill="#64748b">a pass or tackle is a point in time,</text>
+    <text x="40" y="485" fill="#64748b">and must be tied to one player</text>
+    <text x="40" y="507" font-weight="700">6 · Strong priors are free</text>
+    <text x="40" y="522" fill="#64748b">known pitch geometry, rules, team sizes</text>
+  </g>
+
+  <!-- Right: layers -->
+  <g font-size="11.5">
+    <!-- header -->
+    <text x="312" y="88" fill="#64748b" font-size="11" font-weight="700">LAYER</text>
+    <text x="520" y="88" fill="#64748b" font-size="11" font-weight="700">REPRESENTATIVE 2025–26 RESULT</text>
+    <text x="780" y="88" fill="#64748b" font-size="11" font-weight="700">MAIN FAILURE</text>
+
+    <!-- L0 -->
+    <rect x="300" y="96" width="636" height="66" rx="7" fill="#e0ecff" stroke="#93b4e8"/>
+    <text x="312" y="118" fill="#1e3a8a" font-weight="800">L0 · Camera &amp; pitch</text>
+    <text x="312" y="134" fill="#1e3a8a">registration</text>
+    <text x="520" y="118" fill="#1f2937">PnLCalib: points + lines refinement</text>
+    <text x="520" y="134" fill="#475569">(CVIU 2026); SegFormer calibrator in</text>
+    <text x="520" y="150" fill="#475569">the 2024 GSR winner</text>
+    <text x="780" y="118" fill="#7f1d1d">close-ups, replays,</text>
+    <text x="780" y="134" fill="#7f1d1d">few visible lines</text>
+
+    <!-- L1 -->
+    <rect x="300" y="168" width="636" height="66" rx="7" fill="#dcf3e6" stroke="#86c9a2"/>
+    <text x="312" y="190" fill="#14532d" font-weight="800">L1 · Players &amp; ball</text>
+    <text x="312" y="206" fill="#14532d">detection</text>
+    <text x="520" y="190" fill="#1f2937">YOLO-family players; TrackNetV5 ball</text>
+    <text x="520" y="206" fill="#475569">heatmaps, F1 0.986 (shuttle/tennis);</text>
+    <text x="520" y="222" fill="#475569">YOLO26x on 4K frames for SynLoc</text>
+    <text x="780" y="190" fill="#7f1d1d">ball blur, occlusion,</text>
+    <text x="780" y="206" fill="#7f1d1d">25 fps under-sampling</text>
+
+    <!-- L2 -->
+    <rect x="300" y="240" width="636" height="66" rx="7" fill="#fdecd2" stroke="#e4b46e"/>
+    <text x="312" y="262" fill="#7c2d12" font-weight="800">L2 · Tracking &amp; re-ID</text>
+    <text x="520" y="262" fill="#1f2937">CAMELTrack, Deep HM-SORT, SportMamba:</text>
+    <text x="520" y="278" fill="#475569">~80+ HOTA on SportsMOT;</text>
+    <text x="520" y="294" fill="#475569">non-linear motion models</text>
+    <text x="780" y="262" fill="#7f1d1d">same-kit ID switches,</text>
+    <text x="780" y="278" fill="#7f1d1d">exits and re-entries</text>
+
+    <!-- L3 -->
+    <rect x="300" y="312" width="636" height="66" rx="7" fill="#f3e3fb" stroke="#c49be0"/>
+    <text x="312" y="334" fill="#581c87" font-weight="800">L3 · Identity: team,</text>
+    <text x="312" y="350" fill="#581c87">role, jersey number</text>
+    <text x="520" y="334" fill="#1f2937">LLaMA-3.2-Vision per tracklet</text>
+    <text x="520" y="350" fill="#475569">(Broadcast2Pitch): GS-HOTA 63.90;</text>
+    <text x="520" y="366" fill="#475569">single-stage JNR 85.41 % acc.</text>
+    <text x="780" y="334" fill="#7f1d1d">illegible digits,</text>
+    <text x="780" y="350" fill="#7f1d1d">pitch localisation error</text>
+
+    <!-- L4 -->
+    <rect x="300" y="384" width="636" height="66" rx="7" fill="#fde2e2" stroke="#e59a9a"/>
+    <text x="312" y="406" fill="#7f1d1d" font-weight="800">L4 · Events: spot,</text>
+    <text x="312" y="422" fill="#7f1d1d">attribute, anticipate</text>
+    <text x="520" y="406" fill="#1f2937">T-DEED joint head: Team-mAP@1 60.03;</text>
+    <text x="520" y="422" fill="#475569">FOOTPASS player-centric (who did it);</text>
+    <text x="520" y="438" fill="#475569">anticipation 24.08 mAP (FAANTRA-WS)</text>
+    <text x="780" y="406" fill="#7f1d1d">attributing the action</text>
+    <text x="780" y="422" fill="#7f1d1d">to the right number;</text>
+    <text x="780" y="438" fill="#7f1d1d">forecasting the future</text>
+
+    <!-- L5 -->
+    <rect x="300" y="456" width="636" height="80" rx="7" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="312" y="478" fill="#0f172a" font-weight="800">L5 · Metric 3D &amp;</text>
+    <text x="312" y="494" fill="#0f172a">semantics</text>
+    <text x="520" y="478" fill="#1f2937">SynLoc 97.67 mAP-LocSim (1 m);</text>
+    <text x="520" y="494" fill="#475569">skeletal tracking 0.593 (vs 1.053 base);</text>
+    <text x="520" y="510" fill="#475569">NVS 29.89 dB PSNR; VQA 98.0 %</text>
+    <text x="520" y="526" fill="#475569">(SoccerNet / FIFA 2026 challenges)</text>
+    <text x="780" y="478" fill="#7f1d1d">ground-level views,</text>
+    <text x="780" y="494" fill="#7f1d1d">foot-ground contact,</text>
+    <text x="780" y="510" fill="#7f1d1d">benchmark saturation</text>
+  </g>
+</svg>

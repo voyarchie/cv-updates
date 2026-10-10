@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Organiser baseline versus best reviewed entry on six SoccerNet tasks, on a 0 to 100 scale. Game state reconstruction 2024: baseline 23.36, winner 63.81 GS-HOTA. Game state reconstruction 2025: baseline 29.01, winner 63.90. Ball action anticipation 2026: baseline 16.76, winner 24.08 mAP. Player-centric ball action spotting 2026: FOOTPASS TAAD plus DST baseline 49.3 macro F1 on test; a reviewed entry reports 58.94 on the challenge set. SynLoc 2026: baseline 77.30, winner 97.67 mAP-LocSim. Visual question answering 2026: random 25.0, winner 98.0 percent accuracy.">
+  <title>SoccerNet: organiser baseline vs best reviewed entry</title>
+  <rect x="0" y="0" width="960" height="430" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Perception tasks saturate; identity and the future do not</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Organiser baseline (grey) vs best entry with a reviewed report (colour), per SoccerNet task. Different metrics per row, all on 0–100. Compare within a row only.</text>
+
+  <!-- legend -->
+  <rect x="24" y="66" width="14" height="10" fill="#a3aab6"/><text x="44" y="75" font-size="11" fill="#334155">baseline</text>
+  <rect x="110" y="66" width="14" height="10" fill="#2f6fd6"/><text x="130" y="75" font-size="11" fill="#334155">best reviewed entry</text>
+
+  <!-- axis: x0=300, 100 units = 600px -->
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="300" y1="88" x2="300" y2="392"/>
+    <line x1="450" y1="88" x2="450" y2="392" stroke-dasharray="3 3"/>
+    <line x1="600" y1="88" x2="600" y2="392" stroke-dasharray="3 3"/>
+    <line x1="750" y1="88" x2="750" y2="392" stroke-dasharray="3 3"/>
+    <line x1="900" y1="88" x2="900" y2="392" stroke-dasharray="3 3"/>
+  </g>
+  <g font-size="10.5" fill="#64748b" text-anchor="middle">
+    <text x="300" y="408">0</text><text x="450" y="408">25</text><text x="600" y="408">50</text><text x="750" y="408">75</text><text x="900" y="408">100</text>
+  </g>
+
+  <g font-size="11.5">
+    <!-- row 1: GSR 2024 -->
+    <text x="24" y="108" fill="#334155" font-weight="700">Game State Reconstruction 2024</text>
+    <text x="24" y="123" fill="#64748b">GS-HOTA</text>
+    <rect x="300" y="98" width="140.2" height="11" fill="#a3aab6"/><text x="446" y="108" fill="#475569">23.36</text>
+    <rect x="300" y="112" width="382.9" height="11" fill="#2f6fd6"/><text x="689" y="122" fill="#1e3a8a" font-weight="700">63.81</text>
+
+    <!-- row 2: GSR 2025 -->
+    <text x="24" y="158" fill="#334155" font-weight="700">Game State Reconstruction 2025</text>
+    <text x="24" y="173" fill="#64748b">GS-HOTA (winner +0.09 over 2024)</text>
+    <rect x="300" y="148" width="174.1" height="11" fill="#a3aab6"/><text x="480" y="158" fill="#475569">29.01</text>
+    <rect x="300" y="162" width="383.4" height="11" fill="#2f6fd6"/><text x="690" y="172" fill="#1e3a8a" font-weight="700">63.90</text>
+
+    <!-- row 3: BAA 2026 -->
+    <text x="24" y="208" fill="#334155" font-weight="700">Ball Action Anticipation 2026</text>
+    <text x="24" y="223" fill="#64748b">mAP_avg, 5 s ahead</text>
+    <rect x="300" y="198" width="100.6" height="11" fill="#a3aab6"/><text x="406" y="208" fill="#475569">16.76</text>
+    <rect x="300" y="212" width="144.5" height="11" fill="#d9822b"/><text x="451" y="222" fill="#7c2d12" font-weight="700">24.08</text>
+
+    <!-- row 4: PCBAS 2026 -->
+    <text x="24" y="258" fill="#334155" font-weight="700">Player-Centric Action Spotting 2026</text>
+    <text x="24" y="273" fill="#64748b">macro F1 (baseline on test; entry on challenge)*</text>
+    <rect x="300" y="248" width="295.8" height="11" fill="#a3aab6"/><text x="602" y="258" fill="#475569">49.3</text>
+    <rect x="300" y="262" width="353.6" height="11" fill="#d9822b"/><text x="660" y="272" fill="#7c2d12" font-weight="700">58.94</text>
+
+    <!-- row 5: SynLoc 2026 -->
+    <text x="24" y="308" fill="#334155" font-weight="700">Spiideo SynLoc 2026</text>
+    <text x="24" y="323" fill="#64748b">mAP-LocSim at 1 m</text>
+    <rect x="300" y="298" width="463.8" height="11" fill="#a3aab6"/><text x="770" y="308" fill="#475569">77.30</text>
+    <rect x="300" y="312" width="586.0" height="11" fill="#2f6fd6"/><text x="892" y="322" fill="#1e3a8a" font-weight="700" text-anchor="end" dx="-4" dy="-14">97.67</text>
+
+    <!-- row 6: VQA 2026 -->
+    <text x="24" y="358" fill="#334155" font-weight="700">Visual Question Answering 2026</text>
+    <text x="24" y="373" fill="#64748b">accuracy, 4-way MCQ (grey = random)</text>
+    <rect x="300" y="348" width="150" height="11" fill="#a3aab6"/><text x="456" y="358" fill="#475569">25.0</text>
+    <rect x="300" y="362" width="588" height="11" fill="#2f6fd6"/><text x="884" y="358" fill="#1e3a8a" font-weight="700" text-anchor="end">98.0</text>
+  </g>
+  <text x="24" y="424" fill="#64748b" font-size="10.5">Blue: near ceiling or long plateau. Orange: far from ceiling. *PCBAS winner not confirmed; 58.94 is one reviewed entry (arXiv 2606.28389), 49.3 the TAAD+DST test figure.</text>
+</svg>
