@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Average crack IoU, higher is better. SERD v1, training-free, six datasets: native SAM3 56.51, SERD 61.14. SERD v2, training-free, five unseen datasets: native SAM3 54.33, SERD 58.00. CoRe-SAM3, 18.9 thousand trainable parameters, five datasets: native SAM3 62.34, CoRe-SAM3 70.47. CoRe-SAM3 clDice rises from 81.98 to 89.24.">
+  <title>SAM3 for cracks: native vs decoded</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">SAM3 already "knows" cracks; the gain is in how you read it out</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">Average Crack IoU (%), higher is better. Grey: native SAM3 with the prompt "crack". Blue: the paper's decoder. Author-reported; compare within a pair only.</text>
+
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="330" y1="70" x2="330" y2="320"/>
+    <line x1="460" y1="70" x2="460" y2="320" stroke-dasharray="3 3"/>
+    <line x1="590" y1="70" x2="590" y2="320" stroke-dasharray="3 3"/>
+    <line x1="720" y1="70" x2="720" y2="320" stroke-dasharray="3 3"/>
+    <line x1="850" y1="70" x2="850" y2="320" stroke-dasharray="3 3"/>
+  </g>
+  <g font-size="10.5" fill="#64748b" text-anchor="middle">
+    <text x="330" y="336">0</text><text x="460" y="336">20</text><text x="590" y="336">40</text><text x="720" y="336">60</text><text x="850" y="336">80</text>
+  </g>
+  <text x="590" y="352" font-size="10.5" fill="#64748b" text-anchor="middle">Crack IoU (%) · scale 6.5 px per point</text>
+
+  <g font-size="11.5">
+    <text x="24" y="92" fill="#334155" font-weight="800">SERD v1 · training-free</text>
+    <text x="24" y="108" fill="#64748b" font-size="10.5">6 public datasets</text>
+    <rect x="330" y="80" width="367.3" height="14" fill="#94a3b8"/><text x="704" y="92" fill="#334155">56.51</text>
+    <rect x="330" y="98" width="397.4" height="14" fill="#2f6fd6"/><text x="734" y="110" fill="#334155">61.14</text>
+
+    <text x="24" y="172" fill="#334155" font-weight="800">SERD v2 · training-free</text>
+    <text x="24" y="188" fill="#64748b" font-size="10.5">5 unseen datasets, threshold from CamCrack789</text>
+    <rect x="330" y="160" width="353.1" height="14" fill="#94a3b8"/><text x="690" y="172" fill="#334155">54.33</text>
+    <rect x="330" y="178" width="377.0" height="14" fill="#2f6fd6"/><text x="714" y="190" fill="#334155">58.00</text>
+
+    <text x="24" y="252" fill="#334155" font-weight="800">CoRe-SAM3 · 18.9K trainable params</text>
+    <text x="24" y="268" fill="#64748b" font-size="10.5">5 datasets; clDice 81.98 → 89.24</text>
+    <rect x="330" y="240" width="405.2" height="14" fill="#94a3b8"/><text x="742" y="252" fill="#334155">62.34</text>
+    <rect x="330" y="258" width="458.1" height="14" fill="#2f6fd6"/><text x="795" y="270" fill="#334155">70.47</text>
+  </g>
+
+  <g font-size="10.5" fill="#64748b">
+    <text x="24" y="376">SERD: arXiv 2607.12292 (v1 table and v2 abstract). CoRe-SAM3: arXiv 2609.05816. Native SAM3 differs between rows because the dataset sets differ.</text>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The road surface image as a dense-detection primitive. Left: six properties of the frame — thin elongated targets, low contrast and confounders, a fixed taxonomy tied to standards, a moving capture platform with heavy overlap, physical units that matter, and long-tailed classes and severities. Right: a ladder of six output layers from L0 capture geometry and geolocation, L1 image-level distress classification, L2 boxes per distress, L3 pixel masks and skeletons, L4 measurement of width, length, area and depth, to L5 severity, pavement condition index and maintenance decision.">
+  <title>The road surface image: six properties, six output layers</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The road surface image: six frame properties, six output layers</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Dashcam, survey vehicle, drone or 3D laser profiler. The answer an agency needs is a condition score per road section, not a box.</text>
+
+  <!-- left column: properties -->
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">What makes the frame different</text>
+  <g font-size="11.5">
+    <rect x="24" y="98" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="118" fill="#2f6fd6" font-weight="800">1 · Thin, long, branching targets</text>
+    <text x="36" y="137" fill="#334155">Cracks are 1–5 px wide and hundreds long: boxes are mostly road.</text>
+
+    <rect x="24" y="162" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="182" fill="#2f6fd6" font-weight="800">2 · Low contrast, many look-alikes</text>
+    <text x="36" y="201" fill="#334155">Joints, tar seals, shadows, oil, lane paint and wet patches.</text>
+
+    <rect x="24" y="226" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="246" fill="#2f6fd6" font-weight="800">3 · Taxonomy fixed by standards</text>
+    <text x="36" y="265" fill="#334155">ASTM D6433 / national manuals define type and severity.</text>
+
+    <rect x="24" y="290" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="310" fill="#2f6fd6" font-weight="800">4 · A moving camera with heavy overlap</text>
+    <text x="36" y="329" fill="#334155">The same pothole appears in 10–50 frames; count it once.</text>
+
+    <rect x="24" y="354" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="374" fill="#2f6fd6" font-weight="800">5 · Physical units decide the action</text>
+    <text x="36" y="393" fill="#334155">Width in mm, area in m², depth in cm: needs calibration.</text>
+
+    <rect x="24" y="418" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="438" fill="#2f6fd6" font-weight="800">6 · Long-tailed, country-specific data</text>
+    <text x="36" y="457" fill="#334155">Longitudinal cracks dominate; asphalt and camera vary by region.</text>
+  </g>
+
+  <!-- right column: ladder -->
+  <text x="468" y="86" fill="#334155" font-size="13" font-weight="800">Output ladder (labels get costlier upward)</text>
+  <g font-size="11.5">
+    <rect x="468" y="98" width="468" height="56" rx="7" fill="#fff4e8" stroke="#d9822b"/>
+    <text x="480" y="118" fill="#b5651d" font-weight="800">L5 · Severity, PCI, maintenance decision</text>
+    <text x="480" y="137" fill="#334155">PaveGPT, VLM street-view mapping, PCI regression (§8)</text>
+
+    <rect x="468" y="162" width="468" height="56" rx="7" fill="#fff4e8" stroke="#d9822b"/>
+    <text x="480" y="182" fill="#b5651d" font-weight="800">L4 · Measurement: width, length, area, depth</text>
+    <text x="480" y="201" fill="#334155">skeletons, junctions, mm/px calibration, 3D laser (§6)</text>
+
+    <rect x="468" y="226" width="468" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="480" y="246" fill="#2f6fd6" font-weight="800">L3 · Pixel masks and skeletons</text>
+    <text x="480" y="265" fill="#334155">SCSegamba, CrackGeoFM, SAM3 decoders, instance masks (§4–5)</text>
+
+    <rect x="468" y="290" width="468" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="480" y="310" fill="#2f6fd6" font-weight="800">L2 · Boxes per distress</text>
+    <text x="480" y="329" fill="#334155">RDD2022 YOLOs: StripRFNet, YOLO26-RD, YOLO26s (§3)</text>
+
+    <rect x="468" y="354" width="468" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="480" y="374" fill="#2f6fd6" font-weight="800">L1 · Image or section classification</text>
+    <text x="480" y="393" fill="#334155">distress / no distress, satellite condition rating (§8)</text>
+
+    <rect x="468" y="418" width="468" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="480" y="438" fill="#2f6fd6" font-weight="800">L0 · Capture geometry and geolocation</text>
+    <text x="480" y="457" fill="#334155">view angle, GPS, orthophoto, track-and-dedupe (§7)</text>
+  </g>
+
+  <text x="24" y="500" fill="#64748b" font-size="10.5">Blue: perception layers with public benchmarks. Orange: engineering layers where evaluation against field measurement is still rare.</text>
+</svg>
