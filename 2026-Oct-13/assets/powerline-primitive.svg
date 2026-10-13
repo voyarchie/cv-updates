@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The overhead power-line inspection image as a dense-detection primitive. Left: six properties of the frame — tiny defects on large hardware, thin wires that span the frame, a fixed component taxonomy with defect states, cluttered natural backgrounds, a UAV flight plan around a known tower, and extreme class imbalance with few defects. Right: a ladder of six output layers from L0 flight and view planning, L1 image-level normal or defect screening, L2 boxes per component, L3 masks of wires, towers and corridor hazards, L4 component state such as missing pin or broken shell, to L5 maintenance ticket and risk per span.">
+  <title>The power-line inspection image: six properties, six output layers</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The power-line inspection image: six frame properties, six output layers</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">UAV, helicopter or robot patrol of transmission towers and spans. The utility needs a repair ticket per tower, not a box.</text>
+
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">What makes the frame different</text>
+  <g font-size="11.5">
+    <rect x="24" y="98" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="118" fill="#2f6fd6" font-weight="800">1 · Tiny defects on large hardware</text>
+    <text x="36" y="137" fill="#334155">A missing split pin is ~10 px in a 6000 px frame.</text>
+
+    <rect x="24" y="162" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="182" fill="#2f6fd6" font-weight="800">2 · Wires: 1–3 px wide, frame-long</text>
+    <text x="36" y="201" fill="#334155">Boxes fail; lines need masks, curves or keypoints.</text>
+
+    <rect x="24" y="226" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="246" fill="#2f6fd6" font-weight="800">3 · Component taxonomy × defect state</text>
+    <text x="36" y="265" fill="#334155">Insulator, damper, clamp, bolt, pin × missing/broken/rusted.</text>
+
+    <rect x="24" y="290" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="310" fill="#2f6fd6" font-weight="800">4 · Cluttered, look-alike backgrounds</text>
+    <text x="36" y="329" fill="#334155">Forest, fields, roads, sky glare and the tower lattice itself.</text>
+
+    <rect x="24" y="354" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="374" fill="#2f6fd6" font-weight="800">5 · A planned viewpoint around a known asset</text>
+    <text x="36" y="393" fill="#334155">The UAV orbits the tower; framing is a control choice.</text>
+
+    <rect x="24" y="418" width="400" height="56" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="438" fill="#2f6fd6" font-weight="800">6 · Extreme imbalance, closed data</text>
+    <text x="36" y="457" fill="#334155">Defects are rare; most utility datasets are never released.</text>
+  </g>
+
+  <text x="468" y="86" fill="#334155" font-size="13" font-weight="800">Output ladder (labels get costlier upward)</text>
+  <g font-size="11.5">
+    <rect x="468" y="98" width="468" height="56" rx="7" fill="#fff4e8" stroke="#d9822b"/>
+    <text x="480" y="118" fill="#b5651d" font-weight="800">L5 · Repair ticket, risk per span</text>
+    <text x="480" y="137" fill="#334155">VLM reports, Power-LLaVA, ElecVQA-Bench (§7)</text>
+
+    <rect x="468" y="162" width="468" height="56" rx="7" fill="#fff4e8" stroke="#d9822b"/>
+    <text x="480" y="182" fill="#b5651d" font-weight="800">L4 · Component state</text>
+    <text x="480" y="201" fill="#334155">missing pin, broken shell, flashover, corrosion (§4, §6)</text>
+
+    <rect x="468" y="226" width="468" height="56" rx="7" fill="#eaf5ee" stroke="#2e8b57"/>
+    <text x="480" y="246" fill="#257349" font-weight="800">L3 · Masks: wires, towers, corridor hazards</text>
+    <text x="480" y="265" fill="#334155">TTPLA, ELE-SAM / ELE-40K, MSBA-SAM, UCorr (§5)</text>
+
+    <rect x="468" y="290" width="468" height="56" rx="7" fill="#eaf5ee" stroke="#2e8b57"/>
+    <text x="480" y="310" fill="#257349" font-weight="800">L2 · Boxes per component and defect</text>
+    <text x="480" y="329" fill="#334155">TinyDef-DETR, IDD-DETR, YOLO-PowerLite V2, CMAFNet (§3)</text>
+
+    <rect x="468" y="354" width="468" height="56" rx="7" fill="#eef2fb" stroke="#64748b"/>
+    <text x="480" y="374" fill="#475569" font-weight="800">L1 · Image-level normal vs defect</text>
+    <text x="480" y="393" fill="#334155">InsPLAD anomaly detection, TL-CLIP (§6, §7)</text>
+
+    <rect x="468" y="418" width="468" height="56" rx="7" fill="#eef2fb" stroke="#64748b"/>
+    <text x="480" y="438" fill="#475569" font-weight="800">L0 · Flight and view planning</text>
+    <text x="480" y="457" fill="#334155">detector-in-the-loop orbits, camera–LiDAR localisation (§8)</text>
+  </g>
+  <text x="24" y="502" fill="#64748b" font-size="10.5">Colours: grey = capture and screening, green = geometry, orange = decisions. Section numbers refer to the 2026-Oct-13 report.</text>
+</svg>
