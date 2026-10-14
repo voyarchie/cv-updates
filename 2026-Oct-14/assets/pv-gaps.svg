@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Three paired bar comparisons showing that headline PV scores fall in harder settings, all author-reported. STC-Net crack segmentation on PVEL-S: 95.98 mIoU on training samples versus 72.52 on unseen test samples. JEFFNet on the ISM thermal dataset: F1 94.69 for the 2-class healthy versus faulty task versus 72.60 for the 12-class task. REVL-PV robustness study: under the mildest additive-noise corruption, YOLOv11x accuracy falls to 43 percent while REVL-PV keeps 84 percent. Numbers within a pair share a protocol; numbers across pairs do not.">
+  <title>Where PV headline scores drop</title>
+  <rect x="0" y="0" width="960" height="430" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">Where PV headline scores drop (author-reported; compare within a pair only)</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Bar length = score on a 0–100 scale. Dark bar = easy setting, light bar = harder setting.</text>
+
+  <g font-size="11.5">
+    <!-- axis -->
+    <line x1="300" y1="80" x2="300" y2="370" stroke="#94a3b8"/>
+    <line x1="300" y1="370" x2="900" y2="370" stroke="#94a3b8"/>
+    <text x="300" y="388" fill="#64748b" text-anchor="middle">0</text>
+    <text x="600" y="388" fill="#64748b" text-anchor="middle">50</text>
+    <text x="900" y="388" fill="#64748b" text-anchor="middle">100</text>
+    <line x1="600" y1="80" x2="600" y2="370" stroke="#cbd5e1" stroke-dasharray="3 4"/>
+
+    <!-- pair 1: STC-Net -->
+    <text x="24" y="104" fill="#334155" font-weight="800">STC-Net · EL crack masks</text>
+    <text x="24" y="122" fill="#64748b">PVEL-S, mIoU</text>
+    <rect x="300" y="88" width="575.9" height="20" rx="3" fill="#2f6fd6"/>
+    <text x="870" y="103" fill="#ffffff" font-weight="700" text-anchor="end">95.98 train</text>
+    <rect x="300" y="112" width="435.1" height="20" rx="3" fill="#93b4ea"/>
+    <text x="742" y="127" fill="#334155" font-weight="700">72.52 unseen test</text>
+
+    <!-- pair 2: JEFFNet ISM -->
+    <text x="24" y="194" fill="#334155" font-weight="800">JEFFNet · thermal IR crops</text>
+    <text x="24" y="212" fill="#64748b">ISM, F1</text>
+    <rect x="300" y="178" width="568.1" height="20" rx="3" fill="#c2410c"/>
+    <text x="862" y="193" fill="#ffffff" font-weight="700" text-anchor="end">94.69 2-class</text>
+    <rect x="300" y="202" width="435.6" height="20" rx="3" fill="#f0a77f"/>
+    <text x="742" y="217" fill="#334155" font-weight="700">72.60 12-class</text>
+
+    <!-- pair 3: noise -->
+    <text x="24" y="284" fill="#334155" font-weight="800">Noise severity 1 · accuracy</text>
+    <text x="24" y="302" fill="#64748b">REVL-PV paper, 8 classes</text>
+    <rect x="300" y="268" width="504" height="20" rx="3" fill="#15803d"/>
+    <text x="798" y="283" fill="#ffffff" font-weight="700" text-anchor="end">84 REVL-PV (VLM)</text>
+    <rect x="300" y="292" width="258" height="20" rx="3" fill="#86c99b"/>
+    <text x="565" y="307" fill="#334155" font-weight="700">43 YOLOv11x</text>
+  </g>
+  <text x="24" y="410" fill="#334155" font-size="11.5">Read: generalisation to unseen cells, fine-grained IR classes and image corruption are the three places to check before trusting a 95 % headline.</text>
+</svg>

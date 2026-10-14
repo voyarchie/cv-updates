@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The photovoltaic module inspection image as a dense-detection primitive. Left: three imaging channels of the same module — electroluminescence (EL), a near-infrared image of the forward-biased cell grid that shows cracks, inactive areas and finger interruptions; thermal infrared (IR) from a UAV, which shows hotspots, open substrings and bypass-diode faults at low resolution; and visible RGB, which shows soiling, shading, glass breakage and the plant layout. Right: a ladder of six output layers from L0 plant map and module georeference, L1 module or cell normal versus anomaly, L2 boxes per defect, L3 pixel masks of cracks and inactive area, L4 fault class and root cause, to L5 power loss and a repair or warranty decision.">
+  <title>The PV inspection image: three channels, six output layers</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The PV module inspection image: three imaging channels, six output layers</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Same module, three physics. The asset owner needs watts lost and a repair or warranty call, not a box.</text>
+
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">Three channels, three defect vocabularies</text>
+  <g font-size="11.5">
+    <rect x="24" y="98" width="410" height="112" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="118" fill="#2f6fd6" font-weight="800">EL · electroluminescence (NIR, forward-biased)</text>
+    <text x="36" y="138" fill="#334155">Grey-level cell grid; dark = inactive silicon.</text>
+    <text x="36" y="156" fill="#334155">Sees: micro-cracks, inactive areas, finger breaks,</text>
+    <text x="36" y="174" fill="#334155">contact / solder faults, PID, corrosion.</text>
+    <text x="36" y="196" fill="#64748b">ELPV · PVEL-AD (36.5K, 8 cls) · UCF-EL · SCDD/E-SCDD</text>
+
+    <rect x="24" y="220" width="410" height="112" rx="7" fill="#ffffff" stroke="#c2410c"/>
+    <text x="36" y="240" fill="#c2410c" font-weight="800">IR · thermal infrared (UAV, under load)</text>
+    <text x="36" y="260" fill="#334155">Low-res, low-contrast heat map of whole rows.</text>
+    <text x="36" y="278" fill="#334155">Sees: hotspots, open / shorted substrings,</text>
+    <text x="36" y="296" fill="#334155">bypass-diode and junction-box overheating.</text>
+    <text x="36" y="318" fill="#64748b">PVF-10 (5,579, 10 cls) · ISM (20K, 24×40 px, 12 cls)</text>
+
+    <rect x="24" y="342" width="410" height="112" rx="7" fill="#ffffff" stroke="#15803d"/>
+    <text x="36" y="362" fill="#15803d" font-weight="800">RGB · visible (UAV, aerial, satellite)</text>
+    <text x="36" y="382" fill="#334155">High-res, but most cell defects are invisible.</text>
+    <text x="36" y="400" fill="#334155">Sees: soiling, shading, glass breakage, debris,</text>
+    <text x="36" y="418" fill="#334155">and where every module is (plant map).</text>
+    <text x="36" y="440" fill="#64748b">orthomosaics · SAM / SAM 3 PV footprint mapping</text>
+  </g>
+  <text x="24" y="484" fill="#334155" font-size="11.5">No single channel sees every fault: EL needs current injection (night / dark tent),</text>
+  <text x="24" y="502" fill="#334155" font-size="11.5">IR needs sunlight and load, RGB sees the surface only. Fusion is the open problem.</text>
+
+  <text x="470" y="86" fill="#334155" font-size="13" font-weight="800">Output ladder (plant → watts)</text>
+  <g font-size="11.5">
+    <rect x="470" y="98" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="118" fill="#334155" font-weight="800">L0 · plant map, module ID, georeference</text>
+    <text x="484" y="138" fill="#64748b">SfM + GPS; RGB-IR orthomosaic; SAM-family footprints</text>
+
+    <rect x="470" y="160" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="180" fill="#334155" font-weight="800">L1 · normal vs anomaly per module / cell</text>
+    <text x="484" y="200" fill="#64748b">PatchCore-style, iterative AE (EES 2026), AA-CLIP</text>
+
+    <rect x="470" y="222" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="242" fill="#334155" font-weight="800">L2 · boxes per defect</text>
+    <text x="484" y="262" fill="#64748b">YOLO11 / YOLO26n (NMS-free), PV-YOLO, RF-DETR on IR</text>
+
+    <rect x="470" y="284" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="304" fill="#334155" font-weight="800">L3 · pixel masks: cracks, inactive area</text>
+    <text x="484" y="324" fill="#64748b">Mask2Former / ConvNeXt-V2, STC-Net topology refinement</text>
+
+    <rect x="470" y="346" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="366" fill="#334155" font-weight="800">L4 · fault class + root cause</text>
+    <text x="484" y="386" fill="#64748b">GEPFNet, JEFFNet (JEPA ViT + CNN), REVL-PV reasoning</text>
+
+    <rect x="470" y="408" width="466" height="54" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="484" y="428" fill="#334155" font-weight="800">L5 · power loss, repair / warranty decision</text>
+    <text x="484" y="448" fill="#64748b">mask → inactive-area proxy → % loss (STC-Net, Type-C study)</text>
+  </g>
+  <text x="470" y="490" fill="#334155" font-size="11.5">Public benchmarks are strongest at L2 (EL boxes) and L4 (IR crops).</text>
+  <text x="470" y="508" fill="#334155" font-size="11.5">L0 and L5 are what plant operators pay for, and least benchmarked.</text>
+</svg>
