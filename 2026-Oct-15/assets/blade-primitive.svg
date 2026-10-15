@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The wind turbine blade inspection image as a dense-detection primitive. Left: how the image is captured — a stopped turbine photographed by a drone in ultra-high resolution, where defects cover under 5 percent of the frame; a running turbine imaged from the ground or a drone in thermal infrared, where the blade moves and the thermal background changes; and inside-the-shell methods such as ultrasonic testing that see bond-line defects no camera sees. Right: a ladder of six output layers, from L0 blade identity and position along the span, L1 tile normal versus anomaly, L2 boxes or oriented boxes per defect, L3 pixel masks, L4 damage type and severity on a 1 to 5 scale, to L5 a repair, monitor or stop decision and the energy loss.">
+  <title>The wind turbine blade image: three capture modes, six output layers</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The wind turbine blade image: three capture modes, six output layers</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">A 60–110 m composite airfoil. The operator needs a severity grade and a repair window, not a box.</text>
+
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">Capture mode decides what is visible</text>
+  <g font-size="11.5">
+    <rect x="24" y="98" width="410" height="112" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="118" fill="#2f6fd6" font-weight="800">RGB · drone, turbine stopped</text>
+    <text x="36" y="138" fill="#334155">Ultra-high-res frames along each blade side.</text>
+    <text x="36" y="156" fill="#334155">Sees: erosion, cracks, dirt, lightning, coating loss.</text>
+    <text x="36" y="174" fill="#334155">Defects &lt;5 % of frame; &lt;25 % of frames have any.</text>
+    <text x="36" y="196" fill="#64748b">DTU drone (~13K, 2 cls) · Blade30 · ZVCD (9,107 cracks)</text>
+
+    <rect x="24" y="220" width="410" height="112" rx="7" fill="#ffffff" stroke="#c2410c"/>
+    <text x="36" y="240" fill="#c2410c" font-weight="800">IR · thermal, turbine running</text>
+    <text x="36" y="260" fill="#334155">No downtime, but blade moves and background drifts.</text>
+    <text x="36" y="278" fill="#334155">Sees: leading-edge erosion via flow transition,</text>
+    <text x="36" y="296" fill="#334155">subsurface damage, heat from friction or fatigue.</text>
+    <text x="36" y="318" fill="#64748b">BAM ground thermography (1,500 imgs) · KI-VISIR</text>
+
+    <rect x="24" y="342" width="410" height="112" rx="7" fill="#ffffff" stroke="#15803d"/>
+    <text x="36" y="362" fill="#15803d" font-weight="800">Inside the shell · UT / PAUT, X-ray</text>
+    <text x="36" y="382" fill="#334155">Contact or factory scans, B-scan / C-scan images.</text>
+    <text x="36" y="400" fill="#334155">Sees: adhesive bond-line voids, delamination,</text>
+    <text x="36" y="418" fill="#334155">wrinkles — invisible to any outside camera.</text>
+    <text x="36" y="440" fill="#64748b">mostly manufacturing QA; few public sets</text>
+  </g>
+  <text x="24" y="484" fill="#334155" font-size="11.5">No mode sees every fault: RGB needs a stop, IR sees flow and heat, UT needs contact.</text>
+  <text x="24" y="502" fill="#334155" font-size="11.5">Most public benchmarks are stopped-turbine RGB with box labels only.</text>
+
+  <text x="470" y="86" fill="#334155" font-size="13" font-weight="800">Output ladder (what each layer has to say)</text>
+  <g font-size="11.5">
+    <rect x="470" y="98" width="466" height="54" rx="7" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="482" y="118" fill="#334155" font-weight="800">L0 · which blade, which side, how far along the span</text>
+    <text x="482" y="138" fill="#475569">blade ID by similarity, SfM / 3DGS surface, digital twin</text>
+
+    <rect x="470" y="160" width="466" height="54" rx="7" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="482" y="180" fill="#334155" font-weight="800">L1 · tile normal / anomaly</text>
+    <text x="482" y="200" fill="#475569">tile classifiers (ZVCD), DINOv2 features + light head</text>
+
+    <rect x="470" y="222" width="466" height="54" rx="7" fill="#dbe7fb" stroke="#2f6fd6"/>
+    <text x="482" y="242" fill="#1e4fa3" font-weight="800">L2 · box or oriented box per defect</text>
+    <text x="482" y="262" fill="#334155">slice-aided YOLO, BladeYOLO, YOLO26-obb</text>
+
+    <rect x="470" y="284" width="466" height="54" rx="7" fill="#dbe7fb" stroke="#2f6fd6"/>
+    <text x="482" y="304" fill="#1e4fa3" font-weight="800">L3 · pixel mask (erosion area, crack length)</text>
+    <text x="482" y="324" fill="#334155">Boxes2Pixels from SAM pseudo-masks, DeepLabV3+</text>
+
+    <rect x="470" y="346" width="466" height="54" rx="7" fill="#fde4d6" stroke="#c2410c"/>
+    <text x="482" y="366" fill="#9a3412" font-weight="800">L4 · damage type + severity (1–5)</text>
+    <text x="482" y="386" fill="#334155">RAG-conditioned VLMs, LEE severity classifiers</text>
+
+    <rect x="470" y="408" width="466" height="54" rx="7" fill="#d9f0e1" stroke="#15803d"/>
+    <text x="482" y="428" fill="#166534" font-weight="800">L5 · repair / monitor / stop, AEP loss, report</text>
+    <text x="482" y="448" fill="#334155">YOLO-obb → spatial tokens → small LM report (RAFT)</text>
+  </g>
+  <text x="470" y="484" fill="#334155" font-size="11.5">Blue = most 2025–26 papers. Orange / green = where the</text>
+  <text x="470" y="502" fill="#334155" font-size="11.5">money is decided and where public benchmarks are thinnest.</text>
+</svg>
