@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Bar chart of reported Sewer-ML test-set F2-CIW scores. 2021 benchmark baseline: 55.11 percent. Previous leaderboard leader as implied by the 2026 paper: about 58.1 percent. Sewer-Transformer-ML Base, September 2026: 65.68 percent. Normal-pipe F1 rose from 90.94 to 92.68 percent. All numbers author-reported.">
+  <title>Sewer-ML F2-CIW: five years of progress</title>
+  <rect x="0" y="0" width="760" height="330" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">Sewer-ML test set: F2-CIW (class-importance-weighted)</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Author-reported, official hidden test split. Higher is better; costly defects (roots, deformation) weigh most.</text>
+  <g font-size="12">
+    <line x1="250" y1="80" x2="250" y2="260" stroke="#94a3b8"/>
+    <!-- scale: 0..70 -> 0..440 px  (6.2857 px per point) -->
+    <text x="236" y="112" fill="#334155" text-anchor="end">Benchmark baseline (2021)</text>
+    <rect x="250" y="94" width="346" height="28" rx="4" fill="#94a3b8"/>
+    <text x="604" y="113" fill="#334155" font-weight="800">55.11</text>
+
+    <text x="236" y="167" fill="#334155" text-anchor="end">Prior leaderboard #1 (implied)</text>
+    <rect x="250" y="149" width="365" height="28" rx="4" fill="#2f6fd6" fill-opacity="0.55"/>
+    <text x="623" y="168" fill="#334155" font-weight="800">≈58.1</text>
+
+    <text x="236" y="222" fill="#334155" text-anchor="end">Sewer-Transformer-ML-B (2026)</text>
+    <rect x="250" y="204" width="413" height="28" rx="4" fill="#2f6fd6"/>
+    <text x="671" y="223" fill="#334155" font-weight="800">65.68</text>
+  </g>
+  <g font-size="10.5" fill="#64748b">
+    <text x="250" y="276" text-anchor="middle">0</text>
+    <text x="439" y="276" text-anchor="middle">30</text>
+    <text x="690" y="276" text-anchor="middle">70</text>
+  </g>
+  <text x="24" y="302" fill="#64748b" font-size="11.5">F1-Normal: 90.94 → 92.68. "Prior #1" = 65.68 − 7.6 pp margin stated in the 2026 abstract; not an independently checked entry.</text>
+  <text x="24" y="320" fill="#64748b" font-size="11.5">Swin backbone, multi-level feature fusion (arXiv 2609.11375). Not peer reviewed.</text>
+</svg>

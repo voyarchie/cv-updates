@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The sewer pipe inspection image as a dense-detection primitive. Left: three capture modes — a forward-looking CCTV crawler video, the most common; a pan-tilt-zoom or side-scanning camera that unrolls the pipe wall; and 3D sensing with LiDAR, laser profilers or time-of-flight cameras that measure deformation. Right: a ladder of six output layers, from L0 position along the pipe in metres from the manhole, L1 frame normal versus defect, L2 multi-label defect classes per frame, L3 boxes or masks per defect, L4 standard code and severity grade such as PACP or EN 13508-2, to L5 a structural and operational condition score and a rehabilitation decision.">
+  <title>The sewer inspection image: three capture modes, six output layers</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The sewer inspection image: three capture modes, six output layers</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">A dark, wet, curved tube seen by a moving robot. The utility needs a coded, graded defect log per pipe segment.</text>
+
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">Capture mode decides what is measurable</text>
+  <g font-size="11.5">
+    <rect x="24" y="98" width="410" height="112" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="36" y="118" fill="#2f6fd6" font-weight="800">Forward CCTV video · crawler robot</text>
+    <text x="36" y="138" fill="#334155">Hours of footage; defects appear for seconds.</text>
+    <text x="36" y="156" fill="#334155">Sees: cracks, roots, deposits, joints, intrusions.</text>
+    <text x="36" y="174" fill="#334155">Perspective, glare, water line, fog, lens dirt.</text>
+    <text x="36" y="196" fill="#64748b">Sewer-ML (1.3M frames, 17 cls) · QV-Pipe · CCTV-Pipe</text>
+
+    <rect x="24" y="220" width="410" height="112" rx="7" fill="#ffffff" stroke="#0f8a6a"/>
+    <text x="36" y="240" fill="#0f8a6a" font-weight="800">Pan-tilt-zoom / side-scan · unrolled wall</text>
+    <text x="36" y="260" fill="#334155">Operator stops and zooms, or a fisheye unrolls</text>
+    <text x="36" y="278" fill="#334155">the full wall into a flat strip image.</text>
+    <text x="36" y="296" fill="#334155">Enables pixel masks and crack length.</text>
+    <text x="36" y="318" fill="#64748b">CSDD culvert-sewer (12,230 masks, 580 videos)</text>
+
+    <rect x="24" y="342" width="410" height="112" rx="7" fill="#ffffff" stroke="#c2410c"/>
+    <text x="36" y="362" fill="#c2410c" font-weight="800">3D · LiDAR, laser ring, time-of-flight</text>
+    <text x="36" y="382" fill="#334155">Point clouds of the pipe bore.</text>
+    <text x="36" y="400" fill="#334155">Sees: ovality, deformation, displaced joints,</text>
+    <text x="36" y="418" fill="#334155">deposit volume — things RGB can only guess.</text>
+    <text x="36" y="440" fill="#64748b">AAU sewer point clouds · synthetic → real gap</text>
+  </g>
+
+  <text x="470" y="86" fill="#334155" font-size="13" font-weight="800">Output layers (what a utility actually files)</text>
+  <g font-size="11.5">
+    <rect x="470" y="98"  width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="118" fill="#7c3aed" font-weight="800">L5 · condition score → rehab decision</text>
+    <text x="482" y="138" fill="#334155">structural + O&amp;M grade per segment; reline, repair, clean</text>
+    <rect x="470" y="158" width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="178" fill="#7c3aed" font-weight="800">L4 · standard code + severity</text>
+    <text x="482" y="198" fill="#334155">PACP (N. America) · EN 13508-2 (EU) · WRc MSCC (UK)</text>
+    <rect x="470" y="218" width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="238" fill="#2f6fd6" font-weight="800">L3 · box or mask per defect</text>
+    <text x="482" y="258" fill="#334155">YOLO / RT-DETR boxes; FORTRESS, RAPID-SCAN masks</text>
+    <rect x="470" y="278" width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="298" fill="#2f6fd6" font-weight="800">L2 · multi-label classes per frame</text>
+    <text x="482" y="318" fill="#334155">Sewer-ML F2-CIW: 55.1 (2021) → 65.7 (2026)</text>
+    <rect x="470" y="338" width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="358" fill="#0f8a6a" font-weight="800">L1 · frame normal vs defect · time interval</text>
+    <text x="482" y="378" fill="#334155">two-stage screeners; PipeSPO interval localisation</text>
+    <rect x="470" y="398" width="466" height="52" rx="7" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="482" y="418" fill="#0f8a6a" font-weight="800">L0 · where: metres from manhole, clock position</text>
+    <text x="482" y="438" fill="#334155">OCR of on-screen distance; visual odometry; pipe ID</text>
+  </g>
+  <text x="24" y="492" fill="#64748b" font-size="11.5">Most public benchmarks score only L2 (frame-level multi-label) — labels come from inspector logs, not boxes, and are noisy.</text>
+  <text x="24" y="512" fill="#64748b" font-size="11.5">The decision lives at L4–L5, where a misgraded root intrusion or deformation changes the rehabilitation plan.</text>
+</svg>
