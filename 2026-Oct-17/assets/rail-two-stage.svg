@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The dominant pattern in railway component inspection is locate then diagnose. Stage one runs a detector on a large image to find and crop every instance of a repeated part such as a fastener, dropper, insulator or bogie bolt. Stage two classifies the state of each crop, for example normal, missing, broken, loose or slack, often with a type-specific or multi-label classifier. A third, newer path skips labelled defects entirely: an anomaly model is trained only on normal crops and flags anything that does not look normal. The diagram contrasts the three paths and notes where each fails: the detector misses the part when it is missing entirely, the classifier needs examples of rare faults, and the anomaly model raises false alarms on texture changes such as rust or ballast.">
+  <title>Locate, then diagnose: how railway component inspection is built</title>
+  <rect x="0" y="0" width="960" height="420" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">Locate, then diagnose: how railway component inspection is built</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Railway parts repeat thousands of times per km. Most pipelines find every instance first, then grade each crop.</text>
+
+  <g font-size="11.5">
+    <rect x="24" y="80" width="190" height="110" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="36" y="100" fill="#334155" font-weight="800">Input</text>
+    <text x="36" y="120" fill="#334155">Line-scan strip, 4C</text>
+    <text x="36" y="138" fill="#334155">catenary frame, or</text>
+    <text x="36" y="156" fill="#334155">TFDS bogie image</text>
+    <text x="36" y="178" fill="#64748b">thousands of px wide</text>
+
+    <rect x="260" y="80" width="200" height="110" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="272" y="100" fill="#2f6fd6" font-weight="800">Stage 1 · Locate</text>
+    <text x="272" y="120" fill="#334155">YOLO / RT-DETR finds</text>
+    <text x="272" y="138" fill="#334155">every fastener, dropper,</text>
+    <text x="272" y="156" fill="#334155">insulator, bolt (and type)</text>
+    <text x="272" y="178" fill="#64748b">easy: parts are rigid</text>
+
+    <rect x="506" y="80" width="200" height="110" rx="7" fill="#ffffff" stroke="#0f8a6a"/>
+    <text x="518" y="100" fill="#0f8a6a" font-weight="800">Stage 2 · Diagnose</text>
+    <text x="518" y="120" fill="#334155">Per-crop state classifier:</text>
+    <text x="518" y="138" fill="#334155">normal · missing · broken</text>
+    <text x="518" y="156" fill="#334155">· loose · slack (multi-label)</text>
+    <text x="518" y="178" fill="#64748b">hard: faults are rare</text>
+
+    <rect x="752" y="80" width="184" height="110" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="764" y="100" fill="#334155" font-weight="800">Work order</text>
+    <text x="764" y="120" fill="#334155">km post, track ID,</text>
+    <text x="764" y="138" fill="#334155">component, state,</text>
+    <text x="764" y="156" fill="#334155">urgency</text>
+    <text x="764" y="178" fill="#64748b">human verifies</text>
+
+    <rect x="260" y="226" width="446" height="70" rx="7" fill="#ffffff" stroke="#b45309" stroke-dasharray="5 4"/>
+    <text x="272" y="246" fill="#b45309" font-weight="800">Alternative · Anomaly path (normal-only training)</text>
+    <text x="272" y="266" fill="#334155">Train on defect-free crops or strips (PatchCore, diffusion inpainting);</text>
+    <text x="272" y="284" fill="#334155">flag anything off-distribution. No defect labels needed.</text>
+  </g>
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M214 135 H256"/><path d="M460 135 H502"/><path d="M706 135 H748"/>
+    <path d="M120 190 V261 H256"/><path d="M706 261 H840 V194"/>
+  </g>
+  <g fill="#64748b">
+    <polygon points="256,131 256,139 262,135"/><polygon points="502,131 502,139 508,135"/>
+    <polygon points="748,131 748,139 754,135"/><polygon points="256,257 256,265 262,261"/>
+    <polygon points="836,194 844,194 840,188"/>
+  </g>
+
+  <text x="24" y="330" fill="#334155" font-size="13" font-weight="800">Where each path breaks</text>
+  <g font-size="11.5">
+    <circle cx="32" cy="350" r="5" fill="#2f6fd6"/><text x="44" y="354" fill="#334155">Stage 1: a fully missing fastener leaves no object to detect — needs a "slot" model (expected position from sleeper spacing).</text>
+    <circle cx="32" cy="372" r="5" fill="#0f8a6a"/><text x="44" y="376" fill="#334155">Stage 2: rare classes are tiny — hence GAN / style-transfer / 3D-model synthetic faults (one or two real samples is common).</text>
+    <circle cx="32" cy="394" r="5" fill="#b45309"/><text x="44" y="398" fill="#334155">Anomaly path: rust, wet ballast, grease and lighting look "abnormal" — false positives on complex rail texture remain the main complaint.</text>
+  </g>
+</svg>

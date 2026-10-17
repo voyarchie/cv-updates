@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The railway inspection image comes from five vantage points around one track cross-section. A: forward-facing cab camera, LiDAR and radar looking down the line for the ego-path, obstacles and vegetation. B: under-car or track-recording-car line-scan and 3D laser cameras looking straight down at the rail head, fasteners, sleepers and ballast. C: roof-mounted catenary cameras (the Chinese 4C system) photographing droppers, insulators, clamps and the contact wire. D: wayside cameras such as TFDS that photograph the underside and bogies of a passing freight train. E: rail-borne ultrasonic probes that produce B-scan images of the interior of the rail. Each vantage point has its own datasets and its own output.">
+  <title>The railway inspection image: five vantage points on one track</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The railway inspection image: five vantage points on one track</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Same asset, five very different images. Each camera answers a different question and has its own data.</text>
+
+  <!-- ground and ballast -->
+  <rect x="40" y="420" width="460" height="22" fill="#cbd5e1"/>
+  <polygon points="60,420 480,420 450,398 90,398" fill="#94a3b8"/>
+  <!-- sleeper and rails -->
+  <rect x="110" y="388" width="320" height="12" rx="2" fill="#64748b"/>
+  <rect x="160" y="370" width="16" height="18" fill="#334155"/>
+  <rect x="364" y="370" width="16" height="18" fill="#334155"/>
+  <!-- train body -->
+  <rect x="120" y="190" width="300" height="160" rx="10" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <circle cx="168" cy="360" r="14" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <circle cx="372" cy="360" r="14" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="270" y="275" text-anchor="middle" fill="#64748b" font-size="12">rail vehicle (cross-section)</text>
+  <!-- pantograph and catenary -->
+  <line x1="270" y1="190" x2="240" y2="140" stroke="#334155" stroke-width="1.5"/>
+  <line x1="240" y1="140" x2="300" y2="110" stroke="#334155" stroke-width="1.5"/>
+  <line x1="40" y1="104" x2="500" y2="104" stroke="#334155" stroke-width="2"/>
+  <line x1="40" y1="78" x2="500" y2="78" stroke="#334155" stroke-width="1.2"/>
+  <line x1="120" y1="78" x2="120" y2="104" stroke="#334155" stroke-width="1"/>
+  <line x1="200" y1="78" x2="200" y2="104" stroke="#334155" stroke-width="1"/>
+  <line x1="380" y1="78" x2="380" y2="104" stroke="#334155" stroke-width="1"/>
+  <line x1="460" y1="78" x2="460" y2="104" stroke="#334155" stroke-width="1"/>
+  <text x="44" y="72" fill="#64748b" font-size="10.5">messenger wire · droppers · contact wire</text>
+  <!-- wayside pole -->
+  <rect x="520" y="250" width="8" height="190" fill="#64748b"/>
+
+  <!-- Camera markers -->
+  <g font-size="12" font-weight="800">
+    <circle cx="410" cy="230" r="13" fill="#2f6fd6"/><text x="410" y="234" text-anchor="middle" fill="#ffffff">A</text>
+    <circle cx="270" cy="345" r="13" fill="#0f8a6a"/><text x="270" y="349" text-anchor="middle" fill="#ffffff">B</text>
+    <circle cx="340" cy="175" r="13" fill="#b45309"/><text x="340" y="179" text-anchor="middle" fill="#ffffff">C</text>
+    <circle cx="524" cy="300" r="13" fill="#7c3aed"/><text x="524" y="304" text-anchor="middle" fill="#ffffff">D</text>
+    <circle cx="168" cy="400" r="13" fill="#be123c"/><text x="168" y="404" text-anchor="middle" fill="#ffffff">E</text>
+  </g>
+  <!-- view cones -->
+  <polygon points="410,230 500,200 500,260" fill="#2f6fd6" fill-opacity="0.18"/>
+  <polygon points="270,345 230,380 310,380" fill="#0f8a6a" fill-opacity="0.22"/>
+  <polygon points="340,175 300,108 380,108" fill="#b45309" fill-opacity="0.18"/>
+  <polygon points="524,300 430,330 430,370" fill="#7c3aed" fill-opacity="0.15"/>
+
+  <!-- legend cards -->
+  <g font-size="11.5">
+    <rect x="570" y="72" width="370" height="86" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="582" y="91" fill="#2f6fd6" font-weight="800">A · Forward cab camera (+ LiDAR, radar)</text>
+    <text x="582" y="109" fill="#334155">Ego-path, obstacles, signals, encroaching vegetation.</text>
+    <text x="582" y="127" fill="#334155">Long range, fast motion, the driver's view.</text>
+    <text x="582" y="147" fill="#64748b">RailSem19 · OSDaR23 · RAIL-BENCH · SynRailObs</text>
+
+    <rect x="570" y="166" width="370" height="86" rx="7" fill="#ffffff" stroke="#0f8a6a"/>
+    <text x="582" y="185" fill="#0f8a6a" font-weight="800">B · Under-car line-scan / 3D laser (track car)</text>
+    <text x="582" y="203" fill="#334155">Rail head, fasteners, sleepers, ballast; top-down,</text>
+    <text x="582" y="221" fill="#334155">mm resolution; the rail is a 1-D strip image.</text>
+    <text x="582" y="241" fill="#64748b">RSDDs I/II · NEU-RSDDS-AUG (RGB-D) · fastener sets</text>
+
+    <rect x="570" y="260" width="370" height="86" rx="7" fill="#ffffff" stroke="#b45309"/>
+    <text x="582" y="279" fill="#b45309" font-weight="800">C · Roof catenary camera (4C, pantograph)</text>
+    <text x="582" y="297" fill="#334155">Droppers, insulators, clamps, contact-wire wear.</text>
+    <text x="582" y="315" fill="#334155">Tiny parts on a cluttered sky; mostly in-house data.</text>
+    <text x="582" y="335" fill="#64748b">CSC component sets · RailFOD23 (foreign objects)</text>
+
+    <rect x="570" y="354" width="370" height="86" rx="7" fill="#ffffff" stroke="#7c3aed"/>
+    <text x="582" y="373" fill="#7c3aed" font-weight="800">D · Wayside camera (TFDS) on rolling stock</text>
+    <text x="582" y="391" fill="#334155">Underside and bogies of passing freight cars.</text>
+    <text x="582" y="409" fill="#334155">Fixed pose, repeated parts, rare faults.</text>
+    <text x="582" y="429" fill="#64748b">Inspection-station data (e.g. SAM self-prompt, 2026)</text>
+
+    <rect x="570" y="448" width="370" height="86" rx="7" fill="#ffffff" stroke="#be123c"/>
+    <text x="582" y="467" fill="#be123c" font-weight="800">E · Ultrasonic probe → B-scan image</text>
+    <text x="582" y="485" fill="#334155">Inside the rail: bolt-hole and web cracks. An</text>
+    <text x="582" y="503" fill="#334155">echo map, not a photo; detectors still apply.</text>
+    <text x="582" y="523" fill="#64748b">Operator archives; YOLO / DETR on B-scans</text>
+  </g>
+  <text x="40" y="476" fill="#334155" font-size="12.5" font-weight="800">Outputs differ by vantage point:</text>
+  <text x="40" y="496" fill="#334155" font-size="11.5">A → path polyline + obstacle boxes + risk  ·  B → defect masks/boxes on a strip</text>
+  <text x="40" y="514" fill="#334155" font-size="11.5">C → component boxes, then state class  ·  D → part boxes, then fault class</text>
+  <text x="40" y="532" fill="#334155" font-size="11.5">E → echo-pattern boxes  ·  all → geo-referenced work order (km, track ID)</text>
+</svg>
