@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Cross-section of a reinforced concrete bridge deck showing what each sensor can see. An RGB camera sees only the surface: cracks, spalling, efflorescence and rust stains. Infrared thermography sees shallow delaminations, roughly 0.5 to 10 centimetres deep, as warm or cool patches, and depends on the time of day. Ground-penetrating radar sees deeper features such as the rebar mat and deep delaminations, but loses shallow defects under about 2 to 3 centimetres because of near-field coupling. The two ranges overlap, which is why 2025 to 2026 work fuses thermography and radar with attention or physics-based models on the SDNET2021 bridge-deck benchmark.">
+  <title>What each sensor sees in a concrete deck</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">What each sensor sees in a concrete deck</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">The most expensive bridge defect, delamination, is invisible to RGB. Thermal and radar cover different, overlapping depths.</text>
+
+  <!-- deck slab -->
+  <rect x="60" y="110" width="560" height="220" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="70" y="104" fill="#334155" font-size="11.5" font-weight="700">deck surface</text>
+  <!-- surface cracks -->
+  <path d="M130 110 L136 128 L131 140" stroke="#334155" stroke-width="2" fill="none"/>
+  <path d="M220 110 q10 6 0 12 q-8 6 4 12" stroke="#334155" stroke-width="2" fill="none"/>
+  <rect x="300" y="110" width="50" height="10" fill="#94a3b8"/>
+  <!-- shallow delamination -->
+  <rect x="380" y="150" width="140" height="6" rx="3" fill="#dc2626"/>
+  <text x="380" y="172" fill="#dc2626" font-size="11">shallow delamination (~3 cm)</text>
+  <!-- rebar mat -->
+  <g fill="#475569">
+    <circle cx="100" cy="230" r="6"/><circle cx="160" cy="230" r="6"/><circle cx="220" cy="230" r="6"/><circle cx="280" cy="230" r="6"/><circle cx="340" cy="230" r="6"/><circle cx="400" cy="230" r="6"/><circle cx="460" cy="230" r="6"/><circle cx="520" cy="230" r="6"/><circle cx="580" cy="230" r="6"/>
+  </g>
+  <text x="70" y="258" fill="#475569" font-size="11">top rebar mat (corrosion starts here)</text>
+  <rect x="140" y="215" width="150" height="5" rx="2.5" fill="#b45309"/>
+  <text x="140" y="208" fill="#b45309" font-size="11">deep delamination at rebar</text>
+  <text x="70" y="320" fill="#64748b" font-size="11">≈ 20 cm slab (illustrative)</text>
+
+  <!-- depth bands -->
+  <g font-size="11.5">
+    <rect x="650" y="110" width="12" height="10" fill="#2f6fd6"/>
+    <text x="670" y="119" fill="#2f6fd6" font-weight="800">RGB / UAV camera</text>
+    <text x="670" y="136" fill="#334155">surface only: cracks, spalls,</text>
+    <text x="670" y="152" fill="#334155">efflorescence, rust stains</text>
+
+    <rect x="650" y="150" width="12" height="80" fill="#dc2626" opacity="0.75"/>
+    <text x="670" y="182" fill="#dc2626" font-weight="800">Infrared thermography</text>
+    <text x="670" y="199" fill="#334155">≈ 0.5–10 cm; needs a thermal</text>
+    <text x="670" y="215" fill="#334155">gradient (time-of-day window)</text>
+
+    <rect x="636" y="160" width="12" height="170" fill="#0f8a6a" opacity="0.75"/>
+    <text x="670" y="262" fill="#0f8a6a" font-weight="800">Ground-penetrating radar</text>
+    <text x="670" y="279" fill="#334155">rebar mat, deeper damage;</text>
+    <text x="670" y="295" fill="#334155">weak above ≈ 2–3 cm</text>
+    <text x="670" y="311" fill="#334155">(near-field coupling)</text>
+  </g>
+  <text x="60" y="360" fill="#334155" font-size="11.5" font-weight="700">Overlap ≈ 3–10 cm → fuse IRT + GPR (SDNET2021 decks): attention fusion (arXiv 2512.20113), physics-enhanced fusion (Sensors 2026).</text>
+  <text x="60" y="380" fill="#64748b" font-size="11">Depth ranges are those quoted in arXiv 2512.20113; they vary with concrete, moisture and sensor.</text>
+</svg>

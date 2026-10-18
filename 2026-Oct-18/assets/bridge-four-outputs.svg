@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A bridge inspection image has to answer four questions in turn. First, which structural element is this: deck, girder, pier, bearing, joint or cable. Second, what damage is on it: crack, spalling, exposed rebar, efflorescence, corrosion, a loose or missing bolt. Third, how large is it in physical units: crack width in millimetres, spalled area in square metres, all of which need a scale from the ground sampling distance, a marker or a laser rangefinder. Fourth, what condition rating does the element get, on the US NBI 0 to 9 scale or the Japanese a to e scale, and how urgent is repair. Each step has its own datasets and failure mode: element parsing has few labels, damage segmentation on dacl10k reaches only about 42 mIoU, measurement depends on calibration, and ratings disagree between human inspectors.">
+  <title>The bridge inspection image: four questions, one rating</title>
+  <rect x="0" y="0" width="960" height="440" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The bridge inspection image: four questions, one rating</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Each photo must be tied to an element, a damage class, a physical size and finally a condition rating a human signs off.</text>
+
+  <g font-size="11.5">
+    <rect x="24" y="78" width="200" height="190" rx="7" fill="#ffffff" stroke="#64748b"/>
+    <text x="36" y="98" fill="#64748b" font-weight="800">① Which element?</text>
+    <text x="36" y="120" fill="#334155">deck · girder · pier</text>
+    <text x="36" y="138" fill="#334155">bearing · joint · cable</text>
+    <text x="36" y="156" fill="#334155">abutment · parapet</text>
+    <text x="36" y="184" fill="#64748b">dacl10k: 6 component</text>
+    <text x="36" y="200" fill="#64748b">classes; point-cloud</text>
+    <text x="36" y="216" fill="#64748b">parsing up to 13</text>
+    <text x="36" y="250" fill="#b45309" font-weight="700">fails: few element labels</text>
+
+    <rect x="250" y="78" width="210" height="190" rx="7" fill="#ffffff" stroke="#2f6fd6"/>
+    <text x="262" y="98" fill="#2f6fd6" font-weight="800">② What damage?</text>
+    <text x="262" y="120" fill="#334155">crack · spalling · rebar</text>
+    <text x="262" y="138" fill="#334155">efflorescence · rust</text>
+    <text x="262" y="156" fill="#334155">honeycomb · bolt state</text>
+    <text x="262" y="184" fill="#64748b">multi-label masks,</text>
+    <text x="262" y="200" fill="#64748b">overlapping classes</text>
+    <text x="262" y="216" fill="#64748b">(rust stain over crack)</text>
+    <text x="262" y="250" fill="#b45309" font-weight="700">fails: dacl10k ≈ 42 mIoU</text>
+
+    <rect x="486" y="78" width="210" height="190" rx="7" fill="#ffffff" stroke="#0f8a6a"/>
+    <text x="498" y="98" fill="#0f8a6a" font-weight="800">③ How big, in mm?</text>
+    <text x="498" y="120" fill="#334155">crack width &amp; length</text>
+    <text x="498" y="138" fill="#334155">spalled area, depth</text>
+    <text x="498" y="156" fill="#334155">bolt rotation angle</text>
+    <text x="498" y="184" fill="#64748b">needs scale: GSD,</text>
+    <text x="498" y="200" fill="#64748b">marker, laser range,</text>
+    <text x="498" y="216" fill="#64748b">or SfM / point cloud</text>
+    <text x="498" y="250" fill="#b45309" font-weight="700">fails: px ≫ crack width</text>
+
+    <rect x="722" y="78" width="214" height="190" rx="7" fill="#ffffff" stroke="#7c3aed"/>
+    <text x="734" y="98" fill="#7c3aed" font-weight="800">④ What rating?</text>
+    <text x="734" y="120" fill="#334155">US NBI 0–9 per element</text>
+    <text x="734" y="138" fill="#334155">Japan a–e damage level</text>
+    <text x="734" y="156" fill="#334155">→ repair priority</text>
+    <text x="734" y="184" fill="#64748b">multi-image evidence,</text>
+    <text x="734" y="200" fill="#64748b">inspection history,</text>
+    <text x="734" y="216" fill="#64748b">VLM / agent reasoning</text>
+    <text x="734" y="250" fill="#b45309" font-weight="700">fails: raters disagree</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M224 173 L246 173"/><path d="M240 167 L246 173 L240 179"/>
+    <path d="M460 173 L482 173"/><path d="M476 167 L482 173 L476 179"/>
+    <path d="M696 173 L718 173"/><path d="M712 167 L718 173 L712 179"/>
+  </g>
+
+  <rect x="24" y="290" width="912" height="128" rx="7" fill="#ffffff" stroke="#cbd5e1"/>
+  <g font-size="11.5">
+    <text x="36" y="312" fill="#334155" font-weight="800">Where the image comes from changes every step</text>
+    <text x="36" y="334" fill="#334155">• Hand-held / under-bridge truck: close range, good scale, slow, lane closures.</text>
+    <text x="36" y="352" fill="#334155">• UAV: fast, but low light under the deck, motion blur and varying distance (scale) — see DaL-MoE (§5).</text>
+    <text x="36" y="370" fill="#334155">• Thermal IR and GPR on the deck: see below the surface (delamination), not visible damage (§6).</text>
+    <text x="36" y="388" fill="#334155">• Laser scan / SfM: 3D geometry for the digital twin; damage masks are projected onto it (§7).</text>
+    <text x="36" y="406" fill="#64748b">Steel bridges add corrosion, fatigue cracks and bolts; tunnels add leaching and water ingress on a curved lining.</text>
+  </g>
+</svg>
