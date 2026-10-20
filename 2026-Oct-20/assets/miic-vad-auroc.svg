@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Bar chart of image-level ROC-AUC for visual anomaly detection methods on the MIIC scanning electron microscope wafer dataset, as reported in arXiv 2505.07576. PaDiM 84.9, PatchCore 93.3, STFPM 96.3, FastFlow 97.6 and CFA 99.0. The point: methods trained only on defect-free SEM images are close to saturating image-level detection on this benchmark, but ranking differs from natural-image benchmarks such as MVTec, where PatchCore and PaDiM are strong.">
+  <title>Unsupervised anomaly detection on SEM wafer images (MIIC)</title>
+  <rect x="0" y="0" width="960" height="380" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">Train on good SEM images only: image ROC-AUC on MIIC (arXiv 2505.07576)</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Single paper, single protocol, so rows are comparable. Figures read from abstract-level summaries.</text>
+
+  <!-- axis: 80 → 100 mapped to x 220 → 900 (34 px per point) -->
+  <g font-size="11" fill="#64748b">
+    <line x1="220" y1="76" x2="220" y2="300" stroke="#94a3b8"/>
+    <line x1="220" y1="300" x2="900" y2="300" stroke="#94a3b8"/>
+    <text x="220" y="318" text-anchor="middle">80</text>
+    <text x="390" y="318" text-anchor="middle">85</text>
+    <text x="560" y="318" text-anchor="middle">90</text>
+    <text x="730" y="318" text-anchor="middle">95</text>
+    <text x="900" y="318" text-anchor="middle">100</text>
+    <line x1="390" y1="76" x2="390" y2="300" stroke="#cbd5e1" stroke-dasharray="3 4"/>
+    <line x1="560" y1="76" x2="560" y2="300" stroke="#cbd5e1" stroke-dasharray="3 4"/>
+    <line x1="730" y1="76" x2="730" y2="300" stroke="#cbd5e1" stroke-dasharray="3 4"/>
+  </g>
+
+  <g font-size="12">
+    <text x="208" y="104" text-anchor="end" fill="#334155">PaDiM</text>
+    <rect x="220" y="90" width="167" height="22" rx="3" fill="#94a3b8"/>
+    <text x="395" y="106" fill="#334155" font-weight="700">84.9</text>
+
+    <text x="208" y="146" text-anchor="end" fill="#334155">PatchCore</text>
+    <rect x="220" y="132" width="452" height="22" rx="3" fill="#64748b"/>
+    <text x="680" y="148" fill="#334155" font-weight="700">93.3</text>
+
+    <text x="208" y="188" text-anchor="end" fill="#334155">STFPM</text>
+    <rect x="220" y="174" width="554" height="22" rx="3" fill="#2f6fd6"/>
+    <text x="782" y="190" fill="#334155" font-weight="700">96.3</text>
+
+    <text x="208" y="230" text-anchor="end" fill="#334155">FastFlow</text>
+    <rect x="220" y="216" width="598" height="22" rx="3" fill="#2f6fd6"/>
+    <text x="826" y="232" fill="#334155" font-weight="700">97.6</text>
+
+    <text x="208" y="272" text-anchor="end" fill="#334155">CFA</text>
+    <rect x="220" y="258" width="646" height="22" rx="3" fill="#0f766e"/>
+    <text x="874" y="274" fill="#334155" font-weight="700">99.0</text>
+  </g>
+
+  <text x="24" y="346" fill="#b45309" font-size="12" font-weight="700">Ranking ≠ MVTec ranking:</text>
+  <text x="196" y="346" fill="#334155" font-size="12">PatchCore and PaDiM, strong on natural-image industrial benchmarks, trail here.</text>
+  <text x="24" y="364" fill="#64748b" font-size="11.5">Image-level F1 is lower (CFA 87.9, FastFlow 78.7, STFPM 77.8): good ranking, harder thresholding.</text>
+</svg>
