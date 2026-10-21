@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the seven vision-based tactile-sensing dense-detection and classification threads">
+  <title>Vision-based tactile sensing &#8212; seven dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="th" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#th)">
+    <line x1="450" y1="320" x2="205" y2="140"/>
+    <line x1="450" y1="320" x2="450" y2="118"/>
+    <line x1="450" y1="320" x2="695" y2="140"/>
+    <line x1="450" y1="320" x2="150" y2="320"/>
+    <line x1="450" y1="320" x2="750" y2="320"/>
+    <line x1="450" y1="320" x2="255" y2="500"/>
+    <line x1="450" y1="320" x2="645" y2="500"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="300" y="274" width="300" height="92" rx="12" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="304" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The gel-camera contact patch</text>
+    <text x="450" y="326" text-anchor="middle" fill="#cbd5e1" font-size="12.5">geometry, not radiance &#183; contact-only FoV</text>
+    <text x="450" y="344" text-anchor="middle" fill="#cbd5e1" font-size="12.5">self-illuminated &#183; deformation is the signal</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 primitive (top-left) -->
+    <rect x="45" y="82" width="300" height="88" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="60" y="106" fill="#f8fafc" font-size="12.5" font-weight="700">1 &#183; The primitive (&#167;3)</text>
+    <text x="60" y="125" fill="#e0e7ff" font-size="11.5">elastomer gel + LEDs + inward camera</text>
+    <text x="60" y="142" fill="#e0e7ff" font-size="11.5">membrane geometry under load</text>
+    <text x="60" y="159" fill="#e0e7ff" font-size="11.5">why scene detectors don't transfer</text>
+
+    <!-- 2 signal decode (top-center) -->
+    <rect x="300" y="30" width="300" height="88" rx="10" fill="#0f766e" stroke="#115e59"/>
+    <text x="315" y="54" fill="#f8fafc" font-size="12.5" font-weight="700">2 &#183; Decoding the signal (&#167;4)</text>
+    <text x="315" y="73" fill="#ccfbf1" font-size="11.5">photometric stereo &#8594; normals / height</text>
+    <text x="315" y="90" fill="#ccfbf1" font-size="11.5">marker flow &#8594; shear &amp; force fields</text>
+    <text x="315" y="107" fill="#ccfbf1" font-size="11.5">contact-mask segmentation</text>
+
+    <!-- 3 dense tasks (top-right) -->
+    <rect x="555" y="82" width="300" height="88" rx="10" fill="#9333ea" stroke="#6b21a8"/>
+    <text x="570" y="106" fill="#f8fafc" font-size="12.5" font-weight="700">3 &#183; Dense tactile tasks (&#167;5)</text>
+    <text x="570" y="125" fill="#f3e8ff" font-size="11.5">slip detection &#183; force-field regression</text>
+    <text x="570" y="142" fill="#f3e8ff" font-size="11.5">texture / material / hardness class.</text>
+    <text x="570" y="159" fill="#f3e8ff" font-size="11.5">the per-touch label problem</text>
+
+    <!-- 4 shape/pose (mid-left) -->
+    <rect x="8" y="276" width="142" height="88" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="20" y="300" fill="#f8fafc" font-size="12" font-weight="700">4 &#183; Shape</text>
+    <text x="20" y="318" fill="#fde68a" font-size="11">&amp; pose from</text>
+    <text x="20" y="334" fill="#fde68a" font-size="11">touch: tactile</text>
+    <text x="20" y="350" fill="#fde68a" font-size="11">SLAM (&#167;6)</text>
+
+    <!-- 5 sim/data (mid-right) -->
+    <rect x="750" y="276" width="142" height="88" rx="10" fill="#0369a1" stroke="#075985"/>
+    <text x="762" y="300" fill="#f8fafc" font-size="12" font-weight="700">5 &#183; Sim &amp;</text>
+    <text x="762" y="318" fill="#e0f2fe" font-size="11">data engines</text>
+    <text x="762" y="334" fill="#e0f2fe" font-size="11">TACTO/Taxim</text>
+    <text x="762" y="350" fill="#e0f2fe" font-size="11">(&#167;9)</text>
+
+    <!-- 6 foundation (bottom-left) -->
+    <rect x="90" y="500" width="300" height="88" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="105" y="524" fill="#f8fafc" font-size="12.5" font-weight="700">6 &#183; Touch foundation models (&#167;7&#8211;8)</text>
+    <text x="105" y="543" fill="#ffe4e6" font-size="11.5">Sparsh &#183; UniTouch &#183; AnyTouch &#183; T3</text>
+    <text x="105" y="560" fill="#ffe4e6" font-size="11.5">cross-sensor SSL, touch&#8211;vision&#8211;language</text>
+    <text x="105" y="577" fill="#ffe4e6" font-size="11.5">TVL &#183; Touch100k &#183; Octopi</text>
+
+    <!-- 7 fusion/policy (bottom-right) -->
+    <rect x="510" y="500" width="300" height="88" rx="10" fill="#334155" stroke="#94a3b8"/>
+    <text x="525" y="524" fill="#f8fafc" font-size="12.5" font-weight="700">7 &#183; Visuo-tactile action (&#167;9)</text>
+    <text x="525" y="543" fill="#e2e8f0" font-size="11.5">fusion policies &#183; in-hand dexterity</text>
+    <text x="525" y="560" fill="#e2e8f0" font-size="11.5">Digit360 &#183; AnySkin &#183; large-area skin</text>
+    <text x="525" y="577" fill="#e2e8f0" font-size="11.5">tactile inside the VLA loop</text>
+  </g>
+</svg>
