@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" role="img" aria-label="Topic map for the 2026-Jul-06 CV update">
+  <title>Topic map — 2026-Jul-06 CV update</title>
+  <desc>A radial topic map of five threads in the RGB real-time detector frontier: the two lineages and the NMS-free end-to-end convergence, the real-time DETR family, the YOLO lineage, foundation-model backbones and the detection-classification bridge, and benchmarks with the reproducibility problem.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .detr   { fill: rgba(59,130,246,0.17); }
+    .yolo   { fill: rgba(16,185,129,0.16); }
+    .conv   { fill: rgba(168,85,247,0.16); }
+    .bb     { fill: rgba(245,158,11,0.18); }
+    .bench  { fill: rgba(236,72,153,0.15); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; font-weight: 700; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="490" y1="285" x2="490" y2="90"/>
+  <line class="spoke" x1="490" y1="285" x2="795" y2="200"/>
+  <line class="spoke" x1="490" y1="285" x2="720" y2="455"/>
+  <line class="spoke" x1="490" y1="285" x2="260" y2="455"/>
+  <line class="spoke" x1="490" y1="285" x2="185" y2="200"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="490" cy="285" r="66"/>
+  <text class="hublbl" x="490" y="277" text-anchor="middle">RGB real-time</text>
+  <text class="hublbl" x="490" y="294" text-anchor="middle">detection +</text>
+  <text class="hublbl" x="490" y="311" text-anchor="middle">classification</text>
+
+  <!-- T1 top -->
+  <rect class="node conv" x="365" y="55" width="250" height="70" rx="9"/>
+  <text class="lbl" x="490" y="80" text-anchor="middle">1 · Two lineages converge</text>
+  <text class="sub" x="490" y="98" text-anchor="middle">one-to-many + NMS  vs  one-to-one</text>
+  <text class="sub" x="490" y="113" text-anchor="middle">set prediction → NMS-free end-to-end</text>
+
+  <!-- T2 top-right -->
+  <rect class="node detr" x="678" y="165" width="252" height="70" rx="9"/>
+  <text class="lbl" x="804" y="190" text-anchor="middle">2 · Real-time DETR family</text>
+  <text class="sub" x="804" y="208" text-anchor="middle">RT-DETR v2/v3/v4 · D-FINE</text>
+  <text class="sub" x="804" y="223" text-anchor="middle">DEIM · DEIMv2 · LW/RF-DETR</text>
+
+  <!-- T3 bottom-right -->
+  <rect class="node yolo" x="596" y="420" width="252" height="70" rx="9"/>
+  <text class="lbl" x="722" y="445" text-anchor="middle">3 · The YOLO lineage</text>
+  <text class="sub" x="722" y="463" text-anchor="middle">v10 NMS-free · v11 · v12 attn</text>
+  <text class="sub" x="722" y="478" text-anchor="middle">v13 hypergraph · YOLO26</text>
+
+  <!-- T4 bottom-left -->
+  <rect class="node bb" x="134" y="420" width="252" height="70" rx="9"/>
+  <text class="lbl" x="260" y="445" text-anchor="middle">4 · Foundation backbones</text>
+  <text class="sub" x="260" y="463" text-anchor="middle">DINOv2/v3 · frozen + adapter</text>
+  <text class="sub" x="260" y="478" text-anchor="middle">the detection↔classification bridge</text>
+
+  <!-- T5 top-left -->
+  <rect class="node bench" x="52" y="165" width="252" height="70" rx="9"/>
+  <text class="lbl" x="178" y="190" text-anchor="middle">5 · Benchmarks &amp; repro</text>
+  <text class="sub" x="178" y="208" text-anchor="middle">latency buckets vs param count</text>
+  <text class="sub" x="178" y="223" text-anchor="middle">which GPU? which FPS?</text>
+
+  <!-- legend -->
+  <text class="keylbl" x="52" y="545">LINEAGE</text>
+  <rect class="swatch detr" x="140" y="536" width="14" height="14" rx="3"/>
+  <text class="sub" x="160" y="547">DETR / query</text>
+  <rect class="swatch yolo" x="270" y="536" width="14" height="14" rx="3"/>
+  <text class="sub" x="290" y="547">YOLO / dense</text>
+  <rect class="swatch conv" x="405" y="536" width="14" height="14" rx="3"/>
+  <text class="sub" x="425" y="547">shared shift</text>
+  <rect class="swatch bb" x="530" y="536" width="14" height="14" rx="3"/>
+  <text class="sub" x="550" y="547">backbone</text>
+  <rect class="swatch bench" x="645" y="536" width="14" height="14" rx="3"/>
+  <text class="sub" x="665" y="547">evaluation</text>
+</svg>
