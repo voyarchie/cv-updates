@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Signal chain from the cosmic-ray muon flux through detector track planes, multiple Coulomb scattering, PoCA or ML reconstruction, to a 3D density/Z volume and dense tasks">
+  <title>The muon-tomography signal chain — the probe is free, uncontrolled and sparse</title>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Stage 1 -->
+  <rect x="18" y="58" width="166" height="100" rx="11" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="101" y="84" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">Cosmic-ray muons</text>
+  <text x="101" y="104" text-anchor="middle" fill="#cbd5e1" font-size="10">~1 / cm&#178; / min at sea level,</text>
+  <text x="101" y="119" text-anchor="middle" fill="#cbd5e1" font-size="10">GeV energies, wide</text>
+  <text x="101" y="134" text-anchor="middle" fill="#cbd5e1" font-size="10">angular &amp; momentum</text>
+  <text x="101" y="149" text-anchor="middle" fill="#cbd5e1" font-size="10">spectrum (uncontrolled)</text>
+
+  <!-- Stage 2 -->
+  <rect x="222" y="58" width="166" height="100" rx="11" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="305" y="82" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Track in / track out</text>
+  <text x="305" y="103" text-anchor="middle" fill="#ede9fe" font-size="10">detector planes above</text>
+  <text x="305" y="117" text-anchor="middle" fill="#ede9fe" font-size="10">&amp; below the volume;</text>
+  <text x="305" y="131" text-anchor="middle" fill="#ede9fe" font-size="10">two straight-line fits</text>
+  <text x="305" y="148" text-anchor="middle" fill="#ede9fe" font-size="10">per muon (&#952;in, &#952;out)</text>
+
+  <!-- Stage 3 -->
+  <rect x="426" y="58" width="166" height="100" rx="11" fill="#0369a1" stroke="#075985" stroke-width="1.5"/>
+  <text x="509" y="82" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">The measurement</text>
+  <text x="509" y="102" text-anchor="middle" fill="#e0f2fe" font-size="10">scattering angle &#916;&#952; &amp;</text>
+  <text x="509" y="116" text-anchor="middle" fill="#e0f2fe" font-size="10">displacement per track;</text>
+  <text x="509" y="130" text-anchor="middle" fill="#e0f2fe" font-size="10">&#9001;&#916;&#952;&#178;&#9002; &#8733; Z&#178;&#183;L / (X&#8320;&#183;p&#178;)</text>
+  <text x="509" y="147" text-anchor="middle" fill="#e0f2fe" font-size="10">(multiple Coulomb scatter)</text>
+
+  <!-- Stage 4 -->
+  <rect x="630" y="58" width="166" height="100" rx="11" fill="#0f766e" stroke="#115e59" stroke-width="1.5"/>
+  <text x="713" y="82" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Reconstruct</text>
+  <text x="713" y="102" text-anchor="middle" fill="#ccfbf1" font-size="10">PoCA / MLSD / EM baseline</text>
+  <text x="713" y="116" text-anchor="middle" fill="#ccfbf1" font-size="10">&#8594; CNN / U-Net / GAN /</text>
+  <text x="713" y="130" text-anchor="middle" fill="#ccfbf1" font-size="10">diffusion denoise &amp;</text>
+  <text x="713" y="147" text-anchor="middle" fill="#ccfbf1" font-size="10">super-resolve the voxels</text>
+
+  <!-- Stage 5 -->
+  <rect x="834" y="42" width="132" height="132" rx="11" fill="#be123c" stroke="#9f1239" stroke-width="1.5"/>
+  <text x="900" y="68" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Dense tasks</text>
+  <text x="900" y="89" text-anchor="middle" fill="#ffe4e6" font-size="9.5">3D density / Z map</text>
+  <text x="900" y="105" text-anchor="middle" fill="#ffe4e6" font-size="9.5">high-Z detection</text>
+  <text x="900" y="121" text-anchor="middle" fill="#ffe4e6" font-size="9.5">material classify</text>
+  <text x="900" y="137" text-anchor="middle" fill="#ffe4e6" font-size="9.5">object segment</text>
+  <text x="900" y="153" text-anchor="middle" fill="#ffe4e6" font-size="9.5">void / anomaly</text>
+
+  <!-- arrows -->
+  <line x1="184" y1="108" x2="220" y2="108" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="388" y1="108" x2="424" y2="108" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="592" y1="108" x2="628" y2="108" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="796" y1="108" x2="832" y2="108" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- callout: not an X-ray -->
+  <rect x="18" y="204" width="778" height="98" rx="11" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="34" y="230" fill="#f59e0b" font-size="12.5" font-weight="700">Why a muon image is not an X-ray (or any lit-source image)</text>
+  <text x="34" y="252" fill="#d97706" font-size="10.8">There is <tspan font-weight="700">no source you control</tspan>: the flux is whatever the sky delivers, so signal accrues over minutes to months and</text>
+  <text x="34" y="269" fill="#d97706" font-size="10.8">the image is <tspan font-weight="700">Poisson-starved</tspan>. Each muon gives one scattering angle, not a pixel; the 3D volume is <tspan font-weight="700">inferred</tspan> from millions of</text>
+  <text x="34" y="286" fill="#d97706" font-size="10.8">sparse, noisy tracks. Contrast scales as <tspan font-weight="700">Z&#178;</tspan>, making high-Z (U, Pb, W) pop &#8212; but momentum p is usually unmeasured, blurring Z.</text>
+
+  <!-- contrast box: scattering vs transmission -->
+  <rect x="18" y="332" width="948" height="120" rx="11" fill="#1e293b" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="34" y="358" fill="#f8fafc" font-size="12.5" font-weight="700">Two modes of the same probe</text>
+  <text x="34" y="381" fill="#cbd5e1" font-size="10.8"><tspan fill="#7dd3fc" font-weight="700">Scattering tomography (MST):</tspan> planes above and below; measure how each muon bends. Needs two-sided access, gives a true 3D</text>
+  <text x="34" y="399" fill="#cbd5e1" font-size="10.8">density/Z volume. This is the border-security / cargo / reactor mode &#8212; and where most of the deep-learning reconstruction work lives.</text>
+  <text x="34" y="421" fill="#cbd5e1" font-size="10.8"><tspan fill="#fca5a5" font-weight="700">Transmission (absorption) muography:</tspan> one detector; count how many muons survive along each line of sight, like a shadow</text>
+  <text x="34" y="439" fill="#cbd5e1" font-size="10.8">radiograph. One-sided, projective &#8212; the volcano, pyramid, blast-furnace and overburden mode; ML is used for denoising and anomaly spotting.</text>
+</svg>
