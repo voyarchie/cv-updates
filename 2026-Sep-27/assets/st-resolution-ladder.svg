@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Resolution ladder for spatial transcriptomics on a logarithmic axis from 100 micrometres to 0.1 micrometres. A shaded band marks a typical mammalian cell, about 10 to 20 micrometres. Visium spots are 55 micrometres, larger than a cell, so each spot is a mixture and the task is deconvolution. Visium HD bins are 2 micrometres, smaller than a cell, so bins must be grouped into cells as in Bin2cell. Stereo-seq spots are about 0.5 micrometres. Imaging platforms Xenium, CosMx and MERSCOPE localise individual molecules at sub-micrometre precision, so the data is a point cloud and the task is transcript-to-cell assignment. Above the cell band the natural vision task is mixture regression; below it, instance segmentation.">
+<title>Spatial transcriptomics resolution ladder</title>
+<rect x="0" y="0" width="960" height="420" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+<text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The resolution ladder decides the vision task — above the cell it is unmixing, below it is segmentation</text>
+<rect x="325" y="56" width="75" height="300" fill="#99f6e4" fill-opacity="0.3" stroke="#0f766e" stroke-dasharray="4 3"/>
+<text x="362" y="72" text-anchor="middle" font-size="12" font-weight="800" fill="#0f766e">one cell</text>
+<text x="362" y="87" text-anchor="middle" font-size="11" fill="#0f766e">≈10–20 µm</text>
+<line x1="150" y1="320" x2="900" y2="320" stroke="#475569" stroke-width="2"/>
+<line x1="150.0" y1="314" x2="150.0" y2="326" stroke="#475569" stroke-width="2"/><text x="150.0" y="344" text-anchor="middle" font-size="12" fill="#1e293b">100 µm</text>
+<line x1="400.0" y1="314" x2="400.0" y2="326" stroke="#475569" stroke-width="2"/><text x="400.0" y="344" text-anchor="middle" font-size="12" fill="#1e293b">10 µm</text>
+<line x1="650.0" y1="314" x2="650.0" y2="326" stroke="#475569" stroke-width="2"/><text x="650.0" y="344" text-anchor="middle" font-size="12" fill="#1e293b">1 µm</text>
+<line x1="900.0" y1="314" x2="900.0" y2="326" stroke="#475569" stroke-width="2"/><text x="900.0" y="344" text-anchor="middle" font-size="12" fill="#1e293b">0.1 µm</text>
+<text x="136" y="324" text-anchor="end" font-size="11.5" fill="#475569">feature size</text>
+<line x1="214.9" y1="128" x2="214.9" y2="320" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="214.9" cy="120" r="7" fill="#7c3aed"/>
+<text x="228.9" y="114" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="13" font-weight="800" fill="#1e293b">Visium</text>
+<text x="228.9" y="129" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#475569">55 µm spot · ~1–10 cells</text>
+<text x="228.9" y="144" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#7c3aed" font-weight="700">→ deconvolution (RCTD, cell2location)</text>
+<line x1="574.7" y1="178" x2="574.7" y2="320" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="574.7" cy="170" r="7" fill="#2563eb"/>
+<text x="588.7" y="164" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="13" font-weight="800" fill="#1e293b">Visium HD</text>
+<text x="588.7" y="179" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#475569">2 µm bin · sub-cellular grid</text>
+<text x="588.7" y="194" text-anchor="start" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#2563eb" font-weight="700">→ group bins into cells (Bin2cell, ENACT)</text>
+<line x1="725.3" y1="228" x2="725.3" y2="320" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="725.3" cy="220" r="7" fill="#0891b2"/>
+<text x="711.3" y="214" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="13" font-weight="800" fill="#1e293b">Stereo-seq</text>
+<text x="711.3" y="229" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#475569">~0.5 µm DNB spot</text>
+<text x="711.3" y="244" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#0891b2" font-weight="700">→ bin/segment, or segmentation-free (FICTURE)</text>
+<line x1="824.7" y1="278" x2="824.7" y2="320" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="824.7" cy="270" r="7" fill="#d97706"/>
+<text x="810.7" y="264" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="13" font-weight="800" fill="#1e293b">Xenium · CosMx · MERSCOPE</text>
+<text x="810.7" y="279" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#475569">molecule point cloud + DAPI/membrane stain</text>
+<text x="810.7" y="294" text-anchor="end" paint-order="stroke" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" font-size="11.5" fill="#d97706" font-weight="700">→ transcript-to-cell assignment (Proseg, Segger)</text>
+<text x="150" y="396" font-size="11.5" fill="#475569">Spot/bin sizes from platform descriptions in the cited papers; molecule-level platforms plotted at a nominal ~0.2 µm localisation scale.</text>
+</svg>
