@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" role="img"
+     aria-labelledby="anom-t anom-d"
+     font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="anom-t">Industrial anomaly detection: four data regimes vs. method families</title>
+  <desc id="anom-d">A 4×3 matrix mapping data regimes (single-class, multi-class, few-shot,
+    zero-shot) against method families (memory-bank, reconstruction, CLIP-prompted) with
+    representative methods placed in cells.</desc>
+
+  <style>
+    .stroke    { stroke: currentColor; stroke-width: 1.0; opacity: .55; fill: none; }
+    .hdr       { fill: currentColor; font-size: 13px; font-weight: 700; }
+    .col       { fill: currentColor; font-size: 12px; font-weight: 600; }
+    .row       { fill: currentColor; font-size: 12px; font-weight: 600; }
+    .cell-l    { fill: currentColor; font-size: 11px; opacity: .85; }
+    .cell-s    { fill: currentColor; font-size: 10px; opacity: .75; }
+    .mem       { fill: #fbbf24; stroke: #b45309; stroke-width: 1; }
+    .recon     { fill: #34d399; stroke: #047857; stroke-width: 1; }
+    .clip      { fill: #f472b6; stroke: #9d174d; stroke-width: 1; }
+    .auroc     { fill: currentColor; font-size: 10px; font-weight: 600; opacity: .85; }
+  </style>
+
+  <text class="hdr" x="20" y="28">Industrial anomaly detection — when to reach for which family</text>
+
+  <!-- column headers -->
+  <text class="col" x="240" y="64" text-anchor="middle">Memory-bank</text>
+  <text class="col" x="240" y="78" text-anchor="middle">(feature distance)</text>
+  <text class="col" x="470" y="64" text-anchor="middle">Reconstruction</text>
+  <text class="col" x="470" y="78" text-anchor="middle">(student–teacher / diffusion)</text>
+  <text class="col" x="720" y="64" text-anchor="middle">CLIP-prompted</text>
+  <text class="col" x="720" y="78" text-anchor="middle">(text-guided)</text>
+
+  <!-- row headers -->
+  <text class="row" x="105" y="130" text-anchor="middle">Single-class</text>
+  <text class="row" x="105" y="190" text-anchor="middle">Multi-class</text>
+  <text class="row" x="105" y="250" text-anchor="middle">Few-shot</text>
+  <text class="row" x="105" y="310" text-anchor="middle">Zero-shot</text>
+
+  <!-- 12 cells (4 rows × 3 cols), centers approximately 240/470/720 x 120/180/240/300 -->
+
+  <!-- single-class -->
+  <g>
+    <rect x="160" y="100" width="160" height="56" rx="8" class="mem"/>
+    <text class="cell-l" x="240" y="120" text-anchor="middle">PatchCore</text>
+    <text class="cell-s" x="240" y="135" text-anchor="middle">WideResNet50 patches</text>
+    <text class="auroc"  x="240" y="150" text-anchor="middle">99.6% MVTec-AD</text>
+  </g>
+  <g>
+    <rect x="390" y="100" width="160" height="56" rx="8" class="recon"/>
+    <text class="cell-l" x="470" y="120" text-anchor="middle">EfficientAD</text>
+    <text class="cell-s" x="470" y="135" text-anchor="middle">student-teacher · &lt;1 ms</text>
+    <text class="auroc"  x="470" y="150" text-anchor="middle">99.1% MVTec-AD</text>
+  </g>
+  <g>
+    <rect x="640" y="100" width="160" height="56" rx="8" class="clip"/>
+    <text class="cell-l" x="720" y="120" text-anchor="middle">—</text>
+    <text class="cell-s" x="720" y="135" text-anchor="middle">(use multi/zero-shot)</text>
+  </g>
+
+  <!-- multi-class -->
+  <g>
+    <rect x="160" y="160" width="160" height="56" rx="8" class="mem"/>
+    <text class="cell-l" x="240" y="180" text-anchor="middle">UniAD</text>
+    <text class="cell-s" x="240" y="195" text-anchor="middle">unified memory bank</text>
+    <text class="auroc"  x="240" y="210" text-anchor="middle">96.5% MVTec</text>
+  </g>
+  <g>
+    <rect x="390" y="160" width="160" height="56" rx="8" class="recon"/>
+    <text class="cell-l" x="470" y="180" text-anchor="middle">Dinomaly (CVPR'25)</text>
+    <text class="cell-s" x="470" y="195" text-anchor="middle">DINOv2 + linear loose</text>
+    <text class="auroc"  x="470" y="210" text-anchor="middle">99.6 / 98.7 / 89.3%</text>
+  </g>
+  <g>
+    <rect x="640" y="160" width="160" height="56" rx="8" class="clip"/>
+    <text class="cell-l" x="720" y="180" text-anchor="middle">—</text>
+    <text class="cell-s" x="720" y="195" text-anchor="middle">(falls under zero-shot)</text>
+  </g>
+
+  <!-- few-shot -->
+  <g>
+    <rect x="160" y="220" width="160" height="56" rx="8" class="mem"/>
+    <text class="cell-l" x="240" y="240" text-anchor="middle">RegAD / MuSc</text>
+    <text class="cell-s" x="240" y="255" text-anchor="middle">k-shot memory · TIP'24</text>
+    <text class="auroc"  x="240" y="270" text-anchor="middle">~93–97% MVTec k=4</text>
+  </g>
+  <g>
+    <rect x="390" y="220" width="160" height="56" rx="8" class="recon"/>
+    <text class="cell-l" x="470" y="240" text-anchor="middle">Search-Is-All-You-Need</text>
+    <text class="cell-s" x="470" y="255" text-anchor="middle">ANN over normal feats</text>
+    <text class="auroc"  x="470" y="270" text-anchor="middle">arXiv 2504.11895</text>
+  </g>
+  <g>
+    <rect x="640" y="220" width="160" height="56" rx="8" class="clip"/>
+    <text class="cell-l" x="720" y="240" text-anchor="middle">WinCLIP+</text>
+    <text class="cell-s" x="720" y="255" text-anchor="middle">few-normal-shot CLIP</text>
+    <text class="auroc"  x="720" y="270" text-anchor="middle">93.1% MVTec k=1</text>
+  </g>
+
+  <!-- zero-shot -->
+  <g>
+    <rect x="160" y="280" width="160" height="56" rx="8" class="mem"/>
+    <text class="cell-l" x="240" y="300" text-anchor="middle">—</text>
+    <text class="cell-s" x="240" y="315" text-anchor="middle">(no normal samples)</text>
+  </g>
+  <g>
+    <rect x="390" y="280" width="160" height="56" rx="8" class="recon"/>
+    <text class="cell-l" x="470" y="300" text-anchor="middle">GLAD diffusion</text>
+    <text class="cell-s" x="470" y="315" text-anchor="middle">global+local adaptive</text>
+    <text class="auroc"  x="470" y="330" text-anchor="middle">arXiv 2406.07487</text>
+  </g>
+  <g>
+    <rect x="640" y="280" width="160" height="56" rx="8" class="clip"/>
+    <text class="cell-l" x="720" y="300" text-anchor="middle">AnomalyCLIP</text>
+    <text class="cell-s" x="720" y="315" text-anchor="middle">object-agnostic prompts</text>
+    <text class="auroc"  x="720" y="330" text-anchor="middle">17 datasets · ICLR'24</text>
+  </g>
+</svg>
