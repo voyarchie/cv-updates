@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Where deep learning enters the photoacoustic pipeline</title>
+  <desc id="d">Four entry points arranged around the raw-sinogram-to-biology pipeline: reconstruction and artifact removal, quantitative sO2 and fluence correction, dense semantic readout (vessels, tumors, tissue), and self-supervised or foundation-model pretraining that cuts across all of them.</desc>
+  <style>
+    .ttl{fill:#111827;font-size:17px;font-weight:700}
+    .hub{fill:#eef2ff;stroke:#6366f1;stroke-width:2}
+    .hubt{fill:#312e81;font-size:14px;font-weight:700}
+    .hubs{fill:#4338ca;font-size:11px}
+    .card{fill:#ffffff;stroke-width:1.6}
+    .c1{stroke:#6366f1}.c2{stroke:#0d9488}.c3{stroke:#d97706}.c4{stroke:#db2777}
+    .h{fill:#111827;font-size:13.5px;font-weight:700}
+    .s{fill:#4b5563;font-size:11px}
+    .lk{stroke:#9ca3af;stroke-width:1.6;fill:none}
+    @media (prefers-color-scheme:dark){
+      .ttl{fill:#f9fafb}
+      .hub{fill:#1e1b4b;stroke:#818cf8}.hubt{fill:#c7d2fe}.hubs{fill:#a5b4fc}
+      .card{fill:#111827}
+      .c1{stroke:#818cf8}.c2{stroke:#2dd4bf}.c3{stroke:#fbbf24}.c4{stroke:#f472b6}
+      .h{fill:#f3f4f6}.s{fill:#9ca3af}.lk{stroke:#6b7280}
+    }
+  </style>
+  <text x="24" y="32" class="ttl">Four places deep learning enters photoacoustic imaging</text>
+
+  <!-- hub -->
+  <ellipse cx="450" cy="300" rx="112" ry="66" class="hub"/>
+  <text x="450" y="288" text-anchor="middle" class="hubt">raw sinogram</text>
+  <text x="450" y="308" text-anchor="middle" class="hubt">→ biology</text>
+  <text x="450" y="330" text-anchor="middle" class="hubs">p₀ ∝ Γ·μₐ·Φ</text>
+
+  <!-- links -->
+  <path class="lk" d="M400 250 L250 150"/>
+  <path class="lk" d="M500 250 L650 150"/>
+  <path class="lk" d="M400 350 L250 452"/>
+  <path class="lk" d="M500 350 L650 452"/>
+
+  <!-- 1 reconstruction (top-left) -->
+  <rect x="40" y="70" width="330" height="118" rx="10" class="card c1"/>
+  <text x="58" y="94" class="h">① Reconstruction &amp; artifact removal</text>
+  <text x="58" y="114" class="s">Limited-view / sparse-array / limited-bandwidth inverse</text>
+  <text x="58" y="130" class="s">problem. Post-proc U-Nets · model-based unrolling ·</text>
+  <text x="58" y="146" class="s">DeepMB real-time · INR &amp; diffusion priors · Mamba.</text>
+  <text x="58" y="168" class="s">Removes streaks a global speed-of-sound leaves behind.</text>
+
+  <!-- 2 quantitative (top-right) -->
+  <rect x="530" y="70" width="330" height="118" rx="10" class="card c2"/>
+  <text x="548" y="94" class="h">② Quantitative PA (qPAI)</text>
+  <text x="548" y="114" class="s">Undo spectral coloring to read true chromophore ratios.</text>
+  <text x="548" y="130" class="s">Learned spectral decoloring → sO₂ · multi-illumination ·</text>
+  <text x="548" y="146" class="s">fluence/μₐ estimation · the sim-to-real domain gap is</text>
+  <text x="548" y="168" class="s">the bottleneck (train on Monte-Carlo, test in tissue).</text>
+
+  <!-- 3 dense readout (bottom-left) -->
+  <rect x="40" y="410" width="330" height="118" rx="10" class="card c3"/>
+  <text x="58" y="434" class="h">③ Dense semantic readout</text>
+  <text x="58" y="454" class="s">Vessel segmentation (2D/3D) · tumor &amp; lesion detection ·</text>
+  <text x="58" y="470" class="s">tissue-type semantic seg · joint recon+segmentation ·</text>
+  <text x="58" y="486" class="s">SAM adapted off-the-shelf · super-resolution PAM from</text>
+  <text x="58" y="508" class="s">2% sampling (localization &amp; scanning-prior nets).</text>
+
+  <!-- 4 pretraining (bottom-right) -->
+  <rect x="530" y="410" width="330" height="118" rx="10" class="card c4"/>
+  <text x="548" y="434" class="h">④ Self-supervised &amp; foundation</text>
+  <text x="548" y="454" class="s">Label scarcity is acute; ground truth is unmeasurable in</text>
+  <text x="548" y="470" class="s">vivo. Masked cross-domain SSL · self-supervised INR</text>
+  <text x="548" y="486" class="s">without ground-truth images · self-supervised upsampling ·</text>
+  <text x="548" y="508" class="s">borrowed vision foundation models. Cuts across ①–③.</text>
+</svg>

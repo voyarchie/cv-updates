@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">The photoacoustic forward chain</title>
+  <desc id="d">A nanosecond laser pulse is absorbed by a chromophore, heats it, causes thermoelastic expansion that launches a broadband ultrasound pulse, which is detected by a transducer array and reconstructed. Two unknowns — optical fluence and speed of sound — sit between the image and the true absorber.</desc>
+  <style>
+    .lbl{fill:#1f2937;font-size:14px}
+    .sub{fill:#4b5563;font-size:11.5px}
+    .step{fill:#111827;font-size:13px;font-weight:600}
+    .box{fill:#ffffff;stroke:#6366f1;stroke-width:1.6}
+    .box2{fill:#ffffff;stroke:#0d9488;stroke-width:1.6}
+    .unk{fill:#fff7ed;stroke:#ea580c;stroke-width:1.6}
+    .unkt{fill:#9a3412;font-size:11.5px;font-weight:600}
+    .arr{stroke:#6b7280;stroke-width:2;fill:none;marker-end:url(#a)}
+    .ttl{fill:#111827;font-size:17px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .lbl{fill:#e5e7eb}.sub{fill:#9ca3af}.step{fill:#f3f4f6}
+      .box{fill:#111827;stroke:#818cf8}.box2{fill:#111827;stroke:#2dd4bf}
+      .unk{fill:#2a1707;stroke:#fb923c}.unkt{fill:#fdba74}
+      .arr{stroke:#9ca3af}.ttl{fill:#f9fafb}
+    }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <text x="24" y="34" class="ttl">Light in, sound out: the photoacoustic effect as a measurement chain</text>
+
+  <!-- row of steps -->
+  <g>
+    <rect x="24" y="70" width="150" height="86" rx="9" class="box"/>
+    <text x="99" y="98" text-anchor="middle" class="step">ns laser pulse</text>
+    <text x="99" y="118" text-anchor="middle" class="sub">multi-wavelength</text>
+    <text x="99" y="135" text-anchor="middle" class="sub">NIR, stress-confined</text>
+
+    <rect x="205" y="70" width="150" height="86" rx="9" class="box"/>
+    <text x="280" y="98" text-anchor="middle" class="step">optical absorption</text>
+    <text x="280" y="118" text-anchor="middle" class="sub">Hb / HbO₂ / melanin</text>
+    <text x="280" y="135" text-anchor="middle" class="sub">lipid, dye, μₐ(λ)</text>
+
+    <rect x="386" y="70" width="150" height="86" rx="9" class="box"/>
+    <text x="461" y="94" text-anchor="middle" class="step">thermoelastic</text>
+    <text x="461" y="110" text-anchor="middle" class="step">expansion</text>
+    <text x="461" y="132" text-anchor="middle" class="sub">mK heating → p₀</text>
+
+    <rect x="567" y="70" width="150" height="86" rx="9" class="box"/>
+    <text x="642" y="94" text-anchor="middle" class="step">broadband</text>
+    <text x="642" y="110" text-anchor="middle" class="step">US pulse</text>
+    <text x="642" y="132" text-anchor="middle" class="sub">MHz, propagates out</text>
+
+    <rect x="726" y="70" width="150" height="86" rx="9" class="box2"/>
+    <text x="801" y="94" text-anchor="middle" class="step">transducer</text>
+    <text x="801" y="110" text-anchor="middle" class="step">array detects</text>
+    <text x="801" y="132" text-anchor="middle" class="sub">limited view + band</text>
+
+    <path class="arr" d="M174 113 L203 113"/>
+    <path class="arr" d="M355 113 L384 113"/>
+    <path class="arr" d="M536 113 L565 113"/>
+    <path class="arr" d="M717 113 L724 113"/>
+  </g>
+
+  <!-- reconstruction -->
+  <rect x="567" y="210" width="309" height="66" rx="9" class="box2"/>
+  <text x="721" y="238" text-anchor="middle" class="step">reconstruction → image of p₀(x)</text>
+  <text x="721" y="259" text-anchor="middle" class="sub">DAS / model-based / learned</text>
+  <path class="arr" d="M801 156 L801 208"/>
+
+  <!-- the two unknowns block -->
+  <rect x="24" y="300" width="852" height="140" rx="11" class="unk"/>
+  <text x="44" y="328" class="lbl" font-weight="700">Two unknowns sit between the picture and the truth — this is what makes PA its own primitive</text>
+
+  <rect x="44" y="344" width="395" height="80" rx="8" class="box"/>
+  <text x="60" y="368" class="unkt">Unknown #1 — optical fluence Φ(x,λ)</text>
+  <text x="60" y="388" class="sub">measured p₀ = Γ · μₐ · Φ. Light is absorbed on the way in,</text>
+  <text x="60" y="405" class="sub">so Φ is depth- and wavelength-dependent ("spectral coloring").</text>
+  <text x="60" y="420" class="sub">Invert it wrong → wrong sO₂. qPAI's central problem.</text>
+
+  <rect x="461" y="344" width="395" height="80" rx="8" class="box2"/>
+  <text x="477" y="368" class="unkt">Unknown #2 — speed of sound c(x)</text>
+  <text x="477" y="388" class="sub">Reconstruction assumes a c to back-project. Tissue is</text>
+  <text x="477" y="405" class="sub">heterogeneous; a wrong/global c blurs and splits absorbers.</text>
+  <text x="477" y="420" class="sub">Couples the optical inverse problem to an acoustic one.</text>
+</svg>
