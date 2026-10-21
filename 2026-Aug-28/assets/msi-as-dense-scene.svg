@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A mass-spectrometry-imaging acquisition shown as a dense detection-and-classification scene. A laser or solvent probe rasters across a tissue section spot by spot; at every spot it desorbs and ionizes molecules, and the mass analyzer records a full mass spectrum of hundreds to thousands of mass-to-charge (m/z) channels. Stacking every pixel's spectrum forms a data cube; slicing the cube at a fixed m/z yields an ion image showing where that molecule is. Untargeted MALDI and DESI produce thousands of unknown m/z channels, while targeted imaging mass cytometry produces roughly forty known protein channels at single-cell resolution. The computer-vision jobs are: unsupervised per-pixel spatial segmentation into molecular regions, supervised tissue and tumor classification, and detection and annotation of the ion peaks themselves under false-discovery-rate control.">
+  <title>A mass-spectrometry image = a spectrum at every pixel &#8594; a molecular data cube &#8594; a dense scene to segment, classify, and annotate</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">A mass-spec image = a full spectrum at every pixel &#8594; a molecular data cube &#8594; a dense scene of tissue</text>
+
+  <!-- ============ Panel 1: the raster acquisition ============ -->
+  <g>
+    <rect x="24" y="52" width="292" height="416" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; a probe rasters the tissue, spot by spot</text>
+
+    <!-- tissue section -->
+    <rect x="44" y="92" width="150" height="120" rx="6" fill="#164e63" opacity="0.55" stroke="#38bdf8" stroke-width="1"/>
+    <text x="50" y="108" fill="#7dd3fc" font-size="10">tissue section (a thin slice)</text>
+    <!-- raster grid of spots -->
+    <g fill="#0ea5e9" opacity="0.7">
+      <circle cx="60" cy="128" r="3"/><circle cx="76" cy="128" r="3"/><circle cx="92" cy="128" r="3"/><circle cx="108" cy="128" r="3"/><circle cx="124" cy="128" r="3"/><circle cx="140" cy="128" r="3"/>
+      <circle cx="60" cy="146" r="3"/><circle cx="76" cy="146" r="3"/><circle cx="92" cy="146" r="3"/><circle cx="108" cy="146" r="3"/><circle cx="124" cy="146" r="3"/><circle cx="140" cy="146" r="3"/>
+      <circle cx="60" cy="164" r="3"/><circle cx="76" cy="164" r="3"/><circle cx="92" cy="164" r="3"/><circle cx="108" cy="164" r="3"/><circle cx="124" cy="164" r="3"/><circle cx="140" cy="164" r="3"/>
+    </g>
+    <!-- current spot highlighted + laser -->
+    <circle cx="108" cy="146" r="6" fill="#fde047"/>
+    <line x1="150" y1="70" x2="108" y2="146" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="150" y="66" fill="#fbbf24" font-size="9.5">laser / solvent probe</text>
+    <!-- ion plume -->
+    <path d="M108 140 q-6 -14 4 -26 q10 -12 2 -26" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.8"/>
+    <text x="196" y="150" fill="#c4b5fd" font-size="9">ions &#8594;</text>
+
+    <!-- one spot's spectrum -->
+    <rect x="44" y="232" width="248" height="120" rx="6" fill="#111827" stroke="#334155"/>
+    <text x="52" y="250" fill="#cbd5e1" font-size="10">one spot &#8594; one mass spectrum</text>
+    <!-- axes -->
+    <line x1="58" y1="338" x2="284" y2="338" stroke="#475569" stroke-width="1"/>
+    <line x1="58" y1="262" x2="58" y2="338" stroke="#475569" stroke-width="1"/>
+    <!-- peaks -->
+    <g stroke="#f472b6" stroke-width="2">
+      <line x1="78" y1="338" x2="78" y2="300"/>
+      <line x1="104" y1="338" x2="104" y2="278"/>
+      <line x1="108" y1="338" x2="108" y2="292"/>
+      <line x1="140" y1="338" x2="140" y2="312"/>
+      <line x1="176" y1="338" x2="176" y2="284"/>
+      <line x1="180" y1="338" x2="180" y2="306"/>
+      <line x1="214" y1="338" x2="214" y2="320"/>
+      <line x1="248" y1="338" x2="248" y2="296"/>
+      <line x1="252" y1="338" x2="252" y2="314"/>
+    </g>
+    <text x="150" y="352" fill="#94a3b8" font-size="9">m/z &#8594;</text>
+    <text x="44" y="270" fill="#64748b" font-size="8" transform="rotate(-90 44 270)">intensity</text>
+
+    <text x="38" y="378" fill="#cbd5e1" font-size="10.5">each spectrum spans 10&#178;&#8211;10&#8309; m/z bins;</text>
+    <text x="38" y="394" fill="#cbd5e1" font-size="10.5">acquisition is destructive &#8212; no re-scan.</text>
+    <text x="38" y="416" fill="#94a3b8" font-size="10">MALDI &#183; DESI &#183; SIMS &#183; IMC &#183; MIBI</text>
+    <text x="38" y="444" fill="#7dd3fc" font-size="10.5" font-weight="700">the pixel is a molecule list, not a color</text>
+  </g>
+
+  <!-- ============ Panel 2: the data cube / ion images ============ -->
+  <g>
+    <rect x="332" y="52" width="300" height="416" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="346" y="74" fill="#3730a3" font-size="11.5" font-weight="700">2 &#183; stack the spectra &#8594; a molecular cube</text>
+
+    <!-- cube: stacked ion-image slices -->
+    <g>
+      <rect x="392" y="96" width="150" height="96" rx="4" fill="#0b1220"/>
+      <rect x="380" y="108" width="150" height="96" rx="4" fill="#1e1b4b"/>
+      <rect x="368" y="120" width="150" height="96" rx="4" fill="#312e81"/>
+      <!-- a molecule's spatial pattern on the front slice -->
+      <ellipse cx="416" cy="150" rx="28" ry="18" fill="#f472b6" opacity="0.8"/>
+      <ellipse cx="470" cy="178" rx="20" ry="14" fill="#38bdf8" opacity="0.75"/>
+      <text x="376" y="138" fill="#e0e7ff" font-size="9.5">ion image @ m/z = m&#7522;</text>
+    </g>
+    <text x="352" y="238" fill="#4338ca" font-size="9.5">slice the cube at a fixed m/z &#8594; where that</text>
+    <text x="352" y="252" fill="#4338ca" font-size="9.5">molecule sits. Thousands of such channels.</text>
+
+    <!-- untargeted vs targeted cards -->
+    <rect x="352" y="266" width="260" height="76" rx="6" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="364" y="284" fill="#3730a3" font-size="10.5" font-weight="800">untargeted (MALDI / DESI / SIMS)</text>
+    <text x="364" y="300" fill="#334155" font-size="9.5">10&#179;&#8211;10&#8309; unknown m/z channels &#8212; identity</text>
+    <text x="364" y="314" fill="#334155" font-size="9.5">is itself unknown; peak-picking &amp;</text>
+    <text x="364" y="328" fill="#334155" font-size="9.5">annotation are part of the vision task.</text>
+
+    <rect x="352" y="350" width="260" height="72" rx="6" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="364" y="368" fill="#3730a3" font-size="10.5" font-weight="800">targeted (IMC / MIBI)</text>
+    <text x="364" y="384" fill="#334155" font-size="9.5">~40 metal-tagged, <tspan font-weight="700">known</tspan> protein</text>
+    <text x="364" y="398" fill="#334155" font-size="9.5">channels at single-cell resolution &#8212;</text>
+    <text x="364" y="412" fill="#334155" font-size="9.5">a labelled multiplex stack.</text>
+
+    <text x="352" y="442" fill="#4338ca" font-size="10" font-weight="700">a hyperspectral cube &#8212; but the axis is chemistry</text>
+  </g>
+
+  <!-- ============ Panel 3: the three CV jobs ============ -->
+  <g>
+    <rect x="648" y="52" width="288" height="416" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+    <text x="662" y="74" fill="#065f46" font-size="11.5" font-weight="700">3 &#183; three dense-vision jobs</text>
+
+    <!-- job A: spatial segmentation -->
+    <rect x="662" y="88" width="260" height="104" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="108" fill="#047857" font-size="11" font-weight="800">A &#183; spatial segmentation</text>
+    <text x="674" y="126" fill="#334155" font-size="9.5">group pixels by spectral similarity into</text>
+    <text x="674" y="140" fill="#334155" font-size="9.5">molecular regions (mostly unsupervised)</text>
+    <g>
+      <rect x="800" y="118" width="12" height="12" fill="#f472b6"/><rect x="812" y="118" width="12" height="12" fill="#f472b6"/>
+      <rect x="824" y="118" width="12" height="12" fill="#38bdf8"/><rect x="836" y="118" width="12" height="12" fill="#a3a3a3"/>
+      <rect x="800" y="130" width="12" height="12" fill="#f472b6"/><rect x="812" y="130" width="12" height="12" fill="#38bdf8"/>
+      <rect x="824" y="130" width="12" height="12" fill="#a3a3a3"/><rect x="836" y="130" width="12" height="12" fill="#22c55e"/>
+    </g>
+    <text x="674" y="160" fill="#64748b" font-size="9">msiPL &#183; dc-DeepMSI &#183; GraphMSI &#183; SagMSI</text>
+    <text x="674" y="176" fill="#64748b" font-size="9">= semantic segmentation of the tissue</text>
+
+    <!-- job B: classification -->
+    <rect x="662" y="200" width="260" height="104" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="220" fill="#047857" font-size="11" font-weight="800">B &#183; tissue / tumor classification</text>
+    <text x="674" y="238" fill="#334155" font-size="9.5">label pixels or regions: tumor vs normal,</text>
+    <text x="674" y="252" fill="#334155" font-size="9.5">subtype, grade, cell phenotype</text>
+    <!-- mini tumor/normal map -->
+    <rect x="800" y="228" width="52" height="40" rx="3" fill="#ecfeff" stroke="#94a3b8"/>
+    <path d="M804 258 q14 -22 30 -8 q10 8 14 4 l0 12 l-44 0 z" fill="#ef4444" opacity="0.6"/>
+    <text x="806" y="240" fill="#334155" font-size="7">tumor</text>
+    <text x="674" y="272" fill="#64748b" font-size="9">weak labels &#8594; multiple-instance learning</text>
+    <text x="674" y="288" fill="#64748b" font-size="9">deep-MIL &#183; UwU-net &#183; mi-CNN</text>
+
+    <!-- job C: annotation/detection -->
+    <rect x="662" y="312" width="260" height="140" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+    <text x="674" y="332" fill="#047857" font-size="11" font-weight="800">C &#183; ion detection &amp; annotation</text>
+    <text x="674" y="350" fill="#334155" font-size="9.5">which m/z peaks are real molecules,</text>
+    <text x="674" y="364" fill="#334155" font-size="9.5">and what are they? &#8212; with FDR control</text>
+    <!-- spectrum with true vs decoy peaks -->
+    <g stroke-width="2">
+      <line x1="682" y1="418" x2="682" y2="384" stroke="#10b981"/>
+      <line x1="704" y1="418" x2="704" y2="392" stroke="#10b981"/>
+      <line x1="726" y1="418" x2="726" y2="406" stroke="#cbd5e1"/>
+      <line x1="748" y1="418" x2="748" y2="388" stroke="#10b981"/>
+      <line x1="770" y1="418" x2="770" y2="410" stroke="#cbd5e1"/>
+      <line x1="792" y1="418" x2="792" y2="398" stroke="#10b981"/>
+    </g>
+    <line x1="676" y1="418" x2="900" y2="418" stroke="#94a3b8" stroke-width="1"/>
+    <text x="674" y="434" fill="#065f46" font-size="9" font-weight="700">green = annotated &#183; grey = decoy / noise</text>
+    <text x="674" y="448" fill="#64748b" font-size="9">METASPACE-ML &#183; decoy-based FDR</text>
+  </g>
+</svg>
