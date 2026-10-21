@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 660" role="img" aria-label="Topic map for the 2026-Jul-02 CV update on 4D imaging radar">
+  <title>Topic map — 2026-Jul-02 CV update (4D imaging radar)</title>
+  <desc>A radial topic map of six threads in the 4D imaging-radar dense detection and classification stack: the primitive and its representation ladder from raw ADC to point cloud; radar-only 3D detection; learned low-level and pre-CFAR detection; radar-camera and radar-LiDAR fusion and trust; dense prediction beyond boxes plus micro-Doppler classification; and datasets, self-supervision and foundation models.</desc>
+  <style>
+    .hub    { fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .spoke  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+    .node   { stroke: currentColor; stroke-width: 1.3; }
+    .prim   { fill: rgba(59,130,246,0.16); }
+    .det    { fill: rgba(16,185,129,0.16); }
+    .low    { fill: rgba(6,182,212,0.18); }
+    .fuse   { fill: rgba(245,158,11,0.18); }
+    .dense  { fill: rgba(168,85,247,0.16); }
+    .data   { fill: rgba(236,72,153,0.16); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.72; }
+    .hublbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .keylbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.8; }
+    .swatch { stroke: currentColor; stroke-width: 1; }
+  </style>
+
+  <!-- spokes -->
+  <line class="spoke" x1="490" y1="320" x2="490" y2="102"/>
+  <line class="spoke" x1="490" y1="320" x2="785" y2="200"/>
+  <line class="spoke" x1="490" y1="320" x2="785" y2="470"/>
+  <line class="spoke" x1="490" y1="320" x2="490" y2="560"/>
+  <line class="spoke" x1="490" y1="320" x2="195" y2="470"/>
+  <line class="spoke" x1="490" y1="320" x2="195" y2="200"/>
+
+  <!-- hub -->
+  <circle class="hub" cx="490" cy="320" r="66"/>
+  <text class="hublbl" x="490" y="308" text-anchor="middle">4D imaging radar</text>
+  <text class="hublbl" x="490" y="324" text-anchor="middle">dense detection</text>
+  <text class="hublbl" x="490" y="340" text-anchor="middle">+ classification</text>
+
+  <!-- 1 · primitive (top) -->
+  <g>
+    <rect class="node prim" x="360" y="44" width="260" height="60" rx="10"/>
+    <text class="lbl" x="490" y="70" text-anchor="middle">1 · Primitive &amp; representation ladder</text>
+    <text class="sub" x="490" y="88" text-anchor="middle">ADC · RD · RA · RAD tensor · point cloud</text>
+  </g>
+
+  <!-- 2 · radar-only detection (upper-right) -->
+  <g>
+    <rect class="node det" x="648" y="150" width="286" height="60" rx="10"/>
+    <text class="lbl" x="791" y="176" text-anchor="middle">2 · Radar-only 3D detection</text>
+    <text class="sub" x="791" y="194" text-anchor="middle">RTNH+ · RadarPillars · SMURF · RadarNeXt</text>
+  </g>
+
+  <!-- 3 · low-level (lower-right) -->
+  <g>
+    <rect class="node low" x="648" y="420" width="286" height="60" rx="10"/>
+    <text class="lbl" x="791" y="446" text-anchor="middle">3 · Learned low-level / pre-CFAR</text>
+    <text class="sub" x="791" y="464" text-anchor="middle">ADCNet · FFT-RadNet · RaDelft · RAVEN</text>
+  </g>
+
+  <!-- 4 · fusion (bottom) -->
+  <g>
+    <rect class="node fuse" x="360" y="520" width="260" height="60" rx="10"/>
+    <text class="lbl" x="490" y="546" text-anchor="middle">4 · Fusion &amp; trust</text>
+    <text class="sub" x="490" y="564" text-anchor="middle">CRN · RCBEVDet++ · LXLv2 · L4DR</text>
+  </g>
+
+  <!-- 5 · beyond boxes (lower-left) -->
+  <g>
+    <rect class="node dense" x="46" y="420" width="286" height="60" rx="10"/>
+    <text class="lbl" x="189" y="446" text-anchor="middle">5 · Beyond boxes + micro-Doppler</text>
+    <text class="sub" x="189" y="464" text-anchor="middle">RadarOcc · SemRaFiner · RadMamba</text>
+  </g>
+
+  <!-- 6 · datasets (upper-left) -->
+  <g>
+    <rect class="node data" x="46" y="150" width="286" height="60" rx="10"/>
+    <text class="lbl" x="189" y="176" text-anchor="middle">6 · Datasets · SSL · foundation</text>
+    <text class="sub" x="189" y="194" text-anchor="middle">K-Radar · VoD · FM-Fi · mmCLIP</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <text class="keylbl" x="46" y="628">Doppler velocity is a native axis · all-weather · but sparse, low-angular-resolution, CFAR-lossy — labels come cross-modally from LiDAR / camera.</text>
+  </g>
+</svg>
