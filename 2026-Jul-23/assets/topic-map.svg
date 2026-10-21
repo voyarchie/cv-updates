@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the eight OCT dense-detection and classification threads">
+  <title>Optical coherence tomography — eight dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges (drawn first, covered by hub/nodes) -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="380" y1="245" x2="345" y2="72"/>
+    <line x1="380" y1="245" x2="345" y2="177"/>
+    <line x1="380" y1="245" x2="345" y2="282"/>
+    <line x1="380" y1="245" x2="345" y2="387"/>
+    <line x1="580" y1="245" x2="615" y2="72"/>
+    <line x1="580" y1="245" x2="615" y2="177"/>
+    <line x1="580" y1="245" x2="615" y2="282"/>
+    <line x1="580" y1="245" x2="615" y2="387"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="380" y="195" width="200" height="100" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="480" y="228" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The OCT scan</text>
+    <text x="480" y="250" text-anchor="middle" fill="#cbd5e1" font-size="11.5">coherent · depth-resolved · speckled</text>
+    <text x="480" y="268" text-anchor="middle" fill="#cbd5e1" font-size="11.5">interferometric cross-section</text>
+    <text x="480" y="284" text-anchor="middle" fill="#cbd5e1" font-size="11.5">on its own terms</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12">
+    <!-- L1 -->
+    <rect x="40" y="30" width="300" height="84" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="56" y="54" fill="#ffffff" font-size="12.5" font-weight="700">1 · The primitive</text>
+    <text x="56" y="73" fill="#e0e7ff" font-size="11.5">A-scan → B-scan → volume; μm-scale</text>
+    <text x="56" y="90" fill="#e0e7ff" font-size="11.5">axial depth from back-scattered light</text>
+    <text x="56" y="107" fill="#e0e7ff" font-size="11.5">speckle is coherent, multiplicative</text>
+    <!-- L2 -->
+    <rect x="40" y="135" width="300" height="84" rx="10" fill="#0d9488" stroke="#0f766e"/>
+    <text x="56" y="159" fill="#ffffff" font-size="12.5" font-weight="700">3 · Fluid &amp; lesion segmentation</text>
+    <text x="56" y="178" fill="#ccfbf1" font-size="11.5">IRF / SRF / PED (RETOUCH)</text>
+    <text x="56" y="195" fill="#ccfbf1" font-size="11.5">drusen, geographic atrophy</text>
+    <text x="56" y="212" fill="#ccfbf1" font-size="11.5">hyperreflective foci</text>
+    <!-- L3 -->
+    <rect x="40" y="240" width="300" height="84" rx="10" fill="#7c3aed" stroke="#6d28d9"/>
+    <text x="56" y="264" fill="#ffffff" font-size="12.5" font-weight="700">5 · Foundation models &amp; SSL</text>
+    <text x="56" y="283" fill="#ede9fe" font-size="11.5">RETFound → UrFound → MIRAGE</text>
+    <text x="56" y="300" fill="#ede9fe" font-size="11.5">masked-autoencoder pretraining</text>
+    <text x="56" y="317" fill="#ede9fe" font-size="11.5">label-efficient adaptation</text>
+    <!-- L4 -->
+    <rect x="40" y="345" width="300" height="84" rx="10" fill="#0e7490" stroke="#155e75"/>
+    <text x="56" y="369" fill="#ffffff" font-size="12.5" font-weight="700">7 · Speckle, denoising &amp; generation</text>
+    <text x="56" y="388" fill="#cffafe" font-size="11.5">self-supervised despeckle</text>
+    <text x="56" y="405" fill="#cffafe" font-size="11.5">diffusion synthesis &amp; super-res</text>
+    <text x="56" y="422" fill="#cffafe" font-size="11.5">unsupervised anomaly / OOD</text>
+    <!-- R1 -->
+    <rect x="620" y="30" width="300" height="84" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="636" y="54" fill="#ffffff" font-size="12.5" font-weight="700">2 · Layer segmentation</text>
+    <text x="636" y="73" fill="#ffe4e6" font-size="11.5">7–11 ordered retinal layers</text>
+    <text x="636" y="90" fill="#ffe4e6" font-size="11.5">topology / ordering constraints</text>
+    <text x="636" y="107" fill="#ffe4e6" font-size="11.5">boundary regression, uncertainty</text>
+    <!-- R2 -->
+    <rect x="620" y="135" width="300" height="84" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="636" y="159" fill="#ffffff" font-size="12.5" font-weight="700">4 · OCT-Angiography (OCTA)</text>
+    <text x="636" y="178" fill="#ffedd5" font-size="11.5">capillary vessel segmentation</text>
+    <text x="636" y="195" fill="#ffedd5" font-size="11.5">foveal avascular zone (FAZ)</text>
+    <text x="636" y="212" fill="#ffedd5" font-size="11.5">OCTA-500 / ROSE benchmarks</text>
+    <!-- R3 -->
+    <rect x="620" y="240" width="300" height="84" rx="10" fill="#15803d" stroke="#166534"/>
+    <text x="636" y="264" fill="#ffffff" font-size="12.5" font-weight="700">6 · Disease classification &amp; triage</text>
+    <text x="636" y="283" fill="#dcfce7" font-size="11.5">AMD · DME · DR staging · glaucoma</text>
+    <text x="636" y="300" fill="#dcfce7" font-size="11.5">OCT2017 / OLIVES benchmarks</text>
+    <text x="636" y="317" fill="#dcfce7" font-size="11.5">referable-vs-not screening</text>
+    <!-- R4 -->
+    <rect x="620" y="345" width="300" height="84" rx="10" fill="#475569" stroke="#334155"/>
+    <text x="636" y="369" fill="#ffffff" font-size="12.5" font-weight="700">8 · Intravascular &amp; non-retinal</text>
+    <text x="636" y="388" fill="#e2e8f0" font-size="11.5">coronary IVOCT: plaque, calcium</text>
+    <text x="636" y="405" fill="#e2e8f0" font-size="11.5">lumen / stent-strut segmentation</text>
+    <text x="636" y="422" fill="#e2e8f0" font-size="11.5">dermatologic &amp; anterior-segment</text>
+  </g>
+</svg>
