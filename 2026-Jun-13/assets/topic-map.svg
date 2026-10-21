@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Topic map for the 2026-Jun-13 CV update">
+  <title>Topic map — 2026-Jun-13 CV update</title>
+  <desc>A clustered topic map of eight dense-detection and classification threads grouped under three axes: foundation prompting, supervision economy, and hard regimes &amp; label structure. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.5; }
+    .link  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.4; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.78; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .found { fill: rgba(59,130,246,0.18); }
+    .super { fill: rgba(244,114,182,0.18); }
+    .hard  { fill: rgba(16,185,129,0.18); }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="450" y1="30"  x2="450" y2="530"/>
+  <line class="axis" x1="40"  y1="280" x2="860" y2="280"/>
+  <text class="axlbl" x="450" y="20"  text-anchor="middle">FOUNDATION &amp; PROMPTING  &#8593;</text>
+  <text class="axlbl" x="856" y="135" text-anchor="end">HARD REGIMES &amp; LABEL STRUCTURE  &#8594;</text>
+  <text class="axlbl" x="44"  y="450" text-anchor="start">&#8592;  SUPERVISION ECONOMY</text>
+
+  <!-- links from hub -->
+  <line class="link" x1="450" y1="280" x2="245" y2="85"/>
+  <line class="link" x1="450" y1="280" x2="660" y2="85"/>
+  <line class="link" x1="450" y1="280" x2="765" y2="190"/>
+  <line class="link" x1="450" y1="280" x2="790" y2="280"/>
+  <line class="link" x1="450" y1="280" x2="765" y2="370"/>
+  <line class="link" x1="450" y1="280" x2="660" y2="475"/>
+  <line class="link" x1="450" y1="280" x2="240" y2="475"/>
+  <line class="link" x1="450" y1="280" x2="235" y2="345"/>
+
+  <!-- central hub -->
+  <circle class="hub" cx="450" cy="280" r="48"/>
+  <text class="hublbl" x="450" y="276" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="450" y="294" text-anchor="middle">&amp; classification</text>
+
+  <!-- TOP cluster: foundation & prompting -->
+  <rect class="node found" x="140" y="60"  width="210" height="52" rx="10"/>
+  <text class="label" x="245" y="82"  text-anchor="middle">Promptable detectors</text>
+  <text class="sub"   x="245" y="100" text-anchor="middle">T-Rex2 &#183; DINO-X &#183; Grounding-DINO</text>
+
+  <rect class="node found" x="555" y="60"  width="210" height="52" rx="10"/>
+  <text class="label" x="660" y="82"  text-anchor="middle">Open-vocab segmentation</text>
+  <text class="sub"   x="660" y="100" text-anchor="middle">FC-CLIP &#183; RetCLIP &#183; MaskCLIP</text>
+
+  <!-- RIGHT cluster: hard regimes & label structure -->
+  <rect class="node hard" x="655" y="165" width="220" height="52" rx="10"/>
+  <text class="label" x="765" y="187" text-anchor="middle">Amodal / occlusion</text>
+  <text class="sub"   x="765" y="205" text-anchor="middle">TAO-Amodal &#183; Amodal-SAM</text>
+
+  <rect class="node hard" x="675" y="254" width="200" height="52" rx="10"/>
+  <text class="label" x="775" y="276" text-anchor="middle">Hyperspectral OD</text>
+  <text class="sub"   x="775" y="294" text-anchor="middle">SpecDETR &#183; Spectral Mamba</text>
+
+  <rect class="node hard" x="655" y="345" width="220" height="52" rx="10"/>
+  <text class="label" x="765" y="367" text-anchor="middle">Hierarchical labels</text>
+  <text class="sub"   x="765" y="385" text-anchor="middle">taxonomy-aware &#183; hyperbolic</text>
+
+  <rect class="node hard" x="555" y="450" width="210" height="52" rx="10"/>
+  <text class="label" x="660" y="472" text-anchor="middle">VL pretraining</text>
+  <text class="sub"   x="660" y="490" text-anchor="middle">SigLIP 2 &#183; AIMv2</text>
+
+  <!-- LEFT cluster: supervision economy -->
+  <rect class="node super" x="135" y="450" width="220" height="52" rx="10"/>
+  <text class="label" x="245" y="472" text-anchor="middle">Point / weak supervision</text>
+  <text class="sub"   x="245" y="490" text-anchor="middle">P2BNet++ &#183; P2MNet</text>
+
+  <rect class="node super" x="115" y="320" width="225" height="52" rx="10"/>
+  <text class="label" x="227" y="342" text-anchor="middle">Retrieval-augmented</text>
+  <text class="sub"   x="227" y="360" text-anchor="middle">RAC &#183; RALF &#183; memory adaptation</text>
+</svg>
