@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-label="Schematic accuracy versus latency Pareto curve for 2024-2026 real-time detectors">
+  <title>Real-time detector accuracy–latency frontier (schematic) — 2026-Jun-08</title>
+  <desc>A schematic scatter plot of COCO box AP against GPU latency for recent real-time detectors. RF-DETR sits on the upper-right of the Pareto frontier as the first real-time detector past 60 AP; LW-DETR, D-FINE, RT-DETRv2, YOLO26 and YOLOv8 trail at lower AP and latency.</desc>
+  <style>
+    .axis  { stroke: currentColor; stroke-width: 1.4; fill: none; }
+    .grid  { stroke: currentColor; stroke-width: 0.7; opacity: 0.18; }
+    .tick  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.8; }
+    .albl  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; }
+    .pt    { stroke: currentColor; stroke-width: 1.2; }
+    .lbl   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; }
+    .front { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-dasharray: 6 4; opacity: 0.7; }
+    .yolo  { fill: rgba(244,114,182,0.85); }
+    .detr  { fill: rgba(59,130,246,0.85); }
+    .rt    { fill: rgba(168,85,247,0.85); }
+    .rf    { fill: rgba(245,158,11,0.95); }
+  </style>
+
+  <!-- gridlines -->
+  <line class="grid" x1="80" y1="320" x2="660" y2="320"/>
+  <line class="grid" x1="80" y1="250" x2="660" y2="250"/>
+  <line class="grid" x1="80" y1="180" x2="660" y2="180"/>
+  <line class="grid" x1="80" y1="110" x2="660" y2="110"/>
+  <line class="grid" x1="220" y1="60" x2="220" y2="390"/>
+  <line class="grid" x1="360" y1="60" x2="360" y2="390"/>
+  <line class="grid" x1="500" y1="60" x2="500" y2="390"/>
+  <line class="grid" x1="640" y1="60" x2="640" y2="390"/>
+
+  <!-- axes -->
+  <line class="axis" x1="80" y1="60" x2="80" y2="390"/>
+  <line class="axis" x1="80" y1="390" x2="660" y2="390"/>
+
+  <!-- y ticks (AP) -->
+  <text class="tick" x="72" y="394" text-anchor="end">42</text>
+  <text class="tick" x="72" y="324" text-anchor="end">48</text>
+  <text class="tick" x="72" y="254" text-anchor="end">52</text>
+  <text class="tick" x="72" y="184" text-anchor="end">56</text>
+  <text class="tick" x="72" y="114" text-anchor="end">60</text>
+  <text class="albl" x="30" y="225" text-anchor="middle" transform="rotate(-90 30 225)">COCO box AP</text>
+
+  <!-- x ticks (latency) -->
+  <text class="tick" x="80"  y="408" text-anchor="middle">0</text>
+  <text class="tick" x="220" y="408" text-anchor="middle">8</text>
+  <text class="tick" x="360" y="408" text-anchor="middle">16</text>
+  <text class="tick" x="500" y="408" text-anchor="middle">24</text>
+  <text class="tick" x="640" y="408" text-anchor="middle">32</text>
+  <text class="albl" x="370" y="432" text-anchor="middle">latency (ms, schematic)</text>
+
+  <!-- Pareto frontier -->
+  <path class="front" d="M 150 300 Q 240 150 300 150 T 560 95"/>
+
+  <!-- points -->
+  <circle class="pt yolo" cx="250" cy="245" r="6"/>
+  <text class="lbl" x="262" y="249">YOLOv8-L</text>
+
+  <circle class="pt yolo" cx="225" cy="205" r="6"/>
+  <text class="lbl" x="150" y="198" text-anchor="end">YOLO26-L</text>
+
+  <circle class="pt rt" cx="290" cy="232" r="6"/>
+  <text class="lbl" x="302" y="236">RT-DETRv2-R50</text>
+
+  <circle class="pt detr" cx="255" cy="180" r="6"/>
+  <text class="lbl" x="267" y="176">D-FINE-L</text>
+
+  <circle class="pt detr" cx="205" cy="150" r="6"/>
+  <text class="lbl" x="130" y="146" text-anchor="end">LW-DETR-L</text>
+
+  <circle class="pt rf" cx="150" cy="300" r="6"/>
+  <text class="lbl" x="162" y="304">RF-DETR-N</text>
+
+  <circle class="pt rf" cx="560" cy="95" r="8"/>
+  <text class="albl" x="548" y="90" text-anchor="end">RF-DETR-2×L  (&gt; 60 AP)</text>
+
+  <!-- 60 AP callout line -->
+  <line class="grid" x1="80" y1="110" x2="660" y2="110" stroke-dasharray="3 3" opacity="0.35"/>
+</svg>
