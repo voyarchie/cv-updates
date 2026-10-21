@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of the six omnidirectional / fisheye dense-detection threads">
+  <title>Omnidirectional &amp; fisheye imaging — six dense-detection &amp; classification threads</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="450" y1="280" x2="200" y2="135"/>
+    <line x1="450" y1="280" x2="450" y2="110"/>
+    <line x1="450" y1="280" x2="700" y2="135"/>
+    <line x1="450" y1="280" x2="200" y2="430"/>
+    <line x1="450" y1="280" x2="450" y2="455"/>
+    <line x1="450" y1="280" x2="700" y2="430"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="337" y="238" width="226" height="84" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="450" y="268" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">Omnidirectional / fisheye</text>
+    <text x="450" y="290" text-anchor="middle" fill="#cbd5e1" font-size="12.5">dense detection +</text>
+    <text x="450" y="308" text-anchor="middle" fill="#cbd5e1" font-size="12.5">classification on the sphere</text>
+  </g>
+  <!-- nodes -->
+  <g font-size="12" fill="#f8fafc">
+    <!-- 1 primitive / projection -->
+    <rect x="45" y="82" width="300" height="76" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="60" y="106" font-size="12.5" font-weight="700">1 · The primitive &amp; projection</text>
+    <text x="60" y="124" font-size="11.5" fill="#e0e7ff">no canonical plane · wrap-around · poles</text>
+    <text x="60" y="141" font-size="11.5" fill="#e0e7ff">ERP · cubemap · tangent · icosahedral</text>
+    <!-- 2 sphere-native networks -->
+    <rect x="300" y="60" width="300" height="76" rx="10" fill="#0ea5e9" stroke="#0369a1"/>
+    <text x="315" y="84" font-size="12.5" font-weight="700">2 · Sphere-native networks</text>
+    <text x="315" y="102" font-size="11.5" fill="#e0f2fe">distortion-aware conv → equivariant</text>
+    <text x="315" y="119" font-size="11.5" fill="#e0f2fe">SphereNet · KTN · S2CNN · SO3UFormer</text>
+    <!-- 3 output geometry -->
+    <rect x="555" y="82" width="300" height="76" rx="10" fill="#059669" stroke="#047857"/>
+    <text x="570" y="106" font-size="12.5" font-weight="700">3 · Output geometry</text>
+    <text x="570" y="124" font-size="11.5" fill="#d1fae5">the axis-aligned box breaks</text>
+    <text x="570" y="141" font-size="11.5" fill="#d1fae5">BFoV / rBFoV · rotated · polygon</text>
+    <!-- 4 datasets -->
+    <rect x="45" y="404" width="300" height="76" rx="10" fill="#d97706" stroke="#b45309"/>
+    <text x="60" y="428" font-size="12.5" font-weight="700">4 · Datasets &amp; benchmarks</text>
+    <text x="60" y="446" font-size="11.5" fill="#fef3c7">360-Indoor · PANDORA · WoodScape</text>
+    <text x="60" y="463" font-size="11.5" fill="#fef3c7">360VOT · Leader360V · Dense360</text>
+    <!-- 5 applications -->
+    <rect x="300" y="426" width="300" height="86" rx="10" fill="#c026d3" stroke="#a21caf"/>
+    <text x="315" y="450" font-size="12.5" font-weight="700">5 · Applications</text>
+    <text x="315" y="468" font-size="11.5" fill="#fae8ff">overhead indoor monitoring (RAPiD)</text>
+    <text x="315" y="485" font-size="11.5" fill="#fae8ff">automotive surround-view · BEV · parking</text>
+    <text x="315" y="502" font-size="11.5" fill="#fae8ff">tracking &amp; salient-object detection</text>
+    <!-- 6 foundation models -->
+    <rect x="555" y="404" width="300" height="76" rx="10" fill="#e11d48" stroke="#9f1239"/>
+    <text x="570" y="428" font-size="12.5" font-weight="700">6 · Sphere-native foundation</text>
+    <text x="570" y="446" font-size="11.5" fill="#ffe4e6">panoramic MLLMs · ERP-RoPE</text>
+    <text x="570" y="463" font-size="11.5" fill="#ffe4e6">360-R1 · EAGLE-360 · reasoning</text>
+  </g>
+</svg>
