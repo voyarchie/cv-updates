@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The histopathology whole-slide image shown as a dense detection-and-classification scene. A glass slide of stained tissue is scanned into a gigapixel multi-resolution pyramid, roughly 100,000 by 100,000 pixels at 40x. Because no model ingests a gigapixel image whole, it is cut into tens of thousands of small tiles, most of them empty glass. At the cell scale, dense detection means finding and classifying every nucleus, hundreds of thousands per slide. A tile-level foundation model turns each tile into an embedding; multiple-instance learning weights the tiles with attention and pools them into one slide-level vector; a head emits a diagnosis and an attention heatmap over the slide. The label is attached to the whole slide, not to any tile, so supervision is weak and the model must discover which tiles matter.">
+  <title>A whole-slide image is a gigapixel scene: tile it, detect every nucleus, then pool tens of thousands of tiles under one slide-level label</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16" font-weight="800">Glass slide &#8594; gigapixel pyramid &#8594; tens of thousands of tiles &#8594; detect every nucleus &#8594; pool under one slide label</text>
+
+  <!-- ============ Panel 1: slide -> scanner -> pyramid ============ -->
+  <g>
+    <rect x="24" y="52" width="210" height="456" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; scan the glass slide</text>
+
+    <!-- glass slide -->
+    <rect x="46" y="88" width="166" height="60" rx="4" fill="#12233b" stroke="#1e3a5f"/>
+    <ellipse cx="129" cy="118" rx="60" ry="20" fill="#b45472" opacity="0.85"/>
+    <ellipse cx="110" cy="114" rx="26" ry="12" fill="#7c3f8f" opacity="0.7"/>
+    <text x="52" y="102" fill="#f0abfc" font-size="9.5">H&amp;E-stained tissue</text>
+
+    <text x="46" y="172" fill="#7dd3fc" font-size="10">whole-slide scanner &#8594; ~0.25 &#181;m/px</text>
+
+    <!-- pyramid of magnifications -->
+    <g stroke="#334155" stroke-width="1">
+      <rect x="46" y="184" width="166" height="94" rx="3" fill="#0f2233"/>
+      <rect x="70" y="196" width="118" height="66" rx="3" fill="#123047"/>
+      <rect x="94" y="206" width="70" height="46" rx="3" fill="#16405f"/>
+      <rect x="112" y="214" width="34" height="30" rx="3" fill="#1d5075"/>
+    </g>
+    <text x="52" y="296" fill="#94a3b8" font-size="9">multi-resolution pyramid</text>
+    <text x="52" y="309" fill="#94a3b8" font-size="9">40&#215; / 20&#215; / 10&#215; / 5&#215; / thumb</text>
+
+    <!-- scale callout -->
+    <rect x="46" y="322" width="166" height="168" rx="6" fill="#111a2e" stroke="#334155"/>
+    <text x="58" y="342" fill="#fbbf24" font-size="11" font-weight="700">one slide &#8776;</text>
+    <text x="58" y="362" fill="#e2e8f0" font-size="11">100k &#215; 100k px</text>
+    <text x="58" y="380" fill="#e2e8f0" font-size="11">&#8776; 10 gigapixels</text>
+    <text x="58" y="404" fill="#94a3b8" font-size="10">10&#8309;&#8211;10&#8310; nuclei</text>
+    <text x="58" y="422" fill="#94a3b8" font-size="10">one diagnosis label</text>
+    <text x="58" y="452" fill="#f87171" font-size="10">no model ingests</text>
+    <text x="58" y="468" fill="#f87171" font-size="10">it whole &#8594; tile it</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M238 280 l16 0" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ============ Panel 2: tiling ============ -->
+  <g>
+    <rect x="260" y="52" width="210" height="228" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="274" y="74" fill="#94a3b8" font-size="11.5">2 &#183; tile: mostly empty glass</text>
+    <g>
+      <!-- tile grid -->
+      <g stroke="#1e293b" stroke-width="1">
+        <rect x="278" y="86" width="174" height="150" fill="#0f2233"/>
+      </g>
+      <!-- tissue tiles colored, background tiles dark -->
+      <g>
+        <rect x="278" y="86" width="29" height="30" fill="#0f2233"/>
+        <rect x="307" y="86" width="29" height="30" fill="#0f2233"/>
+        <rect x="336" y="86" width="29" height="30" fill="#7c3f8f" opacity="0.6"/>
+        <rect x="365" y="86" width="29" height="30" fill="#b45472" opacity="0.7"/>
+        <rect x="394" y="86" width="29" height="30" fill="#b45472" opacity="0.6"/>
+        <rect x="423" y="86" width="29" height="30" fill="#0f2233"/>
+
+        <rect x="278" y="116" width="29" height="30" fill="#0f2233"/>
+        <rect x="307" y="116" width="29" height="30" fill="#7c3f8f" opacity="0.55"/>
+        <rect x="336" y="116" width="29" height="30" fill="#b45472" opacity="0.75"/>
+        <rect x="365" y="116" width="29" height="30" fill="#b45472" opacity="0.8" stroke="#38bdf8" stroke-width="2"/>
+        <rect x="394" y="116" width="29" height="30" fill="#b45472" opacity="0.65"/>
+        <rect x="423" y="116" width="29" height="30" fill="#7c3f8f" opacity="0.5"/>
+
+        <rect x="278" y="146" width="29" height="30" fill="#0f2233"/>
+        <rect x="307" y="146" width="29" height="30" fill="#b45472" opacity="0.6"/>
+        <rect x="336" y="146" width="29" height="30" fill="#b45472" opacity="0.8"/>
+        <rect x="365" y="146" width="29" height="30" fill="#7c3f8f" opacity="0.6"/>
+        <rect x="394" y="146" width="29" height="30" fill="#0f2233"/>
+        <rect x="423" y="146" width="29" height="30" fill="#0f2233"/>
+
+        <rect x="278" y="176" width="29" height="30" fill="#0f2233"/>
+        <rect x="307" y="176" width="29" height="30" fill="#0f2233"/>
+        <rect x="336" y="176" width="29" height="30" fill="#7c3f8f" opacity="0.5"/>
+        <rect x="365" y="176" width="29" height="30" fill="#b45472" opacity="0.55"/>
+        <rect x="394" y="176" width="29" height="30" fill="#0f2233"/>
+        <rect x="423" y="176" width="29" height="30" fill="#0f2233"/>
+      </g>
+      <g stroke="#1e293b" stroke-width="1" fill="none">
+        <path d="M307 86 l0 150 M336 86 l0 150 M365 86 l0 150 M394 86 l0 150 M423 86 l0 150"/>
+        <path d="M278 116 l174 0 M278 146 l174 0 M278 176 l174 0 M278 206 l174 0"/>
+      </g>
+    </g>
+    <text x="274" y="252" fill="#38bdf8" font-size="9.5">highlighted tile &#8594; passed to detector below</text>
+    <text x="274" y="268" fill="#94a3b8" font-size="9">256&#215;256 px each &#183; &gt;90% is blank glass</text>
+  </g>
+
+  <!-- arrow down -->
+  <path d="M365 280 l0 14" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ============ Panel 3: nucleus dense detection ============ -->
+  <g>
+    <rect x="260" y="300" width="210" height="208" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="274" y="322" fill="#94a3b8" font-size="11.5">3 &#183; dense detection inside a tile</text>
+    <rect x="278" y="332" width="174" height="120" rx="4" fill="#160f22" stroke="#3b1d5f"/>
+    <!-- nuclei as colored blobs by class -->
+    <g>
+      <circle cx="300" cy="356" r="7" fill="#38bdf8"/><circle cx="322" cy="350" r="6" fill="#38bdf8"/>
+      <circle cx="344" cy="362" r="8" fill="#f87171"/><circle cx="368" cy="352" r="7" fill="#f87171"/>
+      <circle cx="392" cy="366" r="6" fill="#34d399"/><circle cx="416" cy="356" r="7" fill="#38bdf8"/>
+      <circle cx="308" cy="384" r="8" fill="#f87171"/><circle cx="332" cy="392" r="6" fill="#fbbf24"/>
+      <circle cx="356" cy="386" r="7" fill="#f87171"/><circle cx="382" cy="394" r="6" fill="#34d399"/>
+      <circle cx="406" cy="388" r="7" fill="#38bdf8"/><circle cx="430" cy="382" r="6" fill="#f87171"/>
+      <circle cx="298" cy="418" r="6" fill="#34d399"/><circle cx="324" cy="424" r="7" fill="#f87171"/>
+      <circle cx="350" cy="416" r="8" fill="#f87171"/><circle cx="376" cy="426" r="6" fill="#38bdf8"/>
+      <circle cx="402" cy="420" r="7" fill="#fbbf24"/><circle cx="428" cy="424" r="6" fill="#f87171"/>
+    </g>
+    <g font-size="9">
+      <circle cx="284" cy="470" r="5" fill="#f87171"/><text x="293" y="473" fill="#cbd5e1">tumor</text>
+      <circle cx="338" cy="470" r="5" fill="#38bdf8"/><text x="347" y="473" fill="#cbd5e1">lymph.</text>
+      <circle cx="392" cy="470" r="5" fill="#34d399"/><text x="401" y="473" fill="#cbd5e1">stroma</text>
+    </g>
+    <text x="274" y="494" fill="#94a3b8" font-size="9">segment + classify each nucleus (HoVer-Net, CellViT); count mitoses (MIDOG)</text>
+  </g>
+
+  <!-- arrow to panel 4 -->
+  <path d="M474 200 l16 0" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ============ Panel 4: MIL aggregation ============ -->
+  <g>
+    <rect x="496" y="52" width="210" height="456" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="510" y="74" fill="#94a3b8" font-size="11.5">4 &#183; embed every tile, then pool</text>
+
+    <!-- tile embeddings -->
+    <g>
+      <rect x="512" y="88" width="40" height="16" rx="3" fill="#16405f"/><text x="558" y="100" fill="#94a3b8" font-size="9">tile 1</text>
+      <rect x="512" y="110" width="40" height="16" rx="3" fill="#16405f"/><text x="558" y="122" fill="#94a3b8" font-size="9">tile 2</text>
+      <rect x="512" y="132" width="40" height="16" rx="3" fill="#16405f"/><text x="558" y="144" fill="#94a3b8" font-size="9">tile 3</text>
+      <text x="528" y="164" fill="#64748b" font-size="12">&#8942;</text>
+      <rect x="512" y="170" width="40" height="16" rx="3" fill="#16405f"/><text x="558" y="182" fill="#94a3b8" font-size="9">tile N</text>
+    </g>
+    <text x="512" y="204" fill="#7dd3fc" font-size="9.5">tile foundation model &#8594; embedding</text>
+    <text x="512" y="217" fill="#64748b" font-size="9">UNI2 &#183; Virchow2 &#183; GigaPath &#183; CONCH</text>
+
+    <!-- attention weights -->
+    <text x="512" y="242" fill="#fbbf24" font-size="10" font-weight="700">attention weight a&#7522; (which tiles matter)</text>
+    <g>
+      <rect x="512" y="250" width="180" height="10" rx="3" fill="#1e293b"/>
+      <rect x="512" y="250" width="150" height="10" rx="3" fill="#f87171"/>
+      <rect x="512" y="264" width="180" height="10" rx="3" fill="#1e293b"/>
+      <rect x="512" y="264" width="40" height="10" rx="3" fill="#38bdf8"/>
+      <rect x="512" y="278" width="180" height="10" rx="3" fill="#1e293b"/>
+      <rect x="512" y="278" width="95" height="10" rx="3" fill="#a78bfa"/>
+    </g>
+
+    <!-- pooled vector -->
+    <path d="M602 296 l0 12" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="540" y="312" width="124" height="22" rx="4" fill="#7c3f8f"/>
+    <text x="602" y="327" fill="#f5d0fe" font-size="10" text-anchor="middle" font-weight="700">one slide vector</text>
+    <text x="512" y="352" fill="#64748b" font-size="9">ABMIL / TransMIL / DTFD, or a slide FM</text>
+    <text x="512" y="365" fill="#64748b" font-size="9">(TITAN, PRISM, CHIEF, GigaPath-LongNet)</text>
+
+    <!-- outputs -->
+    <rect x="512" y="380" width="180" height="112" rx="6" fill="#111a2e" stroke="#334155"/>
+    <text x="524" y="400" fill="#34d399" font-size="11" font-weight="700">slide-level outputs</text>
+    <text x="524" y="420" fill="#e2e8f0" font-size="10">&#8226; subtype / grade / metastasis</text>
+    <text x="524" y="438" fill="#e2e8f0" font-size="10">&#8226; biomarker (MSI, HER2, TMB)</text>
+    <text x="524" y="456" fill="#e2e8f0" font-size="10">&#8226; survival / treatment response</text>
+    <text x="524" y="474" fill="#e2e8f0" font-size="10">&#8226; attention heatmap + report</text>
+  </g>
+
+  <!-- arrow to panel 5 -->
+  <path d="M710 280 l16 0" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ============ Panel 5: slide heatmap + weak label ============ -->
+  <g>
+    <rect x="732" y="52" width="204" height="456" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="746" y="74" fill="#94a3b8" font-size="11.5">5 &#183; explain on the whole slide</text>
+    <rect x="748" y="88" width="172" height="150" rx="4" fill="#12233b" stroke="#1e3a5f"/>
+    <ellipse cx="834" cy="150" rx="66" ry="46" fill="#7c3f8f" opacity="0.45"/>
+    <ellipse cx="812" cy="140" rx="30" ry="22" fill="#f87171" opacity="0.7"/>
+    <ellipse cx="856" cy="168" rx="20" ry="16" fill="#f87171" opacity="0.6"/>
+    <text x="756" y="106" fill="#f0abfc" font-size="9.5">attention heatmap</text>
+    <text x="756" y="228" fill="#fca5a5" font-size="9.5">red = tiles that drove the call</text>
+
+    <rect x="748" y="250" width="172" height="242" rx="6" fill="#111a2e" stroke="#334155"/>
+    <text x="760" y="270" fill="#fbbf24" font-size="11" font-weight="700">why a WSI is not</text>
+    <text x="760" y="286" fill="#fbbf24" font-size="11" font-weight="700">a natural image</text>
+    <text x="760" y="308" fill="#cbd5e1" font-size="9.5">&#8226; label on the slide, not</text>
+    <text x="770" y="321" fill="#94a3b8" font-size="9.5">the tile &#8594; weak supervision</text>
+    <text x="760" y="339" fill="#cbd5e1" font-size="9.5">&#8226; 10&#8309;&#8211;10&#8310; instances / slide,</text>
+    <text x="770" y="352" fill="#94a3b8" font-size="9.5">no fixed &quot;objects&quot;</text>
+    <text x="760" y="370" fill="#cbd5e1" font-size="9.5">&#8226; stain + scanner shift is</text>
+    <text x="770" y="383" fill="#94a3b8" font-size="9.5">the domain gap</text>
+    <text x="760" y="401" fill="#cbd5e1" font-size="9.5">&#8226; scale-dependent object:</text>
+    <text x="770" y="414" fill="#94a3b8" font-size="9.5">tissue &#8594; gland &#8594; cell</text>
+    <text x="760" y="432" fill="#cbd5e1" font-size="9.5">&#8226; ground truth is an IHC /</text>
+    <text x="770" y="445" fill="#94a3b8" font-size="9.5">molecular assay, not a box</text>
+    <text x="760" y="463" fill="#cbd5e1" font-size="9.5">&#8226; a miss is a missed cancer</text>
+    <text x="770" y="476" fill="#94a3b8" font-size="9.5">&#8594; clinical error budget</text>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
