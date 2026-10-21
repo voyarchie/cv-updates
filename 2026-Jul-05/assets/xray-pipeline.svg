@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" role="img" aria-label="Dual-energy X-ray security screening pipeline and where detector families tap in">
+  <title>Dual-energy X-ray screening pipeline — where detectors tap in</title>
+  <desc>A left-to-right transmission X-ray chain: a dual-energy source and detector array produce two co-registered attenuation images (low-energy and high-energy). A material-decomposition step estimates effective atomic number and density per pixel, which drives a pseudo-color composite where organics render orange, inorganics green and metals blue. Two detector families tap the chain at different stages: composite detectors (CNN/DETR box and mask heads such as AO-DETR, CSPCL, YOLO variants, CellNuc-style query heads) operate on the pseudo-color image every screener sees and inherit the operator colour convention; material-aware detectors (XMC R-CNN, energy-response CNNs) tap the raw low/high-energy channels before compositing and keep the physical material cue that compositing discards. Unlike reflective cameras, transmission superposes every object along the ray, so overlap is additive rather than occluding — the defining hard case of the modality.</desc>
+  <style>
+    .stage  { stroke: currentColor; stroke-width: 1.3; fill: rgba(245,158,11,0.14); }
+    .det    { stroke: currentColor; stroke-width: 1.3; }
+    .detA   { fill: rgba(139,92,246,0.16); }
+    .detB   { fill: rgba(16,185,129,0.16); }
+    .flow   { fill: none; stroke: currentColor; stroke-width: 1.6; marker-end: url(#ah); }
+    .tap    { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-dasharray: 4 3; opacity: 0.75; marker-end: url(#ah); }
+    .lbl    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; fill: currentColor; }
+    .sub    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; fill: currentColor; opacity: 0.72; }
+    .cap    { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-style: italic; fill: currentColor; opacity: 0.8; }
+    .hd     { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; }
+    .org    { fill: rgba(245,158,11,0.55); stroke: currentColor; stroke-width: 0.8; }
+    .grn    { fill: rgba(16,185,129,0.5);  stroke: currentColor; stroke-width: 0.8; }
+    .blu    { fill: rgba(59,130,246,0.55); stroke: currentColor; stroke-width: 0.8; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- pipeline stages -->
+  <g>
+    <rect class="stage" x="18"  y="160" width="176" height="66" rx="9"/>
+    <text class="lbl" x="106" y="186" text-anchor="middle">Dual-energy source</text>
+    <text class="sub" x="106" y="203" text-anchor="middle">+ line-detector array</text>
+    <text class="sub" x="106" y="216" text-anchor="middle">transmission, not reflection</text>
+  </g>
+  <g>
+    <rect class="stage" x="250" y="160" width="184" height="66" rx="9"/>
+    <text class="lbl" x="342" y="182" text-anchor="middle">Two attenuation images</text>
+    <text class="sub" x="342" y="199" text-anchor="middle">low-E &amp; high-E channels</text>
+    <text class="sub" x="342" y="212" text-anchor="middle">co-registered, grayscale</text>
+  </g>
+  <g>
+    <rect class="stage" x="490" y="160" width="188" height="66" rx="9"/>
+    <text class="lbl" x="584" y="182" text-anchor="middle">Material decomposition</text>
+    <text class="sub" x="584" y="199" text-anchor="middle">effective Z, density</text>
+    <text class="sub" x="584" y="212" text-anchor="middle">from μ(low)/μ(high) ratio</text>
+  </g>
+  <g>
+    <rect class="stage" x="734" y="160" width="228" height="66" rx="9"/>
+    <text class="lbl" x="848" y="180" text-anchor="middle">Pseudo-color composite</text>
+    <text class="sub" x="848" y="196" text-anchor="middle">organic · inorganic · metal</text>
+    <!-- material colour swatches -->
+    <rect class="org" x="768" y="204" width="46" height="12" rx="2"/>
+    <rect class="grn" x="825" y="204" width="46" height="12" rx="2"/>
+    <rect class="blu" x="882" y="204" width="46" height="12" rx="2"/>
+  </g>
+
+  <!-- main flow -->
+  <path class="flow" d="M 194 193 L 248 193"/>
+  <path class="flow" d="M 434 193 L 488 193"/>
+  <path class="flow" d="M 678 193 L 732 193"/>
+
+  <!-- detector families -->
+  <g>
+    <rect class="det detA" x="700" y="300" width="262" height="86" rx="10"/>
+    <text class="hd"  x="831" y="324" text-anchor="middle">Composite detectors</text>
+    <text class="sub" x="831" y="342" text-anchor="middle">CNN / DETR box &amp; mask heads</text>
+    <text class="sub" x="831" y="356" text-anchor="middle">AO-DETR · CSPCL · YOLO / Mamba</text>
+    <text class="sub" x="831" y="370" text-anchor="middle">see the operator's colour image;</text>
+    <text class="sub" x="831" y="382" text-anchor="middle">inherit its material convention</text>
+  </g>
+  <g>
+    <rect class="det detB" x="250" y="300" width="290" height="86" rx="10"/>
+    <text class="hd"  x="395" y="324" text-anchor="middle">Material-aware detectors</text>
+    <text class="sub" x="395" y="342" text-anchor="middle">XMC R-CNN · energy-response CNNs</text>
+    <text class="sub" x="395" y="356" text-anchor="middle">tap raw low/high-E channels</text>
+    <text class="sub" x="395" y="370" text-anchor="middle">before compositing — keep the</text>
+    <text class="sub" x="395" y="382" text-anchor="middle">physical Z cue compositing hides</text>
+  </g>
+
+  <!-- taps -->
+  <path class="tap" d="M 848 226 L 848 298"/>
+  <path class="tap" d="M 342 226 L 371 298"/>
+
+  <!-- caption -->
+  <text class="cap" x="18" y="34">Transmission superposes every object along the ray: overlap is additive, not occluding —</text>
+  <text class="cap" x="18" y="52">so where you tap (physical channels vs. operator composite) is this modality's accuracy knob.</text>
+
+  <!-- overlap glyph: three translucent shapes stacking additively -->
+  <g transform="translate(560,20)">
+    <text class="sub" x="150" y="14" text-anchor="middle">additive superposition (a knife behind a laptop is still on the ray)</text>
+    <rect class="org" x="60"  y="26" width="120" height="46" rx="4" opacity="0.35"/>
+    <rect class="blu" x="120" y="34" width="86"  height="30" rx="3" opacity="0.6"/>
+    <rect class="grn" x="170" y="30" width="60"  height="40" rx="3" opacity="0.5"/>
+  </g>
+</svg>
