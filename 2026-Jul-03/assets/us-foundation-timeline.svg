@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif" fill="currentColor" role="img" aria-label="Timeline of the ultrasound foundation-model wave, 2023 to 2026, across three lineages">
+  <style>
+    .t{fill:currentColor}.mut{fill:currentColor;opacity:.66}.hd{font-weight:700}
+    .blu{fill:#3b82f6}.tea{fill:#14b8a6}.amb{fill:#f59e0b}
+    .lblu{fill:rgba(59,130,246,.14);stroke:#3b82f6}
+    .ltea{fill:rgba(20,184,166,.14);stroke:#14b8a6}
+    .lamb{fill:rgba(245,158,11,.14);stroke:#f59e0b}
+  </style>
+
+  <text x="16" y="26" class="hd t" font-size="17">The ultrasound foundation-model wave, 2023 → 2026</text>
+  <text x="16" y="45" class="mut" font-size="11.5">Three lineages, all aimed at the same wall: no labelled ultrasound ImageNet.</text>
+
+  <!-- year gridlines -->
+  <g stroke="currentColor" stroke-width="1" opacity=".22">
+    <line x1="150" y1="60" x2="150" y2="330"/>
+    <line x1="340" y1="60" x2="340" y2="330"/>
+    <line x1="560" y1="60" x2="560" y2="330"/>
+    <line x1="780" y1="60" x2="780" y2="330"/>
+  </g>
+  <g class="mut" font-size="11" text-anchor="middle">
+    <text x="150" y="76">2023</text><text x="340" y="76">2024</text><text x="560" y="76">2025</text><text x="780" y="76">2026</text>
+  </g>
+
+  <!-- row labels -->
+  <g font-size="11.5" class="hd">
+    <text x="16" y="122" class="tea">Prompt-SAM /</text><text x="16" y="136" class="tea">segmentation</text>
+    <text x="16" y="202" class="blu">SSL: MAE /</text><text x="16" y="216" class="blu">JEPA encoders</text>
+    <text x="16" y="282" class="amb">Video / VLM</text><text x="16" y="296" class="amb">(echo-led)</text>
+  </g>
+
+  <!-- rails -->
+  <g stroke-width="2" opacity=".55">
+    <line x1="150" y1="125" x2="820" y2="125" class="stea" stroke="#14b8a6"/>
+    <line x1="340" y1="205" x2="820" y2="205" stroke="#3b82f6"/>
+    <line x1="340" y1="285" x2="820" y2="285" stroke="#f59e0b"/>
+  </g>
+
+  <!-- SAM row nodes -->
+  <g font-size="10.5" text-anchor="middle">
+    <circle cx="150" cy="125" r="6" class="tea"/><text x="150" y="108" class="t hd">SAMUS</text>
+    <circle cx="560" cy="125" r="6" class="tea"/><text x="520" y="108" class="t hd">UltraSam</text><text x="520" y="150" class="mut">US-43d · 280K</text>
+    <circle cx="600" cy="125" r="6" class="tea"/><text x="632" y="150" class="t">Sam2Rad</text>
+    <circle cx="640" cy="125" r="6" class="tea"/><text x="660" y="108" class="t">SAM-MedUS</text>
+    <circle cx="790" cy="125" r="6" class="tea"/><text x="792" y="108" class="t hd">SAMTNU</text><text x="792" y="150" class="mut">DG-SAM</text>
+  </g>
+
+  <!-- SSL row nodes -->
+  <g font-size="10.5" text-anchor="middle">
+    <circle cx="340" cy="205" r="6" class="blu"/><text x="340" y="188" class="t hd">USFM</text><text x="340" y="230" class="mut">20% labels</text>
+    <circle cx="560" cy="205" r="6" class="blu"/><text x="560" y="188" class="t">V-JEPA seg</text>
+    <circle cx="790" cy="205" r="6" class="blu"/><text x="770" y="188" class="t hd">USF-MAE</text><text x="805" y="230" class="mut">PolarMAE</text>
+    <circle cx="815" cy="205" r="6" class="blu"/>
+  </g>
+
+  <!-- Video row nodes -->
+  <g font-size="10.5" text-anchor="middle">
+    <circle cx="340" cy="285" r="6" class="amb"/><text x="340" y="268" class="t hd">EchoCLIP</text><text x="340" y="310" class="mut">1M videos</text>
+    <circle cx="560" cy="285" r="6" class="amb"/><text x="540" y="268" class="t">PanEcho</text>
+    <circle cx="600" cy="285" r="6" class="amb"/><text x="628" y="268" class="t">EchoFM</text><text x="612" y="310" class="mut">20M frames</text>
+    <circle cx="790" cy="285" r="6" class="amb"/><text x="790" y="268" class="t hd">EchoPrime</text><text x="790" y="310" class="mut">12M pairs · Nature</text>
+    <circle cx="815" cy="285" r="6" class="amb"/>
+  </g>
+
+  <text x="16" y="350" class="mut" font-size="9.5">Positions approximate first-release quarter; 2026 entries are preprints. Not to exact scale.</text>
+  <defs><style>.stea{}</style></defs>
+</svg>
