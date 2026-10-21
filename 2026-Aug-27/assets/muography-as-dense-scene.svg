@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A muography image shown as a dense detection-and-classification scene. Cosmic-ray muons rain down from the whole sky for free, with a flux that falls roughly as cosine-squared of the zenith angle, so the illumination is one-sided and uneven. There are two imaging geometries. In transmission or absorption muography, detectors sit below or beside a very large object such as a volcano or a pyramid and count how many muons survive along each line of sight; a low-density void lets extra muons through and shows up as a bright patch, while dense rock absorbs them. In muon scattering tomography, two tracking planes sit above and below a smaller object such as a cargo container or a spent-fuel cask; each muon enters on a straight track and leaves on a kinked track, and the size of the kink grows with the atomic number Z of the material it passed through, so a high-Z object like uranium or lead scatters strongly. The point of closest approach of the in and out tracks localizes where the scattering happened. The computer-vision jobs are: reconstruct a dense density or scattering field from sparse noisy tracks, detect objects such as voids, high-Z cores, and missing fuel assemblies, and classify the material Z in every voxel.">
+  <title>A muon image = free cosmic-ray illumination through solid matter, turned into a dense field of voids and high-Z objects to find and label</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="17" font-weight="800">A muon image = the sky's free particle beam, printed through solid matter &#8594; a dense scene of voids &amp; dense cores</text>
+
+  <!-- ============ Panel 1: the free, one-sided illumination ============ -->
+  <g>
+    <rect x="24" y="52" width="238" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="74" fill="#94a3b8" font-size="11.5">1 &#183; the illumination is free &amp; uneven</text>
+
+    <!-- muon rain -->
+    <g stroke="#38bdf8" stroke-width="1.6">
+      <line x1="60" y1="92" x2="78" y2="150" marker-end="url(#mtip)"/>
+      <line x1="110" y1="92" x2="120" y2="150" marker-end="url(#mtip)"/>
+      <line x1="160" y1="92" x2="162" y2="150" marker-end="url(#mtip)"/>
+      <line x1="210" y1="92" x2="204" y2="150" marker-end="url(#mtip)"/>
+    </g>
+    <defs>
+      <marker id="mtip" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0 0 L6 3 L0 6 z" fill="#38bdf8"/>
+      </marker>
+    </defs>
+    <text x="38" y="172" fill="#7dd3fc" font-size="10">cosmic-ray &#956;&#8314;/&#956;&#8315; rain, all sky</text>
+
+    <!-- cos^2 flux lobe -->
+    <path d="M143 300 C 143 232, 90 210, 60 232 C 100 250, 120 275, 143 300 Z" fill="#1e3a8a" opacity="0.55"/>
+    <path d="M143 300 C 143 232, 196 210, 226 232 C 186 250, 166 275, 143 300 Z" fill="#1e3a8a" opacity="0.55"/>
+    <line x1="143" y1="300" x2="143" y2="212" stroke="#64748b" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="143" cy="300" r="4" fill="#fbbf24"/>
+    <text x="150" y="228" fill="#fbbf24" font-size="9.5">zenith (most flux)</text>
+    <text x="38" y="330" fill="#cbd5e1" font-size="10">flux &#8776; cos&#178;&#952; &#183; ~1 &#956;/cm&#178;/min</text>
+    <text x="38" y="346" fill="#cbd5e1" font-size="10">at sea level, near-horizontal</text>
+    <text x="38" y="362" fill="#cbd5e1" font-size="10">rays are rare &amp; precious</text>
+
+    <rect x="38" y="384" width="210" height="92" rx="6" fill="#111827" stroke="#334155" stroke-width="1"/>
+    <text x="50" y="404" fill="#f8fafc" font-size="10.5" font-weight="700">Consequence for vision:</text>
+    <text x="50" y="422" fill="#93c5fd" font-size="10">&#8226; no source to turn up &#8594; expose</text>
+    <text x="60" y="436" fill="#93c5fd" font-size="10">for hours&#8211;months to beat noise</text>
+    <text x="50" y="454" fill="#93c5fd" font-size="10">&#8226; Poisson-sparse counts &#8594; the</text>
+    <text x="60" y="468" fill="#93c5fd" font-size="10">image is born starved &amp; noisy</text>
+  </g>
+
+  <!-- ============ Panel 2: transmission / absorption ============ -->
+  <g>
+    <rect x="278" y="52" width="330" height="440" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1.5"/>
+    <text x="292" y="74" fill="#155e75" font-size="11.5" font-weight="700">2 &#183; transmission muography &#8212; count the survivors</text>
+
+    <!-- rays through a mountain -->
+    <g stroke="#38bdf8" stroke-width="1.3" opacity="0.9">
+      <line x1="300" y1="96" x2="360" y2="300"/>
+      <line x1="340" y1="96" x2="392" y2="300"/>
+      <line x1="470" y1="96" x2="452" y2="300"/>
+    </g>
+    <!-- the void ray (survives) -->
+    <line x1="405" y1="96" x2="422" y2="300" stroke="#facc15" stroke-width="2.4"/>
+
+    <!-- mountain / pyramid body -->
+    <path d="M300 300 L455 150 L610 300 Z" fill="#0b1220" stroke="#334155" stroke-width="1.5" opacity="0.92"/>
+    <text x="470" y="285" fill="#94a3b8" font-size="9.5">dense rock (absorbs &#956;)</text>
+    <!-- the void -->
+    <ellipse cx="430" cy="238" rx="20" ry="13" fill="#fde68a"/>
+    <text x="452" y="224" fill="#a16207" font-size="9.5" font-weight="700">void</text>
+
+    <!-- detector below -->
+    <rect x="360" y="306" width="120" height="16" rx="3" fill="#1e293b"/>
+    <text x="360" y="336" fill="#0e7490" font-size="9.5">detector: hits per (&#952;,&#966;) direction</text>
+
+    <!-- flux-map histogram: void = bright bin -->
+    <g transform="translate(300,352)">
+      <rect x="0" y="0" width="290" height="110" rx="6" fill="#0b1220" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="18" fill="#e2e8f0" font-size="10" font-weight="700">observed / expected flux map</text>
+      <g fill="#334155">
+        <rect x="14" y="70" width="16" height="24"/><rect x="34" y="66" width="16" height="28"/>
+        <rect x="54" y="72" width="16" height="22"/><rect x="74" y="60" width="16" height="34"/>
+        <rect x="94" y="64" width="16" height="30"/>
+      </g>
+      <rect x="118" y="40" width="16" height="54" fill="#facc15"/>
+      <g fill="#334155">
+        <rect x="142" y="62" width="16" height="32"/><rect x="162" y="68" width="16" height="26"/>
+        <rect x="182" y="66" width="16" height="28"/><rect x="202" y="72" width="16" height="22"/>
+        <rect x="222" y="60" width="16" height="34"/><rect x="242" y="70" width="16" height="24"/>
+        <rect x="262" y="66" width="16" height="28"/>
+      </g>
+      <text x="118" y="34" fill="#fde68a" font-size="9">excess &#8594; void</text>
+    </g>
+  </g>
+
+  <!-- ============ Panel 3: scattering ============ -->
+  <g>
+    <rect x="624" y="52" width="312" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="638" y="74" fill="#94a3b8" font-size="11.5">3 &#183; scattering tomography &#8212; measure the kink</text>
+
+    <!-- top tracker -->
+    <rect x="648" y="96" width="264" height="12" rx="2" fill="#1e293b"/>
+    <text x="648" y="92" fill="#64748b" font-size="9">tracking planes (in)</text>
+    <!-- bottom tracker -->
+    <rect x="648" y="372" width="264" height="12" rx="2" fill="#1e293b"/>
+    <text x="648" y="402" fill="#64748b" font-size="9">tracking planes (out) &#8594; angle change &#916;&#952;</text>
+
+    <!-- low-Z muon: near straight -->
+    <line x1="700" y1="108" x2="712" y2="230" stroke="#38bdf8" stroke-width="1.6"/>
+    <line x1="712" y1="230" x2="726" y2="372" stroke="#38bdf8" stroke-width="1.6"/>
+    <text x="662" y="250" fill="#7dd3fc" font-size="9">low-Z: small kink</text>
+
+    <!-- high-Z muon: big kink -->
+    <line x1="820" y1="108" x2="834" y2="236" stroke="#f87171" stroke-width="1.8"/>
+    <line x1="834" y1="236" x2="882" y2="372" stroke="#f87171" stroke-width="1.8"/>
+    <circle cx="834" cy="236" r="4" fill="#fbbf24"/>
+    <text x="844" y="232" fill="#fca5a5" font-size="9">high-Z: big kink (PoCA)</text>
+
+    <!-- the object -->
+    <rect x="700" y="208" width="150" height="56" rx="6" fill="#111827" stroke="#475569" stroke-width="1.5"/>
+    <rect x="808" y="216" width="30" height="40" rx="3" fill="#ef4444" opacity="0.9"/>
+    <text x="712" y="240" fill="#cbd5e1" font-size="10">cargo / cask</text>
+    <text x="792" y="284" fill="#fca5a5" font-size="9">high-Z core (U, Pb, W)</text>
+
+    <rect x="638" y="398" width="284" height="0" />
+    <rect x="638" y="410" width="284" height="70" rx="6" fill="#111827" stroke="#334155" stroke-width="1"/>
+    <text x="650" y="430" fill="#f8fafc" font-size="10.5" font-weight="700">scattering density &#8801; Z-map:</text>
+    <text x="650" y="448" fill="#93c5fd" font-size="10">&#916;&#952;&#178; &#8733; (1/p&#178;)&#183;(L/X&#8320;), and X&#8320; falls with Z</text>
+    <text x="650" y="464" fill="#93c5fd" font-size="10">&#8594; per-voxel scattering strength &#8594; material class</text>
+  </g>
+
+  <!-- ============ bottom: the three CV jobs ============ -->
+  <g transform="translate(0,498)">
+    <text x="24" y="12" fill="#334155" font-size="11" font-weight="700">Three coupled CV jobs on this field:</text>
+    <text x="250" y="12" fill="#0e7490" font-size="11" font-weight="700">reconstruct</text>
+    <text x="345" y="12" fill="#64748b" font-size="11">dense field from sparse tracks &#8226;</text>
+    <text x="565" y="12" fill="#b45309" font-size="11" font-weight="700">detect</text>
+    <text x="612" y="12" fill="#64748b" font-size="11">voids / high-Z cores / missing assemblies &#8226;</text>
+    <text x="835" y="12" fill="#7c3aed" font-size="11" font-weight="700">classify</text>
+    <text x="890" y="12" fill="#64748b" font-size="11">Z</text>
+  </g>
+</svg>
