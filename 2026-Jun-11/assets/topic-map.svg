@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Topic map for the 2026-Jun-11 CV update">
+  <title>Topic map — 2026-Jun-11 CV update</title>
+  <desc>A clustered topic map of eight dense-detection-and-classification threads grouped under three axes: detection paradigms, open-vocabulary and zero-shot recognition, and adaptation and domain foundation models. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .axis  { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-dasharray: 4 3; opacity: 0.45; }
+    .link  { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: 0.4; }
+    .hub   { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .hublbl{ font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: currentColor; }
+    .label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12.5px; font-weight: 600; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.78; }
+    .axlbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: currentColor; letter-spacing: 0.04em; }
+    .node  { stroke: currentColor; stroke-width: 1.4; }
+    .det   { fill: rgba(59,130,246,0.18); }
+    .rec   { fill: rgba(244,114,182,0.18); }
+    .ada   { fill: rgba(16,185,129,0.18); }
+  </style>
+
+  <!-- axes -->
+  <line class="axis" x1="450" y1="40"  x2="450" y2="520"/>
+  <line class="axis" x1="40"  y1="280" x2="860" y2="280"/>
+  <text class="axlbl" x="450" y="26"  text-anchor="middle">DETECTION PARADIGMS  &#8593;</text>
+  <text class="axlbl" x="856" y="140" text-anchor="end">OPEN-VOCAB &amp; ZERO-SHOT RECOGNITION  &#8594;</text>
+  <text class="axlbl" x="44"  y="445" text-anchor="start">&#8592;  ADAPTATION &amp; DOMAIN FOUNDATION MODELS</text>
+
+  <!-- links from hub -->
+  <line class="link" x1="450" y1="280" x2="240" y2="135"/>
+  <line class="link" x1="450" y1="280" x2="450" y2="92"/>
+  <line class="link" x1="450" y1="280" x2="660" y2="135"/>
+  <line class="link" x1="450" y1="280" x2="752" y2="280"/>
+  <line class="link" x1="450" y1="280" x2="660" y2="420"/>
+  <line class="link" x1="450" y1="280" x2="450" y2="478"/>
+  <line class="link" x1="450" y1="280" x2="240" y2="420"/>
+  <line class="link" x1="450" y1="280" x2="148" y2="280"/>
+
+  <!-- central hub -->
+  <circle class="hub" cx="450" cy="280" r="50"/>
+  <text class="hublbl" x="450" y="276" text-anchor="middle">Dense detection</text>
+  <text class="hublbl" x="450" y="294" text-anchor="middle">&amp; classification</text>
+
+  <!-- DETECTION PARADIGMS (top, blue) -->
+  <g>
+    <rect class="node det" x="142" y="112" width="196" height="46" rx="8"/>
+    <text class="label" x="240" y="132" text-anchor="middle">DETR convergence</text>
+    <text class="sub"   x="240" y="148" text-anchor="middle">DN · DINO · Co-DETR · Stable</text>
+  </g>
+  <g>
+    <rect class="node det" x="352" y="69" width="196" height="46" rx="8"/>
+    <text class="label" x="450" y="89" text-anchor="middle">Generative detection</text>
+    <text class="sub"   x="450" y="105" text-anchor="middle">Pix2Seq · GiT · ChatRex</text>
+  </g>
+  <g>
+    <rect class="node det" x="562" y="112" width="196" height="46" rx="8"/>
+    <text class="label" x="660" y="132" text-anchor="middle">Pose &amp; keypoint</text>
+    <text class="sub"   x="660" y="148" text-anchor="middle">ViTPose · RTMPose · Sapiens</text>
+  </g>
+
+  <!-- OPEN-VOCAB & ZERO-SHOT RECOGNITION (right/bottom, pink) -->
+  <g>
+    <rect class="node rec" x="654" y="257" width="200" height="46" rx="8"/>
+    <text class="label" x="754" y="277" text-anchor="middle">CLIP successors</text>
+    <text class="sub"   x="754" y="293" text-anchor="middle">SigLIP 2 · MetaCLIP 2 · AIMv2</text>
+  </g>
+  <g>
+    <rect class="node rec" x="562" y="397" width="196" height="46" rx="8"/>
+    <text class="label" x="660" y="417" text-anchor="middle">OV tagging &amp; attributes</text>
+    <text class="sub"   x="660" y="433" text-anchor="middle">RAM++ · OVAD · OvarNet</text>
+  </g>
+  <g>
+    <rect class="node rec" x="352" y="455" width="196" height="46" rx="8"/>
+    <text class="label" x="450" y="475" text-anchor="middle">OV 3D classification</text>
+    <text class="sub"   x="450" y="491" text-anchor="middle">PointCLIP · Uni3D · OpenShape</text>
+  </g>
+
+  <!-- ADAPTATION & DOMAIN FOUNDATION MODELS (left, green) -->
+  <g>
+    <rect class="node ada" x="142" y="397" width="196" height="46" rx="8"/>
+    <text class="label" x="240" y="417" text-anchor="middle">Prompt learning / TPT</text>
+    <text class="sub"   x="240" y="433" text-anchor="middle">CoOp · MaPLe · TPT</text>
+  </g>
+  <g>
+    <rect class="node ada" x="46" y="257" width="200" height="46" rx="8"/>
+    <text class="label" x="146" y="277" text-anchor="middle">Earth-observation FMs</text>
+    <text class="sub"   x="146" y="293" text-anchor="middle">Prithvi-2 · Clay · DOFA</text>
+  </g>
+</svg>

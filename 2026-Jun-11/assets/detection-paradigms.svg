@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="Object-detection output paradigms spectrum">
+  <title>Detection output paradigms — dense grid, set prediction, sequence generation, language</title>
+  <desc>A left-to-right spectrum of four ways a model can emit object detections: a dense grid of anchors (YOLO), a fixed set of learned queries matched one-to-one (DETR family), a serialised token sequence (Pix2Seq), and free-form language with coordinates (LLM detectors). Each column lists how boxes are produced, whether NMS is needed, and the open-vocabulary story. Colours use translucent fills with a currentColor stroke so the figure adapts to light and dark themes.</desc>
+  <style>
+    .col   { stroke: currentColor; stroke-width: 1.4; }
+    .c1    { fill: rgba(59,130,246,0.16); }
+    .c2    { fill: rgba(16,185,129,0.16); }
+    .c3    { fill: rgba(168,85,247,0.16); }
+    .c4    { fill: rgba(244,114,182,0.16); }
+    .head  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: currentColor; }
+    .sub   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; opacity: 0.82; }
+    .row   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; fill: currentColor; }
+    .tag   { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; font-weight: 600; fill: currentColor; opacity: 0.7; letter-spacing: 0.05em; }
+    .arrow { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: 0.6; marker-end: url(#ah); }
+    .axis  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; opacity: 0.75; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <text class="tag" x="30" y="28">OUTPUT REPRESENTATION  &#8594;  more language-native, more open-vocabulary</text>
+  <line class="arrow" x1="30" y1="40" x2="700" y2="40"/>
+
+  <!-- column 1 -->
+  <rect class="col c1" x="24"  y="60" width="200" height="250" rx="10"/>
+  <text class="head" x="124" y="86"  text-anchor="middle">Dense grid</text>
+  <text class="sub"  x="124" y="104" text-anchor="middle">YOLO / FCOS / RetinaNet</text>
+  <text class="row"  x="40"  y="138">• box per anchor / point</text>
+  <text class="row"  x="40"  y="162">• needs NMS*</text>
+  <text class="row"  x="40"  y="186">• fixed closed-set head</text>
+  <text class="row"  x="40"  y="210">• fastest, edge-friendly</text>
+  <text class="row"  x="40"  y="234">• *YOLO26 / DETR-style</text>
+  <text class="row"  x="40"  y="258">  variants drop NMS</text>
+
+  <!-- column 2 -->
+  <rect class="col c2" x="244" y="60" width="200" height="250" rx="10"/>
+  <text class="head" x="344" y="86"  text-anchor="middle">Set prediction</text>
+  <text class="sub"  x="344" y="104" text-anchor="middle">DETR · DINO · Co-DETR</text>
+  <text class="row"  x="260" y="138">• N learned queries</text>
+  <text class="row"  x="260" y="162">• one-to-one matching</text>
+  <text class="row"  x="260" y="186">• NMS-free by design</text>
+  <text class="row"  x="260" y="210">• denoising = fast train</text>
+  <text class="row"  x="260" y="234">• one-to-many aux loss</text>
+  <text class="row"  x="260" y="258">  (Co-DETR, H-DETR)</text>
+
+  <!-- column 3 -->
+  <rect class="col c3" x="464" y="60" width="200" height="250" rx="10"/>
+  <text class="head" x="564" y="86"  text-anchor="middle">Sequence gen.</text>
+  <text class="sub"  x="564" y="104" text-anchor="middle">Pix2Seq · GiT · UNINEXT</text>
+  <text class="row"  x="480" y="138">• boxes as tokens</text>
+  <text class="row"  x="480" y="162">• autoregressive decode</text>
+  <text class="row"  x="480" y="186">• no NMS, no anchors</text>
+  <text class="row"  x="480" y="210">• one interface, many</text>
+  <text class="row"  x="480" y="234">  tasks (det/seg/cap)</text>
+  <text class="row"  x="480" y="258">• slower decoding</text>
+
+  <!-- column 4 -->
+  <rect class="col c4" x="684" y="60" width="200" height="250" rx="10"/>
+  <text class="head" x="784" y="86"  text-anchor="middle">Language + coords</text>
+  <text class="sub"  x="784" y="104" text-anchor="middle">ChatRex · Griffon · GenU</text>
+  <text class="row"  x="700" y="138">• MLLM emits names</text>
+  <text class="row"  x="700" y="162">  + coordinates</text>
+  <text class="row"  x="700" y="186">• open-ended vocab</text>
+  <text class="row"  x="700" y="210">• grounding + reasoning</text>
+  <text class="row"  x="700" y="234">• weak at dense/many</text>
+  <text class="row"  x="700" y="258">  small objects</text>
+</svg>
