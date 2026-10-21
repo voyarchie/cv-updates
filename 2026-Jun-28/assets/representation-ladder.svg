@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 340" role="img" aria-label="Representation and processing ladder for event-camera detectors">
+  <title>Representation / processing ladder — event-camera detectors</title>
+  <desc>A left-to-right ladder over how event detectors trade synchrony for latency and efficiency. From left: dense-frame conversion (accumulate events into a voxel-grid frame at a fixed rate, then run a standard dense detector such as RVT — simplest, but quantizes time and processes empty space). Then fully-sparse dense-frame processing (SMamba, SparseVoxelDet — compute only at occupied sites, linear or sub-linear in event count). Then spiking networks (EMS-YOLO, SpikeYOLO — binary spikes over a few time steps, native to neuromorphic hardware, energy measured in synaptic operations). Finally asynchronous graph processing (AEGNN, HUGNet v2 — update only the nodes a new event touches, microsecond latency, no fixed frame at all). A bottom axis runs from fixed-rate, frame-synchronous on the left to event-by-event, asynchronous on the right.</desc>
+  <style>
+    .box  { stroke: currentColor; stroke-width: 1.3; }
+    .s1   { fill: rgba(100,116,139,0.18); }
+    .s2   { fill: rgba(59,130,246,0.16); }
+    .s3   { fill: rgba(245,158,11,0.16); }
+    .s4   { fill: rgba(16,185,129,0.18); }
+    .ttl  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; font-weight: 600; fill: currentColor; }
+    .sub  { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10.5px; fill: currentColor; opacity: 0.80; }
+    .cost { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; fill: currentColor; opacity: 0.9; }
+    .flow { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .axis { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: currentColor; letter-spacing: 0.03em; }
+    .note { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; fill: currentColor; opacity: 0.7; }
+  </style>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <text class="axis" x="36" y="34">fixed-rate · frame-synchronous  ─────────────────────────▶  event-by-event · asynchronous · µs latency</text>
+
+  <g>
+    <rect class="box s1" x="36"  y="64" width="210" height="138" rx="10"/>
+    <text class="ttl"  x="141" y="92"  text-anchor="middle">Dense-frame</text>
+    <text class="sub"  x="141" y="114" text-anchor="middle">accumulate → voxel grid</text>
+    <text class="sub"  x="141" y="131" text-anchor="middle">RVT · SSM-ViT · GET</text>
+    <text class="sub"  x="141" y="148" text-anchor="middle">std. detector head</text>
+    <text class="cost" x="141" y="178" text-anchor="middle">quantizes time</text>
+  </g>
+
+  <g>
+    <rect class="box s2" x="280" y="64" width="210" height="138" rx="10"/>
+    <text class="ttl"  x="385" y="92"  text-anchor="middle">Fully-sparse frame</text>
+    <text class="sub"  x="385" y="114" text-anchor="middle">compute at occupied sites</text>
+    <text class="sub"  x="385" y="131" text-anchor="middle">SMamba · SparseVoxelDet</text>
+    <text class="sub"  x="385" y="148" text-anchor="middle">linear-time SSM scan</text>
+    <text class="cost" x="385" y="178" text-anchor="middle">O(occupied)</text>
+  </g>
+
+  <g>
+    <rect class="box s3" x="524" y="64" width="210" height="138" rx="10"/>
+    <text class="ttl"  x="629" y="92"  text-anchor="middle">Spiking (SNN)</text>
+    <text class="sub"  x="629" y="114" text-anchor="middle">binary spikes · few steps</text>
+    <text class="sub"  x="629" y="131" text-anchor="middle">EMS-YOLO · SpikeYOLO</text>
+    <text class="sub"  x="629" y="148" text-anchor="middle">neuromorphic-HW native</text>
+    <text class="cost" x="629" y="178" text-anchor="middle">energy ≈ #spikes</text>
+  </g>
+
+  <g>
+    <rect class="box s4" x="768" y="64" width="210" height="138" rx="10"/>
+    <text class="ttl"  x="873" y="92"  text-anchor="middle">Async graph</text>
+    <text class="sub"  x="873" y="114" text-anchor="middle">update touched nodes only</text>
+    <text class="sub"  x="873" y="131" text-anchor="middle">AEGNN · HUGNet v2</text>
+    <text class="sub"  x="873" y="148" text-anchor="middle">no fixed frame</text>
+    <text class="cost" x="873" y="178" text-anchor="middle">O(Δ events)</text>
+  </g>
+
+  <line class="flow" x1="246" y1="133" x2="278" y2="133" marker-end="url(#arr)"/>
+  <line class="flow" x1="490" y1="133" x2="522" y2="133" marker-end="url(#arr)"/>
+  <line class="flow" x1="734" y1="133" x2="766" y2="133" marker-end="url(#arr)"/>
+
+  <text class="note" x="490" y="244" text-anchor="middle">accuracy still highest on the left (dense-frame transformers); the field is dragging it rightward without losing it</text>
+  <text class="note" x="490" y="262" text-anchor="middle">hybrids (event branch + periodic aggregation) try to get async latency with frame-level accuracy</text>
+</svg>
