@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Signal chain that forms a seismic reflection image: acoustic impedance contrasts to reflectivity, convolved with a band-limited wavelet plus noise, acquired as prestack shot gathers, migrated into a poststack volume that feeds computer-vision tasks">
+  <title>How a seismic reflection image is formed &#8212; and why it is a distinct CV primitive</title>
+  <defs>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- flow arrows -->
+  <g stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#a2)">
+    <line x1="212" y1="128" x2="262" y2="128"/>
+    <line x1="474" y1="128" x2="524" y2="128"/>
+    <line x1="736" y1="128" x2="786" y2="128"/>
+    <line x1="118" y1="238" x2="118" y2="300"/>
+  </g>
+
+  <!-- Stage 1: Earth / impedance -->
+  <g>
+    <rect x="24" y="66" width="188" height="124" rx="10" fill="#0d9488" stroke="#0f766e"/>
+    <text x="118" y="90" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">1 &#183; The subsurface</text>
+    <text x="118" y="110" text-anchor="middle" fill="#ccfbf1" font-size="10.5">layered acoustic impedance</text>
+    <text x="118" y="125" text-anchor="middle" fill="#ccfbf1" font-size="10.5">Z = &#961;&#183;v (density &#215; velocity)</text>
+    <text x="118" y="146" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">reflectivity at boundaries</text>
+    <text x="118" y="163" text-anchor="middle" fill="#ccfbf1" font-size="10.5">R = (Z&#8322;&#8722;Z&#8321;) / (Z&#8322;+Z&#8321;)</text>
+    <text x="118" y="180" text-anchor="middle" fill="#ccfbf1" font-size="10.5">only contrasts are seen</text>
+  </g>
+
+  <!-- Stage 2: convolution model -->
+  <g>
+    <rect x="262" y="66" width="212" height="124" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="368" y="90" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">2 &#183; Convolutional trace</text>
+    <text x="368" y="112" text-anchor="middle" fill="#e0e7ff" font-size="11">trace = R &#8727; wavelet + noise</text>
+    <text x="368" y="132" text-anchor="middle" fill="#e0e7ff" font-size="10.5">the source wavelet is</text>
+    <text x="368" y="148" text-anchor="middle" fill="#e0e7ff" font-size="10.5">band-limited &#8212; missing the</text>
+    <text x="368" y="164" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">low &amp; high frequencies</text>
+    <text x="368" y="181" text-anchor="middle" fill="#e0e7ff" font-size="10.5">(the &#8220;spectral hole&#8221;)</text>
+  </g>
+
+  <!-- Stage 3: acquisition (prestack) -->
+  <g>
+    <rect x="524" y="66" width="212" height="124" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="630" y="90" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">3 &#183; Acquisition</text>
+    <text x="630" y="112" text-anchor="middle" fill="#cffafe" font-size="10.5">sources fire; geophone /</text>
+    <text x="630" y="128" text-anchor="middle" fill="#cffafe" font-size="10.5">hydrophone arrays record</text>
+    <text x="630" y="148" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">prestack shot gathers</text>
+    <text x="630" y="165" text-anchor="middle" fill="#cffafe" font-size="10.5">(time &#215; offset), redundant,</text>
+    <text x="630" y="181" text-anchor="middle" fill="#cffafe" font-size="10.5">multiple-contaminated</text>
+  </g>
+
+  <!-- Stage 4: migration / imaging -->
+  <g>
+    <rect x="786" y="66" width="130" height="124" rx="10" fill="#7c3aed" stroke="#6d28d9"/>
+    <text x="851" y="90" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">4 &#183; Migration</text>
+    <text x="851" y="112" text-anchor="middle" fill="#ede9fe" font-size="10">move energy to</text>
+    <text x="851" y="127" text-anchor="middle" fill="#ede9fe" font-size="10">its true reflector</text>
+    <text x="851" y="142" text-anchor="middle" fill="#ede9fe" font-size="10">position; needs a</text>
+    <text x="851" y="157" text-anchor="middle" fill="#ede9fe" font-size="10">velocity model</text>
+    <text x="851" y="176" text-anchor="middle" fill="#ffffff" font-size="10.5" font-weight="700">&#8594; the image</text>
+  </g>
+
+  <!-- Stage 5: poststack volume (the primitive) -->
+  <g>
+    <rect x="24" y="300" width="512" height="150" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="280" y="326" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">5 &#183; The poststack seismic volume &#8212; the primitive</text>
+    <text x="280" y="349" text-anchor="middle" fill="#cbd5e1" font-size="11.5">a 3D cube indexed by (inline, crossline, two-way time or depth);</text>
+    <text x="280" y="367" text-anchor="middle" fill="#cbd5e1" font-size="11.5">amplitude &#8776; band-limited reflectivity, not a natural image.</text>
+    <text x="280" y="392" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">What makes it its own CV modality:</text>
+    <text x="280" y="411" text-anchor="middle" fill="#cbd5e1" font-size="11">band-limited &amp; low-freq-deficient &#183; wavelet-blurred &#183; strong structured noise</text>
+    <text x="280" y="428" text-anchor="middle" fill="#cbd5e1" font-size="11">resolution decays with depth &#183; volumetric &#183; labels scarce, expert-drawn, uncertain</text>
+  </g>
+
+  <!-- spectral hole inset -->
+  <g>
+    <rect x="560" y="300" width="356" height="150" rx="12" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 4"/>
+    <text x="738" y="322" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="700">the amplitude spectrum has a hole</text>
+    <!-- axes -->
+    <line x1="590" y1="420" x2="890" y2="420" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="590" y1="420" x2="590" y2="338" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="740" y="440" text-anchor="middle" fill="#94a3b8" font-size="10">frequency &#8594;</text>
+    <!-- band-limited bump -->
+    <path d="M590,420 C 640,420 650,352 740,352 C 830,352 840,420 890,420" fill="#0891b2" fill-opacity="0.45" stroke="#22d3ee" stroke-width="2"/>
+    <text x="612" y="410" fill="#f8fafc" font-size="9.5">low</text>
+    <text x="612" y="399" fill="#f87171" font-size="9.5" font-weight="700">gap</text>
+    <text x="860" y="410" text-anchor="end" fill="#f87171" font-size="9.5" font-weight="700">gap</text>
+    <text x="740" y="372" text-anchor="middle" fill="#f8fafc" font-size="9.5">usable band</text>
+  </g>
+
+  <!-- feeds CV tasks -->
+  <g stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#a2)">
+    <line x1="280" y1="450" x2="280" y2="502"/>
+  </g>
+  <g>
+    <rect x="24" y="502" width="892" height="74" rx="10" fill="#334155" stroke="#94a3b8" stroke-width="1.2"/>
+    <text x="470" y="526" text-anchor="middle" fill="#f8fafc" font-size="12.5" font-weight="700">&#8594; feeds every dense computer-vision task in this report</text>
+    <text x="470" y="548" text-anchor="middle" fill="#cbd5e1" font-size="11">fault segmentation &#183; salt &amp; facies classification &#183; horizon / geobody tracking</text>
+    <text x="470" y="565" text-anchor="middle" fill="#cbd5e1" font-size="11">full-waveform velocity inversion (from prestack) &#183; denoise / interpolate &#183; self-supervised pretraining</text>
+  </g>
+</svg>

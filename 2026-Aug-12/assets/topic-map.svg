@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 680" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map of six seismic dense-detection and classification threads arranged around the 3D seismic reflection volume primitive">
+  <title>Reflection seismic — six dense-detection &amp; classification threads around one primitive</title>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="460" y1="340" x2="180" y2="140"/>
+    <line x1="460" y1="340" x2="460" y2="138"/>
+    <line x1="460" y1="340" x2="740" y2="140"/>
+    <line x1="460" y1="340" x2="180" y2="544"/>
+    <line x1="460" y1="340" x2="460" y2="546"/>
+    <line x1="460" y1="340" x2="740" y2="544"/>
+  </g>
+  <!-- hub -->
+  <g>
+    <rect x="300" y="278" width="320" height="124" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="460" y="306" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The 3D seismic reflection volume</text>
+    <text x="460" y="328" text-anchor="middle" fill="#cbd5e1" font-size="11.5">a migrated, band-limited echo of acoustic</text>
+    <text x="460" y="345" text-anchor="middle" fill="#cbd5e1" font-size="11.5">impedance contrasts &#8212; a low-frequency-deficient,</text>
+    <text x="460" y="362" text-anchor="middle" fill="#cbd5e1" font-size="11.5">noisy (inline, crossline, time/depth) cube whose</text>
+    <text x="460" y="379" text-anchor="middle" fill="#cbd5e1" font-size="11.5">labels are scarce and expert-drawn</text>
+  </g>
+  <!-- nodes -->
+  <g>
+    <!-- 1 fault detection -->
+    <rect x="30" y="78" width="300" height="110" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+    <text x="45" y="102" fill="#ffffff" font-size="12.5" font-weight="700">1 &#183; Fault detection (&#167;4)</text>
+    <text x="45" y="121" fill="#e0e7ff" font-size="11">discontinuities as an edge/segmentation task</text>
+    <text x="45" y="138" fill="#e0e7ff" font-size="11">FaultSeg3D synthetic-only training paradigm</text>
+    <text x="45" y="155" fill="#e0e7ff" font-size="11">3D U-Net &#8594; transformer/Swin &#8594; diffusion</text>
+    <text x="45" y="172" fill="#e0e7ff" font-size="11">weak/semi-supervision to escape hand labels</text>
+
+    <!-- 2 salt & facies -->
+    <rect x="310" y="76" width="300" height="110" rx="10" fill="#0891b2" stroke="#0e7490"/>
+    <text x="325" y="100" fill="#ffffff" font-size="12.5" font-weight="700">2 &#183; Salt &amp; facies (&#167;5)</text>
+    <text x="325" y="119" fill="#cffafe" font-size="11">geobody &amp; per-pixel stratigraphic classes</text>
+    <text x="325" y="136" fill="#cffafe" font-size="11">TGS-Salt encoder&#8211;decoders; F3/Parihaka facies</text>
+    <text x="325" y="153" fill="#cffafe" font-size="11">class imbalance, lateral continuity priors</text>
+    <text x="325" y="170" fill="#cffafe" font-size="11">section&#8211;to&#8211;volume label propagation</text>
+
+    <!-- 3 horizons & structure -->
+    <rect x="590" y="78" width="300" height="110" rx="10" fill="#0d9488" stroke="#0f766e"/>
+    <text x="605" y="102" fill="#ffffff" font-size="12.5" font-weight="700">3 &#183; Horizons &amp; structure (&#167;6)</text>
+    <text x="605" y="121" fill="#ccfbf1" font-size="11">horizon / channel / geobody tracking</text>
+    <text x="605" y="138" fill="#ccfbf1" font-size="11">first-break &amp; arrival picking as a front end</text>
+    <text x="605" y="155" fill="#ccfbf1" font-size="11">interpretation as dense correspondence</text>
+    <text x="605" y="172" fill="#ccfbf1" font-size="11">3D structural consistency across sections</text>
+
+    <!-- 4 FWI / velocity -->
+    <rect x="30" y="492" width="300" height="112" rx="10" fill="#7c3aed" stroke="#6d28d9"/>
+    <text x="45" y="516" fill="#ffffff" font-size="12.5" font-weight="700">4 &#183; FWI &amp; velocity models (&#167;7)</text>
+    <text x="45" y="535" fill="#ede9fe" font-size="11">data&#8594;model inversion as image translation</text>
+    <text x="45" y="552" fill="#ede9fe" font-size="11">InversionNet / VelocityGAN; OpenFWI suite</text>
+    <text x="45" y="569" fill="#ede9fe" font-size="11">physics/PDE-constrained &amp; generative priors</text>
+    <text x="45" y="586" fill="#ede9fe" font-size="11">the ill-posed, non-unique inverse problem</text>
+
+    <!-- 5 reconstruction -->
+    <rect x="310" y="492" width="300" height="112" rx="10" fill="#b45309" stroke="#92400e"/>
+    <text x="325" y="516" fill="#ffffff" font-size="12.5" font-weight="700">5 &#183; Reconstruction (&#167;8)</text>
+    <text x="325" y="535" fill="#fef3c7" font-size="11">denoise / interpolate / regularize / super-res</text>
+    <text x="325" y="552" fill="#fef3c7" font-size="11">diffusion &amp; score-based generative priors</text>
+    <text x="325" y="569" fill="#fef3c7" font-size="11">self-supervised (no clean ground truth)</text>
+    <text x="325" y="586" fill="#fef3c7" font-size="11">a learned front end for everything above</text>
+
+    <!-- 6 foundation models -->
+    <rect x="590" y="492" width="300" height="112" rx="10" fill="#be123c" stroke="#9f1239"/>
+    <text x="605" y="516" fill="#ffffff" font-size="12.5" font-weight="700">6 &#183; Foundation &amp; SSL (&#167;9)</text>
+    <text x="605" y="535" fill="#ffe4e6" font-size="11">masked-autoencoder pretraining on raw cubes</text>
+    <text x="605" y="552" fill="#ffe4e6" font-size="11">Seismic Foundation Model; geoscience FMs</text>
+    <text x="605" y="569" fill="#ffe4e6" font-size="11">one backbone, many interpretation heads</text>
+    <text x="605" y="586" fill="#ffe4e6" font-size="11">the answer to scarce, expensive labels</text>
+  </g>
+</svg>
