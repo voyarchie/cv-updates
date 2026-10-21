@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="VFM-as-teacher distillation pipeline for real-time detectors" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="currentColor" stroke="currentColor">
+  <title>VFM-as-teacher distillation pipeline for real-time detectors</title>
+  <desc>Image flows through both a frozen vision foundation model (teacher) and a lightweight detector backbone (student). Student deep features are aligned to the teacher's via a deep semantic injector. A gradient-guided adaptive modulation block scales the distillation loss. At inference, only the student is used.</desc>
+
+  <defs>
+    <style>
+      .node { fill: none; stroke: currentColor; stroke-width: 1.4; }
+      .accentA { stroke: #6366f1; }
+      .accentB { stroke: #14b8a6; }
+      .accentC { stroke: #f59e0b; }
+      .dashed { stroke-dasharray: 5 4; }
+      .label { font-weight: 600; }
+      .arrow { fill: currentColor; stroke: none; }
+      .muted { opacity: 0.7; }
+    </style>
+    <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <!-- Image -->
+  <rect x="20"  y="150" width="100" height="60" rx="10" class="node"/>
+  <text x="70" y="178" text-anchor="middle" class="label">Image</text>
+  <text x="70" y="196" text-anchor="middle" class="muted">batch</text>
+
+  <!-- Teacher: VFM -->
+  <rect x="170" y="40" width="180" height="100" rx="12" class="node accentA"/>
+  <text x="260" y="68"  text-anchor="middle" class="label">Vision Foundation Model</text>
+  <text x="260" y="86"  text-anchor="middle" class="muted">DINOv3 / MAE / CLIP / SigLIP 2</text>
+  <text x="260" y="106" text-anchor="middle" class="muted">frozen, training-only</text>
+  <text x="260" y="124" text-anchor="middle" class="muted">F_t  (high-level patch tokens)</text>
+
+  <!-- Student backbone -->
+  <rect x="170" y="220" width="180" height="100" rx="12" class="node accentB"/>
+  <text x="260" y="248" text-anchor="middle" class="label">Real-time backbone</text>
+  <text x="260" y="266" text-anchor="middle" class="muted">CSP / HGNet / DINOv3-distilled</text>
+  <text x="260" y="284" text-anchor="middle" class="muted">+ encoder &amp; decoder</text>
+  <text x="260" y="304" text-anchor="middle" class="muted">F_s  (AIFI deep feature)</text>
+
+  <!-- Arrows from Image -->
+  <line x1="120" y1="170" x2="170" y2="90"  class="node" marker-end="url(#head)"/>
+  <line x1="120" y1="190" x2="170" y2="270" class="node" marker-end="url(#head)"/>
+
+  <!-- Deep Semantic Injector -->
+  <rect x="400" y="130" width="160" height="100" rx="12" class="node accentC"/>
+  <text x="480" y="158" text-anchor="middle" class="label">Deep Semantic</text>
+  <text x="480" y="176" text-anchor="middle" class="label">Injector (DSI)</text>
+  <text x="480" y="196" text-anchor="middle" class="muted">align F_s ↔ F_t</text>
+  <text x="480" y="214" text-anchor="middle" class="muted">single-layer adapter</text>
+
+  <line x1="350" y1="120" x2="400" y2="160" class="node accentA" marker-end="url(#head)"/>
+  <line x1="350" y1="240" x2="400" y2="200" class="node accentB" marker-end="url(#head)"/>
+
+  <!-- GAM -->
+  <rect x="600" y="40" width="140" height="80" rx="12" class="node accentC dashed"/>
+  <text x="670" y="68" text-anchor="middle" class="label">GAM</text>
+  <text x="670" y="86" text-anchor="middle" class="muted">gradient-guided</text>
+  <text x="670" y="104" text-anchor="middle" class="muted">adaptive modulation</text>
+
+  <line x1="560" y1="160" x2="600" y2="100" class="node accentC" marker-end="url(#head)"/>
+  <line x1="670" y1="120" x2="540" y2="160" class="node dashed accentC" marker-end="url(#head)"/>
+
+  <!-- Loss -->
+  <rect x="600" y="260" width="140" height="60" rx="12" class="node"/>
+  <text x="670" y="285" text-anchor="middle" class="label">L_det + λ·L_distill</text>
+  <text x="670" y="305" text-anchor="middle" class="muted">λ from GAM</text>
+  <line x1="560" y1="200" x2="600" y2="280" class="node accentC" marker-end="url(#head)"/>
+
+  <!-- Inference path note -->
+  <text x="380" y="350" text-anchor="middle" class="muted">At deployment only the student (green) runs — no extra parameters, no extra FLOPs.</text>
+</svg>
