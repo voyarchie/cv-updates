@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Topic map: six ground-penetrating-radar dense-detection and classification threads hanging off the B-scan primitive — the signal primitive, hyperbola and object detection, buried-threat and landmine detection, civil-infrastructure inspection, the data problem of clutter removal and simulation, and datasets with open problems">
+  <title>Topic map of the six GPR dense-detection and classification threads</title>
+
+  <!-- connectors (drawn first, behind cards) -->
+  <g stroke="#94a3b8" stroke-width="1.6" stroke-opacity="0.65">
+    <line x1="450" y1="260" x2="160" y2="120"/>
+    <line x1="450" y1="260" x2="450" y2="118"/>
+    <line x1="450" y1="260" x2="740" y2="120"/>
+    <line x1="450" y1="260" x2="160" y2="410"/>
+    <line x1="450" y1="260" x2="450" y2="412"/>
+    <line x1="450" y1="260" x2="740" y2="410"/>
+  </g>
+
+  <!-- central hub -->
+  <rect x="345" y="215" width="210" height="92" rx="10" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="450" y="248" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">The GPR B-scan</text>
+  <text x="450" y="268" text-anchor="middle" fill="#cbd5e1" font-size="11">subsurface EM radargram:</text>
+  <text x="450" y="284" text-anchor="middle" fill="#cbd5e1" font-size="11">hyperbolae in time &#215; position</text>
+
+  <!-- T1: the primitive (top-left, teal) -->
+  <rect x="55" y="66" width="210" height="104" rx="9" fill="#0f766e" stroke="#115e59"/>
+  <text x="70" y="90" fill="#f8fafc" font-size="12.5" font-weight="700">1 &#183; The primitive</text>
+  <text x="70" y="110" fill="#ccfbf1" font-size="10.5">A/B/C-scans &#183; two-way time</text>
+  <text x="70" y="126" fill="#ccfbf1" font-size="10.5">hyperbola geometry &#183; &#949;r</text>
+  <text x="70" y="142" fill="#ccfbf1" font-size="10.5">dispersive, lossy, coupled</text>
+  <text x="70" y="158" fill="#99f6e4" font-size="10.5">&#167;3</text>
+
+  <!-- T2: detection (top-center, indigo) -->
+  <rect x="345" y="66" width="210" height="104" rx="9" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="360" y="90" fill="#f8fafc" font-size="12.5" font-weight="700">2 &#183; Detection &amp; localization</text>
+  <text x="360" y="110" fill="#e0e7ff" font-size="10.5">YOLO / R-CNN / DETR on</text>
+  <text x="360" y="126" fill="#e0e7ff" font-size="10.5">B-scans &#183; hyperbola apex &amp;</text>
+  <text x="360" y="142" fill="#e0e7ff" font-size="10.5">parameter regression &#183; 3-D</text>
+  <text x="360" y="158" fill="#c7d2fe" font-size="10.5">&#167;4</text>
+
+  <!-- T3: demining (top-right, rose) -->
+  <rect x="635" y="66" width="210" height="104" rx="9" fill="#be123c" stroke="#9f1239"/>
+  <text x="650" y="90" fill="#f8fafc" font-size="12.5" font-weight="700">3 &#183; Buried threats</text>
+  <text x="650" y="110" fill="#ffe4e6" font-size="10.5">landmines / UXO &#183; FLGPR</text>
+  <text x="650" y="126" fill="#ffe4e6" font-size="10.5">polarimetry &#183; GPR+EMI fusion</text>
+  <text x="650" y="142" fill="#ffe4e6" font-size="10.5">Pd at fixed false-alarm rate</text>
+  <text x="650" y="158" fill="#fecaca" font-size="10.5">&#167;5</text>
+
+  <!-- T4: infrastructure (bottom-left, amber) -->
+  <rect x="55" y="358" width="210" height="104" rx="9" fill="#b45309" stroke="#92400e"/>
+  <text x="70" y="382" fill="#f8fafc" font-size="12.5" font-weight="700">4 &#183; Infrastructure</text>
+  <text x="70" y="402" fill="#fde68a" font-size="10.5">roads / bridges / tunnels</text>
+  <text x="70" y="418" fill="#fde68a" font-size="10.5">voids &#183; delamination &#183; rebar</text>
+  <text x="70" y="434" fill="#fde68a" font-size="10.5">utility mapping &amp; 3-D</text>
+  <text x="70" y="450" fill="#fed7aa" font-size="10.5">&#167;6</text>
+
+  <!-- T5: data problem (bottom-center, purple) -->
+  <rect x="345" y="358" width="210" height="104" rx="9" fill="#9333ea" stroke="#6b21a8"/>
+  <text x="360" y="382" fill="#f8fafc" font-size="12.5" font-weight="700">5 &#183; The data problem</text>
+  <text x="360" y="402" fill="#f3e8ff" font-size="10.5">clutter removal &#183; migration</text>
+  <text x="360" y="418" fill="#f3e8ff" font-size="10.5">gprMax sim-to-real &#183; SSL</text>
+  <text x="360" y="434" fill="#f3e8ff" font-size="10.5">classification &amp; foundations</text>
+  <text x="360" y="450" fill="#e9d5ff" font-size="10.5">&#167;7</text>
+
+  <!-- T6: datasets & open (bottom-right, green/slate) -->
+  <rect x="635" y="358" width="210" height="104" rx="9" fill="#15803d" stroke="#166534"/>
+  <text x="650" y="382" fill="#f8fafc" font-size="12.5" font-weight="700">6 &#183; Benchmarks &amp; gaps</text>
+  <text x="650" y="402" fill="#dcfce7" font-size="10.5">few public datasets &#183; no</text>
+  <text x="650" y="418" fill="#dcfce7" font-size="10.5">standard benchmark &#183; edge</text>
+  <text x="650" y="434" fill="#dcfce7" font-size="10.5">deployment &#183; open problems</text>
+  <text x="650" y="450" fill="#bbf7d0" font-size="10.5">&#167;8&#8211;9</text>
+</svg>
