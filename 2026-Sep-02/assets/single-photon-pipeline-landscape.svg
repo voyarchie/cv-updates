@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The single-photon computer-vision pipeline as a chain of dense-vision task families, all fed by one primitive: the photon-cube produced by a SPAD array or quanta image sensor. Restoration and reconstruction turn sparse binary frames into clean intensity images (quanta burst photography, SoDaCam, physics-informed super-resolution, transformer QIS denoising, quanta video restoration). Dense depth turns per-pixel time-of-arrival histograms into range maps (Bayesian deep unrolling, multi-scale-histogram networks, risk-guided and context-aware spatiotemporal models). Dense 3-D detection lifts noisy histograms into probabilistic point clouds and detects objects on them (probabilistic-point-cloud 3-D detection, low-cost single-photon 3-D vision, PhotonSplat Gaussian reconstruction). Photon-efficient inference classifies and detects at well under one photon per pixel (photon-aware neuromorphic sensing, in-sensor computing, photon-starved scene inference, active learning). Non-line-of-sight imaging reconstructs and tracks scenes hidden around corners (NLOST, Neural Transient Fields, CMFormer, physics-informed cascade learning, passive USEEN, PathFinder tracking). A convergence band links single-photon cameras to event cameras and neuromorphic processing, and a hardware band tracks the megapixel and high-dynamic-range sensor arc.">
+  <title>The single-photon vision pipeline: one photon-cube feeding restoration, depth, 3-D detection, photon-efficient inference, and non-line-of-sight imaging</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="30" fill="#334155" font-size="15.5" font-weight="800">One primitive, five dense-vision task families &#8212; the single-photon photon-cube and what is built on it</text>
+
+  <!-- primitive band -->
+  <rect x="24" y="44" width="912" height="52" rx="8" fill="#0b1220" stroke="#38bdf8" stroke-width="1.6"/>
+  <text x="40" y="66" fill="#7dd3fc" font-size="12.5" font-weight="700">PRIMITIVE &#183; the photon-cube</text>
+  <text x="40" y="84" fill="#cbd5e1" font-size="10.5">SPAD array / quanta image sensor &#8594; sparse binary frames at 10&#8211;100 kHz, read-noise-free, shot-noise-limited; each photon tagged in space &amp; (for LiDAR) picoseconds</text>
+
+  <!-- five task columns -->
+  <!-- col 1 restoration -->
+  <g>
+    <rect x="24" y="112" width="176" height="196" rx="8" fill="#0f1b30" stroke="#334155" stroke-width="1.4"/>
+    <text x="36" y="134" fill="#6ee7b7" font-size="11.5" font-weight="700">RESTORATION</text>
+    <text x="36" y="150" fill="#94a3b8" font-size="9.5">cube &#8594; clean intensity / HDR</text>
+    <text x="36" y="172" fill="#e2e8f0" font-size="10">Quanta Burst Photography</text>
+    <text x="36" y="188" fill="#e2e8f0" font-size="10">SoDaCam (software cameras)</text>
+    <text x="36" y="204" fill="#e2e8f0" font-size="10">physics-informed SR (Nat.Comm.)</text>
+    <text x="36" y="220" fill="#e2e8f0" font-size="10">QIS-Net &#183; transformer denoise</text>
+    <text x="36" y="236" fill="#e2e8f0" font-size="10">Quanta Video Restoration</text>
+    <text x="36" y="252" fill="#e2e8f0" font-size="10">passive inter-photon imaging</text>
+    <text x="36" y="278" fill="#fbbf24" font-size="9">no read noise &#8658; align&#8211;merge,</text>
+    <text x="36" y="292" fill="#fbbf24" font-size="9">don&#39;t just integrate</text>
+  </g>
+
+  <!-- col 2 depth -->
+  <g>
+    <rect x="208" y="112" width="176" height="196" rx="8" fill="#0f1b30" stroke="#334155" stroke-width="1.4"/>
+    <text x="220" y="134" fill="#7dd3fc" font-size="11.5" font-weight="700">DENSE DEPTH</text>
+    <text x="220" y="150" fill="#94a3b8" font-size="9.5">histogram &#8594; per-pixel range</text>
+    <text x="220" y="172" fill="#e2e8f0" font-size="10">Bayesian deep unrolling</text>
+    <text x="220" y="188" fill="#e2e8f0" font-size="10">multi-scale-histogram nets</text>
+    <text x="220" y="204" fill="#e2e8f0" font-size="10">risk-guided (mixed pixels)</text>
+    <text x="220" y="220" fill="#e2e8f0" font-size="10">context-aware spatiotemporal</text>
+    <text x="220" y="236" fill="#e2e8f0" font-size="10">plug-and-play PC denoisers</text>
+    <text x="220" y="252" fill="#e2e8f0" font-size="10">through-obscurant 3-D</text>
+    <text x="220" y="278" fill="#fbbf24" font-size="9">SBR&#8776;0.05: find one peak in</text>
+    <text x="220" y="292" fill="#fbbf24" font-size="9">a flat sea of counts</text>
+  </g>
+
+  <!-- col 3 3D detection -->
+  <g>
+    <rect x="392" y="112" width="176" height="196" rx="8" fill="#0f1b30" stroke="#334155" stroke-width="1.4"/>
+    <text x="404" y="134" fill="#34d399" font-size="11.5" font-weight="700">3-D DETECTION</text>
+    <text x="404" y="150" fill="#94a3b8" font-size="9.5">prob. point cloud &#8594; boxes</text>
+    <text x="404" y="172" fill="#e2e8f0" font-size="10">probabilistic-PC 3-D det.</text>
+    <text x="404" y="188" fill="#e2e8f0" font-size="10">low-cost single-photon 3-D</text>
+    <text x="404" y="204" fill="#e2e8f0" font-size="10">PhotonSplat (SPAD &#8594; 3DGS)</text>
+    <text x="404" y="220" fill="#e2e8f0" font-size="10">high-speed ToF detection</text>
+    <text x="404" y="244" fill="#fbbf24" font-size="9">propagate per-point</text>
+    <text x="404" y="258" fill="#fbbf24" font-size="9">uncertainty into the</text>
+    <text x="404" y="272" fill="#fbbf24" font-size="9">detector, don&#39;t threshold</text>
+    <text x="404" y="286" fill="#fbbf24" font-size="9">to a hard point first</text>
+  </g>
+
+  <!-- col 4 photon-efficient inference -->
+  <g>
+    <rect x="576" y="112" width="176" height="196" rx="8" fill="#0f1b30" stroke="#334155" stroke-width="1.4"/>
+    <text x="588" y="134" fill="#fcd34d" font-size="11.5" font-weight="700">PHOTON-EFFICIENT</text>
+    <text x="588" y="150" fill="#94a3b8" font-size="9.5">classify / detect at &#8810;1 ppp</text>
+    <text x="588" y="172" fill="#e2e8f0" font-size="10">PANS (neuromorphic sensing)</text>
+    <text x="588" y="188" fill="#e2e8f0" font-size="10">in-sensor computing (Nat.C.)</text>
+    <text x="588" y="204" fill="#e2e8f0" font-size="10">photon-starved scene inference</text>
+    <text x="588" y="220" fill="#e2e8f0" font-size="10">active-learning classification</text>
+    <text x="588" y="236" fill="#e2e8f0" font-size="10">trained photon correlations</text>
+    <text x="588" y="252" fill="#e2e8f0" font-size="10">through-turbulence inference</text>
+    <text x="588" y="278" fill="#fbbf24" font-size="9">skip the image: infer</text>
+    <text x="588" y="292" fill="#fbbf24" font-size="9">straight from the cube</text>
+  </g>
+
+  <!-- col 5 NLOS -->
+  <g>
+    <rect x="760" y="112" width="176" height="196" rx="8" fill="#0f1b30" stroke="#334155" stroke-width="1.4"/>
+    <text x="772" y="134" fill="#c4b5fd" font-size="11.5" font-weight="700">NON-LINE-OF-SIGHT</text>
+    <text x="772" y="150" fill="#94a3b8" font-size="9.5">3-bounce returns &#8594; hidden scene</text>
+    <text x="772" y="172" fill="#e2e8f0" font-size="10">NLOST (transformer)</text>
+    <text x="772" y="188" fill="#e2e8f0" font-size="10">Neural Transient Fields</text>
+    <text x="772" y="204" fill="#e2e8f0" font-size="10">CMFormer &#183; PICL cascade</text>
+    <text x="772" y="220" fill="#e2e8f0" font-size="10">NLOS-NeuS implicit surface</text>
+    <text x="772" y="236" fill="#e2e8f0" font-size="10">passive USEEN (real-time)</text>
+    <text x="772" y="252" fill="#e2e8f0" font-size="10">PathFinder tracking</text>
+    <text x="772" y="278" fill="#fbbf24" font-size="9">an ill-posed inverse</text>
+    <text x="772" y="292" fill="#fbbf24" font-size="9">problem before a vision one</text>
+  </g>
+
+  <!-- connectors from primitive to columns -->
+  <g stroke="#475569" stroke-width="1.3" fill="none">
+    <path d="M112 96 l0 16" marker-end="url(#ah3)"/>
+    <path d="M296 96 l0 16" marker-end="url(#ah3)"/>
+    <path d="M480 96 l0 16" marker-end="url(#ah3)"/>
+    <path d="M664 96 l0 16" marker-end="url(#ah3)"/>
+    <path d="M848 96 l0 16" marker-end="url(#ah3)"/>
+  </g>
+
+  <!-- convergence band -->
+  <rect x="24" y="322" width="592" height="88" rx="8" fill="#0b1220" stroke="#334155" stroke-width="1.4"/>
+  <text x="40" y="344" fill="#f9a8d4" font-size="11.5" font-weight="700">CONVERGENCE &#183; single-photon &#215; event / neuromorphic vision</text>
+  <text x="40" y="364" fill="#cbd5e1" font-size="10">Event Cameras Meet SPADs &#183; event-based processing of SPAD streams &#183; async, sparse, high-temporal-resolution</text>
+  <text x="40" y="380" fill="#cbd5e1" font-size="10">both are photon-/change-triggered streams, not frames &#8212; the representation choice (cube vs. events) is the design axis</text>
+  <text x="40" y="398" fill="#94a3b8" font-size="9.5">shared toolbox with the Aug-19 event-camera pass: sparse spatio-temporal backbones, bandwidth budgets, in-sensor compute</text>
+
+  <!-- hardware band -->
+  <rect x="624" y="322" width="312" height="88" rx="8" fill="#0b1220" stroke="#334155" stroke-width="1.4"/>
+  <text x="640" y="344" fill="#7dd3fc" font-size="11.5" font-weight="700">HARDWARE ARC</text>
+  <text x="640" y="364" fill="#cbd5e1" font-size="10">8&#215;8 &#8594; 320&#215;240 &#8594; 1 MPixel SPAD arrays</text>
+  <text x="640" y="380" fill="#cbd5e1" font-size="10">Canon 2.1 MP HDR SPAD (156 dB, 2025)</text>
+  <text x="640" y="396" fill="#cbd5e1" font-size="10">QIS: sub-electron read noise, 1 e&#8315; jots</text>
+
+  <!-- foundations / cross-cutting band -->
+  <rect x="24" y="424" width="912" height="118" rx="8" fill="#0f2233" stroke="#334155" stroke-width="1.4"/>
+  <text x="40" y="446" fill="#5eead4" font-size="11.5" font-weight="700">CROSS-CUTTING &#183; what every task shares</text>
+  <text x="40" y="468" fill="#cbd5e1" font-size="10.5">&#8226; Poisson, not Gaussian: losses, metrics, and augmentations must respect a signal-dependent variance and a read-noise-free sensor.</text>
+  <text x="40" y="486" fill="#cbd5e1" font-size="10.5">&#8226; Physics in the loop: forward models (pulse shape, jitter, afterpulsing, pile-up, 3-bounce transport) as unrolled priors beat black boxes at low SNR.</text>
+  <text x="40" y="504" fill="#cbd5e1" font-size="10.5">&#8226; Simulation &#8594; real gap: most training is synthetic; real captures (SP-TransientBench, PhotonScenes) and sim pipelines are the scarce, decisive resource.</text>
+  <text x="40" y="522" fill="#cbd5e1" font-size="10.5">&#8226; Compute at the edge: kHz binary streams demand in-sensor / event-style processing &#8212; the reconstruction and the inference increasingly move onto the sensor.</text>
+
+  <defs>
+    <marker id="ah3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>
