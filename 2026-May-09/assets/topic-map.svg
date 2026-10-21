@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" role="img" aria-label="Topic map of 2026-May-09 CV updates">
+  <style>
+    .node { fill: none; stroke: #888; stroke-width: 1.5; }
+    .label { font: 600 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
+    .sub { font: 11px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; opacity: 0.75; }
+    .edge { stroke: #888; stroke-width: 1; fill: none; opacity: 0.6; }
+    .edge-d { stroke: #888; stroke-width: 1; fill: none; opacity: 0.5; stroke-dasharray: 4 3; }
+    .center { fill: #8884; stroke: #888; stroke-width: 1.8; }
+    .accent1 { stroke: #5aa2ff; }
+    .accent2 { stroke: #f0a85a; }
+    .accent3 { stroke: #6acf94; }
+    .accent4 { stroke: #c074d6; }
+    .accent5 { stroke: #e36b6b; }
+    .accent6 { stroke: #4cc7c2; }
+  </style>
+
+  <!-- center hub -->
+  <ellipse cx="410" cy="230" rx="135" ry="46" class="center" />
+  <text x="410" y="226" text-anchor="middle" class="label">Dense Detection &amp;</text>
+  <text x="410" y="244" text-anchor="middle" class="label">Classification — May 9</text>
+
+  <!-- top row -->
+  <g>
+    <rect x="20" y="30" width="190" height="52" rx="8" class="node accent1" />
+    <text x="115" y="52" text-anchor="middle" class="label">Event / neuromorphic</text>
+    <text x="115" y="68" text-anchor="middle" class="sub">RVT · PMRVT · SpikeNeXt</text>
+  </g>
+  <g>
+    <rect x="220" y="30" width="190" height="52" rx="8" class="node accent2" />
+    <text x="315" y="52" text-anchor="middle" class="label">Diffusion data engines</text>
+    <text x="315" y="68" text-anchor="middle" class="sub">RegionDiffusion · TADA · DE</text>
+  </g>
+  <g>
+    <rect x="420" y="30" width="190" height="52" rx="8" class="node accent3" />
+    <text x="515" y="52" text-anchor="middle" class="label">Crowd / dense regression</text>
+    <text x="515" y="68" text-anchor="middle" class="sub">CrowdTrans · HMSTUNet · JCT</text>
+  </g>
+  <g>
+    <rect x="620" y="30" width="190" height="52" rx="8" class="node accent4" />
+    <text x="715" y="52" text-anchor="middle" class="label">Retrieval / memory</text>
+    <text x="715" y="68" text-anchor="middle" class="sub">RAC · MRAD · MAD</text>
+  </g>
+
+  <!-- middle left/right -->
+  <g>
+    <rect x="20" y="208" width="190" height="52" rx="8" class="node accent5" />
+    <text x="115" y="230" text-anchor="middle" class="label">Equivariant / oriented</text>
+    <text x="115" y="246" text-anchor="middle" class="sub">MessDet · FRED · O2-RT-DETR</text>
+  </g>
+  <g>
+    <rect x="620" y="208" width="190" height="52" rx="8" class="node accent6" />
+    <text x="715" y="230" text-anchor="middle" class="label">Audio-visual / SELD</text>
+    <text x="715" y="246" text-anchor="middle" class="sub">OCA-loss · DCASE-T9</text>
+  </g>
+
+  <!-- bottom row -->
+  <g>
+    <rect x="20" y="380" width="220" height="52" rx="8" class="node accent1" />
+    <text x="130" y="402" text-anchor="middle" class="label">Geospatial FMs</text>
+    <text x="130" y="418" text-anchor="middle" class="sub">Prithvi-EO-2.0 · TerraFM</text>
+  </g>
+  <g>
+    <rect x="290" y="380" width="220" height="52" rx="8" class="node accent2" />
+    <text x="400" y="402" text-anchor="middle" class="label">Dense video SSL</text>
+    <text x="400" y="418" text-anchor="middle" class="sub">V-JEPA 2.1 · grasp transfer</text>
+  </g>
+  <g>
+    <rect x="560" y="380" width="240" height="52" rx="8" class="node accent3" />
+    <text x="680" y="402" text-anchor="middle" class="label">SAM 3.1 throughput</text>
+    <text x="680" y="418" text-anchor="middle" class="sub">multiplexing · 32 fps · 16 obj</text>
+  </g>
+
+  <!-- edges from hub to outer nodes -->
+  <path class="edge" d="M320 196 C 240 140, 180 100, 115 82" />
+  <path class="edge" d="M370 188 C 340 140, 320 100, 315 82" />
+  <path class="edge" d="M450 188 C 480 140, 500 100, 515 82" />
+  <path class="edge" d="M500 196 C 580 140, 650 100, 715 82" />
+
+  <path class="edge" d="M275 230 L 210 234" />
+  <path class="edge" d="M545 230 L 620 234" />
+
+  <path class="edge" d="M340 270 C 260 320, 200 360, 150 380" />
+  <path class="edge" d="M410 276 L 400 380" />
+  <path class="edge" d="M480 270 C 560 320, 620 360, 670 380" />
+
+  <!-- supporting cross-links (dashed) -->
+  <path class="edge-d" d="M210 234 C 250 310, 350 360, 400 380" />
+  <path class="edge-d" d="M620 234 C 580 310, 480 360, 400 380" />
+  <path class="edge-d" d="M210 234 C 220 130, 200 100, 115 82" />
+  <path class="edge-d" d="M620 234 C 660 130, 720 100, 715 82" />
+  <path class="edge-d" d="M150 380 C 90 300, 90 200, 115 82" />
+  <path class="edge-d" d="M670 380 C 760 300, 760 200, 715 82" />
+
+  <!-- legend -->
+  <g transform="translate(20,448)">
+    <line x1="0" y1="0" x2="24" y2="0" class="edge" />
+    <text x="32" y="4" class="sub">primary link</text>
+    <line x1="140" y1="0" x2="164" y2="0" class="edge-d" />
+    <text x="172" y="4" class="sub">cross-link (enables / constrains)</text>
+  </g>
+</svg>
