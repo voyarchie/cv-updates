@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The deep-learning color-fundus pipeline drawn as a chain of dense-vision tasks. Raw fundus photographs first pass a quality-and-artifact gate that rejects or enhances ungradable images. Two dense tasks run on the gated image: lesion detection and classification (finding microaneurysms, hemorrhages, exudates and neovessels) and structural segmentation (vessels, artery/vein, optic disc and cup). Their outputs feed whole-image grading of diabetic retinopathy, macular edema, glaucoma and age-related macular degeneration. Underneath, self-supervised foundation models pretrained on millions of unlabelled retinal images provide the shared backbone, and above, vision-language models generate reports and answer questions. A final oculomics branch reads systemic disease off the same photograph. A separate band lists the generalization problem: camera and device domain shift, fairness across skin tone and population, and test-time adaptation.">
+  <title>The fundus deep-learning stack: quality gate, dense lesion detection and structural segmentation, disease grading, a foundation-model backbone, vision-language reporting, and an oculomics branch</title>
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">One photograph, a stack of dense-vision tasks &#8212; from a quality gate to grading, reporting, and systemic-disease readout</text>
+
+  <!-- Foundation model band (bottom, spanning) -->
+  <rect x="24" y="452" width="912" height="86" rx="8" fill="#eef2ff" stroke="#a5b4fc" stroke-width="1.5"/>
+  <text x="40" y="474" fill="#4338ca" font-size="12.5" font-weight="800">Self-supervised foundation backbone (pretrained on millions of unlabelled retinal images)</text>
+  <text x="40" y="496" fill="#3730a3" font-size="11">RETFound (MAE) &#183; VisionFM &#183; DINORET / Block-Expanded DINORET &#183; RetiZero &#183; DRStackFM (half-data, 400&#215; less compute) &#183; EyeMVP (CFP&#8211;OCT)</text>
+  <text x="40" y="514" fill="#3730a3" font-size="11">FusionFM (fusing eye-specific FMs) &#183; EyeFM (multimodal, eyecare RCT) &#183; benchmarked on RetBench &#183; still domain- &amp; task-sensitive</text>
+  <text x="40" y="531" fill="#6366f1" font-size="10">frozen-encoder + light head = label-efficient detection, segmentation, and grading downstream</text>
+
+  <!-- Quality gate -->
+  <rect x="24" y="60" width="150" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="36" y="82" fill="#94a3b8" font-size="11.5" font-weight="700">0 &#183; Quality &amp; artifact gate</text>
+  <text x="36" y="104" fill="#cbd5e1" font-size="10">gradability scoring</text>
+  <text x="36" y="120" fill="#cbd5e1" font-size="10">illumination / blur / dust</text>
+  <text x="36" y="136" fill="#cbd5e1" font-size="10">field-of-view &amp; laterality</text>
+  <text x="36" y="152" fill="#cbd5e1" font-size="10">enhancement &amp; restoration</text>
+  <text x="36" y="176" fill="#5eead4" font-size="9.5">reject ungradable before</text>
+  <text x="36" y="189" fill="#5eead4" font-size="9.5">detection to cut FP tax</text>
+
+  <!-- arrow -->
+  <path d="M174 135 L200 135" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Two dense tasks -->
+  <rect x="204" y="60" width="236" height="72" rx="8" fill="#1a0d08" stroke="#7f1d1d" stroke-width="2"/>
+  <text x="216" y="82" fill="#fca5a5" font-size="11.5" font-weight="700">1a &#183; Dense lesion detection / classification</text>
+  <text x="216" y="101" fill="#fecaca" font-size="10">anchor-free &amp; encoder-decoder detectors,</text>
+  <text x="216" y="115" fill="#fecaca" font-size="10">skip-subtraction MA nets, hard-sample loss;</text>
+  <text x="216" y="128" fill="#f59e0b" font-size="9.5">lesion map is the evidence for the grade</text>
+
+  <rect x="204" y="140" width="236" height="70" rx="8" fill="#0b1a2e" stroke="#1e40af" stroke-width="2"/>
+  <text x="216" y="162" fill="#93c5fd" font-size="11.5" font-weight="700">1b &#183; Structural segmentation</text>
+  <text x="216" y="181" fill="#bfdbfe" font-size="10">vessel tree &#183; artery/vein &#183; disc &amp; cup;</text>
+  <text x="216" y="195" fill="#bfdbfe" font-size="10">DB-SegNet, FunduSegmenter, U-Net variants,</text>
+  <text x="216" y="207" fill="#60a5fa" font-size="9.5">cup-to-disc ratio &#8594; glaucoma biomarker</text>
+
+  <!-- arrow to grading -->
+  <path d="M440 135 L470 135" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Grading -->
+  <rect x="474" y="60" width="210" height="150" rx="8" fill="#1c1403" stroke="#a16207" stroke-width="2"/>
+  <text x="486" y="82" fill="#fcd34d" font-size="11.5" font-weight="700">2 &#183; Whole-image grading</text>
+  <text x="486" y="104" fill="#fde68a" font-size="10">DR severity 0&#8211;4 &#183; referable DR</text>
+  <text x="486" y="120" fill="#fde68a" font-size="10">diabetic macular edema (DME)</text>
+  <text x="486" y="136" fill="#fde68a" font-size="10">glaucoma &#183; AMD &#183; multi-label</text>
+  <text x="486" y="158" fill="#cbd5e1" font-size="9.5">multitask over heterogeneous</text>
+  <text x="486" y="171" fill="#cbd5e1" font-size="9.5">datasets; multimodal w/ OCT</text>
+  <text x="486" y="192" fill="#5eead4" font-size="9.5">the generalization problem lives</text>
+  <text x="486" y="204" fill="#5eead4" font-size="9.5">here (see band, right)</text>
+
+  <!-- Generalization band -->
+  <rect x="700" y="60" width="236" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="712" y="82" fill="#c4b5fd" font-size="11.5" font-weight="700">The generalization problem</text>
+  <text x="712" y="104" fill="#ddd6fe" font-size="10">camera / device / population shift</text>
+  <text x="712" y="120" fill="#ddd6fe" font-size="10">style &amp; color de-stylization (GAD)</text>
+  <text x="712" y="136" fill="#ddd6fe" font-size="10">Fourier / phase augmentation</text>
+  <text x="712" y="152" fill="#ddd6fe" font-size="10">state-space DG decoding (DSSD)</text>
+  <text x="712" y="168" fill="#ddd6fe" font-size="10">test-time adaptation (FunOTTA)</text>
+  <text x="712" y="186" fill="#fca5a5" font-size="9.5">fairness across skin tone / subgroup</text>
+  <text x="712" y="200" fill="#94a3b8" font-size="9.5">external validation still rare</text>
+
+  <!-- VLM / report layer -->
+  <rect x="204" y="242" width="480" height="86" rx="8" fill="#052e2b" stroke="#0d9488" stroke-width="2"/>
+  <text x="216" y="264" fill="#5eead4" font-size="12" font-weight="800">3 &#183; Vision-language &amp; report generation</text>
+  <text x="216" y="286" fill="#99f6e4" font-size="10.5">VisionUnite &#183; ViLReF &#183; dual-branch glaucoma report generation &#183; VQA &amp; clinical-knowledge prompting</text>
+  <text x="216" y="304" fill="#99f6e4" font-size="10.5">grounds findings in text; open-vocabulary description; still weak on rare findings &amp; hallucination</text>
+  <text x="216" y="321" fill="#2dd4bf" font-size="9.5">reads the same lesion &amp; structure evidence the detectors produce, and narrates it</text>
+
+  <!-- Oculomics branch -->
+  <rect x="700" y="242" width="236" height="86" rx="8" fill="#2a0a2e" stroke="#a21caf" stroke-width="2"/>
+  <text x="712" y="264" fill="#f0abfc" font-size="12" font-weight="800">4 &#183; Oculomics</text>
+  <text x="712" y="285" fill="#f5d0fe" font-size="10.5">systemic readout from the retina:</text>
+  <text x="712" y="301" fill="#f5d0fe" font-size="10.5">age, sex, cardiovascular &amp; metabolic</text>
+  <text x="712" y="317" fill="#e879f9" font-size="9.5">robust for some traits, not others</text>
+
+  <!-- connective arrows down to foundation band -->
+  <g stroke="#a5b4fc" stroke-width="1.6" opacity="0.8" stroke-dasharray="4 3">
+    <line x1="322" y1="328" x2="322" y2="452"/>
+    <line x1="579" y1="210" x2="579" y2="452"/>
+    <line x1="818" y1="328" x2="818" y2="452"/>
+    <line x1="99" y1="210" x2="99" y2="452"/>
+  </g>
+  <text x="360" y="345" fill="#6366f1" font-size="9">every task sits on the shared backbone &#8595;</text>
+
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L7 3 L0 6 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
