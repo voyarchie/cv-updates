@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A comparison of three ways of turning a scene into sensor data, showing why a hologram is not an image. On the left, a conventional lens forms a focused image: each object point maps to one small neighbourhood of pixels, so locality holds and a bounding box drawn on the sensor corresponds to a bounding box on the object. In the middle, in-line digital holography removes the lens: coherent light diffracts freely, so each object point spreads into a set of concentric interference fringes covering a large part of the sensor, the fringe spacing encodes how far away the point was, and the object and its out-of-focus twin overlap in the same recording. On the right, a lensless coded camera replaces the lens with a mask, so each object point becomes a shifted copy of a broad point spread function and the raw capture looks like noise to a human. In all three cases the detection problem is the same, but only in the first does the measurement share coordinates with the scene: in the other two a detector must either invert the propagation first or learn to read the fringe or code directly.">
+  <title>A hologram is not an image: locality, depth coding, and the twin image on three capture surfaces</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+    </marker>
+    <clipPath id="fringeClip">
+      <rect x="392" y="342" width="192" height="76" rx="4"/>
+    </clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="600" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">One scene, three capture surfaces: a focused image &#8594; an in-line hologram &#8594; a coded lensless measurement</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">The object is the same in all three. What reaches the sensor &#8212; and whether a bounding box on the sensor means anything &#8212; is not.</text>
+
+  <!-- ============ Panel 1: lens ============ -->
+  <g>
+    <rect x="22" y="66" width="300" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="36" y="88" fill="#94a3b8" font-size="11.5">1 &#183; lens camera: incoherent, focused</text>
+
+    <!-- object -->
+    <circle cx="62" cy="150" r="6" fill="#38bdf8"/>
+    <circle cx="62" cy="196" r="6" fill="#f472b6"/>
+    <text x="36" y="126" fill="#64748b" font-size="9.5">object points</text>
+
+    <!-- lens -->
+    <ellipse cx="176" cy="173" rx="9" ry="52" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="150" y="240" fill="#94a3b8" font-size="9.5">lens</text>
+
+    <!-- rays -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.75" fill="none">
+      <path d="M68 150 L169 133"/><path d="M68 150 L169 173"/><path d="M68 150 L169 213"/>
+      <path d="M183 133 L276 196"/><path d="M183 173 L276 196"/><path d="M183 213 L276 196"/>
+    </g>
+    <g stroke="#f472b6" stroke-width="1" opacity="0.75" fill="none">
+      <path d="M68 196 L169 140"/><path d="M68 196 L169 176"/><path d="M68 196 L169 210"/>
+      <path d="M183 140 L276 150"/><path d="M183 176 L276 150"/><path d="M183 210 L276 150"/>
+    </g>
+
+    <!-- sensor -->
+    <rect x="276" y="106" width="16" height="134" rx="3" fill="#1e293b" stroke="#94a3b8"/>
+    <circle cx="284" cy="196" r="4.5" fill="#38bdf8"/>
+    <circle cx="284" cy="150" r="4.5" fill="#f472b6"/>
+    <text x="246" y="262" fill="#94a3b8" font-size="9.5">sensor</text>
+
+    <!-- what the sensor sees -->
+    <rect x="44" y="286" width="256" height="112" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="56" y="304" fill="#cbd5e1" font-size="10">what the sensor records</text>
+    <rect x="96" y="314" width="150" height="74" rx="4" fill="#111a2e" stroke="#475569"/>
+    <circle cx="140" cy="348" r="9" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="198" cy="340" r="9" fill="#f472b6" opacity="0.9"/>
+    <rect x="124" y="330" width="34" height="34" rx="3" fill="none" stroke="#4ade80" stroke-width="1.6" stroke-dasharray="4 2"/>
+    <rect x="182" y="322" width="34" height="34" rx="3" fill="none" stroke="#4ade80" stroke-width="1.6" stroke-dasharray="4 2"/>
+
+    <text x="44" y="424" fill="#4ade80" font-size="11" font-weight="700">locality holds</text>
+    <text x="44" y="442" fill="#cbd5e1" font-size="10">one object point &#8594; one small pixel neighbourhood;</text>
+    <text x="44" y="458" fill="#cbd5e1" font-size="10">a box on the sensor <tspan font-style="italic">is</tspan> a box on the object.</text>
+    <text x="44" y="482" fill="#64748b" font-size="9.5">every convolutional prior in vision assumes this</text>
+  </g>
+
+  <!-- ============ Panel 2: in-line hologram ============ -->
+  <g>
+    <rect x="338" y="66" width="300" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="352" y="88" fill="#94a3b8" font-size="11.5">2 &#183; in-line hologram: no lens</text>
+
+    <!-- coherent illumination -->
+    <g stroke="#fbbf24" stroke-width="0.9" opacity="0.55">
+      <path d="M352 112 L352 250" /><path d="M360 112 L360 250"/><path d="M368 112 L368 250"/>
+    </g>
+    <text x="352" y="106" fill="#fcd34d" font-size="9">plane wave</text>
+
+    <circle cx="398" cy="150" r="6" fill="#38bdf8"/>
+    <circle cx="398" cy="210" r="6" fill="#f472b6"/>
+
+    <!-- diverging spherical waves drawn as arcs -->
+    <g fill="none" stroke="#38bdf8" stroke-width="0.9" opacity="0.6">
+      <path d="M420 122 A 34 34 0 0 1 420 178"/>
+      <path d="M444 108 A 56 56 0 0 1 444 192"/>
+      <path d="M468 96 A 74 74 0 0 1 468 204"/>
+      <path d="M492 88 A 88 88 0 0 1 492 212"/>
+      <path d="M516 96 A 100 100 0 0 1 516 204"/>
+      <path d="M540 100 A 112 112 0 0 1 540 200"/>
+    </g>
+    <g fill="none" stroke="#f472b6" stroke-width="0.9" opacity="0.6">
+      <path d="M420 182 A 34 34 0 0 1 420 238"/>
+      <path d="M444 168 A 56 56 0 0 1 444 252"/>
+      <path d="M468 156 A 74 74 0 0 1 468 264"/>
+      <path d="M492 148 A 88 88 0 0 1 492 272"/>
+      <path d="M516 142 A 100 100 0 0 1 516 278"/>
+      <path d="M540 136 A 112 112 0 0 1 540 284"/>
+    </g>
+
+    <!-- sensor -->
+    <rect x="592" y="86" width="16" height="200" rx="3" fill="#1e293b" stroke="#94a3b8"/>
+    <text x="562" y="302" fill="#94a3b8" font-size="9.5">sensor</text>
+
+    <!-- what the sensor sees: overlapping fringe rings -->
+    <rect x="354" y="316" width="268" height="112" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="366" y="334" fill="#cbd5e1" font-size="10">what the sensor records</text>
+    <rect x="392" y="342" width="192" height="76" rx="4" fill="#111a2e" stroke="#475569"/>
+    <g fill="none" opacity="0.9" clip-path="url(#fringeClip)">
+      <g stroke="#38bdf8" stroke-width="1.1">
+        <circle cx="452" cy="380" r="8"/><circle cx="452" cy="380" r="16"/><circle cx="452" cy="380" r="24"/>
+        <circle cx="452" cy="380" r="32"/><circle cx="452" cy="380" r="40"/><circle cx="452" cy="380" r="48"/>
+      </g>
+      <g stroke="#f472b6" stroke-width="1.1">
+        <circle cx="524" cy="376" r="6"/><circle cx="524" cy="376" r="12"/><circle cx="524" cy="376" r="18"/>
+        <circle cx="524" cy="376" r="24"/><circle cx="524" cy="376" r="30"/><circle cx="524" cy="376" r="36"/>
+        <circle cx="524" cy="376" r="42"/>
+      </g>
+    </g>
+    <rect x="392" y="342" width="192" height="76" rx="4" fill="none" stroke="#475569"/>
+
+    <text x="354" y="452" fill="#f87171" font-size="11" font-weight="700">locality is destroyed</text>
+    <text x="354" y="470" fill="#cbd5e1" font-size="10">each point spreads over the whole sensor; the two</text>
+    <text x="354" y="486" fill="#cbd5e1" font-size="10">objects&#8217; fringes <tspan font-style="italic">add coherently</tspan> and interleave.</text>
+  </g>
+
+  <!-- ============ Panel 3: coded lensless ============ -->
+  <g>
+    <rect x="654" y="66" width="304" height="440" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="668" y="88" fill="#94a3b8" font-size="11.5">3 &#183; lensless coded camera: mask, no lens</text>
+
+    <circle cx="694" cy="150" r="6" fill="#38bdf8"/>
+    <circle cx="694" cy="206" r="6" fill="#f472b6"/>
+
+    <!-- mask -->
+    <g>
+      <rect x="774" y="104" width="12" height="176" rx="2" fill="#1e293b" stroke="#94a3b8"/>
+      <g fill="#f4f6fb">
+        <rect x="774" y="112" width="12" height="9"/><rect x="774" y="132" width="12" height="6"/>
+        <rect x="774" y="150" width="12" height="11"/><rect x="774" y="176" width="12" height="7"/>
+        <rect x="774" y="196" width="12" height="12"/><rect x="774" y="224" width="12" height="6"/>
+        <rect x="774" y="244" width="12" height="10"/><rect x="774" y="266" width="12" height="7"/>
+      </g>
+      <text x="748" y="296" fill="#94a3b8" font-size="9.5">amplitude / phase mask</text>
+    </g>
+
+    <g stroke="#38bdf8" stroke-width="0.85" opacity="0.6" fill="none">
+      <path d="M700 150 L772 116"/><path d="M700 150 L772 152"/><path d="M700 150 L772 200"/><path d="M700 150 L772 248"/>
+    </g>
+    <g stroke="#f472b6" stroke-width="0.85" opacity="0.6" fill="none">
+      <path d="M700 206 L772 120"/><path d="M700 206 L772 168"/><path d="M700 206 L772 214"/><path d="M700 206 L772 262"/>
+    </g>
+    <g stroke="#94a3b8" stroke-width="0.7" opacity="0.5" fill="none">
+      <path d="M788 118 L906 108"/><path d="M788 154 L906 168"/><path d="M788 202 L906 214"/><path d="M788 248 L906 256"/>
+    </g>
+    <rect x="906" y="96" width="14" height="180" rx="3" fill="#1e293b" stroke="#94a3b8"/>
+
+    <!-- what the sensor sees: noise-like -->
+    <rect x="670" y="316" width="272" height="112" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="682" y="334" fill="#cbd5e1" font-size="10">what the sensor records</text>
+    <rect x="708" y="342" width="196" height="76" rx="4" fill="#111a2e" stroke="#475569"/>
+    <g opacity="0.85">
+      <g fill="#38bdf8">
+        <rect x="716" y="350" width="7" height="7"/><rect x="742" y="366" width="7" height="7"/><rect x="768" y="352" width="7" height="7"/>
+        <rect x="794" y="380" width="7" height="7"/><rect x="822" y="358" width="7" height="7"/><rect x="848" y="392" width="7" height="7"/>
+        <rect x="872" y="364" width="7" height="7"/><rect x="730" y="396" width="7" height="7"/><rect x="884" y="402" width="7" height="7"/>
+        <rect x="756" y="404" width="7" height="7"/><rect x="800" y="348" width="7" height="7"/><rect x="866" y="344" width="7" height="7"/>
+      </g>
+      <g fill="#f472b6">
+        <rect x="724" y="374" width="7" height="7"/><rect x="752" y="386" width="7" height="7"/><rect x="780" y="360" width="7" height="7"/>
+        <rect x="808" y="398" width="7" height="7"/><rect x="836" y="372" width="7" height="7"/><rect x="860" y="380" width="7" height="7"/>
+        <rect x="888" y="356" width="7" height="7"/><rect x="738" y="352" width="7" height="7"/><rect x="814" y="366" width="7" height="7"/>
+        <rect x="878" y="388" width="7" height="7"/><rect x="766" y="392" width="7" height="7"/><rect x="842" y="404" width="7" height="7"/>
+      </g>
+    </g>
+
+    <text x="670" y="452" fill="#c084fc" font-size="11" font-weight="700">unreadable by construction</text>
+    <text x="670" y="470" fill="#cbd5e1" font-size="10">one point &#8594; a shifted copy of a broad PSF. Nothing</text>
+    <text x="670" y="486" fill="#cbd5e1" font-size="10">human-legible is ever recorded &#8212; the privacy angle.</text>
+  </g>
+
+  <!-- ============ bottom band: the consequence ============ -->
+  <g>
+    <rect x="22" y="518" width="936" height="62" rx="8" fill="#14243a" stroke="#475569"/>
+    <text x="38" y="540" fill="#fbbf24" font-size="11.5" font-weight="700">The consequence for dense detection</text>
+    <text x="38" y="558" fill="#e2e8f0" font-size="10.5">In panels 2 and 3 there is no pixel-to-object correspondence, so &#8220;draw a box around the object&#8221; has no meaning on the raw data. Two routes follow:</text>
+    <text x="38" y="573" fill="#93c5fd" font-size="10.5"><tspan fill="#38bdf8" font-weight="700">Route A</tspan> &#8212; invert the propagation first (phase retrieval, deconvolution), then run an ordinary detector.&#160;&#160;&#160;<tspan fill="#2dd4bf" font-weight="700">Route B</tspan> &#8212; train the detector to read fringes or code directly, and never form a picture.</text>
+  </g>
+</svg>
