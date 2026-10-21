@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The X-ray security screening stack: from scanner geometry to an automatic threat-recognition decision, with the method families that attach at each stage">
+  <title>The X-ray security screening stack — scanner to decision</title>
+  <defs>
+    <marker id="s2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#s2)">
+    <line x1="450" y1="70" x2="450" y2="94"/>
+    <line x1="450" y1="164" x2="450" y2="188"/>
+    <line x1="450" y1="286" x2="450" y2="310"/>
+    <line x1="450" y1="408" x2="450" y2="432"/>
+    <line x1="450" y1="504" x2="450" y2="528"/>
+  </g>
+
+  <!-- scanner geometry -->
+  <rect x="250" y="22" width="400" height="48" rx="10" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="450" y="44" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">Scanner geometry &amp; physics</text>
+  <text x="450" y="62" text-anchor="middle" fill="#cbd5e1" font-size="11">single-view · dual-view (orthogonal) · dual-energy · volumetric CT</text>
+
+  <!-- image formation -->
+  <rect x="190" y="94" width="520" height="70" rx="10" fill="#4f46e5" stroke="#3730a3"/>
+  <text x="450" y="118" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">Pseudo-colour transmission image(s)</text>
+  <text x="450" y="137" text-anchor="middle" fill="#e0e7ff" font-size="11">additive overlap · translucent objects · material colour from high/low-energy ratio</text>
+  <text x="450" y="154" text-anchor="middle" fill="#e0e7ff" font-size="11">clutter · deliberate concealment · long-tailed threat classes</text>
+
+  <!-- backbone / representation -->
+  <rect x="150" y="188" width="600" height="98" rx="10" fill="#0f172a" stroke="#94a3b8"/>
+  <text x="450" y="210" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Backbone &amp; representation</text>
+  <rect x="170" y="222" width="150" height="52" rx="8" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="245" y="242" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">CNN detectors</text>
+  <text x="245" y="260" text-anchor="middle" fill="#cbd5e1" font-size="10">YOLO · Faster R-CNN</text>
+  <rect x="330" y="222" width="150" height="52" rx="8" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="405" y="242" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">DETR family</text>
+  <text x="405" y="260" text-anchor="middle" fill="#cbd5e1" font-size="10">DINO · Deformable · AO-DETR</text>
+  <rect x="490" y="222" width="120" height="52" rx="8" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="550" y="242" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">SSM / Mamba</text>
+  <text x="550" y="260" text-anchor="middle" fill="#cbd5e1" font-size="10">Xray-YOLO-Mamba</text>
+  <rect x="620" y="222" width="112" height="52" rx="8" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="676" y="242" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">VLM</text>
+  <text x="676" y="260" text-anchor="middle" fill="#cbd5e1" font-size="10">STING-BEE</text>
+
+  <!-- overlap-specific machinery -->
+  <rect x="150" y="310" width="600" height="98" rx="10" fill="#0f172a" stroke="#94a3b8"/>
+  <text x="450" y="332" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Overlap- &amp; material-specific machinery</text>
+  <rect x="170" y="344" width="175" height="52" rx="8" fill="#c026d3" stroke="#a21caf"/>
+  <text x="257" y="364" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">De-occlusion attn.</text>
+  <text x="257" y="382" text-anchor="middle" fill="#fbe5fb" font-size="10">DOAM · CSA + LFD · MCIA</text>
+  <rect x="355" y="344" width="175" height="52" rx="8" fill="#c026d3" stroke="#a21caf"/>
+  <text x="442" y="364" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">Multi-view fusion</text>
+  <text x="442" y="382" text-anchor="middle" fill="#fbe5fb" font-size="10">AHCR · MACA+AAS · view-as-language</text>
+  <rect x="540" y="344" width="192" height="52" rx="8" fill="#c026d3" stroke="#a21caf"/>
+  <text x="636" y="364" text-anchor="middle" fill="#f8fafc" font-size="11.5" font-weight="700">Loss / regression</text>
+  <text x="636" y="382" text-anchor="middle" fill="#fbe5fb" font-size="10">PIoU for rotated / stacked boxes</text>
+
+  <!-- data economy -->
+  <rect x="150" y="432" width="600" height="72" rx="10" fill="#059669" stroke="#047857"/>
+  <text x="450" y="454" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Data economy — the real bottleneck</text>
+  <text x="450" y="474" text-anchor="middle" fill="#d1fae5" font-size="11">synthetic generation (Xsyn diffusion · BGM mixup) · long-tail debiasing (PAD-F)</text>
+  <text x="450" y="492" text-anchor="middle" fill="#d1fae5" font-size="11">cross-scanner domain adaptation (EDS · ALDI-ray) · material/edge enhancement (AENet)</text>
+
+  <!-- decision -->
+  <rect x="250" y="528" width="400" height="70" rx="10" fill="#d97706" stroke="#b45309"/>
+  <text x="450" y="552" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="700">Automatic threat recognition (ATR) decision</text>
+  <text x="450" y="571" text-anchor="middle" fill="#fef3c7" font-size="11">detect + localise + classify · operator assist / auto-clear</text>
+  <text x="450" y="588" text-anchor="middle" fill="#fef3c7" font-size="11">gate: high recall at a regulated false-alarm rate · adversarial robustness</text>
+</svg>
