@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="-apple-system,Segoe UI,Roboto,sans-serif" role="img" aria-label="Latency vs COCO AP Pareto chart for real-time detectors">
+<text x="72" y="24" font-size="16" font-weight="700" fill="#9a9a9a">Real-time detector Pareto — COCO AP vs latency (T4, TensorRT FP16, batch 1)</text>
+<line x1="72" y1="361.7" x2="590" y2="361.7" stroke="#8a8a8a" stroke-width="0.5" stroke-opacity="0.35"/>
+<text x="62" y="365.7" font-size="12" text-anchor="end" fill="#9a9a9a">40</text>
+<line x1="72" y1="285.1" x2="590" y2="285.1" stroke="#8a8a8a" stroke-width="0.5" stroke-opacity="0.35"/>
+<text x="62" y="289.1" font-size="12" text-anchor="end" fill="#9a9a9a">45</text>
+<line x1="72" y1="208.5" x2="590" y2="208.5" stroke="#8a8a8a" stroke-width="0.5" stroke-opacity="0.35"/>
+<text x="62" y="212.5" font-size="12" text-anchor="end" fill="#9a9a9a">50</text>
+<line x1="72" y1="131.9" x2="590" y2="131.9" stroke="#8a8a8a" stroke-width="0.5" stroke-opacity="0.35"/>
+<text x="62" y="135.9" font-size="12" text-anchor="end" fill="#9a9a9a">55</text>
+<line x1="72" y1="55.3" x2="590" y2="55.3" stroke="#8a8a8a" stroke-width="0.5" stroke-opacity="0.35"/>
+<text x="62" y="59.3" font-size="12" text-anchor="end" fill="#9a9a9a">60</text>
+<line x1="72.0" y1="400" x2="72.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="72.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">0</text>
+<line x1="156.0" y1="400" x2="156.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="156.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">3</text>
+<line x1="240.0" y1="400" x2="240.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="240.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">6</text>
+<line x1="324.0" y1="400" x2="324.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="324.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">9</text>
+<line x1="408.0" y1="400" x2="408.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="408.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">12</text>
+<line x1="492.0" y1="400" x2="492.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="492.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">15</text>
+<line x1="576.0" y1="400" x2="576.0" y2="405" stroke="#8a8a8a" stroke-width="1"/>
+<text x="576.0" y="422.0" font-size="12" text-anchor="middle" fill="#9a9a9a">18</text>
+<line x1="72" y1="400" x2="590" y2="400" stroke="#8a8a8a" stroke-width="1.5"/>
+<line x1="72" y1="40" x2="72" y2="400" stroke="#8a8a8a" stroke-width="1.5"/>
+<text x="331" y="446" font-size="13" text-anchor="middle" fill="#9a9a9a">Latency (ms) — lower is better → left</text>
+<text x="18" y="220" font-size="13" text-anchor="middle" fill="#9a9a9a" transform="rotate(-90 18 220)">COCO AP (higher is better ↑)</text>
+<polyline points="116.8,355.6 139.8,245.3 191.6,170.2 235.2,150.3 362.6,125.8" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-opacity="0.9"/>
+<circle cx="116.8" cy="355.6" r="4.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="139.8" cy="245.3" r="4.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="191.6" cy="170.2" r="4.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="235.2" cy="150.3" r="4.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="362.6" cy="125.8" r="4.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<polyline points="131.4,315.7 169.7,223.8 229.4,167.1 298.0,136.5 432.9,108.9" fill="none" stroke="#14b8a6" stroke-width="2.5" stroke-opacity="0.9"/>
+<circle cx="131.4" cy="315.7" r="4.5" fill="#14b8a6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="169.7" cy="223.8" r="4.5" fill="#14b8a6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="229.4" cy="167.1" r="4.5" fill="#14b8a6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="298.0" cy="136.5" r="4.5" fill="#14b8a6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="432.9" cy="108.9" r="4.5" fill="#14b8a6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<polyline points="136.4,233.0 170.0,162.6 195.2,136.5 262.4,108.9 394.0,76.8 553.6,53.8" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-opacity="0.9"/>
+<circle cx="136.4" cy="233.0" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="170.0" cy="162.6" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="195.2" cy="136.5" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="262.4" cy="108.9" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="394.0" cy="76.8" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<circle cx="553.6" cy="53.8" r="4.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6"/>
+<text x="545.6" y="45.8" font-size="11" text-anchor="end" fill="#9a9a9a">2XL: 60.1 AP</text>
+<text x="608" y="46" font-size="12" font-weight="700" fill="#9a9a9a">Family</text>
+<line x1="608" y1="60" x2="632" y2="60" stroke="#3b82f6" stroke-width="3"/>
+<circle cx="620" cy="60" r="4" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="638" y="64" font-size="11.5" fill="#9a9a9a">YOLOv12 (attention-YOLO)</text>
+<line x1="608" y1="84" x2="632" y2="84" stroke="#14b8a6" stroke-width="3"/>
+<circle cx="620" cy="84" r="4" fill="#14b8a6" stroke="#ffffff" stroke-width="1"/>
+<text x="638" y="88" font-size="11.5" fill="#9a9a9a">DEIM × D-FINE (real-time DETR)</text>
+<line x1="608" y1="108" x2="632" y2="108" stroke="#f59e0b" stroke-width="3"/>
+<circle cx="620" cy="108" r="4" fill="#f59e0b" stroke="#ffffff" stroke-width="1"/>
+<text x="638" y="112" font-size="11.5" fill="#9a9a9a">RF-DETR (DINOv2 + NAS)</text>
+</svg>
