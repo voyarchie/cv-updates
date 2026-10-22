@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the steel strip surface inspection image. Top: a steel strip moves at line speed under top-side and bottom-side line-scan cameras with bright-field and dark-field lighting, producing a continuous, very long image of each surface. The full-coil image is tiled, defect candidates are found and classified, and results are mapped to coil position for grading. Bottom: four public datasets each take a different crop of this image: NEU-CLS/NEU-DET with 200 by 200 pixel grayscale crops in six hot-rolled classes; GC10-DET with 2048 by 1000 pixel line-scan frames in ten classes; Severstal with 1600 by 256 pixel cold-rolled frames and pixel masks in four classes; and X-SDD with seven hot-rolled classes for classification. The datasets differ in crop size, task and label type, so scores are not comparable across them.">
+  <title>The steel strip inspection image: one endless image, four public crops</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The steel strip inspection image: one endless image, four public crops</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">On the line the image has no end (a coil is kilometres long); every public benchmark is a different, much smaller crop of it.</text>
+
+  <!-- strip -->
+  <rect x="24" y="110" width="600" height="46" fill="#cbd5e1" stroke="#94a3b8"/>
+  <text x="34" y="138" fill="#334155" font-size="12" font-weight="700">steel strip →  up to ~20 m/s, width ~1–2 m</text>
+  <polygon points="624,104 650,133 624,162" fill="#94a3b8"/>
+  <!-- defects on strip -->
+  <g fill="none" stroke="#b45309" stroke-width="2">
+    <ellipse cx="330" cy="126" rx="14" ry="6"/>
+    <line x1="420" y1="118" x2="470" y2="146"/>
+    <circle cx="540" cy="140" r="5"/>
+  </g>
+  <!-- cameras -->
+  <g font-size="11" text-anchor="middle">
+    <rect x="160" y="70" width="80" height="22" rx="4" fill="#0e7490"/>
+    <text x="200" y="85" fill="#ffffff" font-weight="700">top camera</text>
+    <line x1="200" y1="92" x2="200" y2="110" stroke="#0e7490" stroke-width="2" stroke-dasharray="3 3"/>
+    <rect x="160" y="174" width="80" height="22" rx="4" fill="#0e7490"/>
+    <text x="200" y="189" fill="#ffffff" font-weight="700">bottom camera</text>
+    <line x1="200" y1="156" x2="200" y2="174" stroke="#0e7490" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="300" y="86" fill="#64748b">line-scan · bright-field + dark-field LEDs</text>
+    <text x="300" y="190" fill="#64748b">scale, oil, water and glare vary along the coil</text>
+  </g>
+
+  <!-- pipeline -->
+  <g font-size="11" text-anchor="middle">
+    <rect x="672" y="76" width="264" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="804" y="97" fill="#334155">tile + candidate detection (real-time)</text>
+    <rect x="672" y="118" width="264" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="804" y="139" fill="#334155">classify: defect type / pseudo-defect</text>
+    <rect x="672" y="160" width="264" height="34" rx="6" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+    <text x="804" y="181" fill="#0e7490" font-weight="700">coil map → grade / cut / downgrade</text>
+    <g stroke="#94a3b8" stroke-width="1.5">
+      <line x1="804" y1="110" x2="804" y2="118"/><line x1="804" y1="152" x2="804" y2="160"/>
+    </g>
+  </g>
+
+  <line x1="24" y1="222" x2="936" y2="222" stroke="#cbd5e1"/>
+  <text x="24" y="246" fill="#334155" font-size="13" font-weight="700">Public datasets: what each one crops out</text>
+
+  <g font-size="11" text-anchor="middle">
+    <!-- NEU -->
+    <rect x="24" y="260" width="216" height="186" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="132" y="282" fill="#334155" font-size="13" font-weight="700">NEU-CLS / NEU-DET</text>
+    <rect x="102" y="294" width="60" height="60" fill="#e2e8f0" stroke="#94a3b8"/>
+    <rect x="114" y="312" width="30" height="22" fill="none" stroke="#b45309" stroke-width="2"/>
+    <text x="132" y="374" fill="#334155">200×200 grey crops · hot-rolled</text>
+    <text x="132" y="390" fill="#334155">6 classes × 300 images</text>
+    <text x="132" y="406" fill="#64748b">classification + boxes</text>
+    <text x="132" y="430" fill="#b45309" font-weight="700">mAP@0.5 ≈ 76–82</text>
+
+    <!-- GC10 -->
+    <rect x="252" y="260" width="216" height="186" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="360" y="282" fill="#334155" font-size="13" font-weight="700">GC10-DET</text>
+    <rect x="284" y="300" width="152" height="50" fill="#e2e8f0" stroke="#94a3b8"/>
+    <rect x="300" y="310" width="22" height="30" fill="none" stroke="#b45309" stroke-width="2"/>
+    <rect x="380" y="318" width="40" height="14" fill="none" stroke="#b45309" stroke-width="2"/>
+    <text x="360" y="374" fill="#334155">2048×1000 line-scan frames</text>
+    <text x="360" y="390" fill="#334155">10 classes · ~2.3k images</text>
+    <text x="360" y="406" fill="#64748b">boxes · long-tailed</text>
+    <text x="360" y="430" fill="#b45309" font-weight="700">mAP@0.5 ≈ 62–70</text>
+
+    <!-- Severstal -->
+    <rect x="480" y="260" width="216" height="186" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="588" y="282" fill="#334155" font-size="13" font-weight="700">Severstal (Kaggle 2019)</text>
+    <rect x="500" y="310" width="176" height="28" fill="#e2e8f0" stroke="#94a3b8"/>
+    <path d="M540 318 q10 -6 20 0 t20 0 l0 12 l-40 0 z" fill="#b45309" opacity="0.55"/>
+    <path d="M620 326 l30 0 l0 6 l-30 0 z" fill="#0e7490" opacity="0.6"/>
+    <text x="588" y="374" fill="#334155">1600×256 frames · cold-rolled</text>
+    <text x="588" y="390" fill="#334155">4 classes · ~12.6k train</text>
+    <text x="588" y="406" fill="#64748b">pixel masks (RLE)</text>
+    <text x="588" y="430" fill="#b45309" font-weight="700">metric: mean Dice</text>
+
+    <!-- X-SDD & new -->
+    <rect x="708" y="260" width="228" height="186" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="822" y="282" fill="#334155" font-size="13" font-weight="700">X-SDD → SteelDefectX</text>
+    <g fill="#e2e8f0" stroke="#94a3b8">
+      <rect x="742" y="298" width="34" height="34"/><rect x="784" y="298" width="34" height="34"/>
+      <rect x="826" y="298" width="34" height="34"/><rect x="868" y="298" width="34" height="34"/>
+    </g>
+    <text x="822" y="350" fill="#0e7490">"rolled-in scale, elongated, dark…"</text>
+    <text x="822" y="374" fill="#334155">X-SDD: 7 hot-rolled classes, 1,360 imgs</text>
+    <text x="822" y="390" fill="#334155">SteelDefectX (2026): 4 sets merged,</text>
+    <text x="822" y="406" fill="#334155">25 classes, 7,778 imgs + text</text>
+    <text x="822" y="430" fill="#b45309" font-weight="700">vision-language tasks</text>
+  </g>
+</svg>
