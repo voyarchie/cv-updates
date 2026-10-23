@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the textile fabric inspection image. Left: a woven fabric is a periodic texture of warp and weft yarns; a defect is a local break in that periodicity, such as a broken end running along the warp, a missed pick running across the weft, a hole, or a stain. Middle: three places the image is captured: on the loom near the fell, on a knitting machine where the fabric tube rotates past a fixed camera, and on an inspection frame or light table after production. Right: public datasets each crop the stream differently: Tianchi 2446 by 1000 pixel frames with 20 classes, usually tiled to 640 by 640; ZJU-Leaper about 98 thousand images across many fabric patterns with sample, pixel and region metrics; AITEX 245 images of 4096 by 256 pixels over seven fabrics; DAGM 2007 synthetic 512 by 512 textures; MVTec AD carpet as a fabric-like anomaly category; and TSFabrics, 93 thousand sequential grayscale frames from 22 continuous knitting runs. Only TSFabrics keeps time order.">
+  <title>The fabric inspection image: periodic texture, broken locally</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The fabric inspection image: a periodic texture, broken locally</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">A defect is defined against the weave or knit repeat, not against a background; the public datasets keep very different slices of the production stream.</text>
+
+  <!-- weave panel -->
+  <text x="24" y="86" fill="#334155" font-size="13" font-weight="800">1 · Texture and defects</text>
+  <rect x="24" y="96" width="260" height="260" fill="#e2e8f0" stroke="#94a3b8"/>
+  <g stroke="#64748b" stroke-width="3">
+    <line x1="44" y1="96" x2="44" y2="356"/><line x1="64" y1="96" x2="64" y2="356"/>
+    <line x1="84" y1="96" x2="84" y2="356"/><line x1="104" y1="96" x2="104" y2="356"/>
+    <line x1="124" y1="96" x2="124" y2="356"/><line x1="164" y1="96" x2="164" y2="356"/>
+    <line x1="184" y1="96" x2="184" y2="356"/><line x1="204" y1="96" x2="204" y2="356"/>
+    <line x1="224" y1="96" x2="224" y2="356"/><line x1="244" y1="96" x2="244" y2="356"/>
+    <line x1="264" y1="96" x2="264" y2="356"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="3">
+    <line x1="24" y1="116" x2="284" y2="116"/><line x1="24" y1="136" x2="284" y2="136"/>
+    <line x1="24" y1="156" x2="284" y2="156"/><line x1="24" y1="176" x2="284" y2="176"/>
+    <line x1="24" y1="196" x2="284" y2="196"/><line x1="24" y1="236" x2="284" y2="236"/>
+    <line x1="24" y1="256" x2="284" y2="256"/><line x1="24" y1="276" x2="284" y2="276"/>
+    <line x1="24" y1="296" x2="284" y2="296"/><line x1="24" y1="316" x2="284" y2="316"/>
+    <line x1="24" y1="336" x2="284" y2="336"/>
+  </g>
+  <!-- broken end (missing warp at x=144) -->
+  <rect x="138" y="96" width="12" height="260" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="4 3"/>
+  <!-- missed pick (missing weft at y=216) -->
+  <rect x="24" y="210" width="260" height="12" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="214" cy="286" r="11" fill="#f4f6fb" stroke="#be123c" stroke-width="2"/>
+  <ellipse cx="74" cy="306" rx="18" ry="10" fill="#b45309" fill-opacity="0.35"/>
+  <g font-size="11" font-weight="700">
+    <text x="24" y="376" fill="#b45309">┆ broken end (warp, long &amp; thin)</text>
+    <text x="24" y="392" fill="#7c3aed">┄ missed pick (weft, spans width)</text>
+    <text x="24" y="408" fill="#be123c">○ hole</text>
+    <text x="90" y="408" fill="#b45309">● stain (colour, not structure)</text>
+  </g>
+
+  <!-- capture panel -->
+  <text x="316" y="86" fill="#334155" font-size="13" font-weight="800">2 · Where the image is taken</text>
+  <g font-size="11.5">
+    <rect x="316" y="96" width="270" height="78" rx="8" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+    <text x="328" y="116" fill="#0e7490" font-weight="800">On the loom (near the fell)</text>
+    <text x="328" y="134" fill="#334155">earliest catch; stop the loom before</text>
+    <text x="328" y="150" fill="#334155">a fault repeats down the roll; dust,</text>
+    <text x="328" y="166" fill="#334155">vibration, traversing camera</text>
+    <rect x="316" y="184" width="270" height="78" rx="8" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+    <text x="328" y="204" fill="#0e7490" font-weight="800">Circular knitting machine</text>
+    <text x="328" y="222" fill="#334155">tube rotates past a fixed camera; the</text>
+    <text x="328" y="238" fill="#334155">same defect returns every turn, and</text>
+    <text x="328" y="254" fill="#334155">benign "cutlines" look like defects</text>
+    <rect x="316" y="272" width="270" height="78" rx="8" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+    <text x="328" y="292" fill="#0e7490" font-weight="800">Inspection frame / light table</text>
+    <text x="328" y="310" fill="#334155">after weaving or finishing; roll is</text>
+    <text x="328" y="326" fill="#334155">graded (points per area), not just</text>
+    <text x="328" y="342" fill="#334155">boxed; most public data comes here</text>
+  </g>
+  <text x="316" y="380" fill="#64748b" font-size="11">Decision: stop machine · mark roll · grade / cut</text>
+
+  <!-- datasets panel -->
+  <text x="618" y="86" fill="#334155" font-size="13" font-weight="800">3 · What public datasets keep</text>
+  <g font-size="11">
+    <rect x="618" y="96" width="318" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="628" y="112" fill="#334155" font-weight="800">Tianchi (Guangdong)</text>
+    <text x="628" y="127" fill="#475569">2446×1000 frames · 20 classes · tiled to 640²</text>
+    <rect x="618" y="140" width="318" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="628" y="156" fill="#334155" font-weight="800">ZJU-Leaper</text>
+    <text x="628" y="171" fill="#475569">~98.8k images · many patterns · sample/pixel/region</text>
+    <rect x="618" y="184" width="318" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="628" y="200" fill="#334155" font-weight="800">AITEX (AFID)</text>
+    <text x="628" y="215" fill="#475569">245 images · 4096×256 · 7 fabrics · masks</text>
+    <rect x="618" y="228" width="318" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="628" y="244" fill="#334155" font-weight="800">DAGM 2007 · MVTec AD carpet · TILDA</text>
+    <text x="628" y="259" fill="#475569">synthetic 512² / anomaly-only / classic texture sets</text>
+    <rect x="618" y="272" width="318" height="38" rx="6" fill="#ffffff" stroke="#0e7490" stroke-width="2"/>
+    <text x="628" y="288" fill="#0e7490" font-weight="800">TSFabrics (Sci. Data 2026)</text>
+    <text x="628" y="303" fill="#475569">93,196 frames · 22 continuous runs · time order</text>
+  </g>
+  <text x="618" y="336" fill="#64748b" font-size="11">Only TSFabrics keeps the stream; the rest are</text>
+  <text x="618" y="352" fill="#64748b" font-size="11">isolated stills, so temporal filtering cannot be</text>
+  <text x="618" y="368" fill="#64748b" font-size="11">scored on them.</text>
+
+  <rect x="24" y="430" width="912" height="50" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="452" fill="#334155" font-size="12" font-weight="700">Why it is its own primitive:</text>
+  <text x="40" y="470" fill="#475569" font-size="11.5">periodic background → anomaly detection works unusually well · extreme aspect ratios (one yarn wide, full width long) · class names follow weave mechanics, not appearance</text>
+</svg>
