@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the lithium-ion battery inspection image. Left: the production chain, from coated electrode web to stacked or wound cell to finished cell, with the imaging used at each stage: line-scan cameras, thermal infrared and laser speckle on the electrode web; 2D X-ray and CT on the assembled cell; and surface cameras on the case or pouch. Middle: the X-ray primitive. Seen edge-on, the electrode stack is a comb of alternating anode and cathode plates; each anode must extend past its neighbouring cathode by a small overhang. The detection target is a dense set of plate endpoints, tens per image, each only a few pixels apart. Right: the output is a per-layer measurement list of overhang values checked against a tolerance band, giving pass or fail for the cell.">
+  <title>The lithium-ion battery inspection image: from electrode web to per-layer overhang</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The Li-ion battery inspection image: three stages, three kinds of target</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Surface defects on a moving web, dense plate endpoints inside a sealed cell, and cosmetic defects on the case; the cell-level answer is a measurement per layer.</text>
+
+  <!-- Panel 1: production chain -->
+  <text x="24" y="88" fill="#334155" font-size="13" font-weight="800">1 · Where images are taken</text>
+  <rect x="24" y="100" width="290" height="410" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <!-- stage A: electrode web -->
+  <text x="40" y="124" fill="#1e3a8a" font-size="12" font-weight="800">A · Electrode web (coat, dry, calender)</text>
+  <rect x="40" y="134" width="258" height="44" rx="3" fill="#1f2937"/>
+  <rect x="40" y="146" width="258" height="20" fill="#475569"/>
+  <line x1="40" y1="156" x2="298" y2="156" stroke="#64748b" stroke-dasharray="4 4"/>
+  <circle cx="92" cy="152" r="3" fill="#fbbf24"/>
+  <line x1="150" y1="146" x2="168" y2="166" stroke="#f87171" stroke-width="2"/>
+  <rect x="215" y="148" width="40" height="5" fill="#93c5fd"/>
+  <text x="40" y="194" fill="#475569" font-size="10.5">pinholes · agglomerates · streaks · cracks</text>
+  <text x="40" y="208" fill="#475569" font-size="10.5">line-scan AOI, thermal IR, laser speckle</text>
+
+  <!-- arrow -->
+  <path d="M169,216 L169,234" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- stage B: assembled cell -->
+  <text x="40" y="254" fill="#1e3a8a" font-size="12" font-weight="800">B · Stacked / wound cell (sealed)</text>
+  <rect x="60" y="264" width="90" height="70" rx="4" fill="#e2e8f0" stroke="#64748b"/>
+  <g stroke-width="2">
+    <line x1="68" y1="272" x2="142" y2="272" stroke="#0f766e"/>
+    <line x1="72" y1="280" x2="138" y2="280" stroke="#b91c1c"/>
+    <line x1="68" y1="288" x2="142" y2="288" stroke="#0f766e"/>
+    <line x1="72" y1="296" x2="138" y2="296" stroke="#b91c1c"/>
+    <line x1="68" y1="304" x2="142" y2="304" stroke="#0f766e"/>
+    <line x1="72" y1="312" x2="138" y2="312" stroke="#b91c1c"/>
+    <line x1="68" y1="320" x2="142" y2="320" stroke="#0f766e"/>
+  </g>
+  <circle cx="230" cy="299" r="34" fill="#e2e8f0" stroke="#64748b"/>
+  <path d="M230,299 m0,-4 a4,4 0 1,1 -0.1,0 M230,299 m0,-12 a12,12 0 1,1 -0.1,0 M230,299 m0,-20 a20,20 0 1,1 -0.1,0 M230,299 m0,-28 a28,28 0 1,1 -0.1,0" fill="none" stroke="#0f766e" stroke-width="1.6"/>
+  <text x="62" y="350" fill="#475569" font-size="10.5">pouch / prismatic stack · cylindrical jelly roll</text>
+  <text x="62" y="364" fill="#475569" font-size="10.5">2D X-ray (inline) · CT (at-line, sampled)</text>
+
+  <path d="M169,372 L169,390" stroke="#64748b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- stage C: finished cell -->
+  <text x="40" y="410" fill="#1e3a8a" font-size="12" font-weight="800">C · Finished cell (can, case, pouch)</text>
+  <rect x="62" y="420" width="44" height="64" rx="8" fill="#cbd5e1" stroke="#64748b"/>
+  <circle cx="80" cy="446" r="3" fill="#b45309"/>
+  <line x1="92" y1="462" x2="100" y2="476" stroke="#b91c1c" stroke-width="1.6"/>
+  <rect x="140" y="424" width="96" height="56" rx="4" fill="#cbd5e1" stroke="#64748b"/>
+  <ellipse cx="190" cy="452" rx="20" ry="10" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+  <text x="248" y="436" fill="#475569" font-size="10.5">dents</text>
+  <text x="248" y="450" fill="#475569" font-size="10.5">scratches</text>
+  <text x="248" y="464" fill="#475569" font-size="10.5">leakage</text>
+  <text x="248" y="478" fill="#475569" font-size="10.5">swelling</text>
+  <text x="40" y="500" fill="#475569" font-size="10.5">area / line cameras on reflective metal or film</text>
+
+  <!-- Panel 2: X-ray endpoints -->
+  <text x="334" y="88" fill="#334155" font-size="13" font-weight="800">2 · The X-ray primitive: dense plate endpoints</text>
+  <rect x="334" y="100" width="300" height="410" rx="6" fill="#1f2937" stroke="#cbd5e1"/>
+  <text x="350" y="122" fill="#e2e8f0" font-size="11">corner of a cell, edge-on (simulated radiograph)</text>
+  <!-- plates: anodes longer (teal), cathodes shorter (red) -->
+  <g stroke-width="3">
+    <line x1="350" y1="150" x2="560" y2="150" stroke="#5eead4"/>
+    <line x1="350" y1="166" x2="538" y2="166" stroke="#fca5a5"/>
+    <line x1="350" y1="182" x2="562" y2="182" stroke="#5eead4"/>
+    <line x1="350" y1="198" x2="540" y2="198" stroke="#fca5a5"/>
+    <line x1="350" y1="214" x2="559" y2="214" stroke="#5eead4"/>
+    <line x1="350" y1="230" x2="536" y2="230" stroke="#fca5a5"/>
+    <line x1="350" y1="246" x2="561" y2="246" stroke="#5eead4"/>
+    <line x1="350" y1="262" x2="553" y2="262" stroke="#fca5a5"/>
+    <line x1="350" y1="278" x2="560" y2="278" stroke="#5eead4"/>
+    <line x1="350" y1="294" x2="539" y2="294" stroke="#fca5a5"/>
+    <line x1="350" y1="310" x2="558" y2="310" stroke="#5eead4"/>
+    <line x1="350" y1="326" x2="537" y2="326" stroke="#fca5a5"/>
+    <line x1="350" y1="342" x2="562" y2="342" stroke="#5eead4"/>
+  </g>
+  <!-- endpoints -->
+  <g fill="#fde68a" stroke="#1f2937" stroke-width="1">
+    <circle cx="560" cy="150" r="4"/><circle cx="562" cy="182" r="4"/><circle cx="559" cy="214" r="4"/>
+    <circle cx="561" cy="246" r="4"/><circle cx="560" cy="278" r="4"/><circle cx="558" cy="310" r="4"/>
+    <circle cx="562" cy="342" r="4"/>
+  </g>
+  <g fill="#fde68a" stroke="#1f2937" stroke-width="1">
+    <rect x="534" y="162" width="8" height="8"/><rect x="536" y="194" width="8" height="8"/>
+    <rect x="532" y="226" width="8" height="8"/><rect x="549" y="258" width="8" height="8"/>
+    <rect x="535" y="290" width="8" height="8"/><rect x="533" y="322" width="8" height="8"/>
+  </g>
+  <!-- flagged short overhang -->
+  <rect x="540" y="238" width="30" height="32" rx="3" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="574" y="258" fill="#fca5a5" font-size="10.5" font-weight="700">short</text>
+  <!-- overhang dimension -->
+  <line x1="538" y1="372" x2="561" y2="372" stroke="#e2e8f0" stroke-width="1.5" marker-start="url(#ahw)" marker-end="url(#ahw)"/>
+  <text x="420" y="392" fill="#e2e8f0" font-size="10.5">overhang = anode tip − cathode tip</text>
+  <!-- legend -->
+  <line x1="350" y1="420" x2="372" y2="420" stroke="#5eead4" stroke-width="3"/>
+  <text x="378" y="424" fill="#e2e8f0" font-size="10.5">anode (longer)</text>
+  <line x1="470" y1="420" x2="492" y2="420" stroke="#fca5a5" stroke-width="3"/>
+  <text x="498" y="424" fill="#e2e8f0" font-size="10.5">cathode</text>
+  <circle cx="356" cy="444" r="4" fill="#fde68a"/>
+  <text x="366" y="448" fill="#e2e8f0" font-size="10.5">anode endpoint</text>
+  <rect x="466" y="440" width="8" height="8" fill="#fde68a"/>
+  <text x="480" y="448" fill="#e2e8f0" font-size="10.5">cathode endpoint</text>
+  <text x="350" y="474" fill="#cbd5e1" font-size="10.5">tens of points per image, a few px apart, low contrast,</text>
+  <text x="350" y="488" fill="#cbd5e1" font-size="10.5">tabs and foreign bodies as distractors → counting +</text>
+  <text x="350" y="502" fill="#cbd5e1" font-size="10.5">keypoint localisation, not box detection (PBD5K)</text>
+
+  <!-- Panel 3: output -->
+  <text x="654" y="88" fill="#334155" font-size="13" font-weight="800">3 · The answer: a measurement per layer</text>
+  <rect x="654" y="100" width="282" height="410" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="670" y="124" fill="#475569" font-size="11">overhang per layer vs tolerance band</text>
+  <!-- tolerance band -->
+  <rect x="690" y="140" width="230" height="200" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="690" y="180" width="230" height="80" fill="#bbf7d0" opacity="0.7"/>
+  <text x="694" y="176" fill="#15803d" font-size="9.5">upper limit</text>
+  <text x="694" y="272" fill="#15803d" font-size="9.5">lower limit</text>
+  <g fill="#1d4ed8">
+    <circle cx="705" cy="210" r="4"/><circle cx="740" cy="200" r="4"/><circle cx="775" cy="226" r="4"/>
+    <circle cx="845" cy="214" r="4"/><circle cx="880" cy="204" r="4"/><circle cx="910" cy="222" r="4"/>
+  </g>
+  <circle cx="810" cy="300" r="5" fill="#b91c1c"/>
+  <text x="790" y="320" fill="#b91c1c" font-size="10.5" font-weight="700">layer 4: too short</text>
+  <text x="690" y="356" fill="#64748b" font-size="10">layer 1 → 7</text>
+
+  <rect x="670" y="374" width="250" height="34" rx="4" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="684" y="396" fill="#7f1d1d" font-size="12" font-weight="800">Cell: FAIL (one layer out of band)</text>
+  <text x="670" y="432" fill="#475569" font-size="10.5">• one missed endpoint can flip the cell verdict</text>
+  <text x="670" y="448" fill="#475569" font-size="10.5">• tolerances are tight, so pixel-level error matters</text>
+  <text x="670" y="464" fill="#475569" font-size="10.5">• CT measures every layer; 2D X-ray sees corners</text>
+  <text x="670" y="480" fill="#475569" font-size="10.5">• CT gauge needs a reference object to validate</text>
+  <text x="670" y="496" fill="#475569" font-size="10.5">  (NPL laser-cut electrode phantom)</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+    <marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/></marker>
+  </defs>
+</svg>
