@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the flat-panel display inspection image. Left: four places where images are taken: the TFT array or OLED backplane (a periodic pixel grid with one broken cell), the lit panel shown a gray test pattern (a faint, low-contrast mura blob and a bright line defect), the cover glass seen from three camera angles (a scratch visible only in one view because of glare), and the Mini- or Micro-LED emitter array (a dense grid of chips with one missing and one shifted). Middle: the shared primitive: the target is a deviation from a known, repeating pattern, so the image is compared against a reference built from neighbouring periods or a defect-free inpainting, and the residual map is what gets detected. Right: the output is not just a box. It is reject, laser repair of a pixel or line, per-pixel demura compensation written back into the panel, or a cosmetic grade.">
+  <title>The flat-panel display inspection image: deviation from a known pattern</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The flat-panel display inspection image: four stages, one primitive</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">The target is a deviation from a known repeating pattern; the answer is reject, repair, compensate (demura) or grade, not only a box.</text>
+
+  <!-- Panel 1 -->
+  <text x="24" y="88" fill="#334155" font-size="13" font-weight="800">1 · Where images are taken</text>
+  <rect x="24" y="100" width="330" height="416" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <!-- A: array -->
+  <text x="40" y="122" fill="#1e3a8a" font-size="12" font-weight="800">A · TFT array / OLED backplane (AOI)</text>
+  <g stroke="#94a3b8" stroke-width="1" fill="#e2e8f0">
+    <rect x="40" y="132" width="16" height="16"/><rect x="60" y="132" width="16" height="16"/><rect x="80" y="132" width="16" height="16"/><rect x="100" y="132" width="16" height="16"/><rect x="120" y="132" width="16" height="16"/><rect x="140" y="132" width="16" height="16"/>
+    <rect x="40" y="152" width="16" height="16"/><rect x="60" y="152" width="16" height="16"/><rect x="80" y="152" width="16" height="16"/><rect x="120" y="152" width="16" height="16"/><rect x="140" y="152" width="16" height="16"/>
+  </g>
+  <rect x="100" y="152" width="16" height="16" fill="#fca5a5" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="166" y="146" fill="#475569" font-size="10.5">periodic pixel pattern;</text>
+  <text x="166" y="160" fill="#475569" font-size="10.5">defect = break in period</text>
+  <text x="166" y="174" fill="#475569" font-size="10.5">(open, short, particle)</text>
+
+  <!-- B: lit panel -->
+  <text x="40" y="202" fill="#1e3a8a" font-size="12" font-weight="800">B · Lit panel on a gray pattern (cell / module)</text>
+  <rect x="40" y="212" width="116" height="62" fill="#64748b"/>
+  <ellipse cx="80" cy="240" rx="22" ry="14" fill="#7c8aa0" opacity="0.9"/>
+  <line x1="130" y1="212" x2="130" y2="274" stroke="#fde68a" stroke-width="2"/>
+  <text x="166" y="226" fill="#475569" font-size="10.5">mura: faint, edgeless,</text>
+  <text x="166" y="240" fill="#475569" font-size="10.5">region-level; plus point</text>
+  <text x="166" y="254" fill="#475569" font-size="10.5">and line defects; worst</text>
+  <text x="166" y="268" fill="#475569" font-size="10.5">SNR at low gray levels</text>
+
+  <!-- C: cover glass -->
+  <text x="40" y="302" fill="#1e3a8a" font-size="12" font-weight="800">C · Cover glass / phone screen</text>
+  <rect x="40" y="340" width="116" height="10" fill="#bae6fd" stroke="#0284c7"/>
+  <line x1="62" y1="314" x2="80" y2="338" stroke="#475569" stroke-width="1.5"/>
+  <line x1="98" y1="312" x2="98" y2="338" stroke="#475569" stroke-width="1.5"/>
+  <line x1="134" y1="314" x2="116" y2="338" stroke="#475569" stroke-width="1.5"/>
+  <circle cx="62" cy="312" r="4" fill="#475569"/><circle cx="98" cy="310" r="4" fill="#475569"/><circle cx="134" cy="312" r="4" fill="#475569"/>
+  <line x1="104" y1="343" x2="126" y2="347" stroke="#dc2626" stroke-width="2"/>
+  <text x="166" y="318" fill="#475569" font-size="10.5">reflective: a scratch can</text>
+  <text x="166" y="332" fill="#475569" font-size="10.5">show in one view and hide</text>
+  <text x="166" y="346" fill="#475569" font-size="10.5">under glare in another</text>
+
+  <!-- D: micro-LED -->
+  <text x="40" y="380" fill="#1e3a8a" font-size="12" font-weight="800">D · Mini / Micro-LED emitter array</text>
+  <g fill="#93c5fd">
+    <circle cx="48" cy="396" r="4"/><circle cx="62" cy="396" r="4"/><circle cx="76" cy="396" r="4"/><circle cx="90" cy="396" r="4"/><circle cx="104" cy="396" r="4"/><circle cx="118" cy="396" r="4"/><circle cx="132" cy="396" r="4"/><circle cx="146" cy="396" r="4"/>
+    <circle cx="48" cy="410" r="4"/><circle cx="62" cy="410" r="4"/><circle cx="90" cy="410" r="4"/><circle cx="104" cy="410" r="4"/><circle cx="118" cy="410" r="4"/><circle cx="135" cy="413" r="4"/><circle cx="146" cy="410" r="4"/>
+    <circle cx="48" cy="424" r="4"/><circle cx="62" cy="424" r="4"/><circle cx="76" cy="424" r="4"/><circle cx="90" cy="424" r="4"/><circle cx="104" cy="424" r="4"/><circle cx="118" cy="424" r="4"/><circle cx="132" cy="424" r="4"/><circle cx="146" cy="424" r="4"/>
+  </g>
+  <circle cx="76" cy="410" r="4" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <circle cx="135" cy="413" r="6" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <text x="166" y="400" fill="#475569" font-size="10.5">millions of chips; targets</text>
+  <text x="166" y="414" fill="#475569" font-size="10.5">are missing, shifted,</text>
+  <text x="166" y="428" fill="#475569" font-size="10.5">rotated or dark emitters</text>
+
+  <text x="40" y="460" fill="#64748b" font-size="10.5">Public benchmarks exist only for C</text>
+  <text x="40" y="474" fill="#64748b" font-size="10.5">(MSD / PKU-Market-Phone, SSGD);</text>
+  <text x="40" y="488" fill="#64748b" font-size="10.5">A, B and D report on private line data.</text>
+
+  <!-- Panel 2 -->
+  <text x="374" y="88" fill="#334155" font-size="13" font-weight="800">2 · The primitive: compare to a reference</text>
+  <rect x="374" y="100" width="290" height="416" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <rect x="392" y="120" width="76" height="60" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="430" y="146" fill="#334155" font-size="10.5" text-anchor="middle">captured</text>
+  <text x="430" y="160" fill="#334155" font-size="10.5" text-anchor="middle">image</text>
+  <rect x="570" y="120" width="76" height="60" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="608" y="140" fill="#334155" font-size="10.5" text-anchor="middle">reference:</text>
+  <text x="608" y="154" fill="#334155" font-size="10" text-anchor="middle">shifted period,</text>
+  <text x="608" y="168" fill="#334155" font-size="10" text-anchor="middle">golden, inpainted</text>
+  <text x="519" y="155" fill="#334155" font-size="18" text-anchor="middle" font-weight="800">−</text>
+
+  <line x1="430" y1="182" x2="500" y2="214" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="608" y1="182" x2="538" y2="214" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="470" y="216" width="98" height="56" rx="3" fill="#1f2937"/>
+  <circle cx="500" cy="240" r="5" fill="#fbbf24"/>
+  <ellipse cx="540" cy="252" rx="14" ry="8" fill="#f87171" opacity="0.7"/>
+  <text x="519" y="288" fill="#334155" font-size="10.5" text-anchor="middle" font-weight="700">residual map</text>
+
+  <text x="392" y="320" fill="#1e3a8a" font-size="11.5" font-weight="800">What then reads the residual</text>
+  <text x="392" y="340" fill="#475569" font-size="10.5">· YOLO-style detector (point, line, cosmetic)</text>
+  <text x="392" y="356" fill="#475569" font-size="10.5">· segmenter for mura (mIoU, not mAP)</text>
+  <text x="392" y="372" fill="#475569" font-size="10.5">· one-class / Siamese model for rare defects</text>
+  <text x="392" y="388" fill="#475569" font-size="10.5">· VLM boxes cross-checked with saliency</text>
+
+  <text x="392" y="420" fill="#1e3a8a" font-size="11.5" font-weight="800">Why it is hard</text>
+  <text x="392" y="440" fill="#475569" font-size="10.5">· contrast near the visibility threshold</text>
+  <text x="392" y="456" fill="#475569" font-size="10.5">· generative models blur regular patterns</text>
+  <text x="392" y="472" fill="#475569" font-size="10.5">· view-dependent glare on glass</text>
+  <text x="392" y="488" fill="#475569" font-size="10.5">· millions of near-identical targets (µLED)</text>
+
+  <!-- Panel 3 -->
+  <text x="684" y="88" fill="#334155" font-size="13" font-weight="800">3 · What the line does with it</text>
+  <rect x="684" y="100" width="252" height="416" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <rect x="702" y="120" width="216" height="64" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="714" y="142" fill="#7f1d1d" font-size="12" font-weight="800">Reject / downgrade</text>
+  <text x="714" y="160" fill="#7f1d1d" font-size="10.5">line defects, cracks, dead</text>
+  <text x="714" y="174" fill="#7f1d1d" font-size="10.5">pixel clusters, broken glass</text>
+
+  <rect x="702" y="198" width="216" height="64" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="714" y="220" fill="#78350f" font-size="12" font-weight="800">Repair</text>
+  <text x="714" y="238" fill="#78350f" font-size="10.5">laser cut / weld a line or pixel;</text>
+  <text x="714" y="252" fill="#78350f" font-size="10.5">replace a missing µLED chip</text>
+
+  <rect x="702" y="276" width="216" height="78" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="714" y="298" fill="#1e3a8a" font-size="12" font-weight="800">Compensate (demura)</text>
+  <text x="714" y="316" fill="#1e3a8a" font-size="10.5">camera measures every pixel;</text>
+  <text x="714" y="330" fill="#1e3a8a" font-size="10.5">correction table written into</text>
+  <text x="714" y="344" fill="#1e3a8a" font-size="10.5">the panel; mura is erased, not found</text>
+
+  <rect x="702" y="368" width="216" height="64" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="714" y="390" fill="#14532d" font-size="12" font-weight="800">Grade / pass</text>
+  <text x="714" y="408" fill="#14532d" font-size="10.5">cosmetic grade against a</text>
+  <text x="714" y="422" fill="#14532d" font-size="10.5">just-noticeable-difference spec</text>
+
+  <text x="702" y="458" fill="#64748b" font-size="10.5">Root cause feeds back to the fab:</text>
+  <text x="702" y="472" fill="#64748b" font-size="10.5">BOE (SID 2026) uses a VLM with</text>
+  <text x="702" y="486" fill="#64748b" font-size="10.5">chain-of-thought to propose repairs.</text>
+</svg>
