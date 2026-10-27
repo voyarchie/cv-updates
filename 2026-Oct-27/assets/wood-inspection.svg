@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the wood and timber inspection image. Left: four places along the wood value chain where images are taken: the standing or felled log surface (RGB plus laser point cloud, knots seen as bumps and bark scars), the log interior seen by X-ray CT (knots as dense whorls radiating from the pith), the sawn board or veneer face (RGB, tracheid laser scatter, knots, cracks, resin pockets, wane), and the end-grain cross-section (pith, growth rings, species anatomy). Middle: the shared primitive: a natural, non-repeating texture where the commonest feature, the knot, is both a defect and a normal part of the material, so the target is a graded feature, not a binary anomaly. Right: the output is a sawing decision, a strength or appearance grade, a cut-out position, or a species or ring measurement.">
+  <title>The wood and timber inspection image: a natural texture whose main feature is graded, not rejected</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The wood &amp; timber inspection image: four views, one primitive</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">The knot is both a defect and part of the material, so the target is a graded feature in a non-repeating texture</text>
+
+  <!-- Column 1: four views -->
+  <g font-size="12" fill="#334155">
+    <!-- Log surface -->
+    <rect x="24" y="72" width="300" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Log surface (RGB + laser point cloud)</text>
+    <rect x="40" y="104" width="200" height="50" rx="25" fill="#c9a77c" stroke="#8a6a44"/>
+    <ellipse cx="90" cy="122" rx="8" ry="5" fill="#6b4a2b"/>
+    <ellipse cx="160" cy="136" rx="6" ry="4" fill="#6b4a2b"/>
+    <ellipse cx="205" cy="118" rx="7" ry="5" fill="#6b4a2b"/>
+    <circle cx="90" cy="122" r="13" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="205" cy="118" r="12" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <text x="252" y="126" font-size="10.5" fill="#475569">surface knots,</text>
+    <text x="252" y="140" font-size="10.5" fill="#475569">bark noise</text>
+
+    <!-- Log CT -->
+    <rect x="24" y="178" width="300" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="198" font-weight="700">2 · Log interior (X-ray CT)</text>
+    <circle cx="90" cy="236" r="32" fill="#e7d3b3" stroke="#8a6a44"/>
+    <circle cx="90" cy="236" r="3" fill="#6b4a2b"/>
+    <path d="M90 236 L118 222 M90 236 L70 262 M90 236 L64 218" stroke="#6b4a2b" stroke-width="5" stroke-linecap="round"/>
+    <rect x="140" y="214" width="56" height="44" fill="#e7d3b3" stroke="#8a6a44"/>
+    <path d="M150 214 v44 M162 214 v44 M174 214 v44 M186 214 v44" stroke="#8a6a44" stroke-width="0.8"/>
+    <text x="208" y="232" font-size="10.5" fill="#475569">3-D knot whorls</text>
+    <text x="208" y="246" font-size="10.5" fill="#475569">from pith, bark</text>
+
+    <!-- Board / veneer -->
+    <rect x="24" y="284" width="300" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="304" font-weight="700">3 · Board / veneer face (RGB, tracheid laser)</text>
+    <rect x="40" y="316" width="220" height="56" fill="#e2c697" stroke="#8a6a44"/>
+    <path d="M40 330 C 90 322, 120 346, 170 334 S 240 326, 260 334" fill="none" stroke="#b08a5a"/>
+    <path d="M40 354 C 90 346, 120 366, 170 356 S 240 350, 260 358" fill="none" stroke="#b08a5a"/>
+    <ellipse cx="80" cy="344" rx="9" ry="7" fill="#6b4a2b"/>
+    <ellipse cx="80" cy="344" rx="14" ry="11" fill="none" stroke="#3f2a16" stroke-dasharray="3 2"/>
+    <path d="M150 324 L176 336 L196 330" stroke="#dc2626" stroke-width="2" fill="none"/>
+    <path d="M232 316 L260 316 L260 344 Z" fill="#a3a3a3"/>
+    <text x="64" y="384" font-size="10" fill="#475569">dead knot</text>
+    <text x="150" y="384" font-size="10" fill="#475569">crack</text>
+    <text x="226" y="384" font-size="10" fill="#475569">wane</text>
+
+    <!-- End grain -->
+    <rect x="24" y="398" width="300" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="418" font-weight="700">4 · End grain / cross-section</text>
+    <g fill="none" stroke="#8a6a44">
+      <circle cx="90" cy="462" r="32" fill="#ecd9b8"/>
+      <circle cx="94" cy="460" r="25"/>
+      <circle cx="96" cy="459" r="18"/>
+      <circle cx="98" cy="458" r="11"/>
+    </g>
+    <circle cx="99" cy="458" r="3" fill="#dc2626"/>
+    <text x="140" y="452" font-size="10.5" fill="#475569">pith point, ring</text>
+    <text x="140" y="466" font-size="10.5" fill="#475569">boundaries, species</text>
+    <text x="140" y="480" font-size="10.5" fill="#475569">anatomy (macro lens)</text>
+  </g>
+
+  <!-- Arrows to middle -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M324 120 L372 250"/><path d="M324 226 L372 260"/><path d="M324 336 L372 272"/><path d="M324 450 L372 282"/>
+  </g>
+
+  <!-- Middle: primitive -->
+  <rect x="372" y="150" width="270" height="230" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <g font-size="12" fill="#1e293b">
+    <text x="388" y="176" font-weight="800" font-size="13">Shared primitive</text>
+    <text x="388" y="200">• Non-repeating natural texture:</text>
+    <text x="400" y="216">no golden image to subtract</text>
+    <text x="388" y="238">• Knots are normal AND defects:</text>
+    <text x="400" y="254">sound vs dead vs encased,</text>
+    <text x="400" y="270">size and position set the grade</text>
+    <text x="388" y="292">• Boxes undersell it: cracks and</text>
+    <text x="400" y="308">wane are thin or edge features</text>
+    <text x="388" y="330">• Surface sees where the knot</text>
+    <text x="400" y="346">exits; CT sees where it goes</text>
+    <text x="388" y="368" fill="#1d4ed8" font-weight="700">detect → measure → grade / saw</text>
+  </g>
+
+  <path d="M642 265 L690 265" stroke="#64748b" stroke-width="1.6"/>
+  <path d="M684 259 L692 265 L684 271" fill="#64748b"/>
+
+  <!-- Right: outputs -->
+  <g font-size="12" fill="#334155">
+    <rect x="694" y="96" width="242" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="706" y="118" font-weight="700">Sawing decision</text>
+    <text x="706" y="136" font-size="11">log rotation / cutting pattern to</text>
+    <text x="706" y="152" font-size="11">keep knots off arrises (§3, §4)</text>
+
+    <rect x="694" y="176" width="242" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="706" y="198" font-weight="700">Board grade</text>
+    <text x="706" y="216" font-size="11">strength / appearance class from</text>
+    <text x="706" y="232" font-size="11">knot size, type, location (§5)</text>
+
+    <rect x="694" y="256" width="242" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="706" y="278" font-weight="700">Cut-out / patch position</text>
+    <text x="706" y="296" font-size="11">optimiser removes or repairs</text>
+    <text x="706" y="312" font-size="11">defect on veneer / panel (§5)</text>
+
+    <rect x="694" y="336" width="242" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="706" y="358" font-weight="700">Species / rings / pith</text>
+    <text x="706" y="376" font-size="11">legality check, dendrochronology,</text>
+    <text x="706" y="392" font-size="11">growth measurement (§6)</text>
+  </g>
+  <text x="694" y="440" font-size="10.5" fill="#64748b">Colours: wood tones for material,</text>
+  <text x="694" y="454" font-size="10.5" fill="#64748b">blue = detections, red = thin defects</text>
+  <text x="694" y="468" font-size="10.5" fill="#64748b">and key points. Panel background is</text>
+  <text x="694" y="482" font-size="10.5" fill="#64748b">fixed so it reads in light and dark.</text>
+</svg>
