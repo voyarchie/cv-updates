@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the tire inspection image. Left: four views of a tire. First, the factory X-ray of the cured tire, unwrapped into a long strip with steel cords as parallel lines and defects such as cord overlap, open splice and foreign matter. Second, the laser 3-D profile or shearography of the sidewall and inner liner, where bulges and separations show as height or strain anomalies. Third, the tread surface in service, where groove depth, uneven wear and cuts are measured. Fourth, the sidewall text, including the DOT code and size markings embossed black-on-black. Middle: the shared primitive is a periodic, rotationally unwrapped structure where defects are thin, elongated or low-contrast and the image is very wide. Right: the outputs are a factory pass, grade or scrap decision, a tread-depth number in millimetres, a service decision, and a read code for traceability.">
+  <title>The tire inspection image: one rotating structure, four views</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The tire inspection image: four views, one primitive</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">A rotating, periodic structure unwrapped into a very wide strip, where defects are thin, elongated or nearly invisible</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 X-ray -->
+    <rect x="24" y="72" width="300" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Factory X-ray (unwrapped strip)</text>
+    <rect x="40" y="104" width="220" height="56" fill="#475569" stroke="#1e293b"/>
+    <g stroke="#cbd5e1" stroke-width="1">
+      <path d="M52 104 v56 M64 104 v56 M76 104 v56 M88 104 v56 M112 104 v56 M124 104 v56 M136 104 v56 M148 104 v56 M160 104 v56 M196 104 v56 M208 104 v56 M220 104 v56 M232 104 v56 M244 104 v56"/>
+    </g>
+    <path d="M98 104 L104 160 M100 104 L102 160" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="170" y="104" width="16" height="56" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="3 2"/>
+    <circle cx="226" cy="132" r="4" fill="#f8fafc"/>
+    <text x="266" y="118" font-size="10" fill="#475569">overlap,</text>
+    <text x="266" y="131" font-size="10" fill="#475569">open splice,</text>
+    <text x="266" y="144" font-size="10" fill="#475569">foreign</text>
+    <text x="266" y="157" font-size="10" fill="#475569">matter</text>
+
+    <!-- 2 laser / shearography -->
+    <rect x="24" y="186" width="300" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="206" font-weight="700">2 · Laser 3-D / shearography</text>
+    <path d="M40 256 L90 256 C 100 256, 104 232, 116 232 C 128 232, 132 256, 142 256 L240 256" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <path d="M40 266 L240 266" stroke="#94a3b8" stroke-dasharray="4 3"/>
+    <text x="96" y="226" font-size="10" fill="#475569">bulge 0.2 mm+</text>
+    <text x="250" y="244" font-size="10.5" fill="#475569">blisters,</text>
+    <text x="250" y="258" font-size="10.5" fill="#475569">separations</text>
+
+    <!-- 3 tread -->
+    <rect x="24" y="292" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="312" font-weight="700">3 · Tread in service (phone, drive-over)</text>
+    <rect x="40" y="322" width="200" height="56" rx="4" fill="#334155"/>
+    <g fill="#94a3b8">
+      <rect x="70" y="322" width="10" height="56"/><rect x="118" y="322" width="10" height="56"/><rect x="166" y="322" width="7" height="56"/><rect x="210" y="322" width="4" height="56"/>
+    </g>
+    <path d="M196 330 L204 346" stroke="#dc2626" stroke-width="2"/>
+    <text x="250" y="342" font-size="10.5" fill="#475569">groove depth</text>
+    <text x="250" y="356" font-size="10.5" fill="#475569">(mm), uneven</text>
+    <text x="250" y="370" font-size="10.5" fill="#475569">wear, cuts</text>
+
+    <!-- 4 sidewall text -->
+    <rect x="24" y="402" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="422" font-weight="700">4 · Sidewall markings (DOT / size)</text>
+    <path d="M40 486 A 140 140 0 0 1 240 486" fill="none" stroke="#334155" stroke-width="22"/>
+    <text x="80" y="470" font-size="11" fill="#cbd5e1" font-family="monospace" transform="rotate(-8 80 470)">DOT T7D3 1BH 3218</text>
+    <text x="250" y="458" font-size="10.5" fill="#475569">black-on-black</text>
+    <text x="250" y="472" font-size="10.5" fill="#475569">embossed text,</text>
+    <text x="250" y="486" font-size="10.5" fill="#475569">curved</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M324 124 L372 250"/><path d="M324 234 L372 260"/><path d="M324 342 L372 272"/><path d="M324 452 L372 282"/>
+  </g>
+
+  <rect x="372" y="150" width="270" height="230" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <g font-size="12" fill="#1e293b">
+    <text x="388" y="176" font-weight="800" font-size="13">Shared primitive</text>
+    <text x="388" y="200">• Rotation unwrapped to a strip:</text>
+    <text x="400" y="216">very wide images, tiny defects</text>
+    <text x="388" y="238">• Periodic cords / tread blocks:</text>
+    <text x="400" y="254">defects look like the pattern</text>
+    <text x="388" y="276">• Thin, elongated targets:</text>
+    <text x="400" y="292">cord cracks, splices, cuts</text>
+    <text x="388" y="314">• Hundreds of designs (SKUs),</text>
+    <text x="400" y="330">dozens of defect classes</text>
+    <text x="388" y="358" fill="#1d4ed8" font-weight="700">detect → measure → decide / read</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M642 230 L690 130"/><path d="M642 250 L690 220"/><path d="M642 280 L690 310"/><path d="M642 300 L690 410"/>
+  </g>
+  <g font-size="12" fill="#334155">
+    <rect x="690" y="96" width="246" height="66" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="704" y="120" font-weight="700">Pass / grade / scrap</text>
+    <text x="704" y="140" font-size="10.5" fill="#475569">per-tire factory decision,</text>
+    <text x="704" y="154" font-size="10.5" fill="#475569">operator-review queue</text>
+    <rect x="690" y="186" width="246" height="66" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="704" y="210" font-weight="700">Retread accept / reject</text>
+    <text x="704" y="230" font-size="10.5" fill="#475569">casing separations from</text>
+    <text x="704" y="244" font-size="10.5" fill="#475569">shearography</text>
+    <rect x="690" y="276" width="246" height="66" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="704" y="300" font-weight="700">Tread depth in mm</text>
+    <text x="704" y="320" font-size="10.5" fill="#475569">legal limit 1.6 mm (2/32"),</text>
+    <text x="704" y="334" font-size="10.5" fill="#475569">service / replace call</text>
+    <rect x="690" y="366" width="246" height="66" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="704" y="390" font-weight="700">Read code</text>
+    <text x="704" y="410" font-size="10.5" fill="#475569">plant, size, week/year:</text>
+    <text x="704" y="424" font-size="10.5" fill="#475569">recall and age checks</text>
+  </g>
+</svg>
