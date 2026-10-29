@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the metal powder-bed fusion monitoring image. Left: four views of one build. First, the powder-bed layer image taken by an off-axis camera before and after each layer is melted, showing recoater streaks, short feed, spatter and part outlines. Second, the layer-integrated thermal image (optical tomography or near-infrared), showing hot and cold spots inside the part cross-section. Third, the melt-pool image or video from a coaxial or high-speed camera, showing the melt pool, plume and spatter at kilohertz rates. Fourth, the ex-situ X-ray CT or synchrotron radiograph showing lack-of-fusion and keyhole pores, used as ground truth. Middle: the shared primitive is a stack of thousands of registered layers in which the defect is often only visible as a weak, small or texture-like signal and the label lives in a different modality. Right: the outputs are a stop or continue decision during the build, a per-voxel defect probability map, and part acceptance.">
+  <title>The powder-bed fusion monitoring image: four views, one layer stack</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The metal powder-bed fusion image: four views, one primitive</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Thousands of registered layers; defects are small, texture-like or hidden; the label lives in another modality (CT)</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 powder bed -->
+    <rect x="24" y="72" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Powder-bed layer image (off-axis)</text>
+    <rect x="40" y="102" width="200" height="60" fill="#94a3b8" stroke="#475569"/>
+    <rect x="62" y="114" width="44" height="30" fill="#475569"/>
+    <circle cx="160" cy="130" r="18" fill="#475569"/>
+    <path d="M40 152 H240" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M200 102 V162" stroke="#dc2626" stroke-width="2" stroke-dasharray="3 2"/>
+    <circle cx="124" cy="110" r="2.5" fill="#1e293b"/><circle cx="214" cy="140" r="2" fill="#1e293b"/>
+    <text x="248" y="118" font-size="10" fill="#475569">recoater streak,</text>
+    <text x="248" y="131" font-size="10" fill="#475569">short feed,</text>
+    <text x="248" y="144" font-size="10" fill="#475569">spatter,</text>
+    <text x="248" y="157" font-size="10" fill="#475569">super-elevation</text>
+
+    <!-- 2 thermal layer -->
+    <rect x="24" y="182" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="202" font-weight="700">2 · Layer thermal map (OT / NIR)</text>
+    <rect x="40" y="212" width="200" height="60" fill="#1e293b"/>
+    <rect x="62" y="222" width="70" height="40" fill="#2563eb"/>
+    <rect x="150" y="222" width="70" height="40" fill="#2563eb"/>
+    <circle cx="96" cy="240" r="6" fill="#f59e0b"/>
+    <circle cx="186" cy="248" r="6" fill="#38bdf8"/>
+    <text x="248" y="232" font-size="10" fill="#475569">hot spot →</text>
+    <text x="248" y="245" font-size="10" fill="#475569">keyhole;</text>
+    <text x="248" y="258" font-size="10" fill="#475569">cold → lack</text>
+    <text x="248" y="271" font-size="10" fill="#475569">of fusion</text>
+
+    <!-- 3 melt pool -->
+    <rect x="24" y="292" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="312" font-weight="700">3 · Melt-pool image / video (kHz)</text>
+    <rect x="40" y="322" width="200" height="60" fill="#1e293b"/>
+    <ellipse cx="120" cy="352" rx="30" ry="12" fill="#f59e0b"/>
+    <ellipse cx="112" cy="352" rx="12" ry="6" fill="#fef3c7"/>
+    <path d="M150 346 C 170 336, 190 334, 214 330" stroke="#94a3b8" stroke-width="6" fill="none" opacity="0.7"/>
+    <circle cx="176" cy="368" r="2.5" fill="#fef3c7"/><circle cx="196" cy="360" r="2" fill="#fef3c7"/><circle cx="84" cy="334" r="2" fill="#fef3c7"/>
+    <text x="248" y="342" font-size="10" fill="#475569">pool size,</text>
+    <text x="248" y="355" font-size="10" fill="#475569">shape, plume,</text>
+    <text x="248" y="368" font-size="10" fill="#475569">spatter count</text>
+
+    <!-- 4 CT -->
+    <rect x="24" y="402" width="300" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="422" font-weight="700">4 · X-ray CT / synchrotron (labels)</text>
+    <rect x="40" y="432" width="200" height="60" fill="#cbd5e1" stroke="#475569"/>
+    <path d="M70 450 l20 4 l-6 8 l-18 -3 z" fill="#475569"/>
+    <circle cx="150" cy="462" r="5" fill="#475569"/>
+    <circle cx="190" cy="448" r="3" fill="#475569"/>
+    <text x="248" y="452" font-size="10" fill="#475569">lack-of-fusion</text>
+    <text x="248" y="465" font-size="10" fill="#475569">(irregular),</text>
+    <text x="248" y="478" font-size="10" fill="#475569">keyhole (round)</text>
+  </g>
+
+  <!-- arrows to middle -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M324 122 C 360 122, 360 230, 388 250"/>
+    <path d="M324 232 C 356 232, 360 250, 388 258"/>
+    <path d="M324 342 C 356 342, 360 280, 388 270"/>
+    <path d="M324 452 C 364 452, 370 300, 388 282" stroke-dasharray="5 4"/>
+  </g>
+
+  <!-- middle -->
+  <rect x="390" y="150" width="250" height="230" rx="10" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="404" y="174" fill="#3730a3" font-size="13.5" font-weight="800">Shared primitive</text>
+  <g fill="#1e1b4b" font-size="11.5">
+    <text x="404" y="198">• a stack of 1,000–10,000+ layers,</text>
+    <text x="414" y="213">registered to the CAD slice</text>
+    <text x="404" y="235">• small or texture-like anomalies</text>
+    <text x="414" y="250">on a noisy, lit powder background</text>
+    <text x="404" y="272">• label lives elsewhere: CT pores</text>
+    <text x="414" y="287">must be mapped back to layers</text>
+    <text x="404" y="309">• few defects, many machines,</text>
+    <text x="414" y="324">alloys and lighting set-ups</text>
+    <text x="404" y="346">• must decide before the next layer</text>
+    <text x="414" y="361">(seconds), or within a scan line</text>
+  </g>
+
+  <!-- arrows to outputs -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M640 220 C 680 220, 680 150, 712 150"/>
+    <path d="M640 265 L712 265"/>
+    <path d="M640 320 C 680 320, 680 380, 712 380"/>
+  </g>
+
+  <g font-size="12">
+    <rect x="714" y="112" width="222" height="76" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="726" y="134" fill="#14532d" font-weight="700">During build</text>
+    <text x="726" y="154" fill="#14532d" font-size="11">recoat again, pause, stop,</text>
+    <text x="726" y="170" fill="#14532d" font-size="11">or skip a failing part</text>
+
+    <rect x="714" y="227" width="222" height="76" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="726" y="249" fill="#78350f" font-weight="700">Per-voxel defect map</text>
+    <text x="726" y="269" fill="#78350f" font-size="11">segmentation stacked into 3-D,</text>
+    <text x="726" y="285" fill="#78350f" font-size="11">porosity / density estimate</text>
+
+    <rect x="714" y="342" width="222" height="76" rx="8" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="726" y="364" fill="#7f1d1d" font-weight="700">Part qualification</text>
+    <text x="726" y="384" fill="#7f1d1d" font-size="11">accept / CT-inspect / scrap;</text>
+    <text x="726" y="400" fill="#7f1d1d" font-size="11">link to tensile and fatigue</text>
+  </g>
+
+  <text x="390" y="410" fill="#64748b" font-size="10.5">dashed: offline ground truth, not available in-process</text>
+</svg>
