@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the food-processing inspection image. Left: five views on a processing line. First, the poultry and meat line image: carcasses on shackles or fillets on a belt, with bruises, broken wings, skin tears and woody breast. Second, the fish and seafood image: whole fish on a sorting belt or fillets with blood spots, residues and parasites. Third, the produce and bulk sorter image: apples or nuts tumbling on a conveyor, seen from several sides, with rot, bruises, shells and stones. Fourth, the see-through views: dual-energy X-ray for bone fragments and dense contaminants, near-infrared hyperspectral cubes for plastics that look like meat, and sub-terahertz transmission for low-density foreign matter. Middle: the shared primitive is a dense stream of natural, deformable, variable objects, many per frame, where a small defect or foreign body is rare and must be rejected within milliseconds. Right: outputs are a per-item reject or regrade decision, a per-item quality grade, and a traceable log for food-safety audits.">
+  <title>The food-processing inspection image: four views, one primitive</title>
+  <rect x="0" y="0" width="960" height="540" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The food-processing inspection image: four views, one primitive</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Many natural, deformable items per frame; defects and foreign bodies are rare and small; the reject decision has milliseconds</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 poultry / meat -->
+    <rect x="24" y="72" width="330" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Poultry &amp; meat line (RGB, HSI, 3-D)</text>
+    <path d="M44 104 H234" stroke="#475569" stroke-width="2"/>
+    <g fill="#f5c9a8" stroke="#b45309">
+      <ellipse cx="72" cy="138" rx="20" ry="26"/>
+      <ellipse cx="132" cy="138" rx="20" ry="26"/>
+      <ellipse cx="192" cy="138" rx="20" ry="26"/>
+    </g>
+    <path d="M72 104 V112 M132 104 V112 M192 104 V112" stroke="#475569" stroke-width="2"/>
+    <circle cx="138" cy="146" r="6" fill="#7c3aed" opacity="0.7"/>
+    <path d="M184 128 L200 140" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="244" y="118" font-size="10" fill="#475569">bruise, skin tear,</text>
+    <text x="244" y="131" font-size="10" fill="#475569">broken wing,</text>
+    <text x="244" y="144" font-size="10" fill="#475569">woody breast,</text>
+    <text x="244" y="157" font-size="10" fill="#475569">marbling grade</text>
+
+    <!-- 2 fish -->
+    <rect x="24" y="186" width="330" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="206" font-weight="700">2 · Fish &amp; seafood (belt RGB, HSI)</text>
+    <rect x="40" y="216" width="196" height="64" fill="#e2e8f0" stroke="#94a3b8"/>
+    <g fill="#93c5fd" stroke="#1d4ed8">
+      <path d="M52 236 Q82 220 112 236 L124 228 L124 244 L112 236 Q82 252 52 236 Z"/>
+      <path d="M100 262 Q130 246 160 262 L172 254 L172 270 L160 262 Q130 278 100 262 Z"/>
+      <path d="M150 232 Q178 218 206 232 L218 224 L218 240 L206 232 Q178 246 150 232 Z"/>
+    </g>
+    <rect x="96" y="250" width="68" height="26" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+    <circle cx="186" cy="232" r="3" fill="#dc2626"/>
+    <text x="244" y="232" font-size="10" fill="#475569">species, length,</text>
+    <text x="244" y="245" font-size="10" fill="#475569">occlusion, blood,</text>
+    <text x="244" y="258" font-size="10" fill="#475569">bone, nematodes</text>
+
+    <!-- 3 produce -->
+    <rect x="24" y="300" width="330" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="320" font-weight="700">3 · Produce &amp; bulk sorter (multi-view)</text>
+    <rect x="40" y="330" width="196" height="64" fill="#e2e8f0" stroke="#94a3b8"/>
+    <g stroke="#b91c1c" fill="#fca5a5">
+      <circle cx="62" cy="352" r="12"/><circle cx="92" cy="372" r="12"/><circle cx="122" cy="350" r="12"/>
+      <circle cx="152" cy="374" r="12"/><circle cx="182" cy="352" r="12"/><circle cx="212" cy="372" r="12"/>
+    </g>
+    <circle cx="154" cy="370" r="4" fill="#78350f"/>
+    <path d="M122 338 V332 M182 340 V334" stroke="#166534" stroke-width="2"/>
+    <path d="M62 352 a10 10 0 0 1 10 -6" stroke="#1d4ed8" stroke-width="1.5" fill="none"/>
+    <text x="244" y="346" font-size="10" fill="#475569">rot, bruise, scab,</text>
+    <text x="244" y="359" font-size="10" fill="#475569">hidden underneath,</text>
+    <text x="244" y="372" font-size="10" fill="#475569">shells, stones,</text>
+    <text x="244" y="385" font-size="10" fill="#475569">track across frames</text>
+
+    <!-- 4 see-through -->
+    <rect x="24" y="414" width="330" height="104" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="434" font-weight="700">4 · See-through: X-ray, NIR-HSI, sub-THz</text>
+    <rect x="40" y="444" width="60" height="64" fill="#cbd5e1" stroke="#475569"/>
+    <path d="M56 460 L74 492" stroke="#1e293b" stroke-width="3"/>
+    <g>
+      <rect x="112" y="452" width="56" height="48" fill="#fde68a" stroke="#b45309"/>
+      <rect x="118" y="446" width="56" height="48" fill="#fcd34d" stroke="#b45309" opacity="0.8"/>
+      <rect x="124" y="440" width="56" height="48" fill="#fbbf24" stroke="#b45309" opacity="0.8"/>
+      <rect x="140" y="458" width="14" height="10" fill="#2563eb"/>
+    </g>
+    <rect x="190" y="444" width="46" height="64" fill="#e2e8f0" stroke="#475569"/>
+    <circle cx="212" cy="476" r="7" fill="#94a3b8" stroke="#475569" stroke-dasharray="2 2"/>
+    <text x="244" y="460" font-size="10" fill="#475569">bone fragment,</text>
+    <text x="244" y="473" font-size="10" fill="#475569">plastic that looks</text>
+    <text x="244" y="486" font-size="10" fill="#475569">like meat, low-</text>
+    <text x="244" y="499" font-size="10" fill="#475569">density matter</text>
+  </g>
+
+  <!-- arrows to centre -->
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <path d="M356 124 L404 270" /><path d="M356 238 L404 280"/>
+    <path d="M356 352 L404 290"/><path d="M356 466 L404 300"/>
+  </g>
+
+  <!-- centre primitive -->
+  <rect x="406" y="190" width="244" height="190" rx="10" fill="#e0e7ff" stroke="#4f46e5"/>
+  <text x="528" y="214" text-anchor="middle" font-size="13" font-weight="800" fill="#312e81">Shared primitive</text>
+  <g font-size="11" fill="#312e81">
+    <text x="420" y="238">• dense stream: many items per frame,</text>
+    <text x="430" y="252">touching, occluded, deformable</text>
+    <text x="420" y="272">• natural variation ≫ defect signal</text>
+    <text x="420" y="292">• rare, small faults and foreign bodies</text>
+    <text x="430" y="306">(heavy class imbalance)</text>
+    <text x="420" y="326">• label often needs another view</text>
+    <text x="430" y="340">(X-ray, HSI, palpation, CT)</text>
+    <text x="420" y="360">• reject in ms; every item logged</text>
+  </g>
+
+  <path d="M652 285 L700 285" stroke="#64748b" stroke-width="2"/>
+  <path d="M694 279 L702 285 L694 291" fill="#64748b"/>
+
+  <!-- outputs -->
+  <g font-size="12">
+    <rect x="706" y="150" width="230" height="64" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="718" y="172" font-weight="700" fill="#14532d">Per-item reject / re-route</text>
+    <text x="718" y="190" font-size="10.5" fill="#166534">air-jet, diverter, trim station,</text>
+    <text x="718" y="204" font-size="10.5" fill="#166534">re-inspection</text>
+
+    <rect x="706" y="254" width="230" height="64" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="718" y="276" font-weight="700" fill="#78350f">Per-item grade</text>
+    <text x="718" y="294" font-size="10.5" fill="#92400e">A / B / C, woody-breast score,</text>
+    <text x="718" y="308" font-size="10.5" fill="#92400e">marbling class, species + length</text>
+
+    <rect x="706" y="358" width="230" height="64" rx="8" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="718" y="380" font-weight="700" fill="#7f1d1d">Food-safety log</text>
+    <text x="718" y="398" font-size="10.5" fill="#991b1b">traceable per lot (HACCP audit,</text>
+    <text x="718" y="412" font-size="10.5" fill="#991b1b">recall scope)</text>
+  </g>
+  <g stroke="#64748b" stroke-width="1.5" fill="none">
+    <path d="M700 285 L706 182"/><path d="M700 285 L706 390"/>
+  </g>
+</svg>
