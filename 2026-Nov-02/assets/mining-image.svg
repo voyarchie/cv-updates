@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the mining and mineral-processing image. Left: four views. First, the blasted muck pile or shovel bucket, a dense pile of touching rock fragments to be instance-segmented for fragment size distribution. Second, ore on a conveyor belt, with adhered particles, oversize lumps, foreign objects such as bolts, and longitudinal belt tears. Third, the flotation froth surface, a dense packing of bubbles whose size, velocity and colour predict grade. Fourth, the drill-core tray, where core pieces and fractures are segmented to compute RQD. Middle: the shared primitive is a dense field of touching, irregular, low-contrast particles under dust, wet glare and moving belts. Right: outputs are a size distribution curve with P50 and P80, oversize and damage alarms, and process-control signals.">
+  <title>The mining &amp; mineral-processing image: four views, one size curve</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The mining &amp; mineral-processing image: four views, one size curve</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Hundreds of touching, irregular, low-contrast particles per frame; dust, water, glare and a moving belt; the target is a distribution, not a box list</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 muck pile -->
+    <rect x="24" y="72" width="340" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Muck pile / shovel bucket (blast)</text>
+    <g stroke="#78350f" stroke-width="1.2" fill="#fde68a">
+      <polygon points="40,160 52,130 70,128 78,150 66,162"/>
+      <polygon points="78,150 90,124 112,126 116,152 98,162"/>
+      <polygon points="116,152 122,132 138,134 140,158"/>
+      <polygon points="140,158 146,120 170,118 178,150 160,162"/>
+      <polygon points="58,128 64,110 80,108 88,124 72,128"/>
+      <polygon points="96,124 104,106 122,108 124,126"/>
+      <polygon points="178,150 184,134 196,136 198,160"/>
+    </g>
+    <text x="214" y="116" font-size="11" fill="#475569">instance masks →</text>
+    <text x="214" y="132" font-size="11" fill="#475569">fragment size</text>
+    <text x="214" y="148" font-size="11" fill="#475569">distribution (FSD)</text>
+
+    <!-- 2 conveyor -->
+    <rect x="24" y="182" width="340" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="202" font-weight="700">2 · Ore / coal on a conveyor belt</text>
+    <rect x="36" y="212" width="180" height="58" fill="#cbd5e1" stroke="#475569"/>
+    <g fill="#a8a29e" stroke="#44403c">
+      <ellipse cx="60" cy="236" rx="12" ry="9"/><ellipse cx="78" cy="238" rx="9" ry="8"/>
+      <ellipse cx="100" cy="232" rx="20" ry="14"/><ellipse cx="128" cy="244" rx="8" ry="7"/>
+      <ellipse cx="146" cy="236" rx="11" ry="9"/>
+    </g>
+    <rect x="90" y="217" width="22" height="31" fill="none" stroke="#b91c1c" stroke-width="2" transform="translate(-2,-0)"/>
+    <line x1="168" y1="252" x2="208" y2="257" stroke="#b91c1c" stroke-width="2.2"/>
+    <rect x="176" y="222" width="20" height="4" fill="#1d4ed8"/>
+    <text x="226" y="228" font-size="11" fill="#475569">adhered particles</text>
+    <text x="226" y="243" font-size="11" fill="#b91c1c">oversize · tear</text>
+    <text x="226" y="258" font-size="11" fill="#1d4ed8">foreign object (bolt)</text>
+
+    <!-- 3 froth -->
+    <rect x="24" y="292" width="340" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="312" font-weight="700">3 · Flotation froth surface</text>
+    <g fill="#e2e8f0" stroke="#334155">
+      <circle cx="54" cy="344" r="12"/><circle cx="78" cy="340" r="9"/><circle cx="96" cy="352" r="11"/>
+      <circle cx="120" cy="342" r="14"/><circle cx="146" cy="352" r="8"/><circle cx="164" cy="340" r="10"/>
+      <circle cx="66" cy="370" r="9"/><circle cx="90" cy="374" r="7"/><circle cx="112" cy="372" r="10"/>
+      <circle cx="140" cy="372" r="11"/><circle cx="168" cy="368" r="9"/><circle cx="190" cy="352" r="12"/>
+    </g>
+    <g fill="#ffffff"><circle cx="58" cy="340" r="2"/><circle cx="124" cy="337" r="2.5"/><circle cx="194" cy="348" r="2"/></g>
+    <text x="214" y="340" font-size="11" fill="#475569">bubble size, velocity,</text>
+    <text x="214" y="356" font-size="11" fill="#475569">colour, bursting →</text>
+    <text x="214" y="372" font-size="11" fill="#475569">grade / recovery</text>
+
+    <!-- 4 core -->
+    <rect x="24" y="402" width="340" height="100" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="422" font-weight="700">4 · Drill-core tray (geotechnical log)</text>
+    <g stroke="#475569" fill="#d6d3d1">
+      <rect x="36" y="432" width="64" height="12"/><rect x="104" y="432" width="20" height="12"/><rect x="128" y="432" width="76" height="12"/>
+      <rect x="36" y="452" width="30" height="12"/><rect x="70" y="452" width="8" height="12"/><rect x="82" y="452" width="6" height="12"/><rect x="92" y="452" width="112" height="12"/>
+      <rect x="36" y="472" width="168" height="12"/>
+    </g>
+    <g stroke="#b91c1c" stroke-width="2"><line x1="102" y1="430" x2="102" y2="446"/><line x1="126" y1="430" x2="126" y2="446"/><line x1="68" y1="450" x2="68" y2="466"/></g>
+    <text x="214" y="446" font-size="11" fill="#475569">pieces + fractures →</text>
+    <text x="214" y="462" font-size="11" fill="#475569">RQD, fracture freq.</text>
+    <text x="214" y="478" font-size="11" fill="#475569">natural vs. induced?</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M364 122 L420 270"/><path d="M364 232 L420 270"/><path d="M364 342 L420 270"/><path d="M364 452 L420 270"/>
+  </g>
+
+  <!-- primitive -->
+  <rect x="420" y="190" width="220" height="160" rx="10" fill="#ede9fe" stroke="#6d28d9"/>
+  <text x="434" y="214" font-size="13" font-weight="800" fill="#4c1d95">Shared primitive</text>
+  <g font-size="11.5" fill="#3b0764">
+    <text x="434" y="236">• dense, touching, irregular</text>
+    <text x="434" y="252">  particles, weak boundaries</text>
+    <text x="434" y="270">• 2.5-D: only the visible</text>
+    <text x="434" y="286">  surface layer is measured</text>
+    <text x="434" y="304">• dust, wet glare, motion blur</text>
+    <text x="434" y="322">• no public large benchmark</text>
+    <text x="434" y="340">• SAM adapters are emerging</text>
+  </g>
+  <path d="M640 270 L690 270" stroke="#64748b" stroke-width="1.6"/>
+  <polygon points="690,264 700,270 690,276" fill="#64748b"/>
+
+  <!-- outputs -->
+  <rect x="700" y="72" width="236" height="430" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="714" y="96" font-size="13" font-weight="800" fill="#334155">Outputs</text>
+  <!-- PSD curve -->
+  <line x1="720" y1="220" x2="916" y2="220" stroke="#475569"/>
+  <line x1="720" y1="220" x2="720" y2="112" stroke="#475569"/>
+  <path d="M722 216 C 760 210, 780 170, 810 140 S 880 116, 912 114" stroke="#0369a1" stroke-width="2.4" fill="none"/>
+  <line x1="720" y1="135" x2="916" y2="135" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <text x="878" y="131" font-size="10.5" fill="#475569">P80</text>
+  <text x="724" y="236" font-size="10.5" fill="#475569">size (log) → cumulative % passing</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="714" y="266" font-weight="700">1. Size curve per blast / per minute</text>
+    <text x="714" y="282">P50, P80, oversize % → blast</text>
+    <text x="714" y="296">design, crusher setpoints</text>
+    <text x="714" y="322" font-weight="700">2. Alarms</text>
+    <text x="714" y="338">oversize lump, bolt / steel,</text>
+    <text x="714" y="352">belt tear, missing shovel tooth</text>
+    <text x="714" y="378" font-weight="700">3. Process signals</text>
+    <text x="714" y="394">froth grade soft-sensor,</text>
+    <text x="714" y="408">coal-vs-gangue reject jet</text>
+    <text x="714" y="434" font-weight="700">4. Geotechnical log</text>
+    <text x="714" y="450">RQD per run, fracture</text>
+    <text x="714" y="464">frequency, core-damage class</text>
+    <text x="714" y="490" font-size="10.5" fill="#64748b">Error budget: bias in P80, not mAP</text>
+  </g>
+</svg>
