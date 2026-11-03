@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Keyframe detection with motion-vector propagation across a group of pictures. A timeline of frames: an I-frame at the start runs the full detector (for example OWLv2 in MVP, or a pixel detector in ComPrivDet). The following P-frames read only motion vectors from the bitstream; the box is shifted by the median motion vector inside it. A trigger fires a new detection when a new object appears (bits spike in blocks outside existing boxes), when motion vectors inside a box disagree, or at the next I-frame. Reported costs: See Without Decoding, up to 3.7x speed-up with about 4 percent mAP@0.5 drop on MOTS15/17/20; ComPrivDet skips over 80 percent of inferences while keeping 99.75 percent face and 96.83 percent plate accuracy; MVP reaches mAP@0.5 of 0.609 on ILSVRC2015-VID.">
+  <title>Detect on keyframes, propagate with motion vectors</title>
+  <rect x="0" y="0" width="960" height="400" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">Detect on the keyframe, move boxes with the codec's own motion vectors</text>
+
+  <!-- frames -->
+  <g font-size="11" text-anchor="middle" font-weight="700">
+    <rect x="40" y="70" width="92" height="92" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="86" y="182" fill="#1d4ed8">I (detector)</text>
+    <rect x="152" y="70" width="92" height="92" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="198" y="182" fill="#475569">P (MV only)</text>
+    <rect x="264" y="70" width="92" height="92" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="310" y="182" fill="#475569">P (MV only)</text>
+    <rect x="376" y="70" width="92" height="92" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="422" y="182" fill="#475569">P (MV only)</text>
+    <rect x="488" y="70" width="92" height="92" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+    <text x="534" y="182" fill="#c2410c">P → re-detect</text>
+    <rect x="600" y="70" width="92" height="92" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="646" y="182" fill="#475569">P (MV only)</text>
+    <rect x="712" y="70" width="92" height="92" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="758" y="182" fill="#475569">P (MV only)</text>
+    <rect x="824" y="70" width="92" height="92" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="870" y="182" fill="#1d4ed8">next I</text>
+  </g>
+
+  <!-- tracked box moving right -->
+  <g fill="#0d9488" fill-opacity="0.25" stroke="#0f766e" stroke-width="2">
+    <rect x="52" y="96" width="34" height="44"/>
+    <rect x="172" y="96" width="34" height="44"/>
+    <rect x="292" y="96" width="34" height="44"/>
+    <rect x="412" y="96" width="34" height="44"/>
+    <rect x="532" y="96" width="34" height="44"/>
+    <rect x="652" y="96" width="34" height="44"/>
+    <rect x="772" y="96" width="34" height="44"/>
+    <rect x="880" y="96" width="30" height="44"/>
+  </g>
+  <!-- MV arrows -->
+  <g stroke="#0f766e" stroke-width="1.5" fill="none">
+    <path d="M160 118 h10"/><path d="M280 118 h10"/><path d="M400 118 h10"/><path d="M520 118 h10"/><path d="M640 118 h10"/><path d="M760 118 h10"/>
+  </g>
+  <!-- new object in re-detect frame -->
+  <rect x="496" y="78" width="26" height="22" fill="#ea580c" fill-opacity="0.3" stroke="#c2410c" stroke-width="2"/>
+  <g fill="#ea580c" fill-opacity="0.3" stroke="#c2410c" stroke-width="2">
+    <rect x="610" y="80" width="26" height="22"/><rect x="724" y="82" width="26" height="22"/>
+  </g>
+
+  <!-- legend / triggers -->
+  <rect x="40" y="206" width="430" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="230" fill="#1e293b" font-size="13" font-weight="800">Per P-frame (no pixels decoded)</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="56" y="252">1. Parse MVs + residual energy for each block.</text>
+    <text x="56" y="272">2. Shift each box by a robust average of MVs inside it.</text>
+    <text x="56" y="292">3. Trigger a real detection when:</text>
+    <text x="72" y="312" fill="#c2410c">• bits spike in blocks outside every box (new object),</text>
+    <text x="72" y="330" fill="#c2410c">• MVs inside a box disagree (occlusion, deformation),</text>
+    <text x="72" y="348" fill="#c2410c">• the GOP ends (next I-frame) or K frames have passed.</text>
+  </g>
+
+  <rect x="490" y="206" width="426" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="506" y="230" fill="#1e293b" font-size="13" font-weight="800">Reported trade-offs (abstract-level)</text>
+  <g font-size="11.5" fill="#334155">
+    <text x="506" y="254"><tspan font-weight="700" fill="#0f766e">See Without Decoding</tspan> — up to 3.7× faster,</text>
+    <text x="520" y="272">~4% mAP@0.5 drop vs RGB (MOTS15/17/20)</text>
+    <text x="506" y="298"><tspan font-weight="700" fill="#0f766e">ComPrivDet</tspan> — &gt;80% inferences skipped;</text>
+    <text x="520" y="316">faces 99.75%, plates 96.83% kept</text>
+    <text x="506" y="342"><tspan font-weight="700" fill="#0f766e">MVP</tspan> (OWLv2 + MVs, training-free) —</text>
+    <text x="520" y="360">ILSVRC-VID mAP@0.5 0.609, mAP 0.316</text>
+  </g>
+</svg>
