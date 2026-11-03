@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the aquaculture farm image. Left: four views. First, the sea-cage underwater camera, where a dense school of salmon passes a mono or stereo camera, and each fish is detected, measured, re-identified and checked for lice and wounds. Second, the tank or pond seen from above, where overlapping fish or shrimp are counted with detectors or density maps and uneaten feed pellets are detected. Third, the hatchery tray or dish, where hundreds of larvae, post-larvae or oyster seed are counted. Fourth, the ROV net inspection, where holes, biofouling and entangled plastic are segmented on the net. Right: farm outputs are lice per fish, biomass and size distribution, stock count, feeding decisions and net integrity alarms.">
+  <title>The aquaculture farm image: four views, one stock ledger</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The aquaculture farm image: four views, one stock ledger</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Dense, look-alike, moving animals in turbid water; tiny targets on them (lice, wounds) and around them (pellets); outputs are counts and per-fish ledgers</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 sea cage -->
+    <rect x="24" y="72" width="340" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="92" font-weight="700">1 · Sea cage: mono / stereo camera in the pen</text>
+    <g fill="#bfdbfe" stroke="#1e40af" stroke-width="1.2">
+      <ellipse cx="70" cy="128" rx="28" ry="9"/><polygon points="98,128 110,120 110,136"/>
+      <ellipse cx="120" cy="146" rx="30" ry="10"/><polygon points="150,146 162,138 162,154"/>
+      <ellipse cx="82" cy="154" rx="22" ry="7" opacity="0.7"/>
+      <ellipse cx="150" cy="116" rx="24" ry="8" opacity="0.7"/>
+    </g>
+    <g fill="#dc2626"><circle cx="64" cy="126" r="2.4"/><circle cx="118" cy="148" r="2.4"/><circle cx="128" cy="143" r="2"/></g>
+    <text x="196" y="116" font-size="11" fill="#475569">lice (adult ♀, mobile)</text>
+    <text x="196" y="132" font-size="11" fill="#475569">wounds, re-ID, keypoints</text>
+    <text x="196" y="148" font-size="11" fill="#475569">→ length / weight</text>
+
+    <!-- 2 tank -->
+    <rect x="24" y="178" width="340" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="198" font-weight="700">2 · Tank / pond / RAS: overhead view</text>
+    <g fill="#99f6e4" stroke="#0f766e" stroke-width="1">
+      <ellipse cx="50" cy="226" rx="14" ry="5"/><ellipse cx="66" cy="232" rx="14" ry="5"/>
+      <ellipse cx="88" cy="224" rx="14" ry="5"/><ellipse cx="80" cy="244" rx="14" ry="5"/>
+      <ellipse cx="108" cy="238" rx="14" ry="5"/><ellipse cx="128" cy="226" rx="14" ry="5"/>
+      <ellipse cx="140" cy="248" rx="14" ry="5"/><ellipse cx="58" cy="254" rx="14" ry="5"/>
+      <ellipse cx="160" cy="232" rx="14" ry="5"/>
+    </g>
+    <g fill="#a16207"><circle cx="100" cy="258" r="2"/><circle cx="120" cy="262" r="2"/><circle cx="170" cy="256" r="2"/></g>
+    <text x="196" y="222" font-size="11" fill="#475569">overlap → detector or</text>
+    <text x="196" y="238" font-size="11" fill="#475569">density-map count</text>
+    <text x="196" y="254" font-size="11" fill="#475569">uneaten pellets (•)</text>
+
+    <!-- 3 hatchery -->
+    <rect x="24" y="284" width="340" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="304" font-weight="700">3 · Hatchery tray / Petri dish</text>
+    <circle cx="100" cy="342" r="32" fill="#f8fafc" stroke="#64748b"/>
+    <g fill="#f59e0b">
+      <circle cx="86" cy="330" r="2"/><circle cx="94" cy="336" r="2"/><circle cx="104" cy="328" r="2"/><circle cx="112" cy="340" r="2"/>
+      <circle cx="90" cy="350" r="2"/><circle cx="100" cy="356" r="2"/><circle cx="118" cy="352" r="2"/><circle cx="80" cy="342" r="2"/>
+      <circle cx="108" cy="320" r="2"/><circle cx="96" cy="344" r="2"/><circle cx="122" cy="332" r="2"/><circle cx="84" cy="360" r="2"/>
+    </g>
+    <text x="196" y="330" font-size="11" fill="#475569">10²–10³ larvae, PL,</text>
+    <text x="196" y="346" font-size="11" fill="#475569">oyster seed per image</text>
+    <text x="196" y="362" font-size="11" fill="#475569">→ count, size class</text>
+
+    <!-- 4 net -->
+    <rect x="24" y="390" width="340" height="96" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="36" y="410" font-weight="700">4 · ROV net inspection</text>
+    <g stroke="#475569" stroke-width="1">
+      <line x1="40" y1="420" x2="180" y2="420"/><line x1="40" y1="436" x2="180" y2="436"/><line x1="40" y1="452" x2="180" y2="452"/><line x1="40" y1="468" x2="180" y2="468"/>
+      <line x1="40" y1="420" x2="40" y2="476"/><line x1="64" y1="420" x2="64" y2="476"/><line x1="88" y1="420" x2="88" y2="476"/><line x1="112" y1="420" x2="112" y2="476"/><line x1="136" y1="420" x2="136" y2="476"/><line x1="160" y1="420" x2="160" y2="476"/>
+    </g>
+    <rect x="88" y="436" width="24" height="16" fill="#fecaca" stroke="#dc2626" stroke-width="1.6"/>
+    <rect x="136" y="452" width="24" height="16" fill="#bbf7d0" stroke="#15803d" stroke-width="1.2"/>
+    <text x="196" y="434" font-size="11" fill="#475569">holes (red)</text>
+    <text x="196" y="450" font-size="11" fill="#475569">biofouling (green)</text>
+    <text x="196" y="466" font-size="11" fill="#475569">plastic, vegetation</text>
+  </g>
+
+  <!-- middle -->
+  <g font-size="12" fill="#334155">
+    <rect x="392" y="150" width="236" height="200" rx="10" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="510" y="176" text-anchor="middle" font-weight="800" fill="#5b21b6">Shared primitive</text>
+    <text x="408" y="202">• dense, touching, look-alike</text>
+    <text x="408" y="220">  animals that move and turn</text>
+    <text x="408" y="244">• turbidity, low light, bubbles,</text>
+    <text x="408" y="262">  refraction through housings</text>
+    <text x="408" y="286">• tiny secondary targets: lice,</text>
+    <text x="408" y="304">  wounds, pellets, net holes</text>
+    <text x="408" y="328">• labels disagree (lice stages)</text>
+  </g>
+  <g stroke="#7c3aed" stroke-width="2" fill="none">
+    <path d="M364 120 L392 200"/><path d="M364 226 L392 236"/><path d="M364 332 L392 300"/><path d="M364 438 L392 340"/>
+    <path d="M628 250 L660 250" marker-end="url(#a)"/>
+  </g>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker></defs>
+
+  <!-- outputs -->
+  <g font-size="12" fill="#334155">
+    <rect x="664" y="96" width="272" height="308" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="800" y="120" text-anchor="middle" font-weight="800">Farm ledger outputs</text>
+    <rect x="680" y="134" width="240" height="40" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="692" y="158">Lice per fish (regulatory count)</text>
+    <rect x="680" y="182" width="240" height="40" rx="6" fill="#dbeafe" stroke="#1e40af"/>
+    <text x="692" y="206">Biomass &amp; size distribution</text>
+    <rect x="680" y="230" width="240" height="40" rx="6" fill="#ccfbf1" stroke="#0f766e"/>
+    <text x="692" y="254">Stock count (tank, transfer, PL)</text>
+    <rect x="680" y="278" width="240" height="40" rx="6" fill="#fef3c7" stroke="#a16207"/>
+    <text x="692" y="302">Feeding: intensity, waste</text>
+    <rect x="680" y="326" width="240" height="40" rx="6" fill="#dcfce7" stroke="#15803d"/>
+    <text x="692" y="350">Welfare &amp; net-integrity alarms</text>
+    <text x="680" y="390" font-size="10.5" fill="#64748b">Judged against manual counts, harvest</text>
+    <text x="680" y="402" font-size="10.5" fill="#64748b">weights and inspections, not mAP alone</text>
+  </g>
+</svg>
