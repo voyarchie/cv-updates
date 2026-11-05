@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the insect trap image. Four views: a yellow sticky card with hundreds of tiny touching insects that is tiled before detection; a UV light trap with many overlapping pest species; a moth camera over a lit white sheet where live moths are tracked across frames then classified to species or backed off to genus; and a flower time-lapse camera where motion-informed enhancement reveals small pollinators. All feed counts per taxon per trap per night, used for pest-control thresholds and biodiversity trends.">
+  <title>The insect trap image: four views, one abundance curve</title>
+  <rect x="0" y="0" width="960" height="470" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The insect trap image: four views, one abundance curve</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Targets of 10–200 px in 10–50 MP frames; catches accumulate or move; long-tailed, partly unknown taxonomy; output is counts per taxon per night</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 sticky card -->
+    <rect x="24" y="72" width="216" height="250" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="36" y="94" font-weight="700">① Sticky card</text>
+    <rect x="40" y="106" width="184" height="120" rx="4" fill="#fde047" stroke="#a16207"/>
+    <g stroke="#3f3f46" stroke-width="0.6" fill="#52525b">
+      <circle cx="58" cy="122" r="2.4"/><circle cx="72" cy="130" r="2"/><circle cx="66" cy="150" r="2.6"/>
+      <circle cx="90" cy="118" r="2.2"/><circle cx="93" cy="121" r="2.2"/><circle cx="110" cy="140" r="2"/>
+      <circle cx="128" cy="126" r="2.5"/><circle cx="140" cy="160" r="2.2"/><circle cx="150" cy="132" r="2"/>
+      <circle cx="170" cy="118" r="2.4"/><circle cx="182" cy="148" r="2.1"/><circle cx="198" cy="128" r="2.6"/>
+      <circle cx="205" cy="170" r="2.2"/><circle cx="60" cy="190" r="2.3"/><circle cx="84" cy="206" r="2"/>
+      <circle cx="120" cy="196" r="2.4"/><circle cx="124" cy="199" r="2.4"/><circle cx="160" cy="210" r="2.1"/>
+      <circle cx="188" cy="196" r="2.5"/><circle cx="100" cy="172" r="2.2"/>
+    </g>
+    <g fill="#fafafa" stroke="#71717a" stroke-width="0.6">
+      <ellipse cx="80" cy="170" rx="3.5" ry="2"/><ellipse cx="150" cy="182" rx="3.5" ry="2"/><ellipse cx="210" cy="112" rx="3.5" ry="2"/>
+    </g>
+    <g fill="none" stroke="#4f46e5" stroke-dasharray="3 2">
+      <rect x="40" y="106" width="92" height="60"/><rect x="132" y="106" width="92" height="60"/>
+      <rect x="40" y="166" width="92" height="60"/><rect x="132" y="166" width="92" height="60"/>
+    </g>
+    <text x="36" y="246" font-size="10.5">tile → detect → merge</text>
+    <text x="36" y="262" font-size="10.5">thrips · whitefly · aphid</text>
+    <text x="36" y="278" font-size="10.5">new vs. old catch</text>
+    <text x="36" y="294" font-size="10.5" fill="#b91c1c">saturation breaks counts</text>
+    <text x="36" y="312" font-size="10" fill="#64748b">YOLO11 · YOLO-YSTs · SAHI</text>
+
+    <!-- 2 light trap -->
+    <rect x="252" y="72" width="216" height="250" rx="8" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="264" y="94" font-weight="700">② UV light trap (pests)</text>
+    <rect x="268" y="106" width="184" height="120" rx="4" fill="#f5f5f4" stroke="#a8a29e"/>
+    <g stroke="#57534e" stroke-width="0.8">
+      <ellipse cx="292" cy="130" rx="9" ry="4" fill="#a16207" transform="rotate(20 292 130)"/>
+      <ellipse cx="300" cy="134" rx="9" ry="4" fill="#a16207" transform="rotate(-15 300 134)"/>
+      <ellipse cx="330" cy="150" rx="14" ry="6" fill="#78716c"/>
+      <ellipse cx="370" cy="124" rx="6" ry="3" fill="#65a30d"/>
+      <ellipse cx="376" cy="128" rx="6" ry="3" fill="#65a30d"/>
+      <ellipse cx="410" cy="170" rx="12" ry="5" fill="#92400e" transform="rotate(30 410 170)"/>
+      <ellipse cx="300" cy="196" rx="7" ry="3" fill="#65a30d"/>
+      <ellipse cx="350" cy="200" rx="16" ry="6" fill="#57534e" transform="rotate(-20 350 200)"/>
+      <ellipse cx="430" cy="130" rx="6" ry="3" fill="#a16207"/>
+      <ellipse cx="398" cy="210" rx="6" ry="3" fill="#a16207"/>
+    </g>
+    <rect x="282" y="122" width="28" height="20" fill="none" stroke="#7c3aed" stroke-dasharray="3 2"/>
+    <text x="268" y="246" font-size="10.5">10–30+ species per tray</text>
+    <text x="268" y="262" font-size="10.5">overlap, look-alike hoppers</text>
+    <text x="268" y="278" font-size="10.5">detector + crop classifier</text>
+    <text x="268" y="294" font-size="10.5">pheromone trap: 1 target</text>
+    <text x="268" y="312" font-size="10" fill="#64748b">RicePest-30 · Pest5 · YOLOv9</text>
+
+    <!-- 3 moth camera -->
+    <rect x="480" y="72" width="216" height="250" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="492" y="94" font-weight="700">③ Moth camera (night)</text>
+    <rect x="496" y="106" width="184" height="120" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <circle cx="508" cy="116" r="5" fill="#c4b5fd" stroke="#7c3aed"/>
+    <g stroke="#44403c" stroke-width="0.8">
+      <path d="M520 140 l14 -8 l14 8 l-14 4 z" fill="#a8a29e"/>
+      <path d="M600 160 l18 -10 l18 10 l-18 5 z" fill="#78716c"/>
+      <path d="M560 200 l12 -7 l12 7 l-12 3 z" fill="#d6d3d1"/>
+      <path d="M640 130 l10 -6 l10 6 l-10 3 z" fill="#a16207"/>
+    </g>
+    <path d="M534 150 C 560 170, 590 176, 618 168" fill="none" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="4 3"/>
+    <text x="548" y="186" font-size="9.5" fill="#1d4ed8">track ID 7</text>
+    <text x="496" y="246" font-size="10.5">live moths, every 10 s–1 min</text>
+    <text x="496" y="262" font-size="10.5">track → dedupe → classify</text>
+    <text x="496" y="278" font-size="10.5">GBIF photos ≠ trap crops</text>
+    <text x="496" y="294" font-size="10.5" fill="#b91c1c">unknown → back off to genus</text>
+    <text x="496" y="312" font-size="10" fill="#64748b">AMI · Mothbox · Diopsis · BioCLIP 2</text>
+
+    <!-- 4 flower camera -->
+    <rect x="708" y="72" width="228" height="250" rx="8" fill="#dcfce7" stroke="#22c55e"/>
+    <text x="720" y="94" font-weight="700">④ Flower / pollinator cam</text>
+    <rect x="724" y="106" width="196" height="120" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <g fill="#f472b6" stroke="#be185d" stroke-width="0.8">
+      <circle cx="760" cy="140" r="9"/><circle cx="820" cy="180" r="11"/><circle cx="880" cy="132" r="8"/>
+    </g>
+    <g fill="#facc15"><circle cx="760" cy="140" r="3"/><circle cx="820" cy="180" r="4"/><circle cx="880" cy="132" r="3"/></g>
+    <ellipse cx="826" cy="174" rx="4" ry="2.5" fill="#78350f" stroke="#451a03"/>
+    <rect x="814" y="164" width="24" height="20" fill="none" stroke="#15803d" stroke-dasharray="3 2"/>
+    <text x="842" y="162" font-size="9.5" fill="#15803d">bee (motion)</text>
+    <text x="724" y="246" font-size="10.5">few tiny insects, busy scene</text>
+    <text x="724" y="262" font-size="10.5">frame difference + colour</text>
+    <text x="724" y="278" font-size="10.5">stationary-object filter</text>
+    <text x="724" y="294" font-size="10.5">visits per flower</text>
+    <text x="724" y="312" font-size="10" fill="#64748b">MIE + YOLO · AGRICAM · DeepLabv3</text>
+  </g>
+
+  <!-- arrows to ledger -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <path d="M132 322 L 380 360"/>
+    <path d="M360 322 L 430 360"/>
+    <path d="M588 322 L 530 360"/>
+    <path d="M822 322 L 580 360"/>
+  </g>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect x="300" y="362" width="360" height="52" rx="8" fill="#fef3c7" stroke="#d97706"/>
+  <text x="480" y="384" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">Counts per taxon · per trap · per night</text>
+  <text x="480" y="402" text-anchor="middle" font-size="11" fill="#475569">order → family → genus → species (or "unknown")</text>
+  <text x="160" y="446" text-anchor="middle" font-size="11.5" fill="#334155">IPM: spray if count &gt; threshold</text>
+  <text x="480" y="446" text-anchor="middle" font-size="11.5" fill="#334155">Phenology: flight-season start, in days</text>
+  <text x="800" y="446" text-anchor="middle" font-size="11.5" fill="#334155">Biodiversity: abundance &amp; richness trends</text>
+  <g stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#a)">
+    <path d="M330 414 L 200 432"/><path d="M480 414 L 480 432"/><path d="M630 414 L 760 432"/>
+  </g>
+</svg>
