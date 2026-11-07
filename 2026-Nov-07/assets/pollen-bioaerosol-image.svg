@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the airborne pollen and bioaerosol image. Four views: a Hirst-type volumetric trap tape scanned as a whole-slide image with thousands of grains among dust and soot; a robotic slide imager such as the BAA500 that photographs a stained sample at several focal planes; an airflow holographic and fluorescence monitor such as the Swisens Poleno that records two holograms and a fluorescence spectrum per particle; and a scattering and fluorescence sensor such as the Plair Rapid-E that records only a scattering pattern and spectra, no image. All feed a taxon classifier with an unknown bin and a calibration step against the Hirst reference, producing grains per cubic metre per hour for allergy forecasts and the EUMETNET AutoPollen network.">
+  <title>The airborne pollen &amp; bioaerosol image: four views, one hourly concentration</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The airborne pollen &amp; bioaerosol image: four views, one hourly concentration</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">10–60 µm grains among dust, soot and spores; ~50 allergenic taxa, look-alike genera; output is grains · m⁻³ · h⁻¹ per taxon, compared against the Hirst trap</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 Hirst tape WSI -->
+    <rect x="24" y="72" width="216" height="262" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="36" y="94" font-weight="700">① Hirst tape → WSI</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">7-day tape · stained slide · scanner</text>
+    <rect x="40" y="120" width="184" height="96" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <g fill="#fde68a" stroke="#b45309" stroke-width="1">
+      <circle cx="62" cy="140" r="7"/><circle cx="98" cy="168" r="8"/><circle cx="150" cy="138" r="7"/><circle cx="190" cy="180" r="8"/><circle cx="128" cy="196" r="6"/>
+    </g>
+    <g fill="#94a3b8"><circle cx="80" cy="190" r="2"/><circle cx="116" cy="146" r="2.5"/><circle cx="170" cy="160" r="2"/><circle cx="206" cy="140" r="3"/><circle cx="60" cy="172" r="2"/><circle cx="140" cy="176" r="1.8"/></g>
+    <g fill="none" stroke="#2563eb" stroke-width="1.4"><rect x="88" y="158" width="20" height="20"/><rect x="180" y="170" width="20" height="20"/></g>
+    <text x="48" y="232" font-size="10.5" fill="#475569">thousands of particles per slide,</text>
+    <text x="48" y="246" font-size="10.5" fill="#475569">most are dust &amp; soot</text>
+    <text x="36" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: dense detection</text>
+    <text x="36" y="290" font-size="10.5" fill="#475569">exemplar mining, OWL-ViT,</text>
+    <text x="36" y="304" font-size="10.5" fill="#475569">YOLO / RF-DETR on tiles,</text>
+    <text x="36" y="318" font-size="10.5" fill="#475569">multifocal z-stacks</text>
+
+    <!-- 2 robotic slide imager -->
+    <rect x="252" y="72" width="216" height="262" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="264" y="94" font-weight="700">② Robotic slide imager</text>
+    <text x="264" y="110" font-size="10.5" fill="#475569">BAA500 · KH-3000 · APS-300</text>
+    <g stroke="#94a3b8" fill="#ffffff">
+      <rect x="292" y="120" width="140" height="70" rx="3"/>
+      <rect x="284" y="128" width="140" height="70" rx="3"/>
+      <rect x="276" y="136" width="140" height="70" rx="3"/>
+    </g>
+    <g fill="#fde68a" stroke="#b45309"><circle cx="310" cy="164" r="8"/><circle cx="350" cy="180" r="7"/><circle cx="388" cy="158" r="8"/></g>
+    <circle cx="352" cy="160" r="9" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="264" y="232" font-size="10.5" fill="#475569">focal stack per field,</text>
+    <text x="264" y="246" font-size="10.5" fill="#475569">touching grains, debris</text>
+    <text x="264" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: detect + classify</text>
+    <text x="264" y="290" font-size="10.5" fill="#475569">two-stage detectors,</text>
+    <text x="264" y="304" font-size="10.5" fill="#475569">teacher–student pseudo-labels</text>
+    <text x="264" y="318" font-size="10.5" fill="#475569">vs. vendor algorithm</text>
+
+    <!-- 3 holographic airflow -->
+    <rect x="480" y="72" width="216" height="262" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="492" y="94" font-weight="700">③ Airflow holography</text>
+    <text x="492" y="110" font-size="10.5" fill="#475569">Swisens Poleno (Jupiter)</text>
+    <rect x="500" y="120" width="84" height="84" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <rect x="592" y="120" width="84" height="84" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <g fill="none" stroke="#64748b"><circle cx="542" cy="162" r="10"/><circle cx="542" cy="162" r="18" stroke-dasharray="2 2"/><circle cx="542" cy="162" r="26" stroke-dasharray="1 3"/></g>
+    <g fill="none" stroke="#64748b"><ellipse cx="634" cy="162" rx="14" ry="9"/><ellipse cx="634" cy="162" rx="22" ry="15" stroke-dasharray="2 2"/></g>
+    <text x="508" y="218" font-size="10" fill="#475569">2 orthogonal holograms</text>
+    <polyline points="500,250 520,248 540,232 556,226 572,236 600,246 676,250" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+    <text x="508" y="262" font-size="10" fill="#475569">+ UV fluorescence spectrum</text>
+    <text x="492" y="290" font-size="10.5" fill="#334155" font-weight="600">Task: per-particle classify</text>
+    <text x="492" y="304" font-size="10.5" fill="#475569">detection is in hardware;</text>
+    <text x="492" y="318" font-size="10.5" fill="#475569">SSL on 20 M unlabelled</text>
+
+    <!-- 4 scattering -->
+    <rect x="708" y="72" width="228" height="262" rx="8" fill="#fce7f3" stroke="#db2777"/>
+    <text x="720" y="94" font-weight="700">④ Scattering + fluorescence</text>
+    <text x="720" y="110" font-size="10.5" fill="#475569">Plair Rapid-E(+) · Beenose</text>
+    <rect x="728" y="120" width="188" height="84" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <g fill="#f472b6" opacity="0.8">
+      <rect x="740" y="160" width="6" height="30"/><rect x="748" y="150" width="6" height="40"/><rect x="756" y="136" width="6" height="54"/><rect x="764" y="146" width="6" height="44"/><rect x="772" y="166" width="6" height="24"/><rect x="780" y="174" width="6" height="16"/>
+    </g>
+    <polyline points="800,190 816,186 832,150 846,132 862,160 880,184 908,190" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+    <text x="736" y="218" font-size="10" fill="#475569">scatter image (angle × time)</text>
+    <text x="736" y="232" font-size="10" fill="#475569">+ spectrum + lifetime — no photo</text>
+    <text x="720" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: signal classify</text>
+    <text x="720" y="290" font-size="10.5" fill="#475569">scatter-only ~65–70 %;</text>
+    <text x="720" y="304" font-size="10.5" fill="#475569">fused with fluorescence</text>
+    <text x="720" y="318" font-size="10.5" fill="#475569">~77–83 % (15 genera)</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M132 334 L132 356 L470 372"/>
+    <path d="M360 334 L360 356 L470 372"/>
+    <path d="M588 334 L588 356 L490 372"/>
+    <path d="M822 334 L822 356 L490 372"/>
+  </g>
+
+  <g font-size="12" fill="#334155">
+    <rect x="300" y="372" width="360" height="44" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="480" y="390" text-anchor="middle" font-weight="700">Taxon classifier + unknown / non-pollen bin</text>
+    <text x="480" y="406" text-anchor="middle" font-size="10.5" fill="#475569">domain SSL / DINOv2 backbone · local retraining per station · few-shot new taxa</text>
+    <path d="M480 416 L480 432" stroke="#64748b" stroke-width="1.6"/>
+    <rect x="240" y="432" width="480" height="44" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="480" y="450" text-anchor="middle" font-weight="700">Grains · m⁻³ · h⁻¹ per taxon, calibrated against the Hirst trap</text>
+    <text x="480" y="466" text-anchor="middle" font-size="10.5" fill="#475569">allergy forecasts (CAMS / SILAM) · EUMETNET AutoPollen network (operational from 2027)</text>
+  </g>
+</svg>
