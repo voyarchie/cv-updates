@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the aerial wildlife census image. Four views: an oblique camera on a manned survey aircraft along transects; a nadir drone RGB image or orthomosaic of a seabird colony or herd; a thermal drone frame at night or under canopy; and a very-high-resolution satellite scene where a whale or wildebeest is a handful of pixels. All feed a point or density localiser with a species head, de-duplication across overlapping frames, and a correction step for detectability, producing a population estimate with confidence interval.">
+  <title>The aerial wildlife census image: four views, one population estimate</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The aerial wildlife census image: four views, one population estimate</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Animals of 5–100 px in 24–100 MP frames; &gt;95% of frames empty; look-alike rocks, shadows, bushes &amp; whitecaps; output is N ± CI per species per stratum</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 oblique manned -->
+    <rect x="24" y="72" width="216" height="262" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="36" y="94" font-weight="700">① Oblique, manned aircraft</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">strut cameras · 90–120 m AGL · transects</text>
+    <polygon points="40,216 224,216 196,120 68,120" fill="#ffffff" stroke="#94a3b8"/>
+    <g fill="#a16207"><ellipse cx="96" cy="140" rx="3" ry="2"/><ellipse cx="104" cy="142" rx="3" ry="2"/><ellipse cx="150" cy="168" rx="5" ry="3"/><ellipse cx="160" cy="170" rx="5" ry="3"/><ellipse cx="170" cy="166" rx="5" ry="3"/><ellipse cx="110" cy="200" rx="8" ry="5"/></g>
+    <g fill="#64748b"><circle cx="186" cy="196" r="6"/><circle cx="74" cy="182" r="4"/></g>
+    <g fill="none" stroke="#2563eb" stroke-width="1.4"><rect x="99" y="192" width="22" height="16"/><rect x="142" y="160" width="36" height="16"/></g>
+    <text x="48" y="232" font-size="10.5" fill="#475569">scale shrinks with distance;</text>
+    <text x="48" y="246" font-size="10.5" fill="#475569">overlap → double counts</text>
+    <text x="36" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: multi-species points</text>
+    <text x="36" y="290" font-size="10.5" fill="#475569">HerdNet, POLO, OWL;</text>
+    <text x="36" y="304" font-size="10.5" fill="#475569">Scout human-in-the-loop review</text>
+    <text x="36" y="320" font-size="10.5" fill="#475569">Africa, KAZA, Uganda</text>
+
+    <!-- 2 nadir drone RGB -->
+    <rect x="252" y="72" width="216" height="262" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="264" y="94" font-weight="700">② Nadir drone RGB</text>
+    <text x="264" y="110" font-size="10.5" fill="#475569">1–4 cm GSD · orthomosaic</text>
+    <rect x="268" y="120" width="184" height="96" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+    <g fill="#f8fafc" stroke="#475569" stroke-width="0.8">
+      <circle cx="284" cy="134" r="4"/><circle cx="296" cy="136" r="4"/><circle cx="308" cy="133" r="4"/><circle cx="290" cy="148" r="4"/><circle cx="302" cy="150" r="4"/><circle cx="314" cy="147" r="4"/><circle cx="326" cy="140" r="4"/><circle cx="338" cy="138" r="4"/><circle cx="320" cy="160" r="4"/><circle cx="332" cy="158" r="4"/><circle cx="344" cy="152" r="4"/><circle cx="356" cy="146" r="4"/>
+    </g>
+    <g fill="#1e293b"><circle cx="390" cy="180" r="4"/><circle cx="404" cy="186" r="4"/><circle cx="420" cy="176" r="4"/></g>
+    <g fill="#ef4444"><circle cx="284" cy="134" r="1.3"/><circle cx="296" cy="136" r="1.3"/><circle cx="308" cy="133" r="1.3"/><circle cx="290" cy="148" r="1.3"/><circle cx="302" cy="150" r="1.3"/><circle cx="314" cy="147" r="1.3"/><circle cx="326" cy="140" r="1.3"/><circle cx="338" cy="138" r="1.3"/><circle cx="320" cy="160" r="1.3"/><circle cx="332" cy="158" r="1.3"/><circle cx="344" cy="152" r="1.3"/><circle cx="356" cy="146" r="1.3"/><circle cx="390" cy="180" r="1.3"/><circle cx="404" cy="186" r="1.3"/><circle cx="420" cy="176" r="1.3"/></g>
+    <text x="276" y="232" font-size="10.5" fill="#475569">10³–10⁵ birds per colony,</text>
+    <text x="276" y="246" font-size="10.5" fill="#475569">look-alike species side by side</text>
+    <text x="264" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: dense detect + species</text>
+    <text x="264" y="290" font-size="10.5" fill="#475569">Faster R-CNN, YOLO, BirdDetector</text>
+    <text x="264" y="304" font-size="10.5" fill="#475569">open-vocab (OpenWildlife)</text>
+    <text x="264" y="320" font-size="10.5" fill="#475569">seabirds, caribou, seals</text>
+
+    <!-- 3 thermal drone -->
+    <rect x="480" y="72" width="216" height="262" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="492" y="94" font-weight="700">③ Thermal drone</text>
+    <text x="492" y="110" font-size="10.5" fill="#475569">LWIR · night / canopy · video</text>
+    <rect x="496" y="120" width="184" height="96" rx="4" fill="#1e293b" stroke="#94a3b8"/>
+    <g fill="#475569"><circle cx="530" cy="150" r="22"/><circle cx="600" cy="140" r="26"/><circle cx="650" cy="180" r="20"/></g>
+    <g fill="#fde047"><ellipse cx="528" cy="152" rx="4" ry="3"/><ellipse cx="612" cy="132" rx="3" ry="3"/><ellipse cx="560" cy="196" rx="6" ry="3"/><ellipse cx="572" cy="198" rx="5" ry="3"/></g>
+    <g fill="none" stroke="#38bdf8" stroke-width="1.4"><rect x="520" y="145" width="16" height="14"/><rect x="552" y="190" width="28" height="14"/></g>
+    <text x="504" y="232" font-size="10.5" fill="#475569">hot blobs, no texture;</text>
+    <text x="504" y="246" font-size="10.5" fill="#475569">rocks &amp; roofs stay warm</text>
+    <text x="492" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: detect + track</text>
+    <text x="492" y="290" font-size="10.5" fill="#475569">YOLOv8→YOLO26 benchmarks,</text>
+    <text x="492" y="304" font-size="10.5" fill="#475569">synthetic thermal training,</text>
+    <text x="492" y="320" font-size="10.5" fill="#475569">geo-referenced tracking</text>
+
+    <!-- 4 VHR satellite -->
+    <rect x="708" y="72" width="228" height="262" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="720" y="94" font-weight="700">④ VHR satellite</text>
+    <text x="720" y="110" font-size="10.5" fill="#475569">30–60 cm · 10³ km² per scene</text>
+    <rect x="724" y="120" width="196" height="96" rx="4" fill="#bae6fd" stroke="#94a3b8"/>
+    <g fill="#ffffff" opacity="0.9"><rect x="740" y="140" width="10" height="2"/><rect x="800" y="190" width="12" height="2"/><rect x="880" y="132" width="9" height="2"/><rect x="760" y="200" width="8" height="2"/></g>
+    <rect x="838" y="158" width="9" height="4" rx="2" fill="#334155"/>
+    <circle cx="842" cy="160" r="10" fill="none" stroke="#dc2626" stroke-width="1.4"/>
+    <text x="732" y="232" font-size="10.5" fill="#475569">whale ≈ 30 px; wildebeest</text>
+    <text x="732" y="246" font-size="10.5" fill="#475569">6–12 px; whitecaps look alike</text>
+    <text x="720" y="274" font-size="10.5" fill="#334155" font-weight="600">Task: anomaly → verify</text>
+    <text x="720" y="290" font-size="10.5" fill="#475569">HITL anomaly maps (whales),</text>
+    <text x="720" y="304" font-size="10.5" fill="#475569">U-Net + YOLO (wildebeest),</text>
+    <text x="720" y="320" font-size="10.5" fill="#475569">guano segmentation (penguins)</text>
+  </g>
+
+  <!-- shared pipeline -->
+  <g font-size="12" fill="#334155">
+    <rect x="24" y="356" width="912" height="128" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="40" y="378" font-weight="700">Shared back end</text>
+    <rect x="40" y="392" width="160" height="70" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+    <text x="52" y="414" font-weight="600">Empty-frame filter</text>
+    <text x="52" y="432" font-size="10.5" fill="#475569">patch classifier;</text>
+    <text x="52" y="448" font-size="10.5" fill="#475569">&gt;95% of frames dropped</text>
+    <rect x="224" y="392" width="160" height="70" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+    <text x="236" y="414" font-weight="600">Point / density head</text>
+    <text x="236" y="432" font-size="10.5" fill="#475569">FIDT peaks, DINOv3 + DPT;</text>
+    <text x="236" y="448" font-size="10.5" fill="#475569">points not boxes</text>
+    <rect x="408" y="392" width="160" height="70" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+    <text x="420" y="414" font-weight="600">Species head</text>
+    <text x="420" y="432" font-size="10.5" fill="#475569">closed set or text prompt;</text>
+    <text x="420" y="448" font-size="10.5" fill="#475569">"unknown" bin</text>
+    <rect x="592" y="392" width="160" height="70" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+    <text x="604" y="414" font-weight="600">De-duplicate</text>
+    <text x="604" y="432" font-size="10.5" fill="#475569">overlap / orthomosaic /</text>
+    <text x="604" y="448" font-size="10.5" fill="#475569">geo-referenced tracks</text>
+    <rect x="776" y="392" width="144" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="788" y="414" font-weight="600">N ± CI</text>
+    <text x="788" y="432" font-size="10.5" fill="#475569">per species, stratum;</text>
+    <text x="788" y="448" font-size="10.5" fill="#475569">vs. observer counts</text>
+    <g stroke="#64748b" stroke-width="1.6" fill="#64748b">
+      <line x1="200" y1="427" x2="218" y2="427"/><polygon points="218,423 224,427 218,431"/>
+      <line x1="384" y1="427" x2="402" y2="427"/><polygon points="402,423 408,427 402,431"/>
+      <line x1="568" y1="427" x2="586" y2="427"/><polygon points="586,423 592,427 586,431"/>
+      <line x1="752" y1="427" x2="770" y2="427"/><polygon points="770,423 776,427 770,431"/>
+    </g>
+  </g>
+</svg>
