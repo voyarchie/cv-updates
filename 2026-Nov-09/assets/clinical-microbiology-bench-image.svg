@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the clinical microbiology bench image. Four views: a culture plate photographed by a lab-automation incubator, a disk-diffusion susceptibility plate, a Gram or Ziehl-Neelsen stained smear, and a stool parasitology slide. Each feeds a dense detector or classifier, a triage gate that releases negatives automatically and queues positives, and a microbiologist review step that produces the reportable result.">
+  <title>The clinical microbiology bench image: four views, one triage gate</title>
+  <rect x="0" y="0" width="960" height="480" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The clinical microbiology bench image: four views, one triage gate</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Colonies of 0.2–5 mm that merge and haze; bacilli of 2–4 µm over 100s of fields; eggs at 1 per 1,000 fields; the output is a reportable count, call or zone in mm</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 culture plate -->
+    <rect x="24" y="72" width="214" height="236" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="36" y="94" font-weight="700">① Culture plate</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">WASPLab · Kiestra · APAS</text>
+    <circle cx="131" cy="190" r="58" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <circle cx="110" cy="170" r="6" fill="#ec4899"/><circle cx="125" cy="165" r="4" fill="#ec4899"/>
+    <circle cx="150" cy="180" r="7" fill="#3b82f6"/><circle cx="140" cy="210" r="5" fill="#ec4899"/>
+    <circle cx="115" cy="205" r="3" fill="#3b82f6"/><circle cx="160" cy="205" r="9" fill="#ec4899" opacity="0.6"/>
+    <circle cx="100" cy="190" r="2.5" fill="#3b82f6"/><circle cx="133" cy="190" r="3" fill="#3b82f6"/>
+    <text x="36" y="268" font-size="10.5">colony boxes / masks + species</text>
+    <text x="36" y="283" font-size="10.5">growth score (CFU/mL band)</text>
+    <text x="36" y="298" font-size="10.5" fill="#475569">AGAR · MBCD · mould DG18</text>
+
+    <!-- 2 AST -->
+    <rect x="254" y="72" width="214" height="236" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="266" y="94" font-weight="700">② Disk-diffusion AST</text>
+    <text x="266" y="110" font-size="10.5" fill="#475569">Mueller-Hinton lawn</text>
+    <circle cx="361" cy="190" r="58" fill="#d9f99d" stroke="#4d7c0f" stroke-width="1.5"/>
+    <circle cx="340" cy="170" r="17" fill="#f8fafc" stroke="#64748b" stroke-dasharray="3 2"/><circle cx="340" cy="170" r="4" fill="#ffffff" stroke="#334155"/>
+    <circle cx="385" cy="175" r="10" fill="#f8fafc" stroke="#64748b" stroke-dasharray="3 2"/><circle cx="385" cy="175" r="4" fill="#ffffff" stroke="#334155"/>
+    <circle cx="352" cy="215" r="4" fill="#ffffff" stroke="#334155"/>
+    <circle cx="384" cy="213" r="13" fill="#f8fafc" stroke="#64748b" stroke-dasharray="3 2"/><circle cx="384" cy="213" r="4" fill="#ffffff" stroke="#334155"/>
+    <text x="266" y="268" font-size="10.5">disk detect + label OCR</text>
+    <text x="266" y="283" font-size="10.5">zone diameter (mm) → S / I / R</text>
+    <text x="266" y="298" font-size="10.5" fill="#475569">Antibiogo · PalAST</text>
+
+    <!-- 3 smear -->
+    <rect x="484" y="72" width="214" height="236" rx="8" fill="#fae8ff" stroke="#a21caf"/>
+    <text x="496" y="94" font-weight="700">③ Stained smear</text>
+    <text x="496" y="110" font-size="10.5" fill="#475569">Gram (blood culture) · ZN (sputum)</text>
+    <rect x="516" y="132" width="150" height="116" rx="4" fill="#fdf2f8" stroke="#a21caf"/>
+    <g fill="#7c3aed"><circle cx="540" cy="150" r="3"/><circle cx="547" cy="152" r="3"/><circle cx="554" cy="150" r="3"/><circle cx="600" cy="210" r="3"/><circle cx="606" cy="214" r="3"/></g>
+    <g stroke="#e11d48" stroke-width="3" stroke-linecap="round"><line x1="580" y1="160" x2="592" y2="166"/><line x1="630" y1="190" x2="640" y2="200"/><line x1="560" y1="225" x2="574" y2="222"/></g>
+    <text x="496" y="268" font-size="10.5">slide-level class (GP cocci / GN rod…)</text>
+    <text x="496" y="283" font-size="10.5">bacillus count → IUATLD grade</text>
+    <text x="496" y="298" font-size="10.5" fill="#475569">GramViT · ID-SPUT30K</text>
+
+    <!-- 4 parasitology -->
+    <rect x="714" y="72" width="222" height="236" rx="8" fill="#ffedd5" stroke="#ea580c"/>
+    <text x="726" y="94" font-weight="700">④ Stool parasitology</text>
+    <text x="726" y="110" font-size="10.5" fill="#475569">Kato-Katz · Mini-FLOTAC · wet mount</text>
+    <rect x="746" y="132" width="158" height="116" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+    <g fill="#a8a29e" opacity="0.7"><circle cx="770" cy="150" r="5"/><circle cx="880" cy="230" r="7"/><circle cx="800" cy="225" r="4"/><circle cx="860" cy="150" r="3"/></g>
+    <ellipse cx="825" cy="185" rx="18" ry="11" fill="#fde68a" stroke="#92400e" stroke-width="1.5"/>
+    <ellipse cx="870" cy="190" rx="12" ry="7" fill="#fcd34d" stroke="#92400e" stroke-width="1.5"/>
+    <text x="726" y="268" font-size="10.5">egg detect + species (11+ classes)</text>
+    <text x="726" y="283" font-size="10.5">eggs per gram (EPG) intensity</text>
+    <text x="726" y="298" font-size="10.5" fill="#475569">Chula-ParasiteEgg · KFM · KK2.0</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#64748b" stroke-width="1.6" fill="none">
+    <path d="M131 308 V334 H480"/><path d="M361 308 V334"/><path d="M591 308 V334 H480"/><path d="M825 308 V334 H480"/>
+    <path d="M480 334 V352"/>
+  </g>
+  <rect x="300" y="352" width="360" height="34" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="480" y="374" text-anchor="middle" font-size="12.5" fill="#1e293b" font-weight="700">Triage gate: negative / no significant growth → auto-release</text>
+  <g stroke="#64748b" stroke-width="1.6" fill="none"><path d="M400 386 V410"/><path d="M560 386 V410"/></g>
+  <rect x="236" y="410" width="250" height="44" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="361" y="429" text-anchor="middle" font-size="11.5" fill="#1e293b">Auto-sorted negatives</text>
+  <text x="361" y="445" text-anchor="middle" font-size="10.5" fill="#475569">the cleared, high-volume win</text>
+  <rect x="494" y="410" width="250" height="44" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="619" y="429" text-anchor="middle" font-size="11.5" fill="#1e293b">Positives → microbiologist queue</text>
+  <text x="619" y="445" text-anchor="middle" font-size="10.5" fill="#475569">AI pre-annotates; human signs out</text>
+</svg>
