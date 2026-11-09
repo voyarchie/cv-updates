@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The learning landscape over a mass-spectrometry-imaging data cube, drawn as a left-to-right pipeline. Stage zero is the raw cube: a spectrum at every pixel. Stage one is preprocessing and representation: peak picking, alignment, and low-dimensional ion-image embeddings, with methods such as self-supervised peak learning, MSIMG density-aware representation, and DeepION contrastive embeddings. Stage two forks into two dense-classification tracks: unsupervised spatial segmentation into molecular regions using msiPL, dc-DeepMSI, GraphMSI and SagMSI, and supervised tissue or tumor classification using deep multiple-instance learning, UwU-net and mi-CNN. A parallel detection track performs metabolite annotation with decoy-based false-discovery-rate control via METASPACE-ML. A downstream stage fuses the cube with histology and spatial transcriptomics for multi-omics integration using MISO, GROVER and SpatialGlue. A separate real-time branch covers intraoperative point mass spectrometry: the iKnife REIMS, the MasSpec Pen, and DESI margin assessment classified live during surgery. Along the bottom runs a model-family arc from classical fuzzy and PCA-LDA and spatial mixture models, through CNN and variational-autoencoder methods, to graph neural networks and transformer or foundation models.">
+  <title>MSI learning landscape: raw cube &#8594; representation &#8594; segmentation / classification / annotation &#8594; multi-omics fusion, plus a real-time intraoperative branch</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="24" y="32" fill="#334155" font-size="16.5" font-weight="800">The learning landscape over a mass-spec cube</text>
+  <text x="24" y="52" fill="#64748b" font-size="11.5">raw cube &#8594; representation &#8594; three dense tasks &#8594; multi-omics fusion &#8212; with a deadline-bound real-time branch</text>
+
+  <!-- Stage 0: raw cube -->
+  <g>
+    <rect x="24" y="72" width="132" height="120" rx="8" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <text x="40" y="92" fill="#94a3b8" font-size="10.5" font-weight="700">0 &#183; raw cube</text>
+    <rect x="60" y="104" width="70" height="46" rx="3" fill="#312e81"/>
+    <rect x="52" y="112" width="70" height="46" rx="3" fill="#1e1b4b"/>
+    <rect x="44" y="120" width="70" height="46" rx="3" fill="#0b1220" stroke="#475569"/>
+    <text x="40" y="182" fill="#cbd5e1" font-size="9">spectrum @ every pixel</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M160 132 L188 132" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Stage 1: representation -->
+  <g>
+    <rect x="192" y="72" width="176" height="120" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="206" y="92" fill="#3730a3" font-size="10.5" font-weight="800">1 &#183; preprocess &amp; represent</text>
+    <text x="206" y="110" fill="#334155" font-size="9.5">peak-pick &#183; align &#183; embed</text>
+    <rect x="206" y="120" width="148" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="212" y="134" fill="#3730a3" font-size="9">self-supervised peak learning</text>
+    <rect x="206" y="144" width="148" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="212" y="158" fill="#3730a3" font-size="9">MSIMG multi-channel image</text>
+    <rect x="206" y="168" width="148" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="212" y="182" fill="#3730a3" font-size="9">DeepION contrastive embedding</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M368 132 L396 132" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Stage 2: three tasks (stacked) -->
+  <g>
+    <!-- 2a segmentation -->
+    <rect x="400" y="72" width="220" height="58" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+    <text x="414" y="90" fill="#047857" font-size="10.5" font-weight="800">2a &#183; unsupervised segmentation</text>
+    <text x="414" y="106" fill="#334155" font-size="9">msiPL (VAE) &#183; dc-DeepMSI &#183; GraphMSI</text>
+    <text x="414" y="120" fill="#334155" font-size="9">SagMSI (GCN) &#8212; molecular regions</text>
+
+    <!-- 2b classification -->
+    <rect x="400" y="136" width="220" height="58" rx="8" fill="#fef9c3" stroke="#fde047" stroke-width="1.5"/>
+    <text x="414" y="154" fill="#854d0e" font-size="10.5" font-weight="800">2b &#183; supervised classification</text>
+    <text x="414" y="170" fill="#3f3f46" font-size="9">deep-MIL &#183; UwU-net &#183; mi-CNN</text>
+    <text x="414" y="184" fill="#3f3f46" font-size="9">tumor vs normal &#183; subtype &#183; grade</text>
+
+    <!-- 2c annotation -->
+    <rect x="400" y="200" width="220" height="56" rx="8" fill="#ffe4e6" stroke="#fda4af" stroke-width="1.5"/>
+    <text x="414" y="218" fill="#9f1239" font-size="10.5" font-weight="800">2c &#183; ion detection &amp; annotation</text>
+    <text x="414" y="234" fill="#3f3f46" font-size="9">METASPACE-ML &#183; decoy-based FDR</text>
+    <text x="414" y="248" fill="#3f3f46" font-size="9">which peaks are real &amp; what they are</text>
+  </g>
+
+  <!-- arrow to fusion -->
+  <path d="M620 132 L648 132" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Stage 3: multi-omics fusion -->
+  <g>
+    <rect x="652" y="72" width="284" height="120" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="666" y="92" fill="#3730a3" font-size="10.5" font-weight="800">3 &#183; multi-omics fusion</text>
+    <text x="666" y="110" fill="#334155" font-size="9.5">co-register cube with H&amp;E &amp; transcriptome</text>
+    <rect x="666" y="120" width="256" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="672" y="134" fill="#3730a3" font-size="9">MISO &#8212; histology &#215; omics outer-product</text>
+    <rect x="666" y="144" width="256" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="672" y="158" fill="#3730a3" font-size="9">GROVER &#8212; graph-guided vision + omics fusion</text>
+    <rect x="666" y="168" width="256" height="20" rx="4" fill="#ffffff" stroke="#a5b4fc"/><text x="672" y="182" fill="#3730a3" font-size="9">SpatialGlue &#8212; dual-attention GNN integration</text>
+  </g>
+
+  <!-- Real-time branch -->
+  <g>
+    <rect x="400" y="284" width="536" height="86" rx="8" fill="#0b1220" stroke="#f59e0b" stroke-width="1.8"/>
+    <text x="416" y="304" fill="#fbbf24" font-size="10.5" font-weight="800">real-time / intraoperative branch &#8212; a point spectrum, classified in seconds</text>
+    <rect x="416" y="314" width="160" height="46" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="424" y="332" fill="#f8fafc" font-size="9.5" font-weight="700">iKnife / REIMS</text>
+    <text x="424" y="348" fill="#94a3b8" font-size="8.5">electrocautery smoke &#8594; in-vivo</text>
+    <rect x="584" y="314" width="160" height="46" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="592" y="332" fill="#f8fafc" font-size="9.5" font-weight="700">MasSpec Pen</text>
+    <text x="592" y="348" fill="#94a3b8" font-size="8.5">water droplet &#8594; ML tissue call</text>
+    <rect x="752" y="314" width="168" height="46" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="760" y="332" fill="#f8fafc" font-size="9.5" font-weight="700">DESI margin assessment</text>
+    <text x="760" y="348" fill="#94a3b8" font-size="8.5">taurine &amp; lipid markers, live</text>
+  </g>
+  <path d="M510 256 L510 284" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ah2)"/>
+
+  <!-- Model-family arc along the bottom -->
+  <g>
+    <rect x="24" y="400" width="912" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="40" y="420" fill="#334155" font-size="11" font-weight="800">model-family arc (how the tools evolved)</text>
+    <!-- nodes -->
+    <rect x="44" y="440" width="176" height="40" rx="6" fill="#e2e8f0" stroke="#475569"/><text x="54" y="458" fill="#0f172a" font-size="9.5" font-weight="700">classical</text><text x="54" y="472" fill="#334155" font-size="8.5">fuzzy &#183; PCA-LDA &#183; spatial-DGMM</text>
+    <path d="M220 460 L244 460" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="248" y="440" width="176" height="40" rx="6" fill="#c7d2fe" stroke="#4338ca"/><text x="258" y="458" fill="#1e1b4b" font-size="9.5" font-weight="700">CNN / VAE</text><text x="258" y="472" fill="#1e1b4b" font-size="8.5">msiPL &#183; UwU-net &#183; deep-MIL</text>
+    <path d="M424 460 L448 460" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="452" y="440" width="176" height="40" rx="6" fill="#bbf7d0" stroke="#047857"/><text x="462" y="458" fill="#064e3b" font-size="9.5" font-weight="700">graph neural nets</text><text x="462" y="472" fill="#064e3b" font-size="8.5">GraphMSI &#183; SagMSI &#183; SpatialGlue</text>
+    <path d="M628 460 L652 460" stroke="#94a3b8" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="656" y="440" width="264" height="40" rx="6" fill="#fed7aa" stroke="#c2410c"/><text x="666" y="458" fill="#7c2d12" font-size="9.5" font-weight="700">transformer / foundation</text><text x="666" y="472" fill="#7c2d12" font-size="8.5">MALDI transformer &#183; self-supervised pretraining</text>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#94a3b8"/></marker>
+    <marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#f59e0b"/></marker>
+  </defs>
+</svg>
