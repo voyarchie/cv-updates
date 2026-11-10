@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the reproductive-medicine and cytogenetics lab image. Four views: a semen-analysis video with hundreds of moving sperm, a denuded oocyte imaged before ICSI, an embryo time-lapse stack from fertilisation to blastocyst, and a G-banded metaphase spread of 46 touching and crossing chromosomes. Each feeds a dense detector, tracker or segmenter, then a domain rule (WHO semen reference limits, oocyte or embryo ranking score, ISCN karyogram), then an embryologist or cytogeneticist who signs off.">
+  <title>The reproductive &amp; cytogenetics lab image: four views, one ranked decision</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The reproductive &amp; cytogenetics lab image: four views, one ranked decision</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">Hundreds of 5 µm swimmers per field; one 120 µm cell per image; 1 embryo × 5 days × 7 focal planes; 46 bent, touching chromosomes per spread</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 semen video -->
+    <rect x="24" y="72" width="214" height="246" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="36" y="94" font-weight="700">① Semen-analysis video</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">CASA · phase contrast · 50–60 fps</text>
+    <rect x="44" y="122" width="174" height="120" rx="4" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="#4338ca">
+      <ellipse cx="70" cy="140" rx="4" ry="2.6"/><ellipse cx="110" cy="160" rx="4" ry="2.6"/>
+      <ellipse cx="150" cy="135" rx="4" ry="2.6"/><ellipse cx="190" cy="170" rx="4" ry="2.6"/>
+      <ellipse cx="80" cy="205" rx="4" ry="2.6"/><ellipse cx="130" cy="220" rx="4" ry="2.6"/>
+      <ellipse cx="175" cy="215" rx="4" ry="2.6"/><ellipse cx="100" cy="190" rx="4" ry="2.6"/>
+      <ellipse cx="160" cy="190" rx="4" ry="2.6"/><ellipse cx="200" cy="140" rx="4" ry="2.6"/>
+    </g>
+    <g fill="none" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="3 2">
+      <path d="M66 140 q-10 6 -14 16 q-4 10 -2 18"/>
+      <path d="M106 160 q-12 -4 -20 4"/>
+      <path d="M146 135 q-6 10 -18 12 q-10 2 -14 12"/>
+      <path d="M126 220 q-10 -6 -22 -2"/>
+    </g>
+    <text x="36" y="262" font-size="10.5">boxes per frame → tracks (MOT)</text>
+    <text x="36" y="277" font-size="10.5">→ concentration · PR/NP motility</text>
+    <text x="36" y="292" font-size="10.5">stained smear → 18 shape classes</text>
+    <text x="36" y="307" font-size="10.5" fill="#475569">VISEM-Tracking · SVIA · Hi-LabSM</text>
+
+    <!-- 2 oocyte -->
+    <rect x="254" y="72" width="214" height="246" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="266" y="94" font-weight="700">② Oocyte before ICSI</text>
+    <text x="266" y="110" font-size="10.5" fill="#475569">Hoffman modulation · 1 cell / image</text>
+    <circle cx="361" cy="182" r="58" fill="none" stroke="#15803d" stroke-width="7" opacity="0.35"/>
+    <circle cx="361" cy="182" r="50" fill="#f0fdf4" stroke="#15803d" stroke-width="1.2"/>
+    <circle cx="404" cy="152" r="7" fill="#bbf7d0" stroke="#15803d"/>
+    <text x="414" y="140" font-size="9.5" fill="#15803d">PB1</text>
+    <circle cx="350" cy="190" r="4" fill="#86efac"/><circle cx="370" cy="170" r="3" fill="#86efac"/>
+    <path d="M300 182 h-34" stroke="#334155" stroke-width="2"/>
+    <text x="266" y="262" font-size="10.5">zona · ooplasm · polar body masks</text>
+    <text x="266" y="277" font-size="10.5">injection-site point · 0–10 score</text>
+    <text x="266" y="292" font-size="10.5">automated ICSI: sperm pick + aim</text>
+    <text x="266" y="307" font-size="10.5" fill="#475569">Magenta · Conceivable ICSI</text>
+
+    <!-- 3 embryo time-lapse -->
+    <rect x="484" y="72" width="214" height="246" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="496" y="94" font-weight="700">③ Embryo time-lapse</text>
+    <text x="496" y="110" font-size="10.5" fill="#475569">every 10–20 min · 7 focal planes · ~5 d</text>
+    <g stroke="#b45309" fill="#fffbeb">
+      <circle cx="520" cy="150" r="20"/><circle cx="514" cy="148" r="4" fill="#fde68a"/><circle cx="526" cy="152" r="4" fill="#fde68a"/>
+      <circle cx="575" cy="150" r="20"/><circle cx="567" cy="150" r="8" fill="#fde68a"/><circle cx="583" cy="150" r="8" fill="#fde68a"/>
+      <circle cx="630" cy="150" r="20"/>
+      <circle cx="623" cy="143" r="6" fill="#fde68a"/><circle cx="637" cy="143" r="6" fill="#fde68a"/><circle cx="623" cy="157" r="6" fill="#fde68a"/><circle cx="637" cy="157" r="6" fill="#fde68a"/>
+      <circle cx="590" cy="212" r="30"/>
+      <circle cx="605" cy="205" r="10" fill="#fde68a"/>
+      <circle cx="590" cy="212" r="25" fill="none" stroke-dasharray="2 2"/>
+    </g>
+    <text x="508" y="183" font-size="9.5" fill="#92400e">2PN</text><text x="566" y="183" font-size="9.5" fill="#92400e">t2</text><text x="622" y="183" font-size="9.5" fill="#92400e">t4</text>
+    <text x="628" y="222" font-size="9.5" fill="#92400e">blastocyst</text>
+    <text x="496" y="262" font-size="10.5">PN / blastomere counts per frame</text>
+    <text x="496" y="277" font-size="10.5">event times t2…tB · ICM/TE grade</text>
+    <text x="496" y="292" font-size="10.5">rank score · ploidy (AUROC ≈ 0.75)</text>
+    <text x="496" y="307" font-size="10.5" fill="#475569">iDAScore · CHLOE (FDA 2025) · FEMI</text>
+
+    <!-- 4 metaphase -->
+    <rect x="714" y="72" width="222" height="246" rx="8" fill="#fce7f3" stroke="#db2777"/>
+    <text x="726" y="94" font-weight="700">④ Metaphase spread</text>
+    <text x="726" y="110" font-size="10.5" fill="#475569">G-banded · brightfield · 46 objects</text>
+    <g stroke="#9d174d" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85">
+      <path d="M750 140 l10 26"/><path d="M780 132 l-4 30"/><path d="M800 150 q10 10 4 26"/>
+      <path d="M830 136 l18 20"/><path d="M842 132 l-14 30"/>
+      <path d="M870 150 l6 28"/><path d="M890 140 l-8 22"/><path d="M760 190 l22 6"/>
+      <path d="M800 205 l-6 26"/><path d="M820 196 l26 10"/><path d="M860 200 q8 14 0 28"/>
+      <path d="M895 195 l-4 22"/><path d="M752 222 l14 18"/>
+    </g>
+    <circle cx="836" cy="147" r="14" fill="none" stroke="#db2777" stroke-dasharray="3 2"/>
+    <text x="852" y="128" font-size="9.5" fill="#be185d">crossing</text>
+    <text x="726" y="262" font-size="10.5">instance masks under overlap</text>
+    <text x="726" y="277" font-size="10.5">24-class ID + orientation → karyogram</text>
+    <text x="726" y="292" font-size="10.5">numerical / structural aberration</text>
+    <text x="726" y="307" font-size="10.5" fill="#475569">AutoKary2022 · CHROMA · KAYRA</text>
+  </g>
+
+  <!-- arrows down -->
+  <g stroke="#64748b" stroke-width="1.6" fill="#64748b">
+    <line x1="131" y1="318" x2="131" y2="344"/><polygon points="126,342 136,342 131,350"/>
+    <line x1="361" y1="318" x2="361" y2="344"/><polygon points="356,342 366,342 361,350"/>
+    <line x1="591" y1="318" x2="591" y2="344"/><polygon points="586,342 596,342 591,350"/>
+    <line x1="825" y1="318" x2="825" y2="344"/><polygon points="820,342 830,342 825,350"/>
+  </g>
+
+  <!-- domain rule bar -->
+  <rect x="24" y="352" width="912" height="54" rx="8" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="40" y="374" font-size="12.5" font-weight="700" fill="#334155">Domain rule turns counts into a decision</text>
+  <text x="40" y="394" font-size="11" fill="#334155">WHO 2021 semen reference limits · oocyte / embryo <tspan font-weight="700">rank within one patient's cohort</tspan> · Gardner grade · ISCN karyotype string</text>
+
+  <g stroke="#64748b" stroke-width="1.6" fill="#64748b">
+    <line x1="480" y1="406" x2="480" y2="424"/><polygon points="475,422 485,422 480,430"/>
+  </g>
+
+  <rect x="210" y="430" width="540" height="52" rx="8" fill="#ffffff" stroke="#334155"/>
+  <text x="480" y="452" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">Embryologist / andrologist / cytogeneticist signs off</text>
+  <text x="480" y="471" font-size="11" fill="#475569" text-anchor="middle">AI sorts, ranks and pre-annotates; outcome = live birth or a reported karyotype, months later</text>
+</svg>
