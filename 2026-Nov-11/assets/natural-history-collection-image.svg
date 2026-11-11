@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the natural-history collection digitization image. Four views: a herbarium sheet with plant, labels, colour chart and barcode; a whole insect drawer with hundreds of pinned specimens in unit trays; a microfossil picking tray with hundreds of foraminifera grains; and a pinned specimen photographed from several angles so its stacked labels can be read. Each feeds a detector or segmenter, then a crop-level classifier or OCR plus LLM step, then a Darwin Core record that a curator checks.">
+  <title>The natural-history collection image: four views, one specimen record</title>
+  <rect x="0" y="0" width="960" height="500" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The natural-history collection image: four views, one specimen record</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">1 plant + 3–11 sheet parts per scan · 300–1,000 pinned insects per drawer · ~1,000 grains per tray · 2–6 stacked labels per pin</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 herbarium sheet -->
+    <rect x="24" y="72" width="214" height="246" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="36" y="94" font-weight="700">① Herbarium sheet</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">flatbed / copy-stand · 300–600 dpi</text>
+    <rect x="70" y="120" width="122" height="130" rx="2" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="none" stroke="#15803d" stroke-width="2">
+      <path d="M130 240 L130 140"/><path d="M130 200 q-22 -8 -34 -26"/><path d="M130 180 q22 -6 32 -24"/>
+      <path d="M130 160 q-16 -4 -24 -18"/>
+    </g>
+    <g fill="#86efac" stroke="#15803d"><ellipse cx="96" cy="172" rx="9" ry="5"/><ellipse cx="162" cy="154" rx="9" ry="5"/><ellipse cx="106" cy="141" rx="7" ry="4"/></g>
+    <circle cx="130" cy="137" r="4" fill="#f472b6"/>
+    <rect x="146" y="222" width="42" height="24" fill="#fef3c7" stroke="#d97706"/>
+    <rect x="74" y="226" width="30" height="8" fill="#334155"/>
+    <g><rect x="74" y="238" width="6" height="8" fill="#ef4444"/><rect x="80" y="238" width="6" height="8" fill="#22c55e"/><rect x="86" y="238" width="6" height="8" fill="#3b82f6"/><rect x="92" y="238" width="6" height="8" fill="#eab308"/></g>
+    <rect x="66" y="116" width="130" height="138" rx="2" fill="none" stroke="#16a34a" stroke-dasharray="4 3"/>
+    <text x="36" y="272" font-size="10.5">plant mask · organ boxes</text>
+    <text x="36" y="288" font-size="10.5">label / barcode / ruler / chart</text>
+    <text x="36" y="304" font-size="10.5" fill="#475569">Hespi · PlantSAM · HERBIOME</text>
+
+    <!-- 2 insect drawer -->
+    <rect x="254" y="72" width="214" height="246" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
+    <text x="266" y="94" font-weight="700">② Whole insect drawer</text>
+    <text x="266" y="110" font-size="10.5" fill="#475569">stitched gigapixel · GIGAMacro</text>
+    <rect x="274" y="120" width="174" height="130" rx="2" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="none" stroke="#94a3b8"><rect x="280" y="126" width="52" height="56"/><rect x="336" y="126" width="52" height="56"/><rect x="392" y="126" width="50" height="56"/><rect x="280" y="188" width="52" height="56"/><rect x="336" y="188" width="52" height="56"/><rect x="392" y="188" width="50" height="56"/></g>
+    <g fill="#4338ca">
+      <ellipse cx="292" cy="140" rx="4" ry="6"/><ellipse cx="306" cy="140" rx="4" ry="6"/><ellipse cx="320" cy="140" rx="4" ry="6"/><ellipse cx="292" cy="164" rx="4" ry="6"/><ellipse cx="306" cy="164" rx="4" ry="6"/>
+      <ellipse cx="350" cy="142" rx="5" ry="8"/><ellipse cx="372" cy="142" rx="5" ry="8"/><ellipse cx="350" cy="166" rx="5" ry="8"/>
+      <ellipse cx="404" cy="140" rx="3" ry="5"/><ellipse cx="416" cy="140" rx="3" ry="5"/><ellipse cx="428" cy="140" rx="3" ry="5"/><ellipse cx="404" cy="160" rx="3" ry="5"/><ellipse cx="416" cy="160" rx="3" ry="5"/>
+      <ellipse cx="296" cy="208" rx="6" ry="9"/><ellipse cx="318" cy="208" rx="6" ry="9"/><ellipse cx="352" cy="204" rx="4" ry="6"/><ellipse cx="366" cy="204" rx="4" ry="6"/><ellipse cx="352" cy="226" rx="4" ry="6"/><ellipse cx="410" cy="212" rx="7" ry="10"/>
+    </g>
+    <rect x="344" y="132" width="36" height="46" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="266" y="272" font-size="10.5">tray boxes → specimen boxes</text>
+    <text x="266" y="288" font-size="10.5">→ mask · length · species</text>
+    <text x="266" y="304" font-size="10.5" fill="#475569">DrawerDissect · BeetleFlow</text>
+
+    <!-- 3 microfossil tray -->
+    <rect x="484" y="72" width="214" height="246" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="496" y="94" font-weight="700">③ Microfossil tray / slide</text>
+    <text x="496" y="110" font-size="10.5" fill="#475569">&gt;150 µm sieve fraction · z-stack</text>
+    <rect x="504" y="120" width="174" height="130" rx="2" fill="#1e293b" stroke="#94a3b8"/>
+    <g fill="#fde68a" stroke="#b45309" stroke-width="0.8">
+      <circle cx="520" cy="136" r="5"/><circle cx="540" cy="150" r="4"/><circle cx="566" cy="134" r="6"/><circle cx="590" cy="160" r="4"/><circle cx="616" cy="140" r="5"/><circle cx="644" cy="152" r="6"/><circle cx="662" cy="132" r="4"/>
+      <circle cx="526" cy="178" r="6"/><circle cx="552" cy="196" r="4"/><circle cx="578" cy="182" r="5"/><circle cx="604" cy="204" r="6"/><circle cx="630" cy="186" r="4"/><circle cx="656" cy="210" r="5"/>
+      <circle cx="520" cy="226" r="4"/><circle cx="546" cy="236" r="5"/><circle cx="574" cy="226" r="4"/><circle cx="600" cy="238" r="5"/><circle cx="628" cy="230" r="4"/><circle cx="660" cy="238" r="5"/>
+      <circle cx="562" cy="160" r="3"/><circle cx="612" cy="168" r="3"/>
+    </g>
+    <rect x="596" y="194" width="18" height="18" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="496" y="272" font-size="10.5">grain detection → crop</text>
+    <text x="496" y="288" font-size="10.5">→ species + morphometrics → pick</text>
+    <text x="496" y="304" font-size="10.5" fill="#475569">MiSo · Endless Forams · micro-CT</text>
+
+    <!-- 4 multi-angle label -->
+    <rect x="714" y="72" width="222" height="246" rx="8" fill="#fce7f3" stroke="#db2777"/>
+    <text x="726" y="94" font-weight="700">④ Pinned-label stack</text>
+    <text x="726" y="110" font-size="10.5" fill="#475569">ALICE: 4 angled + 2 specimen cams</text>
+    <rect x="734" y="120" width="182" height="130" rx="2" fill="#f8fafc" stroke="#94a3b8"/>
+    <line x1="825" y1="126" x2="825" y2="246" stroke="#64748b" stroke-width="1.5"/>
+    <ellipse cx="825" cy="140" rx="10" ry="7" fill="#be185d"/>
+    <g fill="#fdf2f8" stroke="#db2777"><path d="M790 170 l64 0 l10 10 l-64 0 z"/><path d="M786 196 l70 0 l10 10 l-70 0 z"/><path d="M792 222 l58 0 l10 10 l-58 0 z"/></g>
+    <g stroke="#475569" stroke-width="1" fill="none"><path d="M744 236 l30 -30"/><path d="M906 236 l-30 -30"/><path d="M744 130 l30 30"/><path d="M906 130 l-30 30"/></g>
+    <text x="726" y="272" font-size="10.5">label quads → rectify + merge</text>
+    <text x="726" y="288" font-size="10.5">→ OCR/HTR → LLM → Darwin Core</text>
+    <text x="726" y="304" font-size="10.5" fill="#475569">ALICE · NHM cobot pipeline</text>
+  </g>
+
+  <!-- pipeline -->
+  <g font-size="12" fill="#334155">
+    <path d="M131 318 v24 M361 318 v24 M591 318 v24 M825 318 v24" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="24" y="342" width="912" height="40" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="480" y="367" text-anchor="middle" font-weight="700">Dense detector / segmenter (YOLOv5–v10, Mask R-CNN, SAM 2 prompted by boxes) → per-object crops</text>
+    <path d="M480 382 v18" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="24" y="400" width="440" height="40" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="244" y="425" text-anchor="middle">Crop classifier / traits (BioCLIP-class backbone, SAE traits)</text>
+    <rect x="496" y="400" width="440" height="40" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="716" y="425" text-anchor="middle">Label text: OCR / HTR (TrOCR) → LLM → Darwin Core fields</text>
+    <path d="M244 440 v16 M716 440 v16" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="24" y="456" width="912" height="32" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="480" y="477" text-anchor="middle" font-weight="700">One specimen record (barcode-keyed) → curator review → GBIF / iDigBio / DiSSCo</text>
+  </g>
+</svg>
