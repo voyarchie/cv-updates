@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Diagram of the laboratory animal behaviour arena image. Four arenas: a mouse cage or open field seen from above with two to four similar-looking mice; a 96-well plate of larval zebrafish with one larva per well, here with mirrored wells for a second view; a worm or fly plate with dozens of near-identical bodies that touch and cross; and a group arena with tens to hundreds of fish or tagged ants. All four feed the same four-stage chain: detect and pose each animal, keep its identity across frames, turn keypoints into features, and classify behaviour per frame.">
+  <title>The laboratory animal behaviour arena: four arenas, one per-animal ethogram</title>
+  <rect x="0" y="0" width="960" height="520" rx="10" fill="#f4f6fb" stroke="#cbd5e1"/>
+  <text x="24" y="34" fill="#334155" font-size="17" font-weight="800">The lab animal behaviour arena: four arenas, one per-animal ethogram</text>
+  <text x="24" y="54" fill="#64748b" font-size="11.5">2–4 look-alike mice per cage · 24–96 wells per plate · 10–100+ worms or flies per plate · up to ~100 identified fish/ants per group</text>
+
+  <g font-size="12" fill="#334155">
+    <!-- 1 mouse cage -->
+    <rect x="24" y="72" width="214" height="250" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="36" y="94" font-weight="700">① Mouse cage / open field</text>
+    <text x="36" y="110" font-size="10.5" fill="#475569">top-down IR camera · hours to weeks</text>
+    <rect x="56" y="120" width="150" height="120" rx="4" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="#475569">
+      <ellipse cx="100" cy="160" rx="22" ry="11" transform="rotate(-20 100 160)"/>
+      <ellipse cx="122" cy="168" rx="20" ry="10" transform="rotate(15 122 168)"/>
+      <ellipse cx="168" cy="214" rx="20" ry="10" transform="rotate(-50 168 214)"/>
+    </g>
+    <g fill="#f472b6"><circle cx="80" cy="168" r="3"/><circle cx="141" cy="174" r="3"/><circle cx="180" cy="199" r="3"/></g>
+    <rect x="72" y="140" width="72" height="44" fill="none" stroke="#dc2626" stroke-dasharray="4 3"/>
+    <text x="36" y="262" font-size="10.5">close contact → identity swaps</text>
+    <text x="36" y="278" font-size="10.5">attack · mount · groom · freeze</text>
+    <text x="36" y="294" font-size="10.5" fill="#475569">SLEAP · DLC 3 · DIPLOMAT · JABS</text>
+    <text x="36" y="310" font-size="10.5" fill="#475569">MICE · LookAgain · MABe 2025</text>
+
+    <!-- 2 zebrafish plate -->
+    <rect x="254" y="72" width="214" height="250" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="266" y="94" font-weight="700">② Larval zebrafish plate</text>
+    <text x="266" y="110" font-size="10.5" fill="#475569">24–96 wells · 1 larva each · 100s fps</text>
+    <rect x="276" y="120" width="170" height="120" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="#ffffff" stroke="#94a3b8">
+      <circle cx="298" cy="142" r="13"/><circle cx="330" cy="142" r="13"/><circle cx="362" cy="142" r="13"/><circle cx="394" cy="142" r="13"/><circle cx="426" cy="142" r="13"/>
+      <circle cx="298" cy="180" r="13"/><circle cx="330" cy="180" r="13"/><circle cx="362" cy="180" r="13"/><circle cx="394" cy="180" r="13"/><circle cx="426" cy="180" r="13"/>
+      <circle cx="298" cy="218" r="13"/><circle cx="330" cy="218" r="13"/><circle cx="362" cy="218" r="13"/><circle cx="394" cy="218" r="13"/><circle cx="426" cy="218" r="13"/>
+    </g>
+    <g fill="#cbd5e1" stroke="#64748b"><circle cx="330" cy="142" r="13"/><circle cx="394" cy="142" r="13"/><circle cx="298" cy="180" r="13"/><circle cx="362" cy="180" r="13"/><circle cx="426" cy="180" r="13"/><circle cx="330" cy="218" r="13"/><circle cx="394" cy="218" r="13"/></g>
+    <g stroke="#0f172a" stroke-width="2.4" stroke-linecap="round">
+      <path d="M292 142 q6 -3 12 1"/><path d="M356 140 q6 4 12 0"/><path d="M420 144 q6 -4 12 -1"/>
+      <path d="M324 180 q6 3 12 -1"/><path d="M388 182 q6 -4 12 1"/>
+      <path d="M292 218 q6 3 12 -2"/><path d="M356 216 q6 4 12 1"/><path d="M420 220 q6 -3 12 0"/>
+    </g>
+    <text x="266" y="262" font-size="10.5">grey = 45° mirror well → side view</text>
+    <text x="266" y="278" font-size="10.5">detection easy · pose + kinematics hard</text>
+    <text x="266" y="294" font-size="10.5" fill="#475569">MCAM mirrored plate (48 larvae, 3-D)</text>
+    <text x="266" y="310" font-size="10.5" fill="#475569">seizure &amp; motor-phenotype classifiers</text>
+
+    <!-- 3 worm / fly plate -->
+    <rect x="484" y="72" width="214" height="250" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="496" y="94" font-weight="700">③ Worm / fly plate</text>
+    <text x="496" y="110" font-size="10.5" fill="#475569">agar dish or arena · 10–100+ bodies</text>
+    <circle cx="591" cy="180" r="60" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round">
+      <path d="M552 160 q10 -10 22 0 t22 0"/><path d="M566 196 q8 12 20 4 t18 8"/><path d="M600 150 q12 8 4 22"/>
+      <path d="M612 205 q10 -6 18 4"/><path d="M548 205 q4 -12 16 -10"/><path d="M584 222 q10 -2 14 -12"/>
+    </g>
+    <path d="M590 185 q8 -14 24 -8" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="600" cy="181" r="13" fill="none" stroke="#dc2626" stroke-dasharray="3 2"/>
+    <text x="496" y="262" font-size="10.5">collisions, coils, look-alikes</text>
+    <text x="496" y="278" font-size="10.5">YOLOv8 + ByteTrack at 153 fps</text>
+    <text x="496" y="294" font-size="9.5" fill="#475569">Deep-Worm-Tracker · Deep Tangle Crawl</text>
+    <text x="496" y="310" font-size="10.5" fill="#475569">TRex · idtracker.ai</text>
+
+    <!-- 4 group / colony -->
+    <rect x="714" y="72" width="222" height="250" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="726" y="94" font-weight="700">④ Group arena / colony</text>
+    <text x="726" y="110" font-size="10.5" fill="#475569">fish school · fly group · tagged ants</text>
+    <rect x="736" y="120" width="180" height="120" rx="60" fill="#f8fafc" stroke="#94a3b8"/>
+    <g fill="#15803d">
+      <path d="M770 150 l14 -4 l-4 4 l4 4z"/><path d="M800 140 l14 -3 l-4 3 l4 4z"/><path d="M830 158 l14 -4 l-4 4 l4 4z"/>
+      <path d="M786 176 l14 -4 l-4 4 l4 4z"/><path d="M818 186 l14 -4 l-4 4 l4 4z"/><path d="M856 172 l14 -4 l-4 4 l4 4z"/>
+      <path d="M766 200 l14 -4 l-4 4 l4 4z"/><path d="M846 204 l14 -4 l-4 4 l4 4z"/><path d="M880 150 l14 -4 l-4 4 l4 4z"/>
+      <path d="M800 214 l14 -4 l-4 4 l4 4z"/>
+    </g>
+    <g font-size="8.5" fill="#334155"><text x="768" y="146">7</text><text x="798" y="136">12</text><text x="828" y="154">3</text><text x="816" y="182">41</text></g>
+    <text x="726" y="262" font-size="10.5">appearance ID for ~100 unmarked</text>
+    <text x="726" y="278" font-size="10.5">or tag / colour code per animal</text>
+    <text x="726" y="294" font-size="10.5" fill="#475569">idtracker.ai v6 (contrastive)</text>
+    <text x="726" y="310" font-size="10.5" fill="#475569">vmTracking virtual markers</text>
+  </g>
+
+  <!-- shared chain -->
+  <g font-size="12" fill="#334155">
+    <rect x="24" y="346" width="912" height="156" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="36" y="368" font-weight="700">Shared chain: every arena ends as one ethogram row per animal per frame</text>
+    <g>
+      <rect x="40" y="384" width="190" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+      <text x="52" y="404" font-weight="700">1 · Detect + pose</text>
+      <text x="52" y="420" font-size="10.5">boxes / masks + 5–50 keypoints</text>
+      <text x="52" y="435" font-size="10.5" fill="#475569">largely solved in clean arenas</text>
+
+      <rect x="262" y="384" width="190" height="60" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+      <text x="274" y="404" font-weight="700">2 · Keep identity</text>
+      <text x="274" y="420" font-size="10.5">through contact, occlusion, exits</text>
+      <text x="274" y="435" font-size="10.5" fill="#991b1b">where most errors now live</text>
+
+      <rect x="484" y="384" width="190" height="60" rx="6" fill="#fef3c7" stroke="#d97706"/>
+      <text x="496" y="404" font-weight="700">3 · Features / encoder</text>
+      <text x="496" y="420" font-size="10.5">per-animal + social context</text>
+      <text x="496" y="435" font-size="10.5" fill="#475569">pixels only when keypoints fail</text>
+
+      <rect x="706" y="384" width="214" height="60" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+      <text x="718" y="404" font-weight="700">4 · Classify behaviour</text>
+      <text x="718" y="420" font-size="10.5">per-frame labels, 5–30+ classes</text>
+      <text x="718" y="435" font-size="10.5" fill="#475569">rare classes, cross-lab shift</text>
+    </g>
+    <g stroke="#64748b" stroke-width="2" fill="#64748b">
+      <line x1="230" y1="414" x2="256" y2="414"/><path d="M256 409 l6 5 l-6 5z"/>
+      <line x1="452" y1="414" x2="478" y2="414"/><path d="M478 409 l6 5 l-6 5z"/>
+      <line x1="674" y1="414" x2="700" y2="414"/><path d="M700 409 l6 5 l-6 5z"/>
+    </g>
+    <text x="40" y="468" font-size="10.5" fill="#475569">An identity swap in stage 2 silently relabels "mouse A attacks B" as "B attacks A" in stage 4 — the classifier is right, the ethogram is wrong.</text>
+    <text x="40" y="486" font-size="10.5" fill="#475569">Multimodal LLMs (Rodent-Bench, MTT-Bench) try to skip stages 1–3; on long videos and subtle states they are not yet reliable.</text>
+  </g>
+</svg>
